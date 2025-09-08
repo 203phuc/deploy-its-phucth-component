@@ -7,10 +7,11 @@ import { ButtonV100DevelopProps } from '../type';
  * @since 1.0.0-DEV.1
  */
 export const withV100Develop = (Component: ComponentType<ButtonV100DevelopProps>) => {
-  // eslint-disable-next-line react/display-name -- HOC
+  // eslint-disable-next-line react/display-name
   return (props: ButtonV100DevelopProps) => {
+    // eslint-disable-next-line sonarjs/deprecation
     const { label, children, ...rest } = props;
 
-    return <Component {...rest}>{children || label}</Component>;
+    return <Component {...rest}>{children ?? label}</Component>;
   };
 };

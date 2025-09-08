@@ -1,5 +1,0 @@
-include:
-  - component: $CI_SERVER_FQDN/hi-haibazo/devops/haibazo-react-catalog/its-rct-ui@main
-    inputs:
-      quality-sonarqube-token: $CI_WORKER_SONAR_TOKEN
-      quality-sonarqube-project-key: $CI_SERVICE_SONAR_PROJECT_KEY

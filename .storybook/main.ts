@@ -6,12 +6,9 @@ const config: StorybookConfig = {
   addons: [
     '@storybook/addon-onboarding',
     '@storybook/addon-links',
-    '@storybook/addon-essentials',
     '@chromatic-com/storybook',
-    '@storybook/addon-interactions',
-    'storycap',
-    'storybook-dark-mode',
     '@storybook/addon-designs',
+    '@storybook/addon-docs',
   ],
   framework: '@storybook/react-vite',
   viteFinal: async (config) => ({

@@ -2,6 +2,8 @@ import { memo } from 'react';
 
 import { HBZ0000 } from '@pages/HBZ0000';
 
+import './styles/tailwind.css';
+
 const AppComponent = () => {
   return <HBZ0000 />;
 };

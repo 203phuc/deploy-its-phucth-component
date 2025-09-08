@@ -1,31 +1,22 @@
-import { memo, useMemo } from 'react';
-
+import { memo } from 'react';
 import { withV100Develop } from './hocs/withV100Develop';
-
-import buttonClasses from './button.module.scss';
+import { buttonCva, ButtonCvaProps } from './style';
 import { ButtonProps } from './type';
 
-/**
- * Primary UI component for user interaction
- */
+type ButtonComponentProps = ButtonProps & ButtonCvaProps;
+
 const ButtonComponent = ({
   primary = false,
   size = 'medium',
   backgroundColor,
   children,
+  className,
   ...props
-}: ButtonProps) => {
-  const mode = useMemo(() => {
-    if (primary) {
-      return buttonClasses['button--primary'];
-    }
-
-    return buttonClasses['button--secondary'];
-  }, [primary]);
-
+}: ButtonComponentProps) => {
+  const variant = primary ? 'primary' : 'secondary';
   return (
     <button
-      className={[buttonClasses.button, buttonClasses[`button--${size}`], mode].join(' ')}
+      className={buttonCva({ variant, size, className })}
       style={{ backgroundColor }}
       type="button"
       {...props}
