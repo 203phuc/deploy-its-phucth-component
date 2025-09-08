@@ -1,0 +1,27 @@
+@mixin pc {
+  @media (width >= 768px) {
+    @content;
+  }
+}
+
+@mixin sp {
+  @media (width <= 767px) {
+    @content;
+  }
+}
+
+@mixin light($selector) {
+  :global(html) {
+    #{$selector} {
+      @content;
+    }
+  }
+}
+
+@mixin dark($selector) {
+  :global(html.lights-out) {
+    #{$selector} {
+      @content;
+    }
+  }
+}

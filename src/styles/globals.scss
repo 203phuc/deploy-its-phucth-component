@@ -1,0 +1,16 @@
+@import './reset';
+@import './theme';
+@import './mixins';
+
+html {
+  font-size: var(--font-base-size-pc);
+
+  @include sp {
+    font-size: var(--font-base-size-sp);
+  }
+}
+
+body {
+  margin: var(--spacing-0);
+  font-family: var(--font-text);
+}
