@@ -1,1 +1,30 @@
-@import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@300..700&display=swap');
+
+@import "tailwindcss";
+
+
+.font-inter {
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+.font-space-grotesk {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+/* token color */
+.text-text-blue {
+  color: #3E3E59;
+}
+
+/* component base */
+.text {
+  line-height: 1;
+}
+
+/* Custom classes go in the components layer */
+@layer components {
+  .custom-class {
+    @apply text-blue-600 font-bold;
+  }
+
+}
