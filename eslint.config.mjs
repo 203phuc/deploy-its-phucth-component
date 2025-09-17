@@ -25,7 +25,7 @@ export default [
         version: 'detect',
       },
       tailwindcss: {
-        cssConfigPath: dirname(fileURLToPath(import.meta.url)) + '/src/styles/tailwind.css',
+        config: dirname(fileURLToPath(import.meta.url)) + '/src/styles/tailwind.css',
       },
     },
   },
