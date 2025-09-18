@@ -5,7 +5,18 @@ import { TextProps } from './type';
 const meta: Meta<TextProps> = {
   title: 'Atom/Text',
   component: Text,
+  parameters: {
+    screenshot: {
+      viewport: '335x76',
+      omitBackground: true,
+    },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/Ovp63tfHXWbbNr8lzFbAGy/HAIBAZO-INTERNSHIP-FRONTEND?node-id=2-20951&t=ZBGUaX4RpMvmFRX8-4',
+    },
+  },
   tags: ['autodocs'],
+
   // argTypes: {
   //   weight: {
   //     control: 'radio',
