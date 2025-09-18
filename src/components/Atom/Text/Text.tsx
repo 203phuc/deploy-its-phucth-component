@@ -5,30 +5,18 @@ import type { TextProps } from './type';
 export const Text: React.FC<TextProps> = ({
   weight = 'Regular',
   font = 'Inter',
-  color,
   size = 'medium',
+  color = 'default',
   children,
+  line,
   className,
-  style,
   ...rest
 }) => {
-  // color token mapping
-
-  const classes = textCva({
-    weight,
-    font,
-  });
-
-  // numeric sizes should become px
-  const inlineStyle: React.CSSProperties = {
-    ...style,
-    ...(typeof size === 'number' ? { fontSize: `${size}px` } : {}),
-    // apply arbitrary color inline if not using token
-    ...(color ? { color } : {}),
-  };
+  // Compose class names
+  const classes = [textCva({ weight, font, size, line, color }), className].filter(Boolean).join(' ');
 
   return (
-    <div className={[classes, className].filter(Boolean).join(' ')} style={inlineStyle} {...rest}>
+    <div className={classes} {...rest}>
       {children}
     </div>
   );

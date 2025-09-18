@@ -24,22 +24,37 @@ describe('Text', () => {
 
   it('should apply numeric size as inline style', () => {
     render(
-      <Text size={24} data-testid="text-element">
+      <Text size="large" data-testid="text-element">
         {SAMPLE_TEXT}
       </Text>,
     );
     const el = screen.getByTestId('text-element');
-    expect(el).toHaveStyle({ fontSize: '24px' });
+    expect(el).toHaveStyle({ fontSize: 'text-xl' });
   });
 
-  it('should apply color as inline style', () => {
+  it('should apply the correct Tailwind class for color', () => {
     render(
-      <Text color="red" data-testid="color-test">
+      <Text color="default" data-testid="color-test">
         {SAMPLE_TEXT}
       </Text>,
     );
+
     const el = screen.getByTestId('color-test');
-    expect(el).toHaveStyle({ color: 'rgb(255, 0, 0)' });
+
+    // Check the class that corresponds to "default" color
+    expect(el).toHaveClass('text-text-blue');
+  });
+  it('should apply the correct Tailwind class for line', () => {
+    render(
+      <Text line={true} data-testid="line-test">
+        {SAMPLE_TEXT}
+      </Text>,
+    );
+
+    const el = screen.getByTestId('line-test');
+
+    // Check the class that corresponds to "default" color
+    expect(el).toHaveClass('line-through');
   });
 
   it('should merge additional className', () => {
