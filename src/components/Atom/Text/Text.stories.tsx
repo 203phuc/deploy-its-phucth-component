@@ -16,41 +16,6 @@ const meta: Meta<TextProps> = {
     },
   },
   tags: ['autodocs'],
-
-  // argTypes: {
-  //   weight: {
-  //     control: 'radio',
-  //     options: ['Regular', 'Moderate', 'Semi Bold', 'Bold'],
-  //   },
-  //   font: {
-  //     control: 'radio',
-  //     options: ['Space Grotesk', 'Inter'],
-  //   },
-  //   color: {
-  //     control: { type: 'select' },
-  //     options: [
-  //       'default',
-  //       'black400',
-  //       'black500',
-  //       'black600',
-  //       'black700',
-  //       'black800',
-  //       'black900',
-  //       'blue700',
-  //       'red500',
-  //       'teal600',
-  //       'white',
-  //     ],
-  //     description: `Use Tailwind class tokens like "text-red-500".`,
-  //   },
-  //   line: {
-  //     control: 'boolean',
-  //   },
-  //   size: {
-  //     control: 'select',
-  //     options: ['xsmall', 'small', 'medium', 'large', 'xlarge', '2xlarge', '3xlarge', '4xlarge'],
-  //   },
-  // },
 };
 
 export default meta;
