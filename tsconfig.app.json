@@ -30,7 +30,7 @@
       "@examples/*": ["src/examples/*"],
       "@styles/*": ["src/styles/*"]
     },
-    "types": ["@testing-library/jest-dom"]
+    "types": ["@testing-library/jest-dom", "vitest/globals"]
   },
   "include": ["src", "vitest.prepare.ts"]
 }
