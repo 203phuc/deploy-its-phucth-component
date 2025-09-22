@@ -1,10 +1,10 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
-import { Text } from './Text';
-import { TextProps } from './type';
+import { Heading } from './Heading';
+import { HeadingProps } from './type';
 
-const meta: Meta<TextProps> = {
-  title: 'Atom/Text',
-  component: Text,
+const meta: Meta<HeadingProps> = {
+  title: 'Atom/Heading',
+  component: Heading,
   parameters: {
     screenshot: {
       viewport: '335x76',
@@ -12,7 +12,7 @@ const meta: Meta<TextProps> = {
     },
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/design/Ovp63tfHXWbbNr8lzFbAGy/HAIBAZO-INTERNSHIP-FRONTEND?node-id=2-20951&t=ZBGUaX4RpMvmFRX8-4',
+      url: 'https://www.figma.com/design/Ovp63tfHXWbbNr8lzFbAGy/HAIBAZO-INTERNSHIP-FRONTEND?node-id=0-218&t=6nSLpfew7H3aU6Mq-4',
     },
   },
   tags: ['autodocs'],
@@ -24,21 +24,21 @@ type Story = StoryObj<typeof meta>;
 // ===== Stories =====
 export const Regular: Story = {
   args: {
-    children: 'Regular Text',
+    children: 'Regular Heading',
     weight: 'regular',
   },
 };
 
 export const SemiBold: Story = {
   args: {
-    children: 'Semi Bold Text',
+    children: 'Semi Bold Heading',
     weight: 'semiBold',
   },
 };
 
 export const Bold: Story = {
   args: {
-    children: 'Bold Text',
+    children: 'Bold Heading',
     weight: 'bold',
   },
 };
@@ -59,15 +59,15 @@ export const SpaceGroteskFont: Story = {
 
 export const Large: Story = {
   args: {
-    children: 'Large Text',
-    size: 'large',
+    children: 'Large Heading',
+    size: 'h2',
   },
 };
 
 export const Small: Story = {
   args: {
-    children: 'Small Text',
-    size: 'small',
+    children: 'Small Heading',
+    size: 'h7',
   },
 };
 
@@ -75,12 +75,5 @@ export const ColoredClass: Story = {
   args: {
     children: 'Tailwind Class Color',
     color: 'red-500',
-  },
-};
-
-export const Strikethrough: Story = {
-  args: {
-    children: 'Strikethrough Text',
-    line: true,
   },
 };

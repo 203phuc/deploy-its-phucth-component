@@ -1,6 +1,6 @@
 import { cva, VariantProps } from 'class-variance-authority';
 
-// limited colors for text
+// limited colors for headings
 const colorVariants = {
   default: 'text-text-blue', // fallback default
   'black-400': 'text-black-400',
@@ -13,41 +13,37 @@ const colorVariants = {
   'red-500': 'text-red-500',
   'teal-600': 'text-teal-600',
   white: 'text-white',
-};
+} as const;
 
-export const textCva = cva('inline-block', {
+export const headingCva = cva('inline-block', {
   variants: {
     weight: {
       regular: 'font-normal',
       semiBold: 'font-semibold',
       bold: 'font-bold',
-      moderate: 'font-medium',
+      moderate: 'font-medium', // kept for compatibility
     },
     color: colorVariants,
     font: {
       inter: 'font-inter',
       spaceGrotesk: 'font-space-grotesk',
     },
-    line: {
-      true: 'line-through', // applies strikethrough
-      false: '', // no decoration
-    },
     size: {
-      xsmall: 'text-xs leading-5', // default Tailwind
-      small: 'text-sm leading-6', // default Tailwind
-      medium: 'text-base leading-[26px]', // default Tailwind
-      large: 'text-lg leading-[30px]', // default Tailwind
-      xlarge: 'text-xl leading-[32px]', // default Tailwind
-      '2xlarge': 'text-2xl leading-[34px]', // default Tailwind
-      '3xlarge': 'text-[1.375rem] leading-[34px]', // 22px
-      '4xlarge': 'text-[1.625rem] leading-[40px]', // 26px
+      h1: 'text-[80px] leading-[84px] tracking-[-3px]', // 80 / 84 / -3
+      h2: 'text-[72px] leading-[76px] tracking-[-2px]', // 72 / 76 / -2
+      h3: 'text-[54px] leading-[58px] tracking-[-1px]', // 54 / 58 / -1
+      h4: 'text-[40px] leading-[44px] tracking-[-0.4px]', // 40 / 44 / -0.4
+      h5: 'text-[34px] leading-[38px] tracking-[-0.6px]', // 34 / 38 / -0.6
+      h6: 'text-[28px] leading-[34px] tracking-[-0.6px]', // 28 / 34 / -0.6
+      h7: 'text-[20px] leading-[28px] tracking-[0px]', // 20 / 28 / 0
     },
   },
   defaultVariants: {
     weight: 'regular',
-    font: 'inter',
-    size: 'medium',
+    font: 'spaceGrotesk',
+    size: 'h7',
     color: 'default',
   },
 });
-export type TextCvaProps = VariantProps<typeof textCva>;
+
+export type HeadingCvaProps = VariantProps<typeof headingCva>;

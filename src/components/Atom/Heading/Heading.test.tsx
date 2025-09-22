@@ -1,42 +1,42 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import { Text } from './Text';
+import { Heading } from './Heading';
 
-describe('Text', () => {
-  const SAMPLE_TEXT = 'Hello World';
+describe('Heading', () => {
+  const SAMPLE_Heading = 'Hello World';
 
   it('should render children', () => {
-    render(<Text>{SAMPLE_TEXT}</Text>);
-    expect(screen.getByText(SAMPLE_TEXT)).toBeInTheDocument();
+    render(<Heading>{SAMPLE_Heading}</Heading>);
+    expect(screen.getByText(SAMPLE_Heading)).toBeInTheDocument();
   });
 
   it('should apply weight class', () => {
-    const { container } = render(<Text weight="bold">{SAMPLE_TEXT}</Text>);
+    const { container } = render(<Heading weight="bold">{SAMPLE_Heading}</Heading>);
     const el = container.firstChild as HTMLElement;
     expect(el.className).toContain('font-bold');
   });
 
   it('should apply font class', () => {
-    const { container } = render(<Text font="spaceGrotesk">{SAMPLE_TEXT}</Text>);
+    const { container } = render(<Heading font="spaceGrotesk">{SAMPLE_Heading}</Heading>);
     const el = container.firstChild as HTMLElement;
     expect(el.className).toContain('font-space-grotesk');
   });
 
   it('should apply numeric size as inline style', () => {
     render(
-      <Text size="large" data-testid="text-element">
-        {SAMPLE_TEXT}
-      </Text>,
+      <Heading size="h6" data-testid="Heading-element">
+        {SAMPLE_Heading}
+      </Heading>,
     );
-    const el = screen.getByTestId('text-element');
-    expect(el).toHaveStyle({ fontSize: 'text-xl' });
+    const el = screen.getByTestId('Heading-element');
+    expect(el).toHaveStyle({ fontSize: 'Heading-xl' });
   });
 
   it('should apply the correct Tailwind class for color', () => {
     render(
-      <Text color="default" data-testid="color-test">
-        {SAMPLE_TEXT}
-      </Text>,
+      <Heading color="default" data-testid="color-test">
+        {SAMPLE_Heading}
+      </Heading>,
     );
 
     const el = screen.getByTestId('color-test');
@@ -44,24 +44,12 @@ describe('Text', () => {
     // Check the class that corresponds to "default" color
     expect(el).toHaveClass('text-text-blue');
   });
-  it('should apply the correct Tailwind class for line', () => {
-    render(
-      <Text line={true} data-testid="line-test">
-        {SAMPLE_TEXT}
-      </Text>,
-    );
-
-    const el = screen.getByTestId('line-test');
-
-    // Check the class that corresponds to "default" color
-    expect(el).toHaveClass('line-through');
-  });
 
   it('should merge additional className', () => {
     render(
-      <Text className="custom-class" data-testid="additional-class">
-        {SAMPLE_TEXT}
-      </Text>,
+      <Heading className="custom-class" data-testid="additional-class">
+        {SAMPLE_Heading}
+      </Heading>,
     );
     const el = screen.getByTestId('additional-class');
     expect(el.className).toContain('custom-class');
@@ -69,13 +57,13 @@ describe('Text', () => {
 
   it('should pass through additional props', () => {
     render(
-      <Text data-testid="props-test" aria-label="label">
-        {SAMPLE_TEXT}
-      </Text>,
+      <Heading data-testid="props-test" aria-label="label">
+        {SAMPLE_Heading}
+      </Heading>,
     );
     const el = screen.getByTestId('props-test');
     expect(el).toHaveAttribute('data-testid', 'props-test');
     expect(el).toHaveAttribute('aria-label', 'label'); // tests pass-through props
-    expect(el).toHaveTextContent(SAMPLE_TEXT);
+    expect(el).toHaveTextContent(SAMPLE_Heading);
   });
 });
