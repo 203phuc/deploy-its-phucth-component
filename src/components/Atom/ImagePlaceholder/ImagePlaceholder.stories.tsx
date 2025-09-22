@@ -5,6 +5,16 @@ const meta: Meta<typeof ImagePlaceholder> = {
   title: 'Atom/ImagePlaceholder',
   component: ImagePlaceholder,
   tags: ['autodocs'],
+  parameters: {
+    screenshot: {
+      viewport: '335x76',
+      omitBackground: true,
+    },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/Ovp63tfHXWbbNr8lzFbAGy/HAIBAZO-INTERNSHIP-FRONTEND?node-id=186-36012&t=JCV8ENuJzwR6AnIe-4',
+    },
+  },
   argTypes: {
     size: {
       control: {
