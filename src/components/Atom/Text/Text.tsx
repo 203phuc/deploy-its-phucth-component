@@ -3,8 +3,8 @@ import { textCva } from './style';
 import type { TextProps } from './type';
 
 export const Text: React.FC<TextProps> = ({
-  weight = 'Regular',
-  font = 'Inter',
+  weight = 'regular',
+  font = 'inter',
   size = 'medium',
   color = 'default',
   children,

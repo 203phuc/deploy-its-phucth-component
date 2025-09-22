@@ -3,30 +3,30 @@ import { cva, VariantProps } from 'class-variance-authority';
 // limited colors for headings
 const colorVariants = {
   default: 'text-text-blue', // fallback default
-  black400: 'text-black-400',
-  black500: 'text-black-500',
-  black600: 'text-black-600',
-  black700: 'text-black-700',
-  black800: 'text-black-800',
-  black900: 'text-black-900',
-  blue700: 'text-blue-700',
-  red500: 'text-red-500',
-  teal600: 'text-teal-600',
+  'black-400': 'text-black-400',
+  'black-500': 'text-black-500',
+  'black-600': 'text-black-600',
+  'black-700': 'text-black-700',
+  'black-800': 'text-black-800',
+  'black-900': 'text-black-900',
+  'blue-700': 'text-blue-700',
+  'red-500': 'text-red-500',
+  'teal-600': 'text-teal-600',
   white: 'text-white',
 } as const;
 
 export const headingCva = cva('inline-block', {
   variants: {
     weight: {
-      Regular: 'font-normal',
-      'Semi Bold': 'font-semibold',
-      Bold: 'font-bold',
-      Moderate: 'font-medium', // kept for compatibility
+      regular: 'font-normal',
+      semiBold: 'font-semibold',
+      bold: 'font-bold',
+      moderate: 'font-medium', // kept for compatibility
     },
     color: colorVariants,
     font: {
-      Inter: 'font-inter',
-      'Space Grotesk': 'font-space-grotesk',
+      inter: 'font-inter',
+      spaceGrotesk: 'font-space-grotesk',
     },
     size: {
       h1: 'text-[80px] leading-[84px] tracking-[-3px]', // 80 / 84 / -3
@@ -39,8 +39,8 @@ export const headingCva = cva('inline-block', {
     },
   },
   defaultVariants: {
-    weight: 'Regular',
-    font: 'Space Grotesk',
+    weight: 'regular',
+    font: 'spaceGrotesk',
     size: 'h7',
     color: 'default',
   },

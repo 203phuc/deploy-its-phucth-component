@@ -1,7 +1,7 @@
 import type { TextCvaProps } from './style';
 
-export type TextWeight = 'Regular' | 'Semi Bold' | 'Bold' | 'Moderate';
-export type TextFont = 'Space Grotesk' | 'Inter';
+export type TextWeight = 'regular' | 'semiBold' | 'bold' | 'moderate';
+export type TextFont = 'spaceGrotesk' | 'inter';
 export type TextSize = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge' | '2xlarge' | '3xlarge' | '4xlarge';
 
 type TextCvaPropsWithoutSize = Omit<TextCvaProps, 'size' | 'color'>;
@@ -30,15 +30,15 @@ export interface TextProps extends Partial<TextCvaPropsWithoutSize>, React.HTMLA
    */
   readonly color?:
     | 'default'
-    | 'black400'
-    | 'black500'
-    | 'black600'
-    | 'black700'
-    | 'black800'
-    | 'black900'
-    | 'blue700'
-    | 'red500'
-    | 'teal600'
+    | 'black-400'
+    | 'black-500'
+    | 'black-600'
+    | 'black-700'
+    | 'black-800'
+    | 'black-900'
+    | 'blue-700'
+    | 'red-500'
+    | 'teal-600'
     | 'white';
 
   /**

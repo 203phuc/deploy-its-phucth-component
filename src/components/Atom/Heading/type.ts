@@ -1,7 +1,7 @@
 import type { HeadingCvaProps } from './style';
 
-export type HeadingWeight = 'Regular' | 'Moderate' | 'Semi Bold' | 'Bold';
-export type HeadingFont = 'Space Grotesk' | 'Inter';
+export type HeadingWeight = 'regular' | 'moderate' | 'semiBold' | 'bold';
+export type HeadingFont = 'spaceGrotesk' | 'inter';
 export type HeadingSize = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'h7';
 
 type HeadingCvaPropsWithoutSize = Omit<HeadingCvaProps, 'size' | 'color'>;
@@ -28,15 +28,15 @@ export interface HeadingProps
    */
   readonly color?:
     | 'default'
-    | 'black400'
-    | 'black500'
-    | 'black600'
-    | 'black700'
-    | 'black800'
-    | 'black900'
-    | 'blue700'
-    | 'red500'
-    | 'teal600'
+    | 'black-400'
+    | 'black-500'
+    | 'black-600'
+    | 'black-700'
+    | 'black-800'
+    | 'black-900'
+    | 'blue-700'
+    | 'red-500'
+    | 'teal-600'
     | 'white';
 
   /**

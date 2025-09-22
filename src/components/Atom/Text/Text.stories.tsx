@@ -25,35 +25,35 @@ type Story = StoryObj<typeof meta>;
 export const Regular: Story = {
   args: {
     children: 'Regular Text',
-    weight: 'Regular',
+    weight: 'regular',
   },
 };
 
 export const SemiBold: Story = {
   args: {
     children: 'Semi Bold Text',
-    weight: 'Semi Bold',
+    weight: 'semiBold',
   },
 };
 
 export const Bold: Story = {
   args: {
     children: 'Bold Text',
-    weight: 'Bold',
+    weight: 'bold',
   },
 };
 
 export const InterFont: Story = {
   args: {
     children: 'Inter Font',
-    font: 'Inter',
+    font: 'inter',
   },
 };
 
 export const SpaceGroteskFont: Story = {
   args: {
     children: 'Space Grotesk Font',
-    font: 'Space Grotesk',
+    font: 'spaceGrotesk',
   },
 };
 
@@ -74,7 +74,7 @@ export const Small: Story = {
 export const ColoredClass: Story = {
   args: {
     children: 'Tailwind Class Color',
-    color: 'red500', // will apply Tailwind class
+    color: 'red-500',
   },
 };
 

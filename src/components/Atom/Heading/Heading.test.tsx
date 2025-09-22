@@ -11,13 +11,13 @@ describe('Heading', () => {
   });
 
   it('should apply weight class', () => {
-    const { container } = render(<Heading weight="Bold">{SAMPLE_Heading}</Heading>);
+    const { container } = render(<Heading weight="bold">{SAMPLE_Heading}</Heading>);
     const el = container.firstChild as HTMLElement;
     expect(el.className).toContain('font-bold');
   });
 
   it('should apply font class', () => {
-    const { container } = render(<Heading font="Space Grotesk">{SAMPLE_Heading}</Heading>);
+    const { container } = render(<Heading font="spaceGrotesk">{SAMPLE_Heading}</Heading>);
     const el = container.firstChild as HTMLElement;
     expect(el.className).toContain('font-space-grotesk');
   });

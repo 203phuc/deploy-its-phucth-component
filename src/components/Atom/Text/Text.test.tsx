@@ -11,13 +11,13 @@ describe('Text', () => {
   });
 
   it('should apply weight class', () => {
-    const { container } = render(<Text weight="Bold">{SAMPLE_TEXT}</Text>);
+    const { container } = render(<Text weight="bold">{SAMPLE_TEXT}</Text>);
     const el = container.firstChild as HTMLElement;
     expect(el.className).toContain('font-bold');
   });
 
   it('should apply font class', () => {
-    const { container } = render(<Text font="Space Grotesk">{SAMPLE_TEXT}</Text>);
+    const { container } = render(<Text font="spaceGrotesk">{SAMPLE_TEXT}</Text>);
     const el = container.firstChild as HTMLElement;
     expect(el.className).toContain('font-space-grotesk');
   });

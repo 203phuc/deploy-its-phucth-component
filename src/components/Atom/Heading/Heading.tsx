@@ -3,8 +3,8 @@ import { headingCva } from './style';
 import type { HeadingProps } from './type';
 
 export const Heading: React.FC<HeadingProps> = ({
-  weight = 'Regular',
-  font = 'Inter',
+  weight = 'regular',
+  font = 'inter',
   size = 'h7',
   color = 'default',
   children,
