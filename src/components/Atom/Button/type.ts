@@ -8,7 +8,7 @@ export type ButtonCvaProps = VariantProps<typeof buttonCva>;
 export type ButtonVariant = 'solid' | 'outlined' | 'text' | 'underline';
 export type ButtonSize = 'xlarge' | 'large' | 'largeCompact' | 'medium' | 'small' | 'xsmall';
 export type ButtonRoundness = 'pill' | 'round' | 'sharp';
-export type ButtonFont = 'space-grotesk' | 'inter';
+export type ButtonFont = 'spaceGrotesk' | 'inter';
 
 export type ButtonProps = {
   /**

@@ -1,4 +1,3 @@
-// Button.stories.tsx
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Button } from './Button';
 import type { ButtonRoundness, ButtonSize, ButtonVariant } from './type';
@@ -9,7 +8,7 @@ const meta = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/....',
+      url: 'https://www.figma.com/design/Ovp63tfHXWbbNr8lzFbAGy/HAIBAZO-INTERNSHIP-FRONTEND?node-id=8-96700&p=f&t=JCV8ENuJzwR6AnIe-0',
     },
     docs: {
       description: {
@@ -202,7 +201,7 @@ export const Fonts: Story = {
   render: (args) => (
     <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
       <Button {...args} font="inter" />
-      <Button {...args} font="space-grotesk" />
+      <Button {...args} font="spaceGrotesk" />
     </div>
   ),
 };

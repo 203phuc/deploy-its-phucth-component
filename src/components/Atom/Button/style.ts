@@ -46,7 +46,7 @@ export const buttonCva = cva(
       },
 
       font: {
-        'space-grotesk': 'font-space-grotesk',
+        spaceGrotesk: 'font-space-grotesk',
         inter: 'font-inter',
       },
     },
