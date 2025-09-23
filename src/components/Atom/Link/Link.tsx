@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { linkCva, SPACING_VARIANTS } from './style';
 import type { LinkColor, LinkFont, LinkProps, LinkSize, LinkWeight } from './type';
 
@@ -15,24 +15,27 @@ export const Link: React.FC<LinkProps> = ({
   children,
   ...props
 }) => {
-  const baseClasses = [
-    linkCva({
-      size,
-      weight,
-      font,
-      color,
-      gap,
-      hoverUnderline,
-      spacing: 'none', // Remove spacing from the root element
-    }),
-    'hover:opacity-80 inline-flex items-center',
-    className,
-  ]
-    .filter(Boolean)
-    .join(' ');
+  const baseClasses = useMemo(
+    () =>
+      [
+        linkCva({
+          size,
+          weight,
+          font,
+          color,
+          gap,
+          hoverUnderline,
+          spacing: 'none',
+        }),
+        'hover:opacity-80 inline-flex items-center',
+        className,
+      ]
+        .filter(Boolean)
+        .join(' '),
+    [size, weight, font, color, gap, hoverUnderline, className],
+  );
 
-  // Create a wrapper div to handle the spacing
-  const renderChildren = (): ReactNode[] => {
+  const renderChildren = useCallback((): React.ReactNode[] => {
     if (spacing === 'none' || !children) {
       return React.Children.toArray(children);
     }
@@ -42,32 +45,38 @@ export const Link: React.FC<LinkProps> = ({
       return childrenArray;
     }
 
-    const result: ReactNode[] = [childrenArray[0]];
-    // Get the spacing class from our SPACING_VARIANTS constant
-    const spacingClass = SPACING_VARIANTS[spacing] || '';
+    const spacingClass = SPACING_VARIANTS[spacing];
+    if (!spacingClass) {
+      return childrenArray;
+    }
 
+    const result: React.ReactNode[] = [childrenArray[0]];
     for (let i = 1; i < childrenArray.length; i++) {
-      if (spacingClass) {
-        result.push(<span key={`spacer-${i}`} className={spacingClass} aria-hidden="true" />);
-      }
-      result.push(childrenArray[i]);
+      result.push(
+        <React.Fragment key={`spacer-${i}`}>
+          <span className={spacingClass} aria-hidden="true" />
+          {childrenArray[i]}
+        </React.Fragment>,
+      );
     }
 
     return result;
-  };
+  }, [children, spacing]);
 
-  const content = renderChildren();
+  const linkContent = useMemo(() => renderChildren() ?? children, [children, renderChildren]);
 
-  const linkProps = {
-    ...props,
-    className: baseClasses,
-    ...(external && {
-      target: '_blank',
-      rel: 'noopener noreferrer',
-    }),
-  };
-
-  return <a {...linkProps}>{content ?? children}</a>;
+  return (
+    <a
+      {...props}
+      className={baseClasses}
+      {...(external && {
+        target: '_blank',
+        rel: 'noopener noreferrer',
+      })}
+    >
+      {linkContent}
+    </a>
+  );
 };
 
 export default Link;
