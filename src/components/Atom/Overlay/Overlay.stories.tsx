@@ -20,51 +20,38 @@ const meta: Meta<typeof Overlay> = {
   title: 'Atom/Overlay',
   component: Overlay,
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
     docs: {
       description: {
         component: [
-          'A customizable overlay component that can be used for modals, dialogs, etc.',
+          'A simple overlay component that can be used for modals, dialogs, etc.',
           '',
           '## Features',
-          '- Click outside to close (configurable)',
-          '- Escape key handling',
+          '- Focus management (automatically focuses when opened)',
           '- Accessible with proper ARIA attributes',
-          '- Customizable background color and opacity',
           '- Configurable z-index',
           '- Portal support (renders outside DOM hierarchy)',
         ].join('\n'),
       },
     },
   },
+  decorators: [
+    (Story) => (
+      <div className="relative h-screen w-screen bg-gray-50">
+        <Story />
+      </div>
+    ),
+  ],
   tags: ['autodocs'],
   argTypes: {
     isOpen: {
       control: { type: 'boolean' },
       description: 'Controls whether the overlay is visible',
     },
-    backgroundColor: {
-      control: { type: 'select' },
-      options: [
-        'black-900/90',
-        'black-500/50',
-        'white-900/90',
-        'white-500/50',
-        'gray-900/80',
-        'blue-900/70',
-        'red-900/70',
-        'green-900/70',
-      ],
-      description: 'Background color and opacity of the overlay',
-    },
     zIndex: {
       control: { type: 'select' },
       options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
       description: 'Z-index level for the overlay (1-10)',
-    },
-    closeOnClickOutside: {
-      control: { type: 'boolean' },
-      description: 'Whether the overlay should close when clicking outside',
     },
     usePortal: {
       control: { type: 'boolean' },
@@ -73,10 +60,6 @@ const meta: Meta<typeof Overlay> = {
     className: {
       control: { type: 'text' },
       description: 'Additional CSS classes',
-    },
-    onClick: {
-      action: 'onClick',
-      description: 'Callback when overlay is clicked or escape is pressed',
     },
   },
 };
@@ -102,12 +85,11 @@ export const Default: Story = {
   args: {
     isOpen: true,
     children: SampleContent,
-    backgroundColor: 'black-900/90',
     zIndex: 5,
-    closeOnClickOutside: true,
     usePortal: true,
   },
   parameters: {
+    layout: 'padded',
     docs: {
       description: {
         story: `
@@ -118,7 +100,6 @@ Default overlay with standard configuration.
 <Overlay
   isOpen={isOpen}
   onClick={handleClose}
-  backgroundColor="black-900/90"
   zIndex={5}
   closeOnClickOutside
   usePortal
@@ -133,49 +114,22 @@ Default overlay with standard configuration.
 };
 
 /**
- * Light background overlay for subtle modal effects.
+ * Example overlay with different z-index for demonstration.
  *
- * Useful for notifications or less intrusive dialogs where you want to keep
- * the underlying content partially visible.
+ * Shows how the overlay can be positioned at different z-index levels
+ * for layering multiple overlays.
  */
-export const LightBackground: Story = {
-  args: {
-    isOpen: true,
-    children: SampleContent,
-    backgroundColor: 'white-500/50',
-    zIndex: 5,
-    closeOnClickOutside: true,
-    usePortal: true,
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: [
-          'Overlay with a light background for subtle overlay effect.',
-          '',
-          '### When to use',
-          '- Lightbox galleries',
-          '- Secondary dialogs',
-          '- Non-critical notifications',
-        ].join('\n'),
-      },
-    },
-  },
-};
-
 export const ColoredBackground: Story = {
   args: {
     isOpen: true,
     children: SampleContent,
-    backgroundColor: 'blue-900/70',
     zIndex: 5,
-    closeOnClickOutside: true,
     usePortal: true,
   },
   parameters: {
     docs: {
       description: {
-        story: 'Overlay with a colored background for branded overlays.',
+        story: 'Example overlay with different z-index for layering.',
       },
     },
   },
@@ -185,9 +139,7 @@ export const HighZIndex: Story = {
   args: {
     isOpen: true,
     children: SampleContent,
-    backgroundColor: 'black-900/90',
     zIndex: 10,
-    closeOnClickOutside: true,
     usePortal: true,
   },
   parameters: {
@@ -203,15 +155,13 @@ export const NoClickOutside: Story = {
   args: {
     isOpen: true,
     children: SampleContent,
-    backgroundColor: 'black-900/90',
     zIndex: 5,
-    closeOnClickOutside: false,
     usePortal: true,
   },
   parameters: {
     docs: {
       description: {
-        story: 'Overlay that cannot be closed by clicking outside - requires explicit close action.',
+        story: 'Simple overlay with standard portal behavior.',
       },
     },
   },
@@ -221,9 +171,7 @@ export const NoPortal: Story = {
   args: {
     isOpen: true,
     children: SampleContent,
-    backgroundColor: 'black-900/90',
     zIndex: 5,
-    closeOnClickOutside: true,
     usePortal: false,
   },
   parameters: {
@@ -243,9 +191,7 @@ export const MinimalContent: Story = {
         <p className="text-sm text-gray-600">Minimal overlay content</p>
       </div>
     ),
-    backgroundColor: 'black-900/90',
     zIndex: 5,
-    closeOnClickOutside: true,
     usePortal: true,
   },
   parameters: {
@@ -287,9 +233,7 @@ export const FormModal: Story = {
         </form>
       </div>
     ),
-    backgroundColor: 'black-900/90',
     zIndex: 5,
-    closeOnClickOutside: true,
     usePortal: true,
   },
   parameters: {
@@ -328,15 +272,13 @@ export const AlertModal: Story = {
         </div>
       </div>
     ),
-    backgroundColor: 'black-900/90',
     zIndex: 8,
-    closeOnClickOutside: false,
     usePortal: true,
   },
   parameters: {
     docs: {
       description: {
-        story: 'Alert modal with warning styling and disabled click-outside closing.',
+        story: 'Alert modal with warning styling.',
       },
     },
   },
@@ -354,15 +296,13 @@ export const LoadingOverlay: Story = {
         <p className="text-gray-600">Please wait while we process your request.</p>
       </div>
     ),
-    backgroundColor: 'black-900/90',
     zIndex: 9,
-    closeOnClickOutside: false,
     usePortal: true,
   },
   parameters: {
     docs: {
       description: {
-        story: 'Loading overlay with spinner animation and disabled click-outside.',
+        story: 'Loading overlay with spinner animation.',
       },
     },
   },
@@ -383,9 +323,7 @@ export const MultipleOverlays: Story = {
         </div>
       </div>
     ),
-    backgroundColor: 'black-900/90',
     zIndex: 7,
-    closeOnClickOutside: true,
     usePortal: true,
   },
   parameters: {
@@ -414,13 +352,12 @@ export const CustomStyling: Story = {
         </div>
       </div>
     ),
-    backgroundColor: 'black-900/90',
     zIndex: 5,
-    closeOnClickOutside: true,
     usePortal: true,
   },
   parameters: {
     docs: {
+      layout: 'padded',
       description: {
         story: 'Overlay with custom CSS classes for unique styling.',
       },

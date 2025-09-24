@@ -2,20 +2,11 @@ import { HTMLAttributes } from 'react';
 import { OverlayCvaProps } from './style';
 
 // Extract the variant types from OverlayCvaProps
-type OverlayVariants = Pick<OverlayCvaProps, 'isOpen' | 'backgroundColor'>;
+type OverlayVariants = Pick<OverlayCvaProps, 'isOpen'>;
 
 export interface OverlayProps
   extends Omit<HTMLAttributes<HTMLDialogElement>, 'onClick' | 'className'>,
     OverlayVariants {
-  /**
-   * Callback when overlay is clicked
-   */
-  onClick?: () => void;
-  /**
-   * Whether the overlay should close when clicking outside
-   * @default true
-   */
-  closeOnClickOutside?: boolean;
   /**
    * Whether to render the overlay in a portal
    * @default true

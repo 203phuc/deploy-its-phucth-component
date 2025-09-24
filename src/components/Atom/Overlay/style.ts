@@ -2,27 +2,21 @@ import { cva, type VariantProps } from 'class-variance-authority';
 
 export const overlayCva = cva(
   [
-    'fixed top-0 left-0',
-    'h-screen w-screen',
-    'bg-black-900/90',
+    'fixed inset-0 bg-black-900/90', // Fixed positioning to viewport
     'flex items-center justify-center',
     'transition-opacity duration-200 ease-in-out',
   ],
   {
     variants: {
       isOpen: {
-        true: 'pointer-events-auto opacity-100',
-        false: 'pointer-events-none opacity-0',
+        true: 'pointer-events-auto',
+        false: 'pointer-events-none',
       },
       backgroundColor: {
-        'black-900/90': 'bg-black-900/90',
-        'black-500/50': 'bg-black-500/50',
-        'white-900/90': 'bg-white-900/90',
-        'white-500/50': 'bg-white-500/50',
-        'gray-900/80': 'bg-gray-900/80',
-        'blue-900/70': 'bg-blue-900/70',
-        'red-900/70': 'bg-red-900/70',
-        'green-900/70': 'bg-green-900/70',
+        'black-900': 'bg-black-900/90',
+      },
+      backgroundOpacity: {
+        90: 'bg-black-900/90',
       },
       zIndex: {
         1: 'z-10',
@@ -39,7 +33,7 @@ export const overlayCva = cva(
     },
     defaultVariants: {
       isOpen: false,
-      backgroundColor: 'black-900/90',
+      backgroundColor: 'black-900',
       zIndex: 5,
     },
   } as const,
