@@ -22,6 +22,14 @@ const meta: Meta<typeof Overlay> = {
   parameters: {
     layout: 'fullscreen',
     docs: {
+      screenshot: {
+        viewport: '335x76',
+        omitBackground: true,
+      },
+      design: {
+        type: 'figma',
+        url: 'https://www.figma.com/design/Ovp63tfHXWbbNr8lzFbAGy/HAIBAZO-INTERNSHIP-FRONTEND?node-id=247-122254&t=FAdejIKvnfdKCN5j-0',
+      },
       description: {
         component: [
           'A simple overlay component that can be used for modals, dialogs, etc.',
