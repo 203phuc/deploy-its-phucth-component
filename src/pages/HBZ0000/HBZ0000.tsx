@@ -1,5 +1,6 @@
 import { Button } from '@components/Atom/Button';
 import { Link } from '@components/Atom/Link';
+import Toggle from '@components/Atom/Toggle/Toggle';
 import { memo } from 'react';
 
 const HBZ0000Component = () => {
@@ -10,6 +11,7 @@ const HBZ0000Component = () => {
       </Button>
       <br />
       <Link href="#">Hello from HAIBAZO ^_^</Link>
+      <Toggle />
     </>
   );
 };
