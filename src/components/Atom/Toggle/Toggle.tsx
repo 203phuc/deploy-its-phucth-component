@@ -12,8 +12,6 @@ export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(function Toggle
     shape = 'rounded',
     disabled = false,
     className,
-    'aria-label': ariaLabel,
-    'aria-describedby': ariaDescribedBy,
     onClick,
     ...rest
   } = props;
@@ -61,10 +59,6 @@ export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(function Toggle
     <button
       ref={ref}
       type="button"
-      role="switch"
-      aria-checked={isChecked}
-      aria-label={ariaLabel}
-      aria-describedby={ariaDescribedBy ?? undefined}
       disabled={disabled}
       className={`${trackClass} ${className ?? ''}`.trim()}
       onClick={handleToggle}

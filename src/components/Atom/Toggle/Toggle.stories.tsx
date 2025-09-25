@@ -58,7 +58,6 @@ const meta: Meta<typeof Toggle> = {
     },
   },
   args: {
-    'aria-label': 'Toggle switch',
     size: 'medium',
     shape: 'rounded',
     disabled: false,
@@ -95,9 +94,6 @@ const InteractiveToggle = (args: ToggleProps) => {
 // ===== Stories =====
 export const Default: Story = {
   render: (args) => <InteractiveToggle {...args} />,
-  args: {
-    'aria-label': 'Toggle switch',
-  },
 };
 
 export const Checked: Story = {
@@ -147,27 +143,4 @@ export const DisabledChecked: Story = {
     defaultChecked: true,
     disabled: true,
   },
-};
-
-export const WithLabel: Story = {
-  ...Default,
-  args: {
-    ...Default.args,
-    'aria-label': 'Enable notifications',
-  },
-};
-
-export const WithDescription: Story = {
-  ...Default,
-  args: {
-    ...Default.args,
-    'aria-label': 'Dark mode',
-    'aria-describedby': 'dark-mode-description',
-  },
-  render: (args) => (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-      <InteractiveToggle {...args} />
-      <span id="dark-mode-description">Toggle dark mode</span>
-    </div>
-  ),
 };

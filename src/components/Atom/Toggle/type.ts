@@ -20,14 +20,4 @@ export interface ToggleProps
    * Called when checked toggles
    */
   onCheckedChange?: (checked: boolean) => void;
-
-  /**
-   * Accessible label
-   */
-  'aria-label'?: string;
-
-  /**
-   * Accessible describedby id
-   */
-  'aria-describedby'?: string;
 }
