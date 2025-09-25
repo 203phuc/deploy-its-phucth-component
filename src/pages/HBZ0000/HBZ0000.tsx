@@ -1,6 +1,7 @@
-import { Button } from '@components/Atom/Button';
 import { Link } from '@components/Atom/Link';
 import { memo } from 'react';
+
+import { Button } from '../../components/Atom/Button/Button';
 
 const HBZ0000Component = () => {
   return (
