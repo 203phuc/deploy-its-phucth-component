@@ -17,34 +17,34 @@ const meta = {
     },
   },
   tags: ['autodocs'],
-  argTypes: {
-    size: {
-      control: 'select',
-      options: ['small', 'medium', 'large'],
-      description: 'Size of the checkbox',
-    },
-    roundness: {
-      control: 'select',
-      options: ['square', 'rounded', 'pill'],
-      description: 'Border radius of the checkbox',
-    },
-    disabled: {
-      control: 'boolean',
-      description: 'Disable the checkbox',
-    },
-    checked: {
-      control: 'boolean',
-      description: 'Controlled checked state',
-    },
-    defaultChecked: {
-      control: 'boolean',
-      description: 'Uncontrolled checked state',
-    },
-    label: {
-      control: 'text',
-      description: 'Label text next to the checkbox',
-    },
-  },
+  // argTypes: {
+  //   size: {
+  //     control: 'select',
+  //     options: ['small', 'medium', 'large'],
+  //     description: 'Size of the checkbox',
+  //   },
+  //   roundness: {
+  //     control: 'select',
+  //     options: ['square', 'rounded', 'pill'],
+  //     description: 'Border radius of the checkbox',
+  //   },
+  //   disabled: {
+  //     control: 'boolean',
+  //     description: 'Disable the checkbox',
+  //   },
+  //   checked: {
+  //     control: 'boolean',
+  //     description: 'Controlled checked state',
+  //   },
+  //   defaultChecked: {
+  //     control: 'boolean',
+  //     description: 'Uncontrolled checked state',
+  //   },
+  //   label: {
+  //     control: 'text',
+  //     description: 'Label text next to the checkbox',
+  //   },
+  // },
   args: {
     label: 'Checkbox label',
     size: 'medium',

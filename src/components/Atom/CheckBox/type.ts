@@ -41,8 +41,6 @@ export interface CheckboxProps
 
   /**
    * Callback when the checkbox state changes
-   * @param event - The change event from the input
-   * @param data - Additional data including the new checked state
    */
   onChange?: CheckboxOnChange;
 }
