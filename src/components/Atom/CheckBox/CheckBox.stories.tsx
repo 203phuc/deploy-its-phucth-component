@@ -7,7 +7,7 @@ const meta = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'YOUR_FIGMA_DESIGN_LINK',
+      url: 'https://www.figma.com/design/Ovp63tfHXWbbNr8lzFbAGy/HAIBAZO-INTERNSHIP-FRONTEND?node-id=3-20765&t=fTzZZp8qoU88wDsF-0',
     },
     docs: {
       description: {
@@ -17,7 +17,6 @@ const meta = {
     },
   },
   tags: ['autodocs'],
-  // argTypes: {
   //   size: {
   //     control: 'select',
   //     options: ['small', 'medium', 'large'],
