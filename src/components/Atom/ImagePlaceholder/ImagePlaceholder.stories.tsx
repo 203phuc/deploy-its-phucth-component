@@ -77,3 +77,10 @@ export const WithContent: Story = {
     ),
   },
 };
+export const WithContent: Story = {
+  render: () => (
+    <div>
+      <ImagePlaceholder size="s10" />
+    </div>
+  ),
+};
