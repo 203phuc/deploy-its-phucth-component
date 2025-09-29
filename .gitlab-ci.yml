@@ -5,7 +5,7 @@ stages:
   - release
 
 include:
-  - component: $CI_SERVER_FQDN/hi-haibazo/devops/haibazo-devops-react-cpt@main
+  - component: $CI_SERVER_FQDN/hi-haibazo/devops/haibazo-devops-react-cpt/its-rct-ui@main
     inputs:
       sonarqube-token: $CI_WORKER_SONAR_TOKEN
       sonarqube-host-url: $CI_SERVICE_SONAR_HOST
