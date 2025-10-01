@@ -1,3 +1,19 @@
+# [1.0.0-develop.2](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.1...v1.0.0-develop.2) (2025-10-01)
+
+
+### Bug Fixes
+
+* **ITS-IR01-24:** fix review by remove unwanted file ([0e1bdc8](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/0e1bdc86c80e1839e10d5701f26cdd34b2122207))
+
+
+### Features
+
+* **ITS-IR01-024:** complete icon with test and stories ([3606f92](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/3606f926c41d9a88684aa04c44c66c844f29ffce))
+* **ITS-IR01-024:** modify stories add more case ([01f0fd7](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/01f0fd7a4e3c30f0bbfb68088fbc4b9750658fb2))
+* **ITS-IR01-024:** set up icons folder ([7ea347e](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/7ea347ef4cf5b3e834b9b098ea4cc93301833a4a))
+* **ITS-IR01-24:** matching with dev index file ([e07bfac](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/e07bfac36245fceedf561f02e578d72012140eb3))
+* **ITS-IR01-24:** matching with dev page ([373f251](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/373f251fc87d3f220e236c3dc2ca03515d466494))
+
 # 1.0.0-develop.1 (2025-10-01)
 
 
