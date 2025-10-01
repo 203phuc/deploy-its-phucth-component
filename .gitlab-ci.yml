@@ -1,0 +1,10 @@
+# Define the stages of the pipeline
+stages:
+  - test
+  - build
+  - release
+
+include:
+  - component: $CI_SERVER_FQDN/hi-haibazo/devops/haibazo-devops-react-cpt/its-rct-ui@main
+    inputs:
+      quality-sonarqube-project-key: its-c_phucth_its-phucth-component_77c0aa25-5d97-4dc7-a25d-c19fab6fe902
