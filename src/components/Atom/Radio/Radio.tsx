@@ -1,5 +1,3 @@
-'use client';
-
 import { useState } from 'react';
 import { radioCva } from './style';
 import type { RadioProps } from './type';
