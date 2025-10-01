@@ -1,0 +1,13 @@
+import { IconProps } from './types';
+
+export const PhoneIcon = ({ color = 'currentColor', size = 24 }: IconProps) => (
+  <svg width={size} height={size} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M4.2205 3.24658H7.55383L9.2205 7.41325L7.13717 8.66325C8.02963 10.4729 9.49422 11.9375 11.3038 12.8299L12.5538 10.7466L16.7205 12.4132V15.7466C16.7205 16.1886 16.5449 16.6125 16.2323 16.9251C15.9198 17.2377 15.4959 17.4132 15.0538 17.4132C11.8032 17.2157 8.73729 15.8353 6.43452 13.5326C4.13175 11.2298 2.75137 8.16386 2.55383 4.91325C2.55383 4.47122 2.72943 4.0473 3.04199 3.73474C3.35455 3.42218 3.77847 3.24658 4.2205 3.24658"
+      stroke={color}
+      strokeWidth={1.25}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
