@@ -1650,6 +1650,7 @@ __metadata:
     react-dom: "npm:^19.1.1"
     semantic-release: "npm:^24.2.7"
     storybook: "npm:^9.1.5"
+    tailwind-merge: "npm:^3.3.1"
     tailwindcss: "npm:^4.1.13"
     typescript: "npm:^5.9.2"
     typescript-eslint: "npm:^8.42.0"
@@ -12069,6 +12070,13 @@ __metadata:
   peerDependencies:
     tailwindcss: ^3.3.0 || ^4.0.0 || ^4.0.0-beta
   checksum: 10c0/60c23af7c17ffccb0f835d063d129a6be7f4966d6b93a8c7ba51faf0c955da7adef95a9bb42b955b2c851d3d348b8b3befd2d10bb903cd48fc571c792c124d7b
+  languageName: node
+  linkType: hard
+
+"tailwind-merge@npm:^3.3.1":
+  version: 3.3.1
+  resolution: "tailwind-merge@npm:3.3.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Ftailwind-merge%2F-%2Ftailwind-merge-3.3.1.tgz"
+  checksum: 10c0/b84c6a78d4669fa12bf5ab8f0cdc4400a3ce0a7c006511af4af4be70bb664a27466dbe13ee9e3b31f50ddf6c51d380e8192ce0ec9effce23ca729d71a9f63818
   languageName: node
   linkType: hard
 
