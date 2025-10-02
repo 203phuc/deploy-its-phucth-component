@@ -46,6 +46,7 @@ export const Radio = ({
     <button
       type="button"
       disabled={disabled}
+      onClick={handleClick}
       className={
         radioCva({
           size,
@@ -57,14 +58,7 @@ export const Radio = ({
       }
     >
       {isChecked && <div className={`${innerSizeMap[size]} ${getShapeClass(shape)} bg-black`} />}
-      <input
-        type="radio"
-        className="sr-only hidden"
-        checked={isChecked}
-        disabled={disabled}
-        onChange={handleClick}
-        {...props}
-      />
+      <input type="radio" className="sr-only hidden" checked={isChecked} disabled={disabled} {...props} />
     </button>
   );
 };

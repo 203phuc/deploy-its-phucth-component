@@ -64,23 +64,26 @@ export const Sizes: Story = {
 
 export const States: Story = {
   render: () => {
-    const [checked, setChecked] = useState(false);
-    return (
-      <div className="flex flex-col gap-4">
-        <div className="flex items-center gap-4">
-          <Radio checked={checked} onChange={setChecked} />
-          <span className="text-sm">{checked ? 'Checked' : 'Unchecked'}</span>
+    const DemoState = () => {
+      const [checked, setChecked] = useState(false);
+      return (
+        <div className="flex flex-col gap-4">
+          <div className="flex items-center gap-4">
+            <Radio checked={checked} onChange={setChecked} />
+            <span className="text-sm">{checked ? 'Checked' : 'Unchecked'}</span>
+          </div>
+          <div className="flex items-center gap-4">
+            <Radio disabled />
+            <span className="text-sm">Disabled</span>
+          </div>
+          <div className="flex items-center gap-4">
+            <Radio checked disabled />
+            <span className="text-sm">Checked & Disabled</span>
+          </div>
         </div>
-        <div className="flex items-center gap-4">
-          <Radio disabled />
-          <span className="text-sm">Disabled</span>
-        </div>
-        <div className="flex items-center gap-4">
-          <Radio checked disabled />
-          <span className="text-sm">Checked & Disabled</span>
-        </div>
-      </div>
-    );
+      );
+    };
+    return <DemoState />;
   },
 };
 
@@ -105,34 +108,44 @@ export const WithLabel: Story = {
 
 export const AllowUnselect: Story = {
   render: () => {
-    const [checked, setChecked] = useState(false);
-    return (
-      <div className="flex flex-col gap-4">
-        <div className="flex items-center gap-4">
-          <Radio checked={checked} onChange={setChecked} allowUnselect />
-          <span className="text-sm">{checked ? 'Click to uncheck' : 'Click to check'}</span>
+    const Demo = () => {
+      const [checked, setChecked] = useState(false);
+
+      return (
+        <div className="flex flex-col gap-4">
+          <div className="flex items-center gap-4">
+            <Radio checked={checked} onChange={setChecked} allowUnselect />
+            <span className="text-sm">{checked ? 'Click to uncheck' : 'Click to check'}</span>
+          </div>
+          <div className="text-xs text-gray-500">
+            allowUnselect is true - you can click to toggle the state
+          </div>
         </div>
-        <div className="text-xs text-gray-500">allowUnselect is true - you can click to toggle the state</div>
-      </div>
-    );
+      );
+    };
+
+    return <Demo />;
   },
 };
 
 export const Controlled: Story = {
   render: () => {
-    const [selected, setSelected] = useState('option1');
-    return (
-      <div className="flex flex-col gap-4">
-        <div className="flex items-center gap-4">
-          <Radio checked={selected === 'option1'} onChange={() => setSelected('option1')} />
-          <span className="text-sm">Option 1</span>
+    const DemoControlled = () => {
+      const [selected, setSelected] = useState('option1');
+      return (
+        <div className="flex flex-col gap-4">
+          <div className="flex items-center gap-4">
+            <Radio checked={selected === 'option1'} onChange={() => setSelected('option1')} />
+            <span className="text-sm">Option 1</span>
+          </div>
+          <div className="flex items-center gap-4">
+            <Radio checked={selected === 'option2'} onChange={() => setSelected('option2')} />
+            <span className="text-sm">Option 2</span>
+          </div>
+          <div className="text-xs text-gray-500">Current selection: {selected}</div>
         </div>
-        <div className="flex items-center gap-4">
-          <Radio checked={selected === 'option2'} onChange={() => setSelected('option2')} />
-          <span className="text-sm">Option 2</span>
-        </div>
-        <div className="text-xs text-gray-500">Current selection: {selected}</div>
-      </div>
-    );
+      );
+    };
+    return <DemoControlled />;
   },
 };
