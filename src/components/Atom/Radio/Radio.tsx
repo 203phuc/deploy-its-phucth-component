@@ -1,3 +1,4 @@
+import { clsx } from 'clsx';
 import { useState } from 'react';
 import { radioCva } from './style';
 import type { RadioProps } from './type';
@@ -47,15 +48,7 @@ export const Radio = ({
       type="button"
       disabled={disabled}
       onClick={handleClick}
-      className={
-        radioCva({
-          size,
-          shape,
-          disabled,
-        }) +
-        ' ' +
-        className
-      }
+      className={clsx(radioCva({ size, shape, disabled }), className)}
     >
       {isChecked && <div className={`${innerSizeMap[size]} ${getShapeClass(shape)} bg-black`} />}
       <input type="radio" className="sr-only hidden" checked={isChecked} disabled={disabled} {...props} />
