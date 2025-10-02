@@ -1,3 +1,17 @@
+# [1.0.0-develop.3](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.2...v1.0.0-develop.3) (2025-10-02)
+
+
+### Bug Fixes
+
+* **ITS-IR01-67:** review fix optimization using clsx ([47fa23e](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/47fa23ea41ed4fe30cd9c1586527c358bef7cebb))
+
+
+### Features
+
+* **ITS-IR01-67:** finished atom radio ([fc64945](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/fc6494563266bf62e55f29544f2c885240897501))
+* **ITS-IR01-67:** modify radio component file remove unuse code ([679a8c8](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/679a8c8e123447972c73bd2a054bae73c3725281))
+* **ITS-IR01-67:** remove unnecessary code on Radio ([1308a0b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/1308a0bfda6ca90cf62d4ff793adfe95e62c63f1))
+
 # [1.0.0-develop.2](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.1...v1.0.0-develop.2) (2025-10-01)
 
 
