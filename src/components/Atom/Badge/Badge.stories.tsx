@@ -18,23 +18,6 @@ const meta = {
     },
   },
   tags: ['autodocs'],
-  argTypes: {
-    roundness: {
-      control: { type: 'select' },
-      options: ['pill', 'round', 'sharp'],
-      description: 'Border radius style',
-    },
-    size: {
-      control: { type: 'select' },
-      options: ['small', 'medium', 'large'],
-      description: 'Size of the badge',
-    },
-    variant: {
-      control: { type: 'select' },
-      options: ['solid', 'outline'],
-      description: 'Visual style variant of the badge',
-    },
-  },
 } satisfies Meta<typeof Badge>;
 
 export default meta;
@@ -129,5 +112,50 @@ export const Color: Story = {
       <Badge {...arg} size="medium" color="red" />
       <Badge {...arg} size="small" color="green" />
     </div>
+  ),
+};
+export const Roundness: Story = {
+  args: {
+    children: 'Badge',
+  },
+  render: (arg) => (
+    <>
+      <div className="flex flex-row items-end gap-5">
+        <div className="flex flex-row items-end gap-1.5">
+          <Badge {...arg} roundness="sharp" size="large" />
+          <Badge {...arg} roundness="sharp" size="medium" />
+          <Badge {...arg} roundness="sharp" size="small" />
+        </div>
+        <div className="flex flex-row items-end gap-1.5">
+          <Badge {...arg} roundness="rounded" size="large" />
+          <Badge {...arg} roundness="rounded" size="medium" />
+          <Badge {...arg} roundness="rounded" size="small" />
+        </div>
+        <div className="flex flex-row items-end gap-1.5">
+          <Badge {...arg} roundness="pill" size="large" />
+          <Badge {...arg} roundness="pill" size="medium" />
+          <Badge {...arg} roundness="pill" size="small" />
+        </div>
+      </div>
+
+      <br />
+      <div className="flex flex-row items-end gap-5">
+        <div className="flex flex-row items-end gap-1.5">
+          <Badge {...arg} roundness="sharp" size="large" variant="outline" />
+          <Badge {...arg} roundness="sharp" size="medium" variant="outline" />
+          <Badge {...arg} roundness="sharp" size="small" variant="outline" />
+        </div>
+        <div className="flex flex-row items-end gap-1.5">
+          <Badge {...arg} roundness="rounded" size="large" variant="outline" />
+          <Badge {...arg} roundness="rounded" size="medium" variant="outline" />
+          <Badge {...arg} roundness="rounded" size="small" variant="outline" />
+        </div>
+        <div className="flex flex-row items-end gap-1.5">
+          <Badge {...arg} roundness="pill" size="large" variant="outline" />
+          <Badge {...arg} roundness="pill" size="medium" variant="outline" />
+          <Badge {...arg} roundness="pill" size="small" variant="outline" />
+        </div>
+      </div>
+    </>
   ),
 };
