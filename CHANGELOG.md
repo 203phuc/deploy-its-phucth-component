@@ -1,3 +1,16 @@
+# [1.0.0-develop.4](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.3...v1.0.0-develop.4) (2025-10-03)
+
+
+### Bug Fixes
+
+* **ITS-IR01-94:** review fix type and refine stories ([7bbdd21](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/7bbdd2192dcdf15583280d564641130109e7e228))
+
+
+### Features
+
+* **ITS-IR01-94:** added test and refine stories for badge ([6bdd74d](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/6bdd74d01a3e21db92bddb7e6356475e96b67d31))
+* **ITS-IR01-94:** set up for atom badge ([ee6ca1e](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/ee6ca1ed095c058956e3d23757ed032923f26f78))
+
 # [1.0.0-develop.3](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.2...v1.0.0-develop.3) (2025-10-02)
 
 
