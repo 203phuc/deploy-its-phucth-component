@@ -1,35 +1,15 @@
-interface Props {
-  color?: string;
-  size?: 'large' | 'medium';
-  width?: number;
-  height?: number;
-}
+import { Props } from './type';
 
-export const CustomLogoIcon = ({ color = '#A7A7A7', size = 'large', width, height }: Props) => {
-  // predefined map
-  const dimensions = {
-    large: { width: 160, height: 80 },
-    medium: { width: 140, height: 70 },
-  };
-
-  // conflict warning
-  if ((width || height) && size) {
-    console.warn(
-      'CustomLogoIcon: "width/height" override the "size" prop. Remove "size" if you want full custom dimensions.',
-    );
-  }
-
-  const { width: defaultWidth, height: defaultHeight } = dimensions[size];
-  const finalWidth = width ?? defaultWidth;
-  const finalHeight = height ?? defaultHeight;
-
+export const HushLogo = ({ color = '#A7A7A7', width, height, className, ...prop }: Props) => {
   return (
     <svg
-      width={finalWidth}
-      height={finalHeight}
+      width={width}
+      height={height}
+      className={className}
       viewBox="0 0 140 70"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...prop}
     >
       <path
         d="M24.2728 31.5825H32.1063V25.497H39.0711V42.9427H32.1063V35.9789H24.2728V42.9427H17.3032V25.497H24.2728V31.5825Z"

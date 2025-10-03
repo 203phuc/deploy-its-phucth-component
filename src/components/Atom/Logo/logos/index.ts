@@ -1,0 +1,11 @@
+export { ApplePayLogo } from './ApplePayLogo';
+export { GooglePayLogo } from './GooglePayLogo';
+export { HushLogo } from './HushLogo';
+export { MarcLogo } from './MarcLogo';
+export { MasterCardLogo } from './MasterCardLogo';
+export { NikeLogo } from './NikeLogo';
+export { PaypalLogo } from './PaypalLogo';
+export { PumaLogo } from './PumaLogo';
+export { ShoeiLogo } from './ShoeiLogo';
+export { SupremeLogo } from './SupremeLogo';
+export { VisaLogo } from './VisaLogo';

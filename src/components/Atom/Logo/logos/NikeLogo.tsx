@@ -1,30 +1,15 @@
-interface Props {
-  color?: string;
-  size?: 'large' | 'medium';
-  width?: number;
-  height?: number;
-}
+import { Props } from './type';
 
-export const ArrowDownIcon = ({ color = '#121212', size = 'large', width, height }: Props) => {
-  // predefined map
-  const dimensions = {
-    large: { width: 160, height: 80 },
-    medium: { width: 140, height: 70 },
-  };
-
-  // fallback to predefined if custom not provided
-  const { width: defaultWidth, height: defaultHeight } = dimensions[size];
-
-  const finalWidth = width ?? defaultWidth;
-  const finalHeight = height ?? defaultHeight;
-
+export const NikeLogo = ({ color = '#A7A7A7', width, height, className, ...prop }: Props) => {
   return (
     <svg
-      width={finalWidth}
-      height={finalHeight}
+      width={width}
+      height={height}
+      className={className}
       viewBox="0 0 140 70"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...prop}
     >
       <path
         fillRule="evenodd"

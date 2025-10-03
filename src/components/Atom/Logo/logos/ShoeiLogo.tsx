@@ -1,28 +1,15 @@
-interface Props {
-  color?: string;
-  size?: 'large' | 'medium';
-  width?: number;
-  height?: number;
-}
+import { Props } from './type';
 
-export const EnvelopeIcon = ({ color = '#A7A7A7', size = 'large', width, height }: Props) => {
-  // predefined sizes
-  const dimensions = {
-    large: { width: 140, height: 70 },
-    medium: { width: 100, height: 50 },
-  };
-
-  const { width: w, height: h } = dimensions[size];
-  const finalWidth = width ?? w;
-  const finalHeight = height ?? h;
-
+export const ShoeiLogo = ({ color = '#A7A7A7', width, height, className, ...prop }: Props) => {
   return (
     <svg
-      width={finalWidth}
-      height={finalHeight}
+      width={width}
+      height={height}
+      className={className}
       viewBox="0 0 140 70"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...prop}
     >
       <path
         fillRule="evenodd"
