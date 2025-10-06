@@ -1,3 +1,12 @@
+# [1.0.0-develop.5](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.4...v1.0.0-develop.5) (2025-10-06)
+
+
+### Features
+
+* **ITS-IR01-91:** add cspell for logo name ([f7c756b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/f7c756bc1fafe416b3d5b4acd6ad3a67e1e843fa))
+* **ITS-IR01-91:** add logos svg ([5409b9b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/5409b9b2186470f3449ac29245388e639856e981))
+* **ITS-IR01-91:** test and stories finsihed ([e88db1c](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/e88db1c6232f577301694f530e3af7072b58765d))
+
 # [1.0.0-develop.4](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.3...v1.0.0-develop.4) (2025-10-03)
 
 
