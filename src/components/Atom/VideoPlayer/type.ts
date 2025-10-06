@@ -1,3 +1,4 @@
+import type React from 'react';
 export type TrackKind = 'subtitles' | 'captions' | 'descriptions' | 'chapters' | 'metadata';
 
 export interface VideoTrack {
@@ -10,7 +11,7 @@ export interface VideoTrack {
 
 export type VideoPlayerSize = 'small' | 'medium' | 'large';
 
-export interface VideoPlayerProps {
+export interface VideoPlayerProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Source URL of the video media
    */

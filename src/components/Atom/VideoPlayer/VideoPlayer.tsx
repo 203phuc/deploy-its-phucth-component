@@ -11,6 +11,7 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
   size = 'medium',
   iconSize = 20,
   iconBoxSize,
+  ...props
 }) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [progress, setProgress] = useState<number>(0);
@@ -47,7 +48,7 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
   };
 
   return (
-    <div className={cn(videoPlayerCva({ size }), className)}>
+    <div className={cn(videoPlayerCva({ size }), className)} {...props}>
       <video
         ref={videoRef}
         src={src}
