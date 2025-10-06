@@ -1,4 +1,5 @@
 import { Link } from '@components/Atom/Link';
+import { Logo } from '@components/Atom/Logo/Logo';
 import Toggle from '@components/Atom/Toggle/Toggle';
 import { memo } from 'react';
 import { Button } from '../../components/Atom/Button/Button';
@@ -12,6 +13,7 @@ const HBZ0000Component = () => {
       <br />
       <Link href="#">Hello from HAIBAZO ^_^</Link>
       <Toggle />
+      <Logo size="large" logoName="PumaLogo" />
     </>
   );
 };
