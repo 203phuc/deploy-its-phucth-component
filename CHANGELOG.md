@@ -1,3 +1,16 @@
+# [1.0.0-develop.6](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.5...v1.0.0-develop.6) (2025-10-07)
+
+
+### Bug Fixes
+
+* **ITS-IR01-74:** review fix figma link and code structure of video component file ([016b293](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/016b293fc77b96070611775814ba859104ab988f))
+
+
+### Features
+
+* **ITS-IR01-74:** added and finished testing ([e9c85e0](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/e9c85e090da23f219d44a7f138b2d7ba14a36a2c))
+* **ITS-IR01-74:** added test and stories for  VideoPlayer ([d70ab87](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/d70ab878ea2d7d5508eb25f4906f3a968601570a))
+
 # [1.0.0-develop.5](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.4...v1.0.0-develop.5) (2025-10-06)
 
 
