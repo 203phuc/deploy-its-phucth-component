@@ -59,13 +59,11 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
         <track kind="captions" />
       </video>
       <button className="absolute inset-0 flex items-center justify-center" onClick={() => void togglePlay()}>
-        {isPlaying ? (
-          ''
-        ) : (
+        {!isPlaying && (
           <Icons
             iconName="PlayIcon"
             iconSize={iconSize}
-            box={true}
+            box
             boxSize={iconBoxSize ?? Math.round(iconSize * 3)}
             boxFill="white"
             boxRoundness="pill"
