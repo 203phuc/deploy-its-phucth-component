@@ -1,0 +1,232 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { useState } from 'react';
+import { Select } from './Select';
+
+const meta = {
+  title: 'Atom/Select',
+  component: Select,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A dropdown-only select component with multiple variants and styling options.\n\n### Features:\n- Three width variants: default (full width), 228px, and 173px\n- Custom styling with box shadow and hover effects\n- Selected option highlighting with blue-50 background\n- Hover effects with #F5F5F5 background\n- Controlled open/close state\n- Keyboard accessible',
+      },
+    },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/9UZRn0vjE9VPlnRt17y40H/HAIBAZO-Design-System?node-id=250-341&t=WxpxLpIj0b9FfDz7-1',
+    },
+  },
+  decorators: [
+    (Story) => (
+      <div className="h-80 bg-gray-50 p-8">
+        <Story />
+      </div>
+    ),
+  ],
+  tags: ['autodocs'],
+  argTypes: {
+    variant: {
+      control: 'select',
+      options: ['default', 'width-228', 'width-173', 'width-114'],
+      description: 'Select width variant',
+    },
+    direction: {
+      control: 'select',
+      options: ['down', 'up'],
+      description: 'Direction of the dropdown',
+    },
+    options: {
+      control: 'object',
+      description: 'Array of select options',
+    },
+    isOpen: {
+      control: 'boolean',
+      description: 'Whether the dropdown is open',
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Whether the select is disabled',
+    },
+    value: {
+      control: 'text',
+      description: 'Currently selected value',
+    },
+  },
+} satisfies Meta<typeof Select>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+const sampleOptions = [
+  { label: 'Option 1', value: 'option1' },
+  { label: 'Option 2', value: 'option2' },
+  { label: 'Option 3', value: 'option3' },
+  { label: 'Disabled Option', value: 'disabled', disabled: true },
+  { label: 'Option 4', value: 'option4' },
+];
+
+const languageOptions = [
+  { label: 'English', value: 'en', icon: 'CheckIcon' as const, type: 'language' as const },
+  { label: 'Spanish', value: 'es', icon: 'CheckIcon' as const, type: 'language' as const },
+  { label: 'French', value: 'fr', icon: 'CheckIcon' as const, type: 'language' as const },
+  { label: 'German', value: 'de', icon: 'CheckIcon' as const, type: 'language' as const },
+];
+
+const currencyOptions = [
+  { label: 'USD', value: 'usd', type: 'currency' as const },
+  { label: 'EUR', value: 'eur', type: 'currency' as const },
+  { label: 'GBP', value: 'gbp', type: 'currency' as const },
+  { label: 'JPY', value: 'jpy', type: 'currency' as const },
+];
+
+export const Default: Story = {
+  args: {
+    options: sampleOptions,
+    isOpen: true,
+    variant: 'default',
+  },
+};
+
+export const Width228: Story = {
+  args: {
+    options: sampleOptions,
+    isOpen: true,
+    variant: 'width-228',
+  },
+};
+
+export const Width173: Story = {
+  args: {
+    options: sampleOptions,
+    isOpen: true,
+    variant: 'width-173',
+  },
+};
+
+export const WithSelectedValue: Story = {
+  args: {
+    options: sampleOptions,
+    isOpen: true,
+    value: 'option2',
+    variant: 'default',
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    options: sampleOptions,
+    isOpen: true,
+    disabled: true,
+    variant: 'default',
+  },
+};
+
+export const Interactive: Story = {
+  args: {
+    options: sampleOptions,
+    isOpen: false,
+  },
+  render: () => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [selectedValue, setSelectedValue] = useState<string | number>('');
+
+    return (
+      <div className="relative">
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="rounded-md border border-gray-300 bg-white px-4 py-2"
+        >
+          {selectedValue
+            ? sampleOptions.find((opt) => opt.value === selectedValue)?.label
+            : 'Select an option...'}
+        </button>
+        <Select
+          options={sampleOptions}
+          isOpen={isOpen}
+          onClose={() => setIsOpen(false)}
+          value={selectedValue}
+          onChange={setSelectedValue}
+          variant="default"
+        />
+      </div>
+    );
+  },
+};
+
+export const Width114: Story = {
+  args: {
+    options: sampleOptions,
+    isOpen: true,
+    variant: 'width-114',
+  },
+};
+
+export const LanguageSelect: Story = {
+  args: {
+    options: languageOptions,
+    isOpen: true,
+    variant: 'width-114',
+  },
+};
+
+export const CurrencySelect: Story = {
+  args: {
+    options: currencyOptions,
+    isOpen: true,
+    variant: 'width-114',
+  },
+};
+
+export const DropUp: Story = {
+  args: {
+    options: sampleOptions,
+    isOpen: true,
+    variant: 'default',
+    direction: 'up',
+  },
+  decorators: [
+    (Story) => (
+      <div className="relative h-80 bg-gray-50 p-8">
+        <div className="absolute inset-x-0 bottom-0">
+          <Story />
+        </div>
+      </div>
+    ),
+  ],
+};
+
+export const AllVariants: Story = {
+  args: {
+    options: sampleOptions,
+    isOpen: true,
+  },
+  render: () => (
+    <div className="grid grid-cols-1 gap-8 sm:grid-cols-6">
+      <div>
+        <h3 className="mb-2 text-sm font-medium">Width 114px (No Check Icon)</h3>
+        <Select options={sampleOptions} isOpen={true} variant="width-114" />
+      </div>
+      <div>
+        <h3 className="mb-2 text-sm font-medium">Width 173px</h3>
+        <Select options={sampleOptions} isOpen={true} variant="width-173" />
+      </div>
+      <div>
+        <h3 className="mb-2 text-sm font-medium">Width 228px</h3>
+        <Select options={sampleOptions} isOpen={true} variant="width-228" />
+      </div>
+      <div>
+        <h3 className="mb-2 text-sm font-medium">Default (Full Width)</h3>
+        <Select options={sampleOptions} isOpen={true} variant="default" />
+      </div>
+      <div>
+        <h3 className="mb-2 text-sm font-medium">Language Options (with flags)</h3>
+        <Select options={languageOptions} isOpen={true} variant="width-114" />
+      </div>
+      <div>
+        <h3 className="mb-2 text-sm font-medium">Currency Options</h3>
+        <Select options={currencyOptions} isOpen={true} variant="width-114" />
+      </div>
+    </div>
+  ),
+};
