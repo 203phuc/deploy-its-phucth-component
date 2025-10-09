@@ -49,7 +49,7 @@ describe('Select', () => {
     const button = screen.getByTestId('select4');
 
     // Scope only to this dropdown
-    const dropdown = within(button.parentElement!);
+    const dropdown = within(button);
     const disabledOption = dropdown.getByText('Disabled Option');
 
     fireEvent.click(disabledOption);
