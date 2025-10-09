@@ -129,29 +129,32 @@ export const Interactive: Story = {
     isOpen: false,
   },
   render: () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [selectedValue, setSelectedValue] = useState<string | number>('');
+    const Interactive = () => {
+      const [isOpen, setIsOpen] = useState(false);
+      const [selectedValue, setSelectedValue] = useState<string | number>('');
 
-    return (
-      <div className="relative">
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="rounded-md border border-gray-300 bg-white px-4 py-2"
-        >
-          {selectedValue
-            ? sampleOptions.find((opt) => opt.value === selectedValue)?.label
-            : 'Select an option...'}
-        </button>
-        <Dropdown
-          options={sampleOptions}
-          isOpen={isOpen}
-          onClose={() => setIsOpen(false)}
-          value={selectedValue}
-          onChange={setSelectedValue}
-          variant="default"
-        />
-      </div>
-    );
+      return (
+        <div className="relative">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="rounded-md border border-gray-300 bg-white px-4 py-2"
+          >
+            {selectedValue
+              ? sampleOptions.find((opt) => opt.value === selectedValue)?.label
+              : 'Select an option...'}
+          </button>
+          <Dropdown
+            options={sampleOptions}
+            isOpen={isOpen}
+            onClose={() => setIsOpen(false)}
+            value={selectedValue}
+            onChange={setSelectedValue}
+            variant="default"
+          />
+        </div>
+      );
+    };
+    return <Interactive />;
   },
 };
 

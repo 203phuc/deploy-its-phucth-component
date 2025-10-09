@@ -16,7 +16,7 @@ export { CloseIcon } from './CloseIcon';
 export { CouponIcon } from './CouponIcon';
 export { CreditCardIcon } from './CreditCardIcon';
 export { EditIcon } from './EditIcon';
-export { EgyptianFlagIcon } from './EgyptianFlagIcon';
+export { EgyptianFlagIcon } from './EgyptiansFlagIcon';
 export { EmailIcon } from './EmailIcon';
 export { EyeCloseIcon } from './EyeCloseIcon';
 export { FacebookIcon } from './FacebookIcon';
