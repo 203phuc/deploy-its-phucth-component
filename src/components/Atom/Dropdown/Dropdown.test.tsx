@@ -21,7 +21,7 @@ describe('Select', () => {
 
     const button = screen.getByTestId('select');
     fireEvent.click(button);
-    const dropdown = within(button.parentElement!);
+    const dropdown = within(button);
     const option = dropdown.getByText('Option 1');
     fireEvent.click(option);
 
