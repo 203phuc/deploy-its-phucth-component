@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { cn } from '../../../util/tailwindClass';
 import { Icons } from '../Icons/Icons';
 import { Text } from '../Text/Text';
 import type { OptionVariants } from './style';
@@ -73,7 +74,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
 
   if (!isOpen) return null;
 
-  const dropdownClasses = [styles.dropdown, styles.width, className].filter(Boolean).join(' ');
+  const dropdownClasses = cn(styles.dropdown, styles.width, className);
 
   return (
     <div ref={selectRef} className="relative" {...props}>
