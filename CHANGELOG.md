@@ -1,3 +1,10 @@
+# [1.0.0-develop.7](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.6...v1.0.0-develop.7) (2025-10-09)
+
+
+### Features
+
+* **ITS-rebase:** modify projectkey ([68295a8](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/68295a80ca7be456a916f440a984cb4b2258fbb0))
+
 # [1.0.0-develop.6](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.5...v1.0.0-develop.6) (2025-10-07)
 
 
