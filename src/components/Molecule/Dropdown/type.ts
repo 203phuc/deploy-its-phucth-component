@@ -1,4 +1,4 @@
-import { IconName } from '../Icons/types';
+import { IconName } from '../../Atom/Icons/types';
 
 export interface DropdownOption {
   label: string;

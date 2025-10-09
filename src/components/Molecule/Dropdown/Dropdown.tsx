@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '../../../util/tailwindClass';
-import { Icons } from '../Icons/Icons';
-import { Text } from '../Text/Text';
+import { Icons } from '../../Atom/Icons/Icons';
+import { Text } from '../../Atom/Text/Text';
 import type { OptionVariants } from './style';
 import { getSelectStyles, optionVariants } from './style';
 import { DropdownOption, DropdownProps } from './type';
