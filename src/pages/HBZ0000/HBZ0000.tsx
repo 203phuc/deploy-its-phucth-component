@@ -3,17 +3,9 @@ import { Logo } from '@components/Atom/Logo/Logo';
 import Toggle from '@components/Atom/Toggle/Toggle';
 import { memo, useState } from 'react';
 import { Button } from '../../components/Atom/Button/Button';
-import { Select } from '../../components/Atom/Select';
 
 const HBZ0000Component = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState<string | number>('');
-
-  const options = [
-    { label: 'Option A', value: 'a' },
-    { label: 'Option B', value: 'b' },
-    { label: 'Disabled C', value: 'c', disabled: true },
-  ];
 
   return (
     <>
@@ -38,19 +30,7 @@ const HBZ0000Component = () => {
             as="a"
             href="#"
             size="medium"
-          >
-            {selectedValue
-              ? options.find((opt) => opt.value === selectedValue)?.label
-              : 'Select an option...'}
-          </Button>
-          <Select
-            options={options}
-            isOpen={isOpen}
-            onClose={() => setIsOpen(false)}
-            value={selectedValue}
-            onChange={setSelectedValue}
-            data-testid="demo-select"
-          />
+          ></Button>
         </div>
       </div>
     </>

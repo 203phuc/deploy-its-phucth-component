@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
-import { Select } from './Select';
+import { Dropdown } from './Dropdown';
 
 const meta = {
-  title: 'Atom/Select',
-  component: Select,
+  title: 'Atom/Dropdown',
+  component: Dropdown,
   parameters: {
     docs: {
       description: {
@@ -19,7 +19,7 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <div className="h-80 bg-gray-50 p-8">
+      <div className="h-80 w-[1400px] bg-gray-50 p-8">
         <Story />
       </div>
     ),
@@ -53,7 +53,7 @@ const meta = {
       description: 'Currently selected value',
     },
   },
-} satisfies Meta<typeof Select>;
+} satisfies Meta<typeof Dropdown>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -67,10 +67,11 @@ const sampleOptions = [
 ];
 
 const languageOptions = [
-  { label: 'English', value: 'en', icon: 'CheckIcon' as const, type: 'language' as const },
-  { label: 'Spanish', value: 'es', icon: 'CheckIcon' as const, type: 'language' as const },
-  { label: 'French', value: 'fr', icon: 'CheckIcon' as const, type: 'language' as const },
-  { label: 'German', value: 'de', icon: 'CheckIcon' as const, type: 'language' as const },
+  { label: 'German', value: 'en', icon: 'GermanFlagIcon' as const },
+  { label: 'Italian', value: 'it', icon: 'ItalianFlagIcon' as const },
+  { label: 'Egypt', value: 'eg', icon: 'EgyptianFlagIcon' as const },
+  { label: 'Japan', value: 'jp', icon: 'JapaneseFlagIcon' as const },
+  { label: 'English', value: 'egl', icon: 'AmericanFlagIcon' as const },
 ];
 
 const currencyOptions = [
@@ -141,7 +142,7 @@ export const Interactive: Story = {
             ? sampleOptions.find((opt) => opt.value === selectedValue)?.label
             : 'Select an option...'}
         </button>
-        <Select
+        <Dropdown
           options={sampleOptions}
           isOpen={isOpen}
           onClose={() => setIsOpen(false)}
@@ -205,27 +206,27 @@ export const AllVariants: Story = {
     <div className="grid grid-cols-1 gap-8 sm:grid-cols-6">
       <div>
         <h3 className="mb-2 text-sm font-medium">Width 114px (No Check Icon)</h3>
-        <Select options={sampleOptions} isOpen={true} variant="width-114" />
+        <Dropdown options={sampleOptions} isOpen={true} variant="width-114" />
       </div>
       <div>
         <h3 className="mb-2 text-sm font-medium">Width 173px</h3>
-        <Select options={sampleOptions} isOpen={true} variant="width-173" />
+        <Dropdown options={sampleOptions} isOpen={true} variant="width-173" />
       </div>
       <div>
         <h3 className="mb-2 text-sm font-medium">Width 228px</h3>
-        <Select options={sampleOptions} isOpen={true} variant="width-228" />
+        <Dropdown options={sampleOptions} isOpen={true} variant="width-228" />
       </div>
       <div>
         <h3 className="mb-2 text-sm font-medium">Default (Full Width)</h3>
-        <Select options={sampleOptions} isOpen={true} variant="default" />
+        <Dropdown options={sampleOptions} isOpen={true} variant="default" />
       </div>
       <div>
         <h3 className="mb-2 text-sm font-medium">Language Options (with flags)</h3>
-        <Select options={languageOptions} isOpen={true} variant="width-114" />
+        <Dropdown options={languageOptions} isOpen={true} variant="width-114" />
       </div>
       <div>
         <h3 className="mb-2 text-sm font-medium">Currency Options</h3>
-        <Select options={currencyOptions} isOpen={true} variant="width-114" />
+        <Dropdown options={currencyOptions} isOpen={true} variant="width-114" />
       </div>
     </div>
   ),

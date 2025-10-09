@@ -1,5 +1,5 @@
 import { cva, type VariantProps } from 'class-variance-authority';
-import { SelectDirection, SelectVariant } from './type';
+import { DropdownDirection, DropdownVariant } from './type';
 
 const dropdownVariants = cva(
   'absolute z-50 max-h-60 overflow-auto bg-white shadow-[0px_8px_16px_0px_#00000009]',
@@ -21,6 +21,7 @@ const optionVariants = cva('cursor-pointer text-sm transition-colors duration-20
     variant: {
       default: 'px-4 py-3',
       'width-114': 'px-3 py-2',
+      none: '',
     },
     selected: {
       true: 'bg-blue-50',
@@ -43,6 +44,8 @@ const widthVariants = cva('', {
       'width-228': 'w-[228px]',
       'width-173': 'w-[173px]',
       'width-114': 'w-[114px]',
+      'width-255': 'w-[255px]',
+      other: '',
     },
   },
   defaultVariants: {
@@ -54,7 +57,10 @@ type DropdownVariants = VariantProps<typeof dropdownVariants>;
 type OptionVariants = VariantProps<typeof optionVariants>;
 type WidthVariants = VariantProps<typeof widthVariants>;
 
-export const getSelectStyles = (variant: SelectVariant = 'default', direction: SelectDirection = 'down') => {
+export const getSelectStyles = (
+  variant: DropdownVariant = 'default',
+  direction: DropdownDirection = 'down',
+) => {
   const width = widthVariants({ variant });
 
   return {

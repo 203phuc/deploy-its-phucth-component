@@ -1,21 +1,20 @@
 import { IconName } from '../Icons/types';
 
-export interface SelectOption {
+export interface DropdownOption {
   label: string;
   value: string | number;
   disabled?: boolean;
   icon?: IconName; // For flag icons or other icons
-  type?: 'language' | 'currency'; // To distinguish between language and currency options
 }
 
-export type SelectVariant = 'default' | 'width-228' | 'width-173' | 'width-114';
-export type SelectDirection = 'down' | 'up';
+export type DropdownVariant = 'default' | 'width-228' | 'width-173' | 'width-114' | 'other' | 'width-255';
+export type DropdownDirection = 'down' | 'up';
 
-export interface SelectProps {
+export interface DropdownProps {
   /**
    * Array of select options with label, value, and optional properties
    */
-  options: SelectOption[];
+  options: DropdownOption[];
   /**
    * Whether the dropdown is currently open/visible
    */
@@ -27,11 +26,11 @@ export interface SelectProps {
   /**
    * Width variant of the select dropdown
    */
-  variant?: SelectVariant;
+  variant?: DropdownVariant;
   /**
    * Direction of the dropdown (up or down)
    */
-  direction?: SelectDirection;
+  direction?: DropdownDirection;
   /**
    * Currently selected value
    */
@@ -48,4 +47,16 @@ export interface SelectProps {
    * Additional CSS classes for the dropdown container
    */
   className?: string;
+  /**
+   * font for the text
+   */
+  font?: 'spaceGrotesk' | 'inter';
+  /**
+   * color for the text
+   */
+  color?: 'black-900' | 'default';
+  /**
+   * weight for the text
+   */
+  weight?: 'regular' | 'semiBold' | 'bold' | 'moderate';
 }
