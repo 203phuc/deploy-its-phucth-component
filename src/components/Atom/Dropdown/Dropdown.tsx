@@ -78,7 +78,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
 
   return (
     <div ref={selectRef} className="relative" {...props}>
-      <div className={dropdownClasses} role="listbox" aria-label="Select options">
+      <div className={dropdownClasses}>
         {options.map((option) => {
           const isSelected = option.value === dropdownValue;
           const optionClasses = optionVariants({
@@ -89,19 +89,12 @@ export const Dropdown: React.FC<DropdownProps> = ({
           });
 
           return (
-            <div
+            <button
               key={String(option.value)}
               className={optionClasses}
               onClick={() => handleOptionClick(option.value, option)}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  handleOptionClick(option.value, option);
-                }
-              }}
-              role="option"
-              tabIndex={option.disabled ? -1 : 0}
-              aria-selected={isSelected}
+              disabled={option.disabled} // prevents click on disabled options
+              type="button" // always good practice in forms
             >
               {variant !== 'other' ? (
                 <div className="flex items-center justify-between">
@@ -111,7 +104,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
                       {option.label}
                     </Text>
                   </div>
-                  {variant !== 'width-114' && isSelected && (
+                  {variant !== 'width-114' && option.value === dropdownValue && (
                     <Icons iconName="CheckIcon" iconSize={20} color="black" />
                   )}
                 </div>
@@ -125,7 +118,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
                   </div>
                 </div>
               )}
-            </div>
+            </button>
           );
         })}
       </div>
