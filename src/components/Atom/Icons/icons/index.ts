@@ -1,4 +1,5 @@
 // Export all icons from the icons directory
+export { AmericanFlagIcon } from './AmericanFlagIcon';
 export { ArrowDownIcon } from './ArrowDownIcon';
 export { ArrowLeftIcon } from './ArrowLeftIcon';
 export { ArrowRightIcon } from './ArrowRightIcon';
@@ -15,16 +16,20 @@ export { CloseIcon } from './CloseIcon';
 export { CouponIcon } from './CouponIcon';
 export { CreditCardIcon } from './CreditCardIcon';
 export { EditIcon } from './EditIcon';
+export { EgyptianFlagIcon } from './EgyptiansFlagIcon';
 export { EmailIcon } from './EmailIcon';
 export { EyeCloseIcon } from './EyeCloseIcon';
 export { FacebookIcon } from './FacebookIcon';
 export { FiveColumnsIcon } from './FiveColumnsIcon';
 export { FourColumnsIcon } from './FourColumnsIcon';
+export { GermanFlagIcon } from './GermanFlagIcon';
 export { HamburgerMenuIcon } from './HamburgerMenuIcon';
 export { HeartFilledIcon } from './HeartFilledIcon';
 export { HeartIcon } from './HeartIcon';
 export { HelpIcon } from './HelpIcon';
 export { InstagramIcon } from './InstagramIcon';
+export { ItalianFlagIcon } from './ItalianFlagIcon';
+export { JapaneseFlagIcon } from './JapaneseFlagIcon';
 export { ListIcon } from './ListIcon';
 export { LockIcon } from './LockIcon';
 export { LogoutIcon } from './LogoutIcon';
