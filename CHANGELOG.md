@@ -1,3 +1,27 @@
+# [1.0.0-develop.8](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.7...v1.0.0-develop.8) (2025-10-13)
+
+
+### Bug Fixes
+
+* **ITS-IR01-25:** fix review naming for styles ([ff03f7f](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/ff03f7fcd276a149585ff10a31fb354ab9f8a757))
+* **ITS-IR01-25:** fixing naming for width style ([4894ff7](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/4894ff76f291a2e9fe0357a8abb89753e58e7e86))
+
+
+### Features
+
+* **ITS-IR01-25:** adding new exclude from sonar ([718f4b1](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/718f4b11fed6b3a88eeadd7d57c36075e2ee1215))
+* **ITS-IR01-25:** apply util function to dropdown atom ([37f3baf](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/37f3bafc4a52f6420a9ed62b3cfe2d1091db7237))
+* **ITS-IR01-25:** change file placement to molecule ([27db91b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/27db91b71ef80393876509e7d15a8121361e66d7))
+* **ITS-IR01-25:** change to property of sonar ([548f75c](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/548f75c1e2a816370fce96f056c542800571a39b))
+* **ITS-IR01-25:** change to test disable opntion for sonarqube ([7d2a15a](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/7d2a15a3ecd684e7cc755de32e815fc7e2a499dd))
+* **ITS-IR01-25:** change to test file for sonarqube ([0863f1e](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/0863f1e39bc4013a97ac50a584ce645073eb8ce7))
+* **ITS-IR01-25:** merge develop ([57b49fa](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/57b49fa7a2940f2cb0cec282eb03f05d79198eaa))
+* **ITS-IR01-25:** modify for sonarqube rule on  stories file ([b42414b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/b42414b3b2b5029156f50778c28139d6ea4abea2))
+* **ITS-IR01-25:** modify for sonarqube rule on component and stories file ([80d8e6a](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/80d8e6a5d1ec572ade599297fd0e7520428fc54c))
+* **ITS-IR01-25:** sonar corverafe test file ([4e4d578](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/4e4d578ffe81887580b5a84fa00e81d6e281931c))
+* **ITS-IR01-25:** stories building for dropdown ([d62a4a2](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/d62a4a2fd5dd6bb0d81202f5d1112275dc7220f1))
+* **ITS-IR01-25:** tested molecule dropdown ([fa460af](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/fa460af52ecbe2a18cd26434a2da3833eb612283))
+
 # [1.0.0-develop.7](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.6...v1.0.0-develop.7) (2025-10-09)
 
 ### Features
