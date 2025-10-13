@@ -1,14 +1,15 @@
 import React from 'react';
 import { Icons } from '../Icons';
-import { inputCva, inputElementCva } from './style';
+import { inputCva, inputElementCva, labelCva, textareaCva } from './style';
 import type { InputProps } from './type';
 
 /**
- * Universal Input Component
+ * Universal Input Component - can render as input or textarea
  */
-export const Input = React.forwardRef<HTMLInputElement, InputProps>(
+export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(
   (
     {
+      as = 'input',
       type = 'text',
       variant = 'solid',
       size = 'medium',
@@ -19,27 +20,61 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       label,
       error,
       className,
+      rows = 4,
       ...props
     },
     ref,
   ) => {
-    // Compose wrapper classes using CVA
-    const wrapperClasses = [inputCva({ variant, size, error: !!error }), className].filter(Boolean).join(' ');
+    // Compose label classes using CVA
+    const labelClasses = labelCva({ size });
 
-    // Compose input element classes using CVA
+    // Render as textarea
+    if (as === 'textarea') {
+      const textareaClasses = [textareaCva({ variant, size, error: !!error }), className]
+        .filter(Boolean)
+        .join(' ');
+
+      return (
+        <div className="flex flex-col gap-1">
+          {/* Label (optional) */}
+          {label && <label className={labelClasses}>{label}</label>}
+
+          {/* Textarea element */}
+          <textarea
+            {...(props as React.TextareaHTMLAttributes<HTMLTextAreaElement>)}
+            ref={ref as React.ForwardedRef<HTMLTextAreaElement>}
+            placeholder={placeholder}
+            rows={rows}
+            className={textareaClasses}
+          />
+
+          {/* Error message (optional) */}
+          {error && <span className="text-sm text-black">{error}</span>}
+        </div>
+      );
+    }
+
+    // Render as input (default)
+    const wrapperClasses = [inputCva({ variant, size, error: !!error }), className].filter(Boolean).join(' ');
     const inputClasses = inputElementCva({ size });
 
     return (
       <div className="flex flex-col gap-1">
         {/* Label (optional) */}
-        {label && <label className="text-sm font-medium text-gray-700">{label}</label>}
+        {label && <label className={labelClasses}>{label}</label>}
 
         {/* Input wrapper */}
         <div className={wrapperClasses}>
           {/* Start icon (optional) */}
           {iconStart && <Icons iconName={iconStart} className="h-4 w-4 text-gray-500" />}
           {/* Input element */}
-          <input {...props} ref={ref} type={type} placeholder={placeholder} className={inputClasses} />
+          <input
+            {...(props as React.InputHTMLAttributes<HTMLInputElement>)}
+            ref={ref as React.ForwardedRef<HTMLInputElement>}
+            type={type}
+            placeholder={placeholder}
+            className={inputClasses}
+          />
           {/* End icon (optional) */}
           {iconEnd && (
             <Icons

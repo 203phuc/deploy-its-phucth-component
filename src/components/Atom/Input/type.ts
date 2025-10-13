@@ -1,18 +1,18 @@
-import type { InputHTMLAttributes } from 'react';
+import type { InputHTMLAttributes, TextareaHTMLAttributes } from 'react';
 import type { IconName } from '../Icons/types';
 
 export type InputVariant = 'line' | 'solid';
 export type InputSize = 'small' | 'medium' | 'large';
 
 /**
- * Input component props
+ * Base props shared between input and textarea
  */
-export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
+interface BaseInputProps {
   /**
-   * The input type
-   * @default 'text'
+   * Render as input or textarea
+   * @default 'input'
    */
-  type?: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url' | 'search' | 'date';
+  as?: 'input' | 'textarea';
 
   /**
    * Optional design variant (for styling theme)
@@ -60,4 +60,40 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 
    * Additional className to apply to the wrapper
    */
   className?: string;
+
+  /**
+   * Number of visible text rows (only for textarea)
+   * @default 4
+   */
+  rows?: number;
 }
+
+/**
+ * Props when rendered as input
+ */
+interface InputElementProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'>, BaseInputProps {
+  as?: 'input';
+  /**
+   * The input type
+   * @default 'text'
+   */
+  type?: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url' | 'search' | 'date';
+}
+
+/**
+ * Props when rendered as textarea
+ */
+interface TextareaElementProps
+  extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'size'>,
+    BaseInputProps {
+  as: 'textarea';
+  type?: never;
+  iconStart?: never;
+  iconEnd?: never;
+  onIconEndClick?: never;
+}
+
+/**
+ * Input component props - union of input and textarea props
+ */
+export type InputProps = InputElementProps | TextareaElementProps;

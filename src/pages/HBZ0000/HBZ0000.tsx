@@ -18,8 +18,10 @@ const HBZ0000Component = () => {
       <Logo size="large" logoName="PumaLogo" />
 
       <Input
+        label="Hello"
+        variant="line"
         type={pss}
-        placeholder="MM/YY"
+        placeholder="Hello"
         iconEnd="ChevronDownIcon"
         onIconEndClick={() => setPss(pss === 'text' ? 'password' : 'text')}
       />
