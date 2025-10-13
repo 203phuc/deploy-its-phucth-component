@@ -1,85 +1,93 @@
-# [1.0.0-develop.5](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.4...v1.0.0-develop.5) (2025-10-06)
-
+# [1.0.0-develop.7](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.6...v1.0.0-develop.7) (2025-10-09)
 
 ### Features
 
-* **ITS-IR01-91:** add cspell for logo name ([f7c756b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/f7c756bc1fafe416b3d5b4acd6ad3a67e1e843fa))
-* **ITS-IR01-91:** add logos svg ([5409b9b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/5409b9b2186470f3449ac29245388e639856e981))
-* **ITS-IR01-91:** test and stories finsihed ([e88db1c](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/e88db1c6232f577301694f530e3af7072b58765d))
+- **ITS-rebase:** modify projectkey ([68295a8](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/68295a80ca7be456a916f440a984cb4b2258fbb0))
+
+# [1.0.0-develop.6](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.5...v1.0.0-develop.6) (2025-10-07)
+
+### Bug Fixes
+
+- **ITS-IR01-74:** review fix figma link and code structure of video component file ([016b293](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/016b293fc77b96070611775814ba859104ab988f))
+
+### Features
+
+- **ITS-IR01-74:** added and finished testing ([e9c85e0](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/e9c85e090da23f219d44a7f138b2d7ba14a36a2c))
+- **ITS-IR01-74:** added test and stories for VideoPlayer ([d70ab87](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/d70ab878ea2d7d5508eb25f4906f3a968601570a))
+
+# [1.0.0-develop.5](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.4...v1.0.0-develop.5) (2025-10-06)
+
+### Features
+
+- **ITS-IR01-91:** add cspell for logo name ([f7c756b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/f7c756bc1fafe416b3d5b4acd6ad3a67e1e843fa))
+- **ITS-IR01-91:** add logos svg ([5409b9b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/5409b9b2186470f3449ac29245388e639856e981))
+- **ITS-IR01-91:** test and stories finsihed ([e88db1c](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/e88db1c6232f577301694f530e3af7072b58765d))
 
 # [1.0.0-develop.4](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.3...v1.0.0-develop.4) (2025-10-03)
 
-
 ### Bug Fixes
 
-* **ITS-IR01-94:** review fix type and refine stories ([7bbdd21](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/7bbdd2192dcdf15583280d564641130109e7e228))
-
+- **ITS-IR01-94:** review fix type and refine stories ([7bbdd21](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/7bbdd2192dcdf15583280d564641130109e7e228))
 
 ### Features
 
-* **ITS-IR01-94:** added test and refine stories for badge ([6bdd74d](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/6bdd74d01a3e21db92bddb7e6356475e96b67d31))
-* **ITS-IR01-94:** set up for atom badge ([ee6ca1e](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/ee6ca1ed095c058956e3d23757ed032923f26f78))
+- **ITS-IR01-94:** added test and refine stories for badge ([6bdd74d](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/6bdd74d01a3e21db92bddb7e6356475e96b67d31))
+- **ITS-IR01-94:** set up for atom badge ([ee6ca1e](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/ee6ca1ed095c058956e3d23757ed032923f26f78))
 
 # [1.0.0-develop.3](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.2...v1.0.0-develop.3) (2025-10-02)
 
-
 ### Bug Fixes
 
-* **ITS-IR01-67:** review fix optimization using clsx ([47fa23e](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/47fa23ea41ed4fe30cd9c1586527c358bef7cebb))
-
+- **ITS-IR01-67:** review fix optimization using clsx ([47fa23e](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/47fa23ea41ed4fe30cd9c1586527c358bef7cebb))
 
 ### Features
 
-* **ITS-IR01-67:** finished atom radio ([fc64945](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/fc6494563266bf62e55f29544f2c885240897501))
-* **ITS-IR01-67:** modify radio component file remove unuse code ([679a8c8](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/679a8c8e123447972c73bd2a054bae73c3725281))
-* **ITS-IR01-67:** remove unnecessary code on Radio ([1308a0b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/1308a0bfda6ca90cf62d4ff793adfe95e62c63f1))
+- **ITS-IR01-67:** finished atom radio ([fc64945](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/fc6494563266bf62e55f29544f2c885240897501))
+- **ITS-IR01-67:** modify radio component file remove unuse code ([679a8c8](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/679a8c8e123447972c73bd2a054bae73c3725281))
+- **ITS-IR01-67:** remove unnecessary code on Radio ([1308a0b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/1308a0bfda6ca90cf62d4ff793adfe95e62c63f1))
 
 # [1.0.0-develop.2](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.1...v1.0.0-develop.2) (2025-10-01)
 
-
 ### Bug Fixes
 
-* **ITS-IR01-24:** fix review by remove unwanted file ([0e1bdc8](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/0e1bdc86c80e1839e10d5701f26cdd34b2122207))
-
+- **ITS-IR01-24:** fix review by remove unwanted file ([0e1bdc8](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/0e1bdc86c80e1839e10d5701f26cdd34b2122207))
 
 ### Features
 
-* **ITS-IR01-024:** complete icon with test and stories ([3606f92](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/3606f926c41d9a88684aa04c44c66c844f29ffce))
-* **ITS-IR01-024:** modify stories add more case ([01f0fd7](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/01f0fd7a4e3c30f0bbfb68088fbc4b9750658fb2))
-* **ITS-IR01-024:** set up icons folder ([7ea347e](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/7ea347ef4cf5b3e834b9b098ea4cc93301833a4a))
-* **ITS-IR01-24:** matching with dev index file ([e07bfac](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/e07bfac36245fceedf561f02e578d72012140eb3))
-* **ITS-IR01-24:** matching with dev page ([373f251](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/373f251fc87d3f220e236c3dc2ca03515d466494))
+- **ITS-IR01-024:** complete icon with test and stories ([3606f92](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/3606f926c41d9a88684aa04c44c66c844f29ffce))
+- **ITS-IR01-024:** modify stories add more case ([01f0fd7](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/01f0fd7a4e3c30f0bbfb68088fbc4b9750658fb2))
+- **ITS-IR01-024:** set up icons folder ([7ea347e](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/7ea347ef4cf5b3e834b9b098ea4cc93301833a4a))
+- **ITS-IR01-24:** matching with dev index file ([e07bfac](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/e07bfac36245fceedf561f02e578d72012140eb3))
+- **ITS-IR01-24:** matching with dev page ([373f251](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/373f251fc87d3f220e236c3dc2ca03515d466494))
 
 # 1.0.0-develop.1 (2025-10-01)
 
-
 ### Bug Fixes
 
-* **ITS-IR01-143:** fix import ([a4bbdce](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/a4bbdcea28d9ff65f9dfe7fcdccba701371152ed))
-
+- **ITS-IR01-143:** fix import ([a4bbdce](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/a4bbdcea28d9ff65f9dfe7fcdccba701371152ed))
 
 ### Features
 
-* **ITS-010:** button atom completed ([3428620](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/342862044c7c80d812f835cc78a9d78bad8d4f72))
-* **ITS-010:** font to camelcase add link figma ([78ffcbc](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/78ffcbcd325b1c2316f5f7ee4f515e967927bb73))
-* **ITS-016:** develop link atom ([696076c](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/696076ce931234b061ba0b0380b3503fc0504ae9))
-* **ITS-016:** modify from suggest on merge request ([5cb8c1b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/5cb8c1b1dde766c676e50ad6c7ebced607c078f9))
-* **ITS-017:** adding figma link ([b3ecc46](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/b3ecc4658bc2d1fffbde0d005911527195e68d4c))
-* **ITS-017:** image placeholder completed ([c186715](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/c1867152bce417d794535c71ddbd5d0c149f0c5e))
-* **ITS-038:** add link figma ([74ba735](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/74ba735646e689c920288df3d8cc0e993c196601))
-* **ITS-038:** develop overlay atom ([270c7c7](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/270c7c7a2658482fa122e2e280762fb66cbd5ed7))
-* **ITS-038:** merge develop branch to avoid later conflict ([fcdb621](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/fcdb6210264dc3697edd46f66f4f904e42fdc435))
-* **ITS-038:** remove unecessary usememo ([4ab6326](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/4ab6326e9578d704676f11ac0c33e420b6067834))
-* **ITS-038:** simplify component by remove some prop ([5fc0a99](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/5fc0a99e963f8c54f9cef1b9ad08b9cca9856a03))
-* **ITS-046:**  Remove commented code in Text stroies ([dd6078f](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/dd6078fefb05e958f9d8494fd9a66ec1e8095b6b))
-* **ITS-046:** adding figma link Text atom ([c334795](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/c334795d475eada3413d0ce9d8337db78a9e53c9))
-* **ITS-046:** adding new props and remove styles Text atom ([80dd621](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/80dd621b7fcf538b7145d15a146c1d5deba7f659))
-* **ITS-046:** finish Text atom ([3dc8210](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/3dc82101559fe051793c95156cbfb1b348718d63))
-* **ITS-047:** heading and text fix based on /merge_requests/3 ([0b43114](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/0b43114792cf2313b797e71d1a627a47ba90bfd8))
-* **ITS-047:** heading component completed ([ca8c996](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/ca8c996a66a1e23e10fff9b4f2024c8e7b5d481f))
-* **ITS-049:** completed atom checkbox ([93012b1](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/93012b19802dff07a0c493a872ae4573f544fcb3))
-* **ITS-049:** finish testing ([77652f4](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/77652f4e1978b3528eb2cce5db162b8910093d93))
-* **ITS-049:** modify with suggestion from gitlab ([dc2955e](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/dc2955eb7f0fdc25e5a47eb0d0a3595b2e221ce4))
-* **ITS-050:** add link figma and modify style ([7696f0c](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/7696f0c00cdd81d5c03bc7eb40955eff0f0c6457))
-* **ITS-050:** remove assitive atribute ([c96d1a0](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/c96d1a001e4219c2e549344a4f949805278a82ad))
-* **ITS-050:** remove wrong file ([dca6f75](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/dca6f758acee51cb4a2a84634659074c99c550a0))
+- **ITS-010:** button atom completed ([3428620](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/342862044c7c80d812f835cc78a9d78bad8d4f72))
+- **ITS-010:** font to camelcase add link figma ([78ffcbc](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/78ffcbcd325b1c2316f5f7ee4f515e967927bb73))
+- **ITS-016:** develop link atom ([696076c](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/696076ce931234b061ba0b0380b3503fc0504ae9))
+- **ITS-016:** modify from suggest on merge request ([5cb8c1b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/5cb8c1b1dde766c676e50ad6c7ebced607c078f9))
+- **ITS-017:** adding figma link ([b3ecc46](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/b3ecc4658bc2d1fffbde0d005911527195e68d4c))
+- **ITS-017:** image placeholder completed ([c186715](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/c1867152bce417d794535c71ddbd5d0c149f0c5e))
+- **ITS-038:** add link figma ([74ba735](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/74ba735646e689c920288df3d8cc0e993c196601))
+- **ITS-038:** develop overlay atom ([270c7c7](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/270c7c7a2658482fa122e2e280762fb66cbd5ed7))
+- **ITS-038:** merge develop branch to avoid later conflict ([fcdb621](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/fcdb6210264dc3697edd46f66f4f904e42fdc435))
+- **ITS-038:** remove unecessary usememo ([4ab6326](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/4ab6326e9578d704676f11ac0c33e420b6067834))
+- **ITS-038:** simplify component by remove some prop ([5fc0a99](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/5fc0a99e963f8c54f9cef1b9ad08b9cca9856a03))
+- **ITS-046:** Remove commented code in Text stroies ([dd6078f](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/dd6078fefb05e958f9d8494fd9a66ec1e8095b6b))
+- **ITS-046:** adding figma link Text atom ([c334795](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/c334795d475eada3413d0ce9d8337db78a9e53c9))
+- **ITS-046:** adding new props and remove styles Text atom ([80dd621](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/80dd621b7fcf538b7145d15a146c1d5deba7f659))
+- **ITS-046:** finish Text atom ([3dc8210](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/3dc82101559fe051793c95156cbfb1b348718d63))
+- **ITS-047:** heading and text fix based on /merge_requests/3 ([0b43114](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/0b43114792cf2313b797e71d1a627a47ba90bfd8))
+- **ITS-047:** heading component completed ([ca8c996](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/ca8c996a66a1e23e10fff9b4f2024c8e7b5d481f))
+- **ITS-049:** completed atom checkbox ([93012b1](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/93012b19802dff07a0c493a872ae4573f544fcb3))
+- **ITS-049:** finish testing ([77652f4](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/77652f4e1978b3528eb2cce5db162b8910093d93))
+- **ITS-049:** modify with suggestion from gitlab ([dc2955e](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/dc2955eb7f0fdc25e5a47eb0d0a3595b2e221ce4))
+- **ITS-050:** add link figma and modify style ([7696f0c](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/7696f0c00cdd81d5c03bc7eb40955eff0f0c6457))
+- **ITS-050:** remove assitive atribute ([c96d1a0](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/c96d1a001e4219c2e549344a4f949805278a82ad))
+- **ITS-050:** remove wrong file ([dca6f75](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/dca6f758acee51cb4a2a84634659074c99c550a0))
