@@ -36,7 +36,7 @@ describe('Select', () => {
 
   it('applies correct variant classes', () => {
     const { container } = render(
-      <Dropdown isOpen={true} options={sampleOptions} variant="width-228" data-testid="select3" />,
+      <Dropdown isOpen={true} options={sampleOptions} variant="md" data-testid="select3" />,
     );
     const buttonInside = (container.firstChild as HTMLElement).querySelector('div');
     expect(buttonInside?.className).toContain('w-[228px]');

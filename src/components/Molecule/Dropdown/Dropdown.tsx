@@ -32,15 +32,15 @@ export const Dropdown: React.FC<DropdownProps> = ({
 
   switch (variant) {
     case 'default':
-    case 'width-228':
-    case 'width-173':
+    case 'sm':
+    case 'md':
     case 'other':
       optionVariant = 'default';
       break;
-    case 'width-114':
-      optionVariant = 'width-114';
+    case 'xs':
+      optionVariant = 'xs';
       break;
-    case 'width-255':
+    case 'lg':
       optionVariant = 'none';
       break;
     default:
@@ -104,7 +104,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
                       {option.label}
                     </Text>
                   </div>
-                  {variant !== 'width-114' && option.value === dropdownValue && (
+                  {variant !== 'xs' && option.value === dropdownValue && (
                     <Icons iconName="CheckIcon" iconSize={20} color="black" />
                   )}
                 </div>

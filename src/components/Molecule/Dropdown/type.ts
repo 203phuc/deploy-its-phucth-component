@@ -7,7 +7,7 @@ export interface DropdownOption {
   icon?: IconName; // For flag icons or other icons
 }
 
-export type DropdownVariant = 'default' | 'width-228' | 'width-173' | 'width-114' | 'other' | 'width-255';
+export type DropdownVariant = 'default' | 'xs' | 'sm' | 'md' | 'lg' | 'other';
 export type DropdownDirection = 'down' | 'up';
 
 export interface DropdownProps {

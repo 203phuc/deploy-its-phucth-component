@@ -9,7 +9,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'A dropdown-only select component with multiple variants and styling options.\n\n### Features:\n- Three width variants: default (full width), 228px, and 173px\n- Custom styling with box shadow and hover effects\n- Selected option highlighting with blue-50 background\n- Hover effects with #F5F5F5 background\n- Controlled open/close state\n- Keyboard accessible',
+          'A dropdown-only select component with multiple variants and styling options.\n\n### Features:\n- Width variants: default (full width), xs (114px), sm (173px), md (228px), lg (255px)\n- Custom styling with box shadow and hover effects\n- Selected option highlighting with blue-50 background\n- Hover effects with #F5F5F5 background\n- Controlled open/close state\n- Keyboard accessible',
       },
     },
     design: {
@@ -28,8 +28,8 @@ const meta = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['default', 'width-228', 'width-173', 'width-114'],
-      description: 'Select width variant',
+      options: ['default', 'xs', 'sm', 'md', 'lg'],
+      description: 'Select width variant (xs=114px, sm=173px, md=228px, lg=255px)',
     },
     direction: {
       control: 'select',
@@ -89,19 +89,19 @@ export const Default: Story = {
   },
 };
 
-export const Width228: Story = {
+export const Medium: Story = {
   args: {
     options: sampleOptions,
     isOpen: true,
-    variant: 'width-228',
+    variant: 'md',
   },
 };
 
-export const Width173: Story = {
+export const Small: Story = {
   args: {
     options: sampleOptions,
     isOpen: true,
-    variant: 'width-173',
+    variant: 'sm',
   },
 };
 
@@ -158,11 +158,11 @@ export const Interactive: Story = {
   },
 };
 
-export const Width114: Story = {
+export const ExtraSmall: Story = {
   args: {
     options: sampleOptions,
     isOpen: true,
-    variant: 'width-114',
+    variant: 'xs',
   },
 };
 
@@ -170,7 +170,7 @@ export const LanguageSelect: Story = {
   args: {
     options: languageOptions,
     isOpen: true,
-    variant: 'width-114',
+    variant: 'xs',
   },
 };
 
@@ -178,7 +178,7 @@ export const CurrencySelect: Story = {
   args: {
     options: currencyOptions,
     isOpen: true,
-    variant: 'width-114',
+    variant: 'xs',
   },
 };
 
@@ -208,16 +208,16 @@ export const AllVariants: Story = {
   render: () => (
     <div className="grid grid-cols-1 gap-8 sm:grid-cols-6">
       <div>
-        <h3 className="mb-2 text-sm font-medium">Width 114px (No Check Icon)</h3>
-        <Dropdown options={sampleOptions} isOpen={true} variant="width-114" />
+        <h3 className="mb-2 text-sm font-medium">XS - 114px (No Check Icon)</h3>
+        <Dropdown options={sampleOptions} isOpen={true} variant="xs" />
       </div>
       <div>
-        <h3 className="mb-2 text-sm font-medium">Width 173px</h3>
-        <Dropdown options={sampleOptions} isOpen={true} variant="width-173" />
+        <h3 className="mb-2 text-sm font-medium">SM - 173px</h3>
+        <Dropdown options={sampleOptions} isOpen={true} variant="sm" />
       </div>
       <div>
-        <h3 className="mb-2 text-sm font-medium">Width 228px</h3>
-        <Dropdown options={sampleOptions} isOpen={true} variant="width-228" />
+        <h3 className="mb-2 text-sm font-medium">MD - 228px</h3>
+        <Dropdown options={sampleOptions} isOpen={true} variant="md" />
       </div>
       <div>
         <h3 className="mb-2 text-sm font-medium">Default (Full Width)</h3>
@@ -225,11 +225,11 @@ export const AllVariants: Story = {
       </div>
       <div>
         <h3 className="mb-2 text-sm font-medium">Language Options (with flags)</h3>
-        <Dropdown options={languageOptions} isOpen={true} variant="width-114" />
+        <Dropdown options={languageOptions} isOpen={true} variant="xs" />
       </div>
       <div>
         <h3 className="mb-2 text-sm font-medium">Currency Options</h3>
-        <Dropdown options={currencyOptions} isOpen={true} variant="width-114" />
+        <Dropdown options={currencyOptions} isOpen={true} variant="xs" />
       </div>
     </div>
   ),

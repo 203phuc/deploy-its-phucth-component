@@ -20,7 +20,7 @@ const optionVariants = cva('w-full cursor-pointer text-left text-sm transition-c
   variants: {
     variant: {
       default: 'px-4 py-3',
-      'width-114': 'px-3 py-2',
+      xs: 'px-3 py-2',
       none: '',
     },
     selected: {
@@ -41,10 +41,10 @@ const widthVariants = cva('', {
   variants: {
     variant: {
       default: 'w-full',
-      'width-228': 'w-[228px]',
-      'width-173': 'w-[173px]',
-      'width-114': 'w-[114px]',
-      'width-255': 'w-[255px]',
+      xs: 'w-[114px]', // 114px - compact width for language/currency selectors
+      sm: 'w-[173px]', // 173px - small width
+      md: 'w-[228px]', // 228px - medium width
+      lg: 'w-[255px]', // 255px - large width
       other: '',
     },
   },
@@ -67,7 +67,7 @@ export const getSelectStyles = (
     dropdown: dropdownVariants({ direction }),
     option: (selected?: boolean, disabled?: boolean) =>
       optionVariants({
-        variant: variant === 'width-114' ? 'width-114' : 'default',
+        variant: variant === 'xs' ? 'xs' : 'default',
         selected,
         disabled,
       }),
