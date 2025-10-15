@@ -193,15 +193,93 @@ export const Disabled: Story = {
   },
 };
 
-// Font Examples
-export const Fonts: Story = {
+// Test-Based Stories (corresponding to Button.test.tsx)
+export const TestRendersChildren: Story = {
   args: {
-    children: 'Button with different fonts',
+    children: 'Click me',
   },
-  render: (args) => (
-    <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-      <Button {...args} font="inter" />
-      <Button {...args} font="spaceGrotesk" />
-    </div>
-  ),
+};
+
+export const TestAppliesBaseFontClass: Story = {
+  args: {
+    children: 'Test',
+  },
+};
+
+export const TestAppliesSizeClasses: Story = {
+  args: {
+    children: 'Large',
+    size: 'large',
+  },
+};
+
+export const TestRendersAsAnchor: Story = {
+  args: {
+    as: 'a',
+    href: 'https://example.com',
+    children: 'Link',
+  },
+};
+
+export const TestForwardsNativeProps: Story = {
+  args: {
+    'aria-label': 'btn',
+    children: 'OK',
+  },
+};
+
+export const TestCallsOnClick: Story = {
+  args: {
+    children: 'Click',
+    onClick: () => console.log('Button clicked'),
+  },
+};
+
+export const TestAppliesDisabledState: Story = {
+  args: {
+    children: 'Disabled',
+    disabled: true,
+  },
+};
+
+export const TestAppliesVariantClasses: Story = {
+  args: {
+    children: 'Outlined',
+    variant: 'outlined',
+  },
+};
+
+export const TestAppliesRoundnessClasses: Story = {
+  args: {
+    children: 'Round',
+    roundness: 'round',
+  },
+};
+
+export const TestAppliesFullWidthClasses: Story = {
+  args: {
+    children: 'Full',
+    fullWidth: true,
+  },
+};
+
+export const TestRendersUnderlineVariant: Story = {
+  args: {
+    children: 'Underline',
+    variant: 'underline',
+    underlineSize: 'small',
+  },
+};
+
+export const TestUsesDefaultType: Story = {
+  args: {
+    children: 'Default Type',
+  },
+};
+
+export const TestAcceptsCustomClassName: Story = {
+  args: {
+    children: 'Custom',
+    className: 'custom-class',
+  },
 };
