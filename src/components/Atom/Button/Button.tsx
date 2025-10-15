@@ -9,18 +9,12 @@ export const Button = ({
   // CVA handled props
   variant = 'solid',
   size = 'medium',
-  underlineSize = 'medium',
-  roundness = 'pill',
   fullWidth = false,
-  hasIcon = false,
-  font = 'inter',
+  font = 'spaceGrotesk',
   // rest forwarded to underlying element
   ...rest
 }: ButtonProps) => {
-  const variantProps =
-    variant === 'underline'
-      ? { variant, underlineSize, font }
-      : { variant, size, roundness, fullWidth, hasIcon, font };
+  const variantProps = { variant, size, roundness: 'round' as const, fullWidth, font };
 
   const classes = [buttonCva(variantProps), className].filter(Boolean).join(' ');
 

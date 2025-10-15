@@ -19,11 +19,11 @@ const HBZ0000Component = () => {
 
       <Input
         label="Hello"
-        variant="line"
         type={pss}
         placeholder="Hello"
         iconEnd="ChevronDownIcon"
         onIconEndClick={() => setPss(pss === 'text' ? 'password' : 'text')}
+        buttonEnd={<Button size="xsmall">Hello</Button>}
       />
     </>
   );

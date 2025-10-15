@@ -1,15 +1,23 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Input } from './Input';
-import type { InputSize, InputVariant } from './type';
+import type { InputFontFamily, InputSize, InputVariant } from './type';
 
 const meta = {
   title: 'Atom/Input',
   component: Input,
   parameters: {
+    screenshot: {
+      viewport: '335x76',
+      omitBackground: true,
+    },
+    design: {
+      type: 'figma',
+      url: '',
+    },
     docs: {
       description: {
         component:
-          'A flexible input component that can render as either a single-line input or multi-line textarea.\n\n### Features:\n- **Render modes**: Can be `input` (default) or `textarea` for multi-line text\n- **Size variants**: Text size automatically adjusts based on the size prop (small, medium, large)\n- **Label**: Semibold text that scales with size\n- **Placeholder**: Lighter color text that scales with size\n- **Icons**: Optional start and end icons (input mode only)\n- **Variants**: Solid (bordered) and Line (underlined) styles\n- **Error state**: Displays error message and red border\n- **Type safety**: TypeScript prevents invalid prop combinations (e.g., icons on textarea)',
+          'A flexible input component that can render as either a single-line input or multi-line textarea.\n\n### Features:\n- **Render modes**: Can be `input` (default) or `textarea` for multi-line text\n- **Size variants**: Text size automatically adjusts based on the size prop (small, medium, large)\n- **Font families**: Choose between Inter and Space Grotesk fonts for input text, placeholder, and label\n- **Label**: Semibold text that scales with size\n- **Placeholder**: Lighter color text that scales with size\n- **Icons**: Optional start and end icons (input mode only)\n- **Variants**: Solid (bordered) and Line (underlined) styles\n- **Error state**: Displays error message and red border\n- **Type safety**: TypeScript prevents invalid prop combinations (e.g., icons on textarea)',
       },
     },
   },
@@ -68,6 +76,14 @@ const meta = {
       control: 'text',
       description: 'Icon name to display at the end of the input',
     },
+    buttonStart: {
+      control: 'object',
+      description: 'React element to display at the start of the input (e.g., button)',
+    },
+    buttonEnd: {
+      control: 'object',
+      description: 'React element to display at the end of the input (e.g., button)',
+    },
     disabled: {
       control: 'boolean',
       description: 'Whether the input is disabled',
@@ -76,6 +92,14 @@ const meta = {
       control: { type: 'number', min: 2, max: 20 },
       description: 'Number of visible text rows (only for textarea)',
       if: { arg: 'as', eq: 'textarea' },
+    },
+    fontFamily: {
+      control: { type: 'select' },
+      options: ['inter', 'grotesk'] as InputFontFamily[],
+      description: 'Font family for all text elements (label, placeholder, and input text)',
+      table: {
+        defaultValue: { summary: 'inter' },
+      },
     },
   },
   args: {
@@ -195,6 +219,75 @@ export const WithClickableEndIcon: Story = {
   },
 };
 
+export const WithStartButton: Story = {
+  args: {
+    label: 'Search',
+    placeholder: 'Search...',
+    buttonStart: (
+      <button
+        style={{
+          padding: '4px 8px',
+          background: '#f0f0f0',
+          border: 'none',
+          borderRadius: '4px',
+          cursor: 'pointer',
+          fontSize: '12px',
+        }}
+        onClick={() => alert('Button clicked!')}
+      >
+        Go
+      </button>
+    ),
+  },
+};
+
+export const WithEndButton: Story = {
+  args: {
+    label: 'Email',
+    placeholder: 'Enter your email',
+    buttonEnd: (
+      <button
+        style={{
+          padding: '4px 12px',
+          background: '#007bff',
+          color: 'white',
+          border: 'none',
+          borderRadius: '4px',
+          cursor: 'pointer',
+          fontSize: '12px',
+        }}
+        onClick={() => alert('Send email!')}
+      >
+        Send
+      </button>
+    ),
+  },
+};
+
+export const IconAndButtonCombo: Story = {
+  args: {
+    label: 'Search with Actions',
+    placeholder: 'Search...',
+    iconStart: 'SearchIcon',
+    buttonEnd: (
+      <button
+        style={{
+          padding: '6px 12px',
+          background: '#28a745',
+          color: 'white',
+          border: 'none',
+          borderRadius: '4px',
+          cursor: 'pointer',
+          fontSize: '12px',
+        }}
+        onClick={() => alert('Advanced search!')}
+      >
+        Search
+      </button>
+    ),
+  },
+};
+
 // Type Examples
 export const EmailInput: Story = {
   args: {
@@ -265,6 +358,21 @@ export const DisabledWithValue: Story = {
 };
 
 // Complex Examples
+export const InputVsTextarea: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+      <div>
+        <h3 style={{ marginBottom: '12px', fontWeight: 600 }}>Input Mode</h3>
+        <Input label="Single Line" placeholder="Enter a single line of text" iconStart="EditIcon" />
+      </div>
+      <div>
+        <h3 style={{ marginBottom: '12px', fontWeight: 600 }}>Textarea Mode</h3>
+        <Input as="textarea" label="Multiple Lines" placeholder="Enter multiple lines of text..." rows={4} />
+      </div>
+    </div>
+  ),
+};
+
 export const AllVariantsCombination: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
@@ -391,17 +499,91 @@ export const TextareaDisabled: Story = {
   },
 };
 
-export const InputVsTextarea: Story = {
+// Font Examples
+export const FontInter: Story = {
+  args: {
+    label: 'Inter Font',
+    placeholder: 'This uses Inter font family',
+    fontFamily: 'inter',
+  },
+};
+
+export const FontGrotesk: Story = {
+  args: {
+    label: 'Space Grotesk Font',
+    placeholder: 'This uses Space Grotesk font family',
+    fontFamily: 'grotesk',
+  },
+};
+
+export const MixedFonts: Story = {
+  args: {
+    label: 'Mixed Fonts',
+    placeholder: 'Input and placeholder use different fonts',
+    fontFamily: 'grotesk',
+  },
+};
+
+export const TextareaFontShowcase: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
       <div>
-        <h3 style={{ marginBottom: '12px', fontWeight: 600 }}>Input Mode</h3>
-        <Input label="Single Line" placeholder="Enter a single line of text" iconStart="EditIcon" />
+        <h3 style={{ marginBottom: '12px', fontWeight: 600 }}>Textarea with Inter Font</h3>
+        <Input
+          as="textarea"
+          label="Message (Inter)"
+          placeholder="Enter your message..."
+          fontFamily="inter"
+          rows={4}
+        />
       </div>
       <div>
-        <h3 style={{ marginBottom: '12px', fontWeight: 600 }}>Textarea Mode</h3>
-        <Input as="textarea" label="Multiple Lines" placeholder="Enter multiple lines of text..." rows={4} />
+        <h3 style={{ marginBottom: '12px', fontWeight: 600 }}>Textarea with Space Grotesk Font</h3>
+        <Input
+          as="textarea"
+          label="Notes (Space Grotesk)"
+          placeholder="Enter your notes..."
+          fontFamily="grotesk"
+          rows={4}
+        />
       </div>
+    </div>
+  ),
+};
+
+// Phone Input Examples (Simplified)
+export const PhoneInputBasic: Story = {
+  render: () => <Input label="Phone Number" type="tel" placeholder="Enter your phone number" />,
+};
+
+export const PhoneInputWithValue: Story = {
+  render: () => (
+    <Input
+      label="Phone Number"
+      type="tel"
+      value="5551234567"
+      placeholder="Enter your phone number"
+      onChange={(e) => console.log('Phone value:', e.target.value)}
+    />
+  ),
+};
+
+export const PhoneInputInternational: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+      <Input label="US Phone" type="tel" placeholder="Enter US phone number" />
+      <Input label="UK Phone" type="tel" placeholder="Enter UK phone number" />
+      <Input label="India Phone" type="tel" placeholder="Enter India phone number" />
+    </div>
+  ),
+};
+
+export const PhoneInputSizes: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+      <Input label="Small Phone Input" type="tel" size="small" />
+      <Input label="Medium Phone Input" type="tel" size="medium" />
+      <Input label="Large Phone Input" type="tel" size="large" />
     </div>
   ),
 };

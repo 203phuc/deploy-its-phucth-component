@@ -1,8 +1,12 @@
-import type { InputHTMLAttributes, TextareaHTMLAttributes } from 'react';
+import type { InputHTMLAttributes, TextareaHTMLAttributes, ReactNode } from 'react';
 import type { IconName } from '../Icons/types';
 
 export type InputVariant = 'line' | 'solid';
 export type InputSize = 'small' | 'medium' | 'large';
+/**
+ * Unified onChange handler that works for both input and textarea
+ */
+export type InputChangeEvent = React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
 
 /**
  * Base props shared between input and textarea
@@ -37,6 +41,16 @@ interface BaseInputProps {
   iconEnd?: IconName;
 
   /**
+   * Optional leading button/element
+   */
+  buttonStart?: ReactNode;
+
+  /**
+   * Optional trailing button/element
+   */
+  buttonEnd?: ReactNode;
+
+  /**
    * Callback when end icon is clicked
    */
   onIconEndClick?: () => void;
@@ -57,16 +71,13 @@ interface BaseInputProps {
   error?: string;
 
   /**
-   * Additional className to apply to the wrapper
+   * Font family for all text elements (label, placeholder, and input text)
+   * @default 'inter'
    */
-  className?: string;
-
-  /**
-   * Number of visible text rows (only for textarea)
-   * @default 4
-   */
-  rows?: number;
+  fontFamily?: InputFontFamily;
 }
+
+export type InputFontFamily = 'inter' | 'grotesk';
 
 /**
  * Props when rendered as input
@@ -77,7 +88,12 @@ interface InputElementProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 
    * The input type
    * @default 'text'
    */
-  type?: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url' | 'search' | 'date';
+  type?: 'text' | 'password' | 'email' | 'number' | 'url' | 'search' | 'date' | 'tel';
+
+  /**
+   * Callback when input value changes
+   */
+  onChange?: (event: InputChangeEvent) => void;
 }
 
 /**
@@ -90,10 +106,33 @@ interface TextareaElementProps
   type?: never;
   iconStart?: never;
   iconEnd?: never;
+  buttonStart?: never;
+  buttonEnd?: never;
   onIconEndClick?: never;
+
+  /**
+   * Callback when textarea value changes
+   */
+  onChange?: (event: InputChangeEvent) => void;
 }
 
 /**
  * Input component props - union of input and textarea props
  */
 export type InputProps = InputElementProps | TextareaElementProps;
+
+/**
+ * PhoneInput component props
+ */
+export interface PhoneInputProps {
+  /**
+   * The input type for phone input
+   * @default 'tel'
+   */
+  type?: 'tel';
+
+  /**
+   * Callback when input value changes
+   */
+  onChange?: (event: InputChangeEvent) => void;
+}

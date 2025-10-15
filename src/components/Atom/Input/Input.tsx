@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button, ButtonProps } from '../Button';
 import { Icons } from '../Icons';
 import { inputCva, inputElementCva, labelCva, textareaCva } from './style';
 import type { InputProps } from './type';
@@ -15,22 +16,83 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
       size = 'medium',
       iconStart,
       iconEnd,
+      buttonStart,
+      buttonEnd,
       onIconEndClick,
       placeholder,
       label,
       error,
       className,
-      rows = 4,
+      fontFamily = 'inter',
       ...props
     },
     ref,
   ) => {
+    // Validation: Prevent icon and button on same side
+    if (iconStart && buttonStart) {
+      console.warn('Input: Both iconStart and buttonStart provided. Only buttonStart will be rendered.');
+    }
+    if (iconEnd && buttonEnd) {
+      console.warn('Input: Both iconEnd and buttonEnd provided. Only buttonEnd will be rendered.');
+    }
     // Compose label classes using CVA
-    const labelClasses = labelCva({ size });
+    const labelClasses = labelCva({ size, fontFamily });
+
+    // Helper function to render start decoration (icon or button)
+    const renderStartDecoration = () => {
+      if (buttonStart) {
+        // If it's a Button component, set variant to 'text' for inside Input
+        const element = buttonStart;
+        if (React.isValidElement(element) && element.type === Button) {
+          return (
+            <div className="flex h-full items-center">
+              {React.cloneElement(element, { variant: 'text' } as ButtonProps)}
+            </div>
+          );
+        }
+        return <div className="flex items-center">{buttonStart}</div>;
+      }
+      if (iconStart) {
+        return <Icons iconName={iconStart} className="h-4 w-4 text-gray-500" />;
+      }
+      return null;
+    };
+
+    // Helper function to render end decoration (icon or button)
+    const renderEndDecoration = () => {
+      if (buttonEnd) {
+        // If it's a Button component, set variant to 'text' for inside Input
+        const element = buttonEnd;
+        if (React.isValidElement(element) && element.type === Button) {
+          return (
+            <div className="flex h-full items-center">
+              {React.cloneElement(element, {
+                variant: 'text',
+                className: 'hover:bg-transparent',
+              } as ButtonProps)}
+            </div>
+          );
+        }
+        return <div className="flex items-center">{buttonEnd}</div>;
+      }
+      if (iconEnd) {
+        return (
+          <Icons
+            iconName={iconEnd}
+            className="h-4 w-4 text-gray-500"
+            box
+            onClick={onIconEndClick}
+            style={onIconEndClick ? { cursor: 'pointer' } : undefined}
+          />
+        );
+      }
+      return null;
+    };
 
     // Render as textarea
     if (as === 'textarea') {
-      const textareaClasses = [textareaCva({ variant, size, error: !!error }), className]
+      const textareaProps = props as React.TextareaHTMLAttributes<HTMLTextAreaElement>;
+      const textareaClasses = [textareaCva({ variant, size, error: !!error, fontFamily }), className]
         .filter(Boolean)
         .join(' ');
 
@@ -41,10 +103,9 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
 
           {/* Textarea element */}
           <textarea
-            {...(props as React.TextareaHTMLAttributes<HTMLTextAreaElement>)}
+            {...textareaProps}
             ref={ref as React.ForwardedRef<HTMLTextAreaElement>}
             placeholder={placeholder}
-            rows={rows}
             className={textareaClasses}
           />
 
@@ -56,7 +117,7 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
 
     // Render as input (default)
     const wrapperClasses = [inputCva({ variant, size, error: !!error }), className].filter(Boolean).join(' ');
-    const inputClasses = inputElementCva({ size });
+    const inputClasses = inputElementCva({ size, fontFamily });
 
     return (
       <div className="flex flex-col gap-1">
@@ -65,8 +126,9 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
 
         {/* Input wrapper */}
         <div className={wrapperClasses}>
-          {/* Start icon (optional) */}
-          {iconStart && <Icons iconName={iconStart} className="h-4 w-4 text-gray-500" />}
+          {/* Start icon or button (optional) - button takes precedence */}
+          {renderStartDecoration()}
+
           {/* Input element */}
           <input
             {...(props as React.InputHTMLAttributes<HTMLInputElement>)}
@@ -75,16 +137,9 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
             placeholder={placeholder}
             className={inputClasses}
           />
-          {/* End icon (optional) */}
-          {iconEnd && (
-            <Icons
-              iconName={iconEnd}
-              className="h-4 w-4 text-gray-500"
-              box
-              onClick={onIconEndClick}
-              style={onIconEndClick ? { cursor: 'pointer' } : undefined}
-            />
-          )}
+
+          {/* End icon or button (optional) - button takes precedence */}
+          {renderEndDecoration()}
         </div>
 
         {/* Error message (optional) */}

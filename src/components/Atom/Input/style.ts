@@ -1,4 +1,4 @@
-import { cva, type VariantProps } from 'class-variance-authority';
+import { cva } from 'class-variance-authority';
 
 export const inputCva = cva('flex items-center bg-white transition-all focus-within:border-black ', {
   variants: {
@@ -49,9 +49,14 @@ export const inputElementCva = cva(
         medium: 'py-2 text-sm placeholder:text-sm',
         large: 'py-2 text-base placeholder:text-base',
       },
+      fontFamily: {
+        inter: 'font-inter placeholder:font-inter',
+        grotesk: 'font-space-grotesk placeholder:font-space-grotesk',
+      },
     },
     defaultVariants: {
       size: 'medium',
+      fontFamily: 'inter',
     },
   },
 );
@@ -63,9 +68,14 @@ export const labelCva = cva('font-semibold text-gray-700', {
       medium: 'text-sm',
       large: 'text-base',
     },
+    fontFamily: {
+      inter: 'font-inter',
+      grotesk: 'font-space-grotesk',
+    },
   },
   defaultVariants: {
     size: 'medium',
+    fontFamily: 'inter',
   },
 });
 
@@ -85,6 +95,10 @@ export const textareaCva = cva(
       error: {
         true: 'border-red-500 focus:border-red-500 focus:ring-red-500',
         false: '',
+      },
+      fontFamily: {
+        inter: 'font-inter placeholder:font-inter',
+        grotesk: 'font-space-grotesk placeholder:font-space-grotesk',
       },
     },
     compoundVariants: [
@@ -108,9 +122,12 @@ export const textareaCva = cva(
       variant: 'solid',
       size: 'medium',
       error: false,
+      fontFamily: 'inter',
     },
   },
 );
 
-export type InputCvaProps = VariantProps<typeof inputCva>;
-export default inputCva;
+export const dropdownMenuClasses = {
+  dropdownMenu:
+    'absolute left-0 top-full z-50 mt-1 max-h-60 w-64 overflow-y-auto rounded-md border border-gray-200 bg-white',
+};
