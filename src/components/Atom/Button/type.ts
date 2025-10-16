@@ -45,7 +45,7 @@ export type ButtonProps = {
   /**
    * Button content
    */
-  children?: React.ReactNode;
+  readonly children?: React.ReactNode;
 } & (
   | (ButtonHTMLAttributes<HTMLButtonElement> & { as?: 'button' })
   | (AnchorHTMLAttributes<HTMLAnchorElement> & { as: 'a'; href: string })
