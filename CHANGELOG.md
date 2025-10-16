@@ -1,3 +1,15 @@
+# [1.0.0-develop.9](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.8...v1.0.0-develop.9) (2025-10-16)
+
+
+### Bug Fixes
+
+* **ITS-IR01-159:** reviwe fix, fix by remove test stories of button ([47ab911](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/47ab9110efefe61232e33ef41b9042b625a0c4a3))
+
+
+### Features
+
+* **ITS-IR01-159:** update styling for button text variant ([679593e](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/679593e66297ad400530b09158d848c69d887595))
+
 # [1.0.0-develop.8](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.7...v1.0.0-develop.8) (2025-10-13)
 
 
