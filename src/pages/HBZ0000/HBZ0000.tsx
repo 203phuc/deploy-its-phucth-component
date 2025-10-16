@@ -20,18 +20,16 @@ const HBZ0000Component = () => {
         <label htmlFor="demo-select" className="mb-1 block text-sm font-medium text-gray-700">
           Pick an option
         </label>
-        <div className="relative">
-          <Button
-            id="demo-select"
-            onClick={() => setIsOpen(!isOpen)}
-            className="flex w-full items-start justify-start !p-0"
-            font="spaceGrotesk"
-            variant="underline"
-            as="a"
-            href="#"
-            size="medium"
-          ></Button>
-        </div>
+        <Button
+          id="demo-select"
+          onClick={() => setIsOpen(!isOpen)}
+          className="flex items-start justify-start"
+          font="spaceGrotesk"
+          variant="text"
+          size="medium"
+        >
+          your mom
+        </Button>
       </div>
     </>
   );

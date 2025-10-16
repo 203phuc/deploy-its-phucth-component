@@ -6,10 +6,10 @@ export const buttonCva = cva(
   {
     variants: {
       variant: {
-        solid: 'bg-black text-white hover:opacity-90', // example solid
+        solid: 'bg-black text-white hover:opacity-90',
         outlined: 'border-2 border-current bg-transparent hover:bg-black/5',
-        text: 'bg-transparent text-inherit shadow-none hover:bg-black/5',
-        underline: '', // underline handled below
+        text: 'm-0 border-0 bg-transparent p-0 text-inherit shadow-none hover:bg-transparent hover:opacity-100',
+        underline: '',
       },
 
       underlineSize: {
@@ -52,11 +52,17 @@ export const buttonCva = cva(
     },
 
     compoundVariants: [
-      // disable box styles when underline variant is active
+      // 🔹 Disable padding, margin, height, hover for text variant regardless of size
+      {
+        variant: 'text',
+        className:
+          '!m-0 h-auto !min-w-0 border-0 bg-transparent !p-0 shadow-none hover:bg-transparent hover:opacity-100',
+      },
+      // 🔹 Also make underline behave like plain text
       {
         variant: 'underline',
-        size: undefined,
-        className: 'h-auto min-w-0 border-0 bg-transparent p-0 shadow-none',
+        className:
+          '!h-auto !min-w-0 border-0 bg-transparent !p-0 shadow-none hover:bg-transparent hover:opacity-100',
       },
     ],
 

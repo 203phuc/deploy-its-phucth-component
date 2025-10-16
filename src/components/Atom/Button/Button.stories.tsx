@@ -192,16 +192,3 @@ export const Disabled: Story = {
     disabled: true,
   },
 };
-
-// Font Examples
-export const Fonts: Story = {
-  args: {
-    children: 'Button with different fonts',
-  },
-  render: (args) => (
-    <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-      <Button {...args} font="inter" />
-      <Button {...args} font="spaceGrotesk" />
-    </div>
-  ),
-};
