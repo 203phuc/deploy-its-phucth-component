@@ -14,38 +14,38 @@ export type ButtonProps = {
   /**
    * The variant of the button
    * */
-  variant?: ButtonVariant;
+  readonly variant?: ButtonVariant;
   /**
    * The size of the button
    * */
-  size?: ButtonSize;
+  readonly size?: ButtonSize;
   /**
    * The size of the underline (only applicable for underline variant) */
-  underlineSize?: 'xlarge' | 'large' | 'medium' | 'small' | 'xsmall';
+  readonly underlineSize?: 'xlarge' | 'large' | 'medium' | 'small' | 'xsmall';
   /**
    * The border radius of the button
    */
-  roundness?: ButtonRoundness;
+  readonly roundness?: ButtonRoundness;
   /**
    * Whether the button should take full width of its container
    * */
-  fullWidth?: boolean;
+  readonly fullWidth?: boolean;
   /**
    *  Whether the button has an icon (for proper spacing)
    */
-  hasIcon?: boolean;
+  readonly hasIcon?: boolean;
   /**
    * Additional className to apply to the button
    */
-  className?: string;
+  readonly className?: string;
   /**
    * Font family to use for the button text
    */
-  font?: ButtonFont;
+  readonly font?: ButtonFont;
   /**
    * Button content
    */
-  children?: React.ReactNode;
+  readonly children?: React.ReactNode;
 } & (
   | (ButtonHTMLAttributes<HTMLButtonElement> & { as?: 'button' })
   | (AnchorHTMLAttributes<HTMLAnchorElement> & { as: 'a'; href: string })

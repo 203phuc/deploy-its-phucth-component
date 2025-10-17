@@ -7,6 +7,7 @@ import { Input } from '../../components/Atom/Input/Input';
 
 const HBZ0000Component = () => {
   const [pss, setPss] = useState<'text' | 'password'>('text');
+
   return (
     <>
       <Button variant="outlined" size="large">
