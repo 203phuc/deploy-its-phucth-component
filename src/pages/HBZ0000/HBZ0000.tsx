@@ -24,7 +24,11 @@ const HBZ0000Component = () => {
         placeholder="Hello"
         iconEnd="ChevronDownIcon"
         onIconEndClick={() => setPss(pss === 'text' ? 'password' : 'text')}
-        buttonEnd={<Button size="xsmall">Hello</Button>}
+        buttonEnd={
+          <Button size="medium" variant="text">
+            Apply
+          </Button>
+        }
       />
     </>
   );
