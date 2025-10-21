@@ -1,3 +1,10 @@
+# [1.0.0-develop.10](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.9...v1.0.0-develop.10) (2025-10-21)
+
+
+### Features
+
+* **ITS-IR01-160:** adding new dimension to change ([7bf3388](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/7bf3388d056488a4e75b9d7f87d23792c8f8f690))
+
 # [1.0.0-develop.9](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.8...v1.0.0-develop.9) (2025-10-16)
 
 
