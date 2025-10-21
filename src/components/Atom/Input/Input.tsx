@@ -1,4 +1,5 @@
 import React from 'react';
+import { cn } from '../../../util/tailwindClass';
 import { Button, ButtonProps } from '../Button';
 import { Icons } from '../Icons';
 import { inputCva, inputElementCva, labelCva, textareaCva } from './style';
@@ -21,6 +22,7 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
       onIconEndClick,
       placeholder,
       label,
+      required,
       error,
       className,
       fontFamily = 'inter',
@@ -28,13 +30,6 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
     },
     ref,
   ) => {
-    // Validation: Prevent icon and button on same side
-    if (iconStart && buttonStart) {
-      console.warn('Input: Both iconStart and buttonStart provided. Only buttonStart will be rendered.');
-    }
-    if (iconEnd && buttonEnd) {
-      console.warn('Input: Both iconEnd and buttonEnd provided. Only buttonEnd will be rendered.');
-    }
     // Compose label classes using CVA
     const labelClasses = labelCva({ size, fontFamily });
 
@@ -53,7 +48,7 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
         return <div className="flex items-center">{buttonStart}</div>;
       }
       if (iconStart) {
-        return <Icons iconName={iconStart} className="h-4 w-4 text-gray-500" />;
+        return <Icons iconName={iconStart} className="h-fit w-fit text-gray-500" />;
       }
       return null;
     };
@@ -79,7 +74,7 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
         return (
           <Icons
             iconName={iconEnd}
-            className="h-4 w-4 text-gray-500"
+            className="h-fit w-fit text-gray-500"
             box
             onClick={onIconEndClick}
             style={onIconEndClick ? { cursor: 'pointer' } : undefined}
@@ -92,14 +87,17 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
     // Render as textarea
     if (as === 'textarea') {
       const textareaProps = props as React.TextareaHTMLAttributes<HTMLTextAreaElement>;
-      const textareaClasses = [textareaCva({ variant, size, error: !!error, fontFamily }), className]
-        .filter(Boolean)
-        .join(' ');
+      const textareaClasses = cn(textareaCva({ variant, size, error: !!error, fontFamily }), className);
 
       return (
         <div className="flex flex-col gap-1">
           {/* Label (optional) */}
-          {label && <label className={labelClasses}>{label}</label>}
+          {label && (
+            <label className={labelClasses}>
+              {label}
+              {required && <span className={labelClasses}>*</span>}
+            </label>
+          )}
 
           {/* Textarea element */}
           <textarea
@@ -116,13 +114,18 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
     }
 
     // Render as input (default)
-    const wrapperClasses = [inputCva({ variant, size, error: !!error }), className].filter(Boolean).join(' ');
+    const wrapperClasses = cn(inputCva({ variant, size, error: !!error }), className);
     const inputClasses = inputElementCva({ size, fontFamily });
 
     return (
       <div className="flex flex-col gap-1">
         {/* Label (optional) */}
-        {label && <label className={labelClasses}>{label}</label>}
+        {label && (
+          <label className={labelClasses}>
+            {label}
+            {required && <span className={labelClasses}>*</span>}
+          </label>
+        )}
 
         {/* Input wrapper */}
         <div className={wrapperClasses}>

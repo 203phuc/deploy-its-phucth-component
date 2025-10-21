@@ -17,7 +17,6 @@ const HBZ0000Component = () => {
       <Link href="#">Hello from HAIBAZO ^_^</Link>
       <Toggle />
       <Logo size="large" logoName="PumaLogo" />
-
       <Input
         label="Hello"
         type={pss}
@@ -29,6 +28,7 @@ const HBZ0000Component = () => {
             Apply
           </Button>
         }
+        required
       />
     </>
   );

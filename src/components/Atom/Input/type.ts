@@ -1,4 +1,4 @@
-import type { InputHTMLAttributes, TextareaHTMLAttributes, ReactNode } from 'react';
+import type { InputHTMLAttributes, ReactNode, TextareaHTMLAttributes } from 'react';
 import type { IconName } from '../Icons/types';
 
 export type InputVariant = 'line' | 'solid';
@@ -64,6 +64,11 @@ interface BaseInputProps {
    * Optional label text
    */
   label?: string;
+
+  /**
+   * Indicates if the input is required
+   */
+  required?: boolean;
 
   /**
    * Optional error message

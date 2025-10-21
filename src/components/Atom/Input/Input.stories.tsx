@@ -12,7 +12,7 @@ const meta = {
     },
     design: {
       type: 'figma',
-      url: '',
+      url: 'https://www.figma.com/design/Ovp63tfHXWbbNr8lzFbAGy/HAIBAZO-INTERNSHIP-FRONTEND?node-id=124-21923&t=nQzUkJxagPxjqjMV-4',
     },
     docs: {
       description: {

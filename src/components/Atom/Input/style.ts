@@ -72,10 +72,15 @@ export const labelCva = cva('font-semibold text-gray-700', {
       inter: 'font-inter',
       grotesk: 'font-space-grotesk',
     },
+    required: {
+      true: '',
+      false: '',
+    },
   },
   defaultVariants: {
     size: 'medium',
     fontFamily: 'inter',
+    required: false,
   },
 });
 
