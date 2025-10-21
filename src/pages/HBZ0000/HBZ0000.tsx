@@ -3,9 +3,10 @@ import { Logo } from '@components/Atom/Logo/Logo';
 import Toggle from '@components/Atom/Toggle/Toggle';
 import { memo, useState } from 'react';
 import { Button } from '../../components/Atom/Button/Button';
+import { Input } from '../../components/Atom/Input/Input';
 
 const HBZ0000Component = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [pss, setPss] = useState<'text' | 'password'>('text');
 
   return (
     <>
@@ -16,21 +17,19 @@ const HBZ0000Component = () => {
       <Link href="#">Hello from HAIBAZO ^_^</Link>
       <Toggle />
       <Logo size="large" logoName="PumaLogo" />
-      <div style={{ marginTop: 16, maxWidth: 320 }}>
-        <label htmlFor="demo-select" className="mb-1 block text-sm font-medium text-gray-700">
-          Pick an option
-        </label>
-        <Button
-          id="demo-select"
-          onClick={() => setIsOpen(!isOpen)}
-          className="flex items-start justify-start"
-          font="spaceGrotesk"
-          variant="text"
-          size="medium"
-        >
-          your mom
-        </Button>
-      </div>
+      <Input
+        label="Hello"
+        type={pss}
+        placeholder="Hello"
+        iconEnd="ChevronDownIcon"
+        onIconEndClick={() => setPss(pss === 'text' ? 'password' : 'text')}
+        buttonEnd={
+          <Button size="medium" variant="text">
+            Apply
+          </Button>
+        }
+        required
+      />
     </>
   );
 };
