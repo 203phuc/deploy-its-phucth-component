@@ -1,3 +1,20 @@
+# [1.0.0-develop.11](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.10...v1.0.0-develop.11) (2025-10-21)
+
+
+### Bug Fixes
+
+* **ITS-IR01-146:** review fix add figma link and optimize component ([c92b311](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/c92b311153112ea7ae51756c9f5cb9d920e69085))
+
+
+### Features
+
+* **ITS-IR01-146:** added input combined with button ([db0c684](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/db0c68447fb1c557a4da4467df07cc6d29ee8316))
+* **ITS-IR01-146:** adding input style and type ([55a445b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/55a445b257a6fb2e0c856d6b55fce433a2ca08c5))
+* **ITS-IR01-146:** adding new props for button input ([95a7f16](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/95a7f168efd3bf4f3a3ce220af4c07f76217fc39))
+* **ITS-IR01-146:** adding set up component ([dea7ad6](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/dea7ad6d7bd12839c983772f7c45d815844def2f))
+* **ITS-IR01-146:** making stories ([220b089](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/220b0890eba01aa86d6a85a3d8e5576faba85130))
+* **ITS-IR01-146:** merge develop avoid later conflict ([2ebd728](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/2ebd728d2e38d4b4d5b97761c04bb923a895404b))
+
 # [1.0.0-develop.10](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.9...v1.0.0-develop.10) (2025-10-21)
 
 
