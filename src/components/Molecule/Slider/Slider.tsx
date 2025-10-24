@@ -79,7 +79,7 @@ export const Slider: React.FC<SliderProps> = ({
           className="flex transition-transform duration-500 ease-in-out"
           style={
             {
-              '--slide-width': `100%`,
+              '--slide-width': `${slides.length * 100}%`,
               '--slide-transform': `-${currentIndex * 100}%`,
               height: 'fit-content',
               width: 'var(--slide-width)',
