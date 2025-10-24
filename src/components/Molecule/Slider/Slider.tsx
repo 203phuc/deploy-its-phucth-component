@@ -26,15 +26,13 @@ export const Slider: React.FC<SliderProps> = ({
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const imgRef = useRef<HTMLImageElement | null>(null);
-  const [iHeight, setIHeight] = useState<number | string | undefined>(0);
+  const [iHeight, setIHeight] = useState<number>(0);
   useEffect(() => {
     if (imgRef.current) {
       const imgHeight = imgRef.current.clientHeight;
       setIHeight(imgHeight);
-    } else {
-      setIHeight(height);
     }
-  }, [slides, currentIndex, width, height]);
+  }, [slides, currentIndex, width]);
 
   // Auto-play functionality
   useEffect(() => {
@@ -68,10 +66,10 @@ export const Slider: React.FC<SliderProps> = ({
 
   return (
     <div
-      className={cn(sliderCva({ widthFull }), className)}
+      className={cn(sliderCva({ widthFull }), `w-[${width}px]`, className)}
       style={{
         width: width,
-        height: iHeight,
+        height: height ?? iHeight,
       }}
       {...props}
     >
@@ -83,8 +81,8 @@ export const Slider: React.FC<SliderProps> = ({
             {
               '--slide-width': `100%`,
               '--slide-transform': `-${currentIndex * 100}%`,
+              height: 'fit-content',
               width: 'var(--slide-width)',
-              height: '100%',
               transform: 'translateX(var(--slide-transform))',
             } as React.CSSProperties
           }

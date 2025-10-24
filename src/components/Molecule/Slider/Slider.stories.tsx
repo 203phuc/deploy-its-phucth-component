@@ -34,7 +34,7 @@ const reactNodeSlides: SliderSlide[] = [
   {
     id: 10,
     content: (
-      <div className="flex h-full w-full items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 p-8 text-white">
+      <div className="flex h-[500px] w-full items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 p-8 text-white">
         <div className="space-y-4 text-center">
           <h2 className="mb-4 text-3xl font-bold">🎨 Custom React Content</h2>
           <p className="mb-6 text-lg opacity-90">
@@ -51,7 +51,7 @@ const reactNodeSlides: SliderSlide[] = [
   {
     id: 11,
     content: (
-      <div className="flex h-full w-full items-center justify-center rounded-lg bg-gradient-to-br from-green-500 to-teal-600 p-8 text-white">
+      <div className="flex h-[500px] w-full items-center justify-center rounded-lg bg-gradient-to-br from-green-500 to-teal-600 p-8 text-white">
         <div className="space-y-4 text-center">
           <h2 className="mb-4 text-3xl font-bold">📱 Responsive Design</h2>
           <p className="mb-6 text-lg opacity-90">
@@ -121,7 +121,7 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <div className="w-[900px] border">
+      <div className="h-[700px] w-[900px] border">
         <Story />
       </div>
     ),
@@ -217,7 +217,7 @@ export const ReactNodeSlides: Story = {
     slides: reactNodeSlides,
     autoPlay: 3000,
     width: '900px',
-    height: '400px',
+    height: '500px',
   },
   parameters: {
     docs: {
