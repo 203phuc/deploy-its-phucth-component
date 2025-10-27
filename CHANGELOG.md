@@ -1,3 +1,17 @@
+# [1.0.0-develop.12](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.11...v1.0.0-develop.12) (2025-10-27)
+
+
+### Bug Fixes
+
+* **ITS-IR01-130:** fix slider follow recommended react cleanup in component file ([18b7235](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/18b72351d80ed38add20ba4139284eff564037c6))
+
+
+### Features
+
+* **ITS-IR01-130:** added test for slider component ([d233538](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/d23353890069a187b073eab2f82815bdf687a9cf))
+* **ITS-IR01-130:** modify render logic for slidr component file ([041ead9](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/041ead9b0b5082823c51b59f049fc7860edc69fe))
+* **ITS-IR01-130:** modify slider story with reactnodeslide ([340119b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/340119bf5051fda6ec9345b745bb3d255368a41d))
+
 # [1.0.0-develop.11](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.10...v1.0.0-develop.11) (2025-10-21)
 
 
