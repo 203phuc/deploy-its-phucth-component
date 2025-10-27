@@ -40,10 +40,6 @@ export interface DropdownProps {
    */
   onSelect?: (value: string | number) => void;
   /**
-   * Whether the entire select component is disabled
-   */
-  disabled?: boolean;
-  /**
    * Additional CSS classes for the dropdown container
    */
   className?: string;

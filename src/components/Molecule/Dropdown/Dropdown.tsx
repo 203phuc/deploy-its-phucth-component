@@ -16,7 +16,6 @@ export const Dropdown: React.FC<DropdownProps> = ({
   font = 'spaceGrotesk',
   color = 'black-900',
   weight = 'moderate',
-  disabled = false,
   className = '',
   variant = 'default',
   direction = 'down',
@@ -66,7 +65,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   }, [isOpen, onClose]);
 
   const handleOptionClick = (optionValue: string | number, option: DropdownOption) => {
-    if (disabled || option.disabled) return;
+    if (option.disabled) return;
 
     setDropdownValue(optionValue);
     onSelect?.(optionValue);
