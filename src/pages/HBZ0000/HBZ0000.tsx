@@ -59,30 +59,6 @@ const HBZ0000Component = () => {
           <h3 className="mb-2 text-lg font-semibold">Small Slider (200x200)</h3>
           <Slider slides={sliderSlides} width={200} autoPlay={3000} loop={true} />
         </div>
-
-        {/* Default Medium Slider */}
-        <div className="mb-8">
-          <h3 className="mb-2 text-lg font-semibold">Medium Slider (300x300) - Default</h3>
-          <Slider slides={sliderSlides} autoPlay={3000} loop={true} showDots={true} />
-        </div>
-
-        {/* Large Slider */}
-        <div className="mb-8">
-          <h3 className="mb-2 text-lg font-semibold">Large Slider (500x300)</h3>
-          <Slider slides={sliderSlides} width={400} autoPlay={3000} loop={true} showDots={true} />
-        </div>
-
-        {/* Full Width Slider */}
-        <div className="mb-8">
-          <h3 className="mb-2 text-lg font-semibold">Full Width Slider (100% x 400px)</h3>
-          <Slider slides={sliderSlides} autoPlay={3000} loop={true} showDots={true} />
-        </div>
-
-        {/* Custom Size Slider */}
-        <div className="mb-8">
-          <h3 className="mb-2 text-lg font-semibold">Custom Size Slider (400x250)</h3>
-          <Slider slides={sliderSlides} width="400px" autoPlay={3000} loop={true} showDots={true} />
-        </div>
       </div>
     </>
   );

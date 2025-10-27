@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { addUniqueIds } from 'src/util/uniqueId';
 import { cn } from '../../../util/tailwindClass';
 import { dotCva, navigationCva, sliderCva } from './style';
 import type { SliderProps } from './type';
@@ -25,32 +26,31 @@ export const Slider: React.FC<SliderProps> = ({
   ...props
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const imgRef = useRef<HTMLImageElement | null>(null);
-  const [iHeight, setIHeight] = useState<number>(0);
+  const imageRef = useRef<HTMLImageElement | null>(null);
+  const [imageHeight, setImageHeight] = useState<number>(0);
   useEffect(() => {
-    if (imgRef.current) {
-      const imgHeight = imgRef.current.clientHeight;
-      setIHeight(imgHeight);
+    if (imageRef.current) {
+      const imgHeight = imageRef.current.clientHeight;
+      setImageHeight(imgHeight);
     }
   }, [slides, currentIndex, width]);
 
   // Auto-play functionality
   useEffect(() => {
-    if (autoPlay > 0) {
-      const interval = setInterval(() => {
-        setCurrentIndex((prevIndex) => {
-          const nextIndex = prevIndex + 1;
-          if (nextIndex >= slides.length) {
-            return loop ? 0 : prevIndex;
-          }
-          return nextIndex;
-        });
-      }, autoPlay);
+    if (autoPlay <= 0) return; // Early return — skip effect entirely
 
-      return () => clearInterval(interval);
-    }
-  }, [autoPlay, slides, loop]);
+    const autoLoopSlide = setInterval(() => {
+      setCurrentIndex((prev) => {
+        const next = prev + 1;
+        if (next >= slides.length) return loop ? 0 : prev;
+        return next;
+      });
+    }, autoPlay);
 
+    // Cleanup — React will call this before rerunning or unmounting
+    return () => clearInterval(autoLoopSlide);
+  }, [autoPlay, slides.length, loop]);
+  const slidesWithIds = useMemo(() => addUniqueIds(slides, 'slide'), [slides]);
   // Handle slide change
   const handleSlideChange = (index: number) => {
     setCurrentIndex(index);
@@ -69,7 +69,7 @@ export const Slider: React.FC<SliderProps> = ({
       className={cn(sliderCva({ widthFull }), `w-[${width}px]`, className)}
       style={{
         width: width,
-        height: height ?? iHeight,
+        height: height ?? imageHeight,
       }}
       {...props}
     >
@@ -91,7 +91,7 @@ export const Slider: React.FC<SliderProps> = ({
             <div key={slide.id} className="w-full flex-shrink-0">
               {typeof slide.content === 'string' ? (
                 <img
-                  ref={imgRef}
+                  ref={imageRef}
                   src={slide.content}
                   alt={slide.alt ?? `Slide ${index + 1}`}
                   className="h-full w-full object-cover"
@@ -115,9 +115,9 @@ export const Slider: React.FC<SliderProps> = ({
       <div className={cn(navigationCva())}>
         {/* Dots Navigation */}
         <div className="flex gap-[10px] sm:gap-[16px]">
-          {slides.map((_, index) => (
+          {slidesWithIds.map((slide, index) => (
             <button
-              key={index}
+              key={slide.uid}
               onClick={() => handleSlideChange(index)}
               className={
                 dotCva() +
