@@ -1,6 +1,6 @@
 import React from 'react';
 
-export interface SectionProps {
+export interface SectionProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Background color class (Tailwind CSS class) */
   bgColor?: string;
   /** Width value (number in px or Tailwind class) */
