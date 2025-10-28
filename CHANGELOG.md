@@ -1,3 +1,15 @@
+# [1.0.0-develop.14](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.13...v1.0.0-develop.14) (2025-10-28)
+
+
+### Bug Fixes
+
+* **ITS-IR01-172:** add memorization for flex component ([ccf986e](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/ccf986ed0d6f1bdec2518b935a3d9bc3fb01fdea))
+
+
+### Features
+
+* **ITS-IR01-172:** flex component fully tested ([6858e96](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/6858e969536168e209fd1aebdc217e246ca3662e))
+
 # [1.0.0-develop.13](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.12...v1.0.0-develop.13) (2025-10-28)
 
 
