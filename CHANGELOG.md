@@ -1,3 +1,15 @@
+# [1.0.0-develop.13](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.12...v1.0.0-develop.13) (2025-10-28)
+
+
+### Bug Fixes
+
+* **ITS-IR01-171:** remove debug configurations ([9b7f073](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/9b7f0733c9e9e3f9a5c8f266a570a73d5816eb10))
+
+
+### Features
+
+* **ITS-IR01-171:** tested and stories section component ([1f52d37](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/1f52d3749eec2318130a877ee90bac891880ebce))
+
 # [1.0.0-develop.12](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.11...v1.0.0-develop.12) (2025-10-27)
 
 
