@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react-vite';
 import { Position } from './Position';
 
 const meta: Meta<typeof Position> = {
-  title: 'Atoms/Position',
+  title: 'Atom/Position',
   component: Position,
   tags: ['autodocs'],
   argTypes: {
