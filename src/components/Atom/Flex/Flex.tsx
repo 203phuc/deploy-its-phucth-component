@@ -1,5 +1,6 @@
 import React from 'react';
 import { cn } from '../../../util/tailwindClass';
+import { FlexProps } from './type';
 
 /**
  * A lightweight wrapper around a `<div>` with flexbox utilities.
@@ -25,26 +26,6 @@ import { cn } from '../../../util/tailwindClass';
  * }
  * ```
  */
-export interface FlexProps {
-  /** Sets the flex direction */
-  direction?: 'row' | 'column';
-  /** Controls justify-content */
-  justify?: 'start' | 'center' | 'end' | 'space-between' | 'space-around' | 'space-evenly';
-  /** Controls align-items */
-  align?: 'start' | 'center' | 'end' | 'stretch' | 'baseline';
-  /** Controls flex wrapping */
-  wrap?: 'nowrap' | 'wrap' | 'wrap-reverse';
-  /** Adds spacing between flex items */
-  gap?: number | string;
-  /** Shortcut for flex property on the container */
-  flex?: string | number;
-  /** Content inside the flex container */
-  children?: React.ReactNode;
-  /** Additional CSS classes */
-  className?: string;
-  /** Optional inline style overrides */
-  style?: React.CSSProperties;
-}
 
 const Flex = ({
   direction = 'row',
@@ -56,6 +37,7 @@ const Flex = ({
   children,
   className,
   style,
+  ...prop
 }: FlexProps) => {
   // Helper function to safely build inline style values
   const toUnit = (value?: string | number) => (typeof value === 'number' ? `${value}px` : value);
@@ -94,10 +76,14 @@ const Flex = ({
   );
 
   return (
-    <div className={flexClasses} style={Object.keys(mergedStyles).length > 0 ? mergedStyles : undefined}>
+    <div
+      className={flexClasses}
+      style={Object.keys(mergedStyles).length > 0 ? mergedStyles : undefined}
+      {...prop}
+    >
       {children}
     </div>
   );
 };
 
-export default Flex;
+export default React.memo(Flex);

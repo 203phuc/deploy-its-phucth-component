@@ -1,13 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import Section from './Section';
+import { Section } from './Section';
 
 const meta = {
   title: 'Atom/Section',
   component: Section,
   parameters: {
+    layout: 'padded',
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/design/Ovp63tfHXWbbNr8lzFbAGy/HAIBAZO-INTERNSHIP-FRONTEND?node-id=8-96700&p=f&t=JCV8ENuJzwR6AnIe-0',
+      url: 'https://www.figma.com/design/Ovp63tfHXWbbNr8lzFbAGy/HAIBAZO-INTERNSHIP-FRONTEND?node-id=147-27273&t=9k7QmsmjiFkLxIjq-4',
     },
     docs: {
       description: {
@@ -18,69 +19,47 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
+    // Layout
+    w: {
+      control: 'text',
+      description: 'Width (e.g., 1/2, full, 64, etc.)',
+    },
+    h: {
+      control: 'text',
+      description: 'Height (e.g., 64, screen, auto, etc.)',
+    },
+
+    // Spacing
+    m: { control: 'text', description: 'Margin (all sides)' },
+    mt: { control: 'text', description: 'Margin top' },
+    mb: { control: 'text', description: 'Margin bottom' },
+    ml: { control: 'text', description: 'Margin left' },
+    mr: { control: 'text', description: 'Margin right' },
+    mx: { control: 'text', description: 'Margin horizontal (left and right)' },
+    my: { control: 'text', description: 'Margin vertical (top and bottom)' },
+
+    p: { control: 'text', description: 'Padding (all sides)' },
+    pt: { control: 'text', description: 'Padding top' },
+    pb: { control: 'text', description: 'Padding bottom' },
+    pl: { control: 'text', description: 'Padding left' },
+    pr: { control: 'text', description: 'Padding right' },
+    px: { control: 'text', description: 'Padding horizontal (left and right)' },
+    py: { control: 'text', description: 'Padding vertical (top and bottom)' },
+
+    // Background
     bgColor: {
       control: 'color',
-      description: 'Background color of the section',
+      description: 'Background color (Tailwind class, e.g. red-500 or [#ff0000])',
     },
-    m: {
-      control: 'text',
-      description: 'Margin (all sides)',
-    },
-    mt: {
-      control: 'text',
-      description: 'Margin top',
-    },
-    mb: {
-      control: 'text',
-      description: 'Margin bottom',
-    },
-    ml: {
-      control: 'text',
-      description: 'Margin left',
-    },
-    mr: {
-      control: 'text',
-      description: 'Margin right',
-    },
-    mx: {
-      control: 'text',
-      description: 'Margin horizontal (left and right)',
-    },
-    my: {
-      control: 'text',
-      description: 'Margin vertical (top and bottom)',
-    },
-    p: {
-      control: 'text',
-      description: 'Padding (all sides)',
-    },
-    pt: {
-      control: 'text',
-      description: 'Padding top',
-    },
-    pb: {
-      control: 'text',
-      description: 'Padding bottom',
-    },
-    pl: {
-      control: 'text',
-      description: 'Padding left',
-    },
-    pr: {
-      control: 'text',
-      description: 'Padding right',
-    },
-    px: {
-      control: 'text',
-      description: 'Padding horizontal (left and right)',
-    },
-    py: {
-      control: 'text',
-      description: 'Padding vertical (top and bottom)',
-    },
+
+    // Other
     className: {
       control: 'text',
-      description: 'Additional CSS classes',
+      description: 'Additional custom classes',
+    },
+    children: {
+      control: 'text',
+      description: 'Content inside the section',
     },
   },
   args: {

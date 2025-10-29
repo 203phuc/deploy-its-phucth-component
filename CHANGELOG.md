@@ -1,26 +1,55 @@
-# [1.0.0-develop.11](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.10...v1.0.0-develop.11) (2025-10-21)
-
+# [1.0.0-develop.14](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.13...v1.0.0-develop.14) (2025-10-28)
 
 ### Bug Fixes
 
-* **ITS-IR01-146:** review fix add figma link and optimize component ([c92b311](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/c92b311153112ea7ae51756c9f5cb9d920e69085))
-
+- **ITS-IR01-172:** add memorization for flex component ([ccf986e](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/ccf986ed0d6f1bdec2518b935a3d9bc3fb01fdea))
 
 ### Features
 
-* **ITS-IR01-146:** added input combined with button ([db0c684](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/db0c68447fb1c557a4da4467df07cc6d29ee8316))
-* **ITS-IR01-146:** adding input style and type ([55a445b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/55a445b257a6fb2e0c856d6b55fce433a2ca08c5))
-* **ITS-IR01-146:** adding new props for button input ([95a7f16](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/95a7f168efd3bf4f3a3ce220af4c07f76217fc39))
-* **ITS-IR01-146:** adding set up component ([dea7ad6](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/dea7ad6d7bd12839c983772f7c45d815844def2f))
-* **ITS-IR01-146:** making stories ([220b089](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/220b0890eba01aa86d6a85a3d8e5576faba85130))
-* **ITS-IR01-146:** merge develop avoid later conflict ([2ebd728](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/2ebd728d2e38d4b4d5b97761c04bb923a895404b))
+- **ITS-IR01-172:** flex component fully tested ([6858e96](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/6858e969536168e209fd1aebdc217e246ca3662e))
+
+# [1.0.0-develop.13](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.12...v1.0.0-develop.13) (2025-10-28)
+
+### Bug Fixes
+
+- **ITS-IR01-171:** remove debug configurations ([9b7f073](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/9b7f0733c9e9e3f9a5c8f266a570a73d5816eb10))
+
+### Features
+
+- **ITS-IR01-171:** tested and stories section component ([1f52d37](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/1f52d3749eec2318130a877ee90bac891880ebce))
+
+# [1.0.0-develop.12](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.11...v1.0.0-develop.12) (2025-10-27)
+
+### Bug Fixes
+
+- **ITS-IR01-130:** fix slider follow recommended react cleanup in component file ([18b7235](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/18b72351d80ed38add20ba4139284eff564037c6))
+
+### Features
+
+- **ITS-IR01-130:** added test for slider component ([d233538](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/d23353890069a187b073eab2f82815bdf687a9cf))
+- **ITS-IR01-130:** modify render logic for slidr component file ([041ead9](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/041ead9b0b5082823c51b59f049fc7860edc69fe))
+- **ITS-IR01-130:** modify slider story with reactnodeslide ([340119b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/340119bf5051fda6ec9345b745bb3d255368a41d))
+
+# [1.0.0-develop.11](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.10...v1.0.0-develop.11) (2025-10-21)
+
+### Bug Fixes
+
+- **ITS-IR01-146:** review fix add figma link and optimize component ([c92b311](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/c92b311153112ea7ae51756c9f5cb9d920e69085))
+
+### Features
+
+- **ITS-IR01-146:** added input combined with button ([db0c684](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/db0c68447fb1c557a4da4467df07cc6d29ee8316))
+- **ITS-IR01-146:** adding input style and type ([55a445b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/55a445b257a6fb2e0c856d6b55fce433a2ca08c5))
+- **ITS-IR01-146:** adding new props for button input ([95a7f16](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/95a7f168efd3bf4f3a3ce220af4c07f76217fc39))
+- **ITS-IR01-146:** adding set up component ([dea7ad6](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/dea7ad6d7bd12839c983772f7c45d815844def2f))
+- **ITS-IR01-146:** making stories ([220b089](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/220b0890eba01aa86d6a85a3d8e5576faba85130))
+- **ITS-IR01-146:** merge develop avoid later conflict ([2ebd728](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/2ebd728d2e38d4b4d5b97761c04bb923a895404b))
 
 # [1.0.0-develop.10](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.9...v1.0.0-develop.10) (2025-10-21)
 
-
 ### Features
 
-* **ITS-IR01-160:** adding new dimension to change ([7bf3388](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/7bf3388d056488a4e75b9d7f87d23792c8f8f690))
+- **ITS-IR01-160:** adding new dimension to change ([7bf3388](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/7bf3388d056488a4e75b9d7f87d23792c8f8f690))
 
 # [1.0.0-develop.9](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.8...v1.0.0-develop.9) (2025-10-16)
 
