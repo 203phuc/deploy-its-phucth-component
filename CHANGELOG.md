@@ -1,3 +1,11 @@
+# [1.0.0-develop.17](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.16...v1.0.0-develop.17) (2025-10-30)
+
+
+### Features
+
+* **ITS-IR01-187:** add width and height for flex ([d761747](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/d7617478b34085c752b8c68eff0fc172cf7641b8))
+* **ITS-IR01-188:** add width and height for grid ([89cdfba](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/89cdfbaa90f55495489397844e5d75fe33409284))
+
 # [1.0.0-develop.16](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.15...v1.0.0-develop.16) (2025-10-30)
 
 
