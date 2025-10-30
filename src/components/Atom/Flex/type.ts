@@ -1,4 +1,8 @@
-export interface FlexProps {
+export interface FlexProps extends React.HTMLAttributes<HTMLDivElement> {
+  /** set the height of flex box */
+  height?: string | number;
+  /** Sets the width of flex box */
+  width?: string | number;
   /** Sets the flex direction */
   direction?: 'row' | 'column';
   /** Controls justify-content */
