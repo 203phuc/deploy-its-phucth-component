@@ -1,3 +1,12 @@
+# [1.0.0-develop.15](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.14...v1.0.0-develop.15) (2025-10-30)
+
+
+### Features
+
+* **ITS-IR01-182:** add border radius for section component ([a300a1c](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/a300a1cfe57c666f9302ac16ef5e2dddd835f54f))
+* **ITS-IR01-182:** add div atribute props ([d08801c](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/d08801c64ac96cc62dc1877540383f84525b1125))
+* **ITS-IR01-182:** testing Section border radius ([61eed8b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/61eed8bb39ff76f013af295902a4d8c5175ac8da))
+
 # [1.0.0-develop.14](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.13...v1.0.0-develop.14) (2025-10-28)
 
 
