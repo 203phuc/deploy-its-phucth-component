@@ -1,12 +1,15 @@
+import { Flex } from '@components/Atom/Flex';
+import { Grid } from '@components/Atom/Grid';
 import { Link } from '@components/Atom/Link';
 import { Logo } from '@components/Atom/Logo/Logo';
+import { Section } from '@components/Atom/Section';
+import { Text } from '@components/Atom/Text';
 import Toggle from '@components/Atom/Toggle/Toggle';
 import { NavigationBar } from '@pages/Homepage/sections/NavigationBar';
 import { memo, useState } from 'react';
 import { Button } from '../../components/Atom/Button/Button';
 import { Input } from '../../components/Atom/Input/Input';
 import { Slider, SliderSlide } from '../../components/Molecule/Slider';
-
 const HBZ0000Component = () => {
   const [pss, setPss] = useState<'text' | 'password'>('text');
 
@@ -62,6 +65,19 @@ const HBZ0000Component = () => {
         </div>
       </div>
       <NavigationBar></NavigationBar>
+
+      <Section w={20} bgColor="black" h={20} borderRadius="100%">
+        <Flex direction="column" align="center">
+          <Text font="inter" color="white" weight="bold" size="xsmall">
+            2
+          </Text>
+        </Flex>
+      </Section>
+      <Grid columns={2} rows={2} width={800} height={100}>
+        <div style={{ background: 'black' }}></div>
+        <div style={{ background: 'blue' }}></div>
+        <div style={{ background: 'violet' }}></div>
+      </Grid>
     </>
   );
 };

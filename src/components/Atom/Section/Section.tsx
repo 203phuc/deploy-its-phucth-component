@@ -3,14 +3,13 @@ import { SectionProps } from './type';
 const toUnit = (value?: string | number) => (typeof value === 'number' ? `${value}px` : value);
 
 /**
- * A flexible Section component that provides spacing, sizing, and styling
- * using inline styles instead of Tailwind CSS classes.
- *
- * @param props - Section component props
- * @returns JSX.Element
+ * A flexible Section component that provides spacing, sizing, border,
+ * and background styling using inline styles.
  */
 export const Section = ({
   bgColor,
+  border,
+  borderRadius, // ← add this prop
   m,
   mt,
   mb,
@@ -39,6 +38,10 @@ export const Section = ({
 
   // Background color
   if (bgColor) style.backgroundColor = bgColor;
+
+  // Border & Radius
+  if (border) style.border = border; // e.g. "1px solid #ccc"
+  if (borderRadius !== undefined) style.borderRadius = toUnit(borderRadius); // e.g. 8 or '50%'
 
   // Margin
   style.margin = toUnit(m ?? undefined);

@@ -1,6 +1,6 @@
 import React from 'react';
 import { cn } from '../../../util/tailwindClass';
-
+import { GridProps } from './type';
 /**
  * A responsive grid layout wrapper for arranging children in rows and columns.
  * Simplifies CSS Grid usage with intuitive props.
@@ -20,28 +20,6 @@ import { cn } from '../../../util/tailwindClass';
  * }
  * ```
  */
-export interface GridProps {
-  /** Sets the number of columns (repeat() shorthand) */
-  columns?: number | string;
-  /** Sets the number of rows or custom sizing */
-  rows?: number | string;
-  /** Gap between grid items (applies to both row & column) */
-  gap?: number | string;
-  /** Row gap only */
-  rowGap?: number | string;
-  /** Column gap only */
-  columnGap?: number | string;
-  /** Controls align-items */
-  align?: 'start' | 'center' | 'end' | 'stretch';
-  /** Controls justify-items */
-  justify?: 'start' | 'center' | 'end' | 'stretch' | 'space-between';
-  /** Grid items to display */
-  children?: React.ReactNode;
-  /** Additional CSS classes */
-  className?: string;
-  /** Optional inline style overrides */
-  style?: React.CSSProperties;
-}
 
 const Grid = ({
   columns,
@@ -54,6 +32,9 @@ const Grid = ({
   children,
   className,
   style,
+  width,
+  height,
+  ...prop
 }: GridProps) => {
   // Helper function to safely build inline style values
   const toUnit = (value?: string | number) => (typeof value === 'number' ? `${value}px` : value);
@@ -72,6 +53,12 @@ const Grid = ({
     gridTemplateRows?: string;
   } = {};
 
+  if (height !== undefined) {
+    customStyles.height = toUnit(height);
+  }
+  if (width !== undefined) {
+    customStyles.width = toUnit(width);
+  }
   if (gap !== undefined) {
     customStyles.gap = toUnit(gap);
   }
@@ -110,24 +97,8 @@ const Grid = ({
     className,
   );
 
-  // Create inline style object for grid templates
-  const gridTemplateStyle = {
-    gridTemplateColumns: columns !== undefined ? toGridTemplate(columns) : undefined,
-    gridTemplateRows: rows !== undefined ? toGridTemplate(rows) : undefined,
-    ...mergedStyles,
-  };
-
   return (
-    <div
-      className={gridClasses}
-      style={
-        Object.keys(gridTemplateStyle).some(
-          (key) => gridTemplateStyle[key as keyof typeof gridTemplateStyle] !== undefined,
-        )
-          ? gridTemplateStyle
-          : undefined
-      }
-    >
+    <div className={gridClasses} style={mergedStyles} {...prop}>
       {children}
     </div>
   );

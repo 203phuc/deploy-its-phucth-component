@@ -3,6 +3,10 @@ import React from 'react';
 export interface SectionProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Background color class (Tailwind CSS class) */
   bgColor?: string;
+  /** Border shorthand (e.g. '1px solid #000') */
+  border?: string;
+  /** Border radius (number in px or string like '50%' or '1rem') */
+  borderRadius?: string | number;
   /** Width value (number in px or Tailwind class) */
   w?: string | number;
   /** Height value (number in px or Tailwind class) */

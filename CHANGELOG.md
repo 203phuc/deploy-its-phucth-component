@@ -1,3 +1,24 @@
+# [1.0.0-develop.16](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.15...v1.0.0-develop.16) (2025-10-30)
+
+### Bug Fixes
+
+- **ITS-IR01-173:** fix review fix component file duplicate code ([ae8ec92](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/ae8ec92512fcade51a45ce7fe3ea57bb28b6c73c))
+- **ITS-IR01-174:** fix review by renaming variable in component file ([def809b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/def809b2cef5a61bb491838e5e0730c2dc1f8293))
+
+### Features
+
+- **ITS-IR01-173:** finished test, type and component stories ([fece3d1](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/fece3d195e6af89d88e25f4814fde862311ef45e))
+- **ITS-IR01-174:** finished test, stories for Position component ([627d0fe](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/627d0fee3b984d7b197d68bf0fa97a6fd1c8c096))
+- **ITS-IR01-174:** modify stories visual for position ([7aa95d0](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/7aa95d0eeffa1d9b7f45e6b05f44fbe765c03e69))
+
+# [1.0.0-develop.15](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.14...v1.0.0-develop.15) (2025-10-30)
+
+### Features
+
+- **ITS-IR01-182:** add border radius for section component ([a300a1c](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/a300a1cfe57c666f9302ac16ef5e2dddd835f54f))
+- **ITS-IR01-182:** add div atribute props ([d08801c](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/d08801c64ac96cc62dc1877540383f84525b1125))
+- **ITS-IR01-182:** testing Section border radius ([61eed8b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/61eed8bb39ff76f013af295902a4d8c5175ac8da))
+
 # [1.0.0-develop.14](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.13...v1.0.0-develop.14) (2025-10-28)
 
 ### Bug Fixes
