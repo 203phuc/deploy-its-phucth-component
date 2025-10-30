@@ -14,7 +14,7 @@ export const Position = ({
   style,
   ...props
 }: PositionProps) => {
-  const merged = {
+  const computedStyle: React.CSSProperties = {
     position,
     top: toUnit(top),
     left: toUnit(left),
@@ -22,10 +22,10 @@ export const Position = ({
     bottom: toUnit(bottom),
     zIndex,
     ...style,
-  } as React.CSSProperties;
+  };
 
   return (
-    <div style={merged} {...props}>
+    <div style={computedStyle} {...props}>
       {children}
     </div>
   );
