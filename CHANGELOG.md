@@ -1,3 +1,18 @@
+# [1.0.0-develop.16](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.15...v1.0.0-develop.16) (2025-10-30)
+
+
+### Bug Fixes
+
+* **ITS-IR01-173:** fix review fix component file duplicate code ([ae8ec92](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/ae8ec92512fcade51a45ce7fe3ea57bb28b6c73c))
+* **ITS-IR01-174:** fix review by renaming variable in component file ([def809b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/def809b2cef5a61bb491838e5e0730c2dc1f8293))
+
+
+### Features
+
+* **ITS-IR01-173:** finished test, type and component stories ([fece3d1](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/fece3d195e6af89d88e25f4814fde862311ef45e))
+* **ITS-IR01-174:** finished test, stories for Position component ([627d0fe](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/627d0fee3b984d7b197d68bf0fa97a6fd1c8c096))
+* **ITS-IR01-174:** modify stories visual for position ([7aa95d0](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/7aa95d0eeffa1d9b7f45e6b05f44fbe765c03e69))
+
 # [1.0.0-develop.15](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.14...v1.0.0-develop.15) (2025-10-30)
 
 
