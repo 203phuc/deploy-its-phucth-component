@@ -1,5 +1,9 @@
 export interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Sets the number of columns (repeat() shorthand) */
+  width?: number | string;
+  /** Sets the number of columns (repeat() shorthand) */
+  height?: number | string;
+  /** Sets the number of columns (repeat() shorthand) */
   columns?: number | string;
   /** Sets the number of rows or custom sizing */
   rows?: number | string;

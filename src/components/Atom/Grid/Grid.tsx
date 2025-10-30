@@ -32,6 +32,8 @@ const Grid = ({
   children,
   className,
   style,
+  width,
+  height,
   ...prop
 }: GridProps) => {
   // Helper function to safely build inline style values
@@ -50,7 +52,12 @@ const Grid = ({
     gridTemplateColumns?: string;
     gridTemplateRows?: string;
   } = {};
-
+  if (height !== undefined) {
+    customStyles.height = toUnit(height);
+  }
+  if (width !== undefined) {
+    customStyles.width = toUnit(width);
+  }
   if (gap !== undefined) {
     customStyles.gap = toUnit(gap);
   }

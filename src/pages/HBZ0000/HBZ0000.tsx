@@ -1,4 +1,5 @@
 import { Flex } from '@components/Atom/Flex';
+import { Grid } from '@components/Atom/Grid';
 import { Link } from '@components/Atom/Link';
 import { Logo } from '@components/Atom/Logo/Logo';
 import { Section } from '@components/Atom/Section';
@@ -69,6 +70,11 @@ const HBZ0000Component = () => {
           </Text>
         </Flex>
       </Section>
+      <Grid columns={2} rows={2} width={800} height={100}>
+        <div style={{ background: 'black' }}></div>
+        <div style={{ background: 'blue' }}></div>
+        <div style={{ background: 'violet' }}></div>
+      </Grid>
     </>
   );
 };
