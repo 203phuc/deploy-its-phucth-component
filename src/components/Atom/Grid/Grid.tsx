@@ -89,25 +89,8 @@ const Grid = ({
     className,
   );
 
-  // Create inline style object for grid templates
-  const gridTemplateStyle = {
-    gridTemplateColumns: columns ? toGridTemplate(columns) : undefined,
-    gridTemplateRows: rows ? toGridTemplate(rows) : undefined,
-    ...mergedStyles,
-  };
-
   return (
-    <div
-      className={gridClasses}
-      style={
-        Object.keys(gridTemplateStyle).some(
-          (key) => gridTemplateStyle[key as keyof typeof gridTemplateStyle] !== undefined,
-        )
-          ? gridTemplateStyle
-          : undefined
-      }
-      {...prop}
-    >
+    <div className={gridClasses} style={mergedStyles} {...prop}>
       {children}
     </div>
   );
