@@ -37,6 +37,8 @@ const Flex = ({
   children,
   className,
   style,
+  width,
+  height,
   ...prop
 }: FlexProps) => {
   // Helper function to safely build inline style values
@@ -44,7 +46,8 @@ const Flex = ({
 
   // Generate custom styles for spacing and flex overrides
   const customStyles: React.CSSProperties = {};
-
+  if (width !== undefined) customStyles.width = toUnit(width);
+  if (height !== undefined) customStyles.height = toUnit(height);
   if (gap !== undefined) customStyles.gap = toUnit(gap);
   if (flex !== undefined) customStyles.flex = toUnit(flex);
 
