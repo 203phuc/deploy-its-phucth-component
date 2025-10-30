@@ -1,11 +1,13 @@
+import { Flex } from '@components/Atom/Flex';
 import { Link } from '@components/Atom/Link';
 import { Logo } from '@components/Atom/Logo/Logo';
+import { Section } from '@components/Atom/Section';
+import { Text } from '@components/Atom/Text';
 import Toggle from '@components/Atom/Toggle/Toggle';
 import { memo, useState } from 'react';
 import { Button } from '../../components/Atom/Button/Button';
 import { Input } from '../../components/Atom/Input/Input';
 import { Slider, SliderSlide } from '../../components/Molecule/Slider';
-
 const HBZ0000Component = () => {
   const [pss, setPss] = useState<'text' | 'password'>('text');
 
@@ -60,6 +62,13 @@ const HBZ0000Component = () => {
           <Slider slides={sliderSlides} width={200} autoPlay={3000} loop={true} />
         </div>
       </div>
+      <Section w={20} bgColor="black" h={20} borderRadius="100%">
+        <Flex direction="column" align="center">
+          <Text font="inter" color="white" weight="bold" size="xsmall">
+            2
+          </Text>
+        </Flex>
+      </Section>
     </>
   );
 };
