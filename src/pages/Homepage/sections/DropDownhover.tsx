@@ -1,5 +1,4 @@
 import { Flex } from '@components/Atom/Flex';
-import { Grid } from '@components/Atom/Grid';
 import Icons from '@components/Atom/Icons';
 import { Link } from '@components/Atom/Link';
 import { Section } from '@components/Atom/Section/Section';
@@ -38,7 +37,7 @@ const DropDownHover = ({ navLinks = localNavLinks }: DropDownHoverProps) => {
             onMouseEnter={() => handleMouseEnter(item.id)}
             onMouseLeave={handleMouseLeave}
           >
-            <Grid rows={3}>
+            <Flex height="100%" align="center">
               <Link
                 font="spaceGrotesk"
                 weight="bold"
@@ -57,7 +56,7 @@ const DropDownHover = ({ navLinks = localNavLinks }: DropDownHoverProps) => {
                   />
                 )}
               </Link>
-            </Grid>
+            </Flex>
           </Section>
 
           {item.dropdown && (

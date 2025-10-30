@@ -156,15 +156,9 @@ export const GapSizes: Story = {
         The <code>gap</code> prop controls the space between the text and the underline.
       </p>
       <div className="flex flex-col gap-4">
-        <Link href="#" gap="small">
-          Small gap (4px)
-        </Link>
-        <Link href="#" gap="medium">
-          Medium gap (6px)
-        </Link>
-        <Link href="#" gap="large">
-          Large gap (8px)
-        </Link>
+        <Link href="#">Small gap (4px)</Link>
+        <Link href="#">Medium gap (6px)</Link>
+        <Link href="#">Large gap (8px)</Link>
       </div>
     </div>
   ),
