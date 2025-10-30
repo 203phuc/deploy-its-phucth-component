@@ -6,9 +6,9 @@ import { navLinks } from './constant';
 export const NavigationBar = () => {
   return (
     <div>
-      <Section px={52} py={19}>
+      <Section px={52} h={68}>
         <Flex direction="row" justify="space-between">
-          <Logo logoName="NayzakLogo" />
+          <Logo logoName="NayzakLogo" height={68} />
           <DropDownHover navLinks={navLinks} />
         </Flex>
       </Section>

@@ -31,7 +31,7 @@ export const Icons = ({
     className: box ? boxClassName : '',
   });
 
-  const iconElement = <IconComponent size={iconSize} color={color} />;
+  const iconElement = <IconComponent size={iconSize} color={color} className={boxClassName} />;
   if (!box) {
     return iconElement;
   }

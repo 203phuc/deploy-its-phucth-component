@@ -1,11 +1,11 @@
 import { Flex } from '@components/Atom/Flex';
+import { Grid } from '@components/Atom/Grid';
 import Icons from '@components/Atom/Icons';
 import { Link } from '@components/Atom/Link';
 import { Section } from '@components/Atom/Section/Section';
 import { Dropdown } from '@components/Molecule/Dropdown';
 import { useRef, useState } from 'react';
 import { navLinks as localNavLinks } from './constant';
-
 export interface DropDownHoverProps {
   navLinks?: typeof localNavLinks;
 }
@@ -30,23 +30,35 @@ const DropDownHover = ({ navLinks = localNavLinks }: DropDownHoverProps) => {
   return (
     <Flex direction="row" gap={40} align="center">
       {navLinks.map((item) => (
-        <Section
-          key={item.id}
-          className="relative"
-          onMouseEnter={() => handleMouseEnter(item.id)}
-          onMouseLeave={handleMouseLeave}
-        >
-          <Link
-            font="spaceGrotesk"
-            weight="bold"
-            color="black-900"
-            href="#"
-            hoverUnderline
-            onClick={() => console.log('go home')}
+        <Section h="100%" key={item.id} className="relative">
+          <Section
+            h="100%"
+            key={item.id}
+            className="relative"
+            onMouseEnter={() => handleMouseEnter(item.id)}
+            onMouseLeave={handleMouseLeave}
           >
-            {item.label}
-            {item.icon && <Icons iconName={item.icon} />}
-          </Link>
+            <Grid rows={3}>
+              <Link
+                font="spaceGrotesk"
+                weight="bold"
+                color="black-900"
+                href="#"
+                hoverUnderline
+                onClick={() => console.log('go home')}
+              >
+                {item.label}
+                {item.icon && (
+                  <Icons
+                    color="black"
+                    iconName={
+                      hoveredId === item.id && item.icon === 'ChevronDownIcon' ? 'ChevronUpIcon' : item.icon
+                    }
+                  />
+                )}
+              </Link>
+            </Grid>
+          </Section>
 
           {item.dropdown && (
             <Dropdown
@@ -55,11 +67,6 @@ const DropDownHover = ({ navLinks = localNavLinks }: DropDownHoverProps) => {
                 label: drop.label,
                 value: drop.id,
               }))}
-              className={`absolute inset-x-0 top-full z-50 mt-2 transition-all duration-200 ${
-                hoveredId === item.id
-                  ? 'translate-y-0 opacity-100'
-                  : 'pointer-events-none -translate-y-2 opacity-0'
-              }`}
             />
           )}
         </Section>
