@@ -10,7 +10,7 @@ export interface DropdownOption {
 export type DropdownVariant = 'default' | 'xs' | 'sm' | 'md' | 'lg' | 'other';
 export type DropdownDirection = 'down' | 'up';
 
-export interface DropdownProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface DropdownProps {
   /**
    * Array of select options with label, value, and optional properties
    */
