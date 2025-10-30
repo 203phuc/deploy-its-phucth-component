@@ -67,7 +67,14 @@ const HBZ0000Component = () => {
       <NavigationBar></NavigationBar>
 
       <Section w={20} bgColor="black" h={20} borderRadius="100%">
-        <Flex direction="column" align="center">
+        <Flex align="center">
+          <Text font="inter" color="white" weight="bold" size="xsmall">
+            2
+          </Text>
+        </Flex>
+      </Section>
+      <Section w={40} bgColor="black" h={40} borderRadius="100%">
+        <Flex width="100%" direction="row" height="100%" align="center" justify="center">
           <Text font="inter" color="white" weight="bold" size="xsmall">
             2
           </Text>
