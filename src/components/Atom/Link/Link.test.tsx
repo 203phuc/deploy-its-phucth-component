@@ -74,29 +74,6 @@ describe('Link', () => {
     expect(link.getByTestId('external-link-attributes')).toHaveAttribute('rel', 'noopener noreferrer');
   });
 
-  it('should apply correct gap classes', () => {
-    const { rerender } = render(
-      <Link href="#" gap="small" data-testid="gap-test-small">
-        {SAMPLE_TEXT}
-      </Link>,
-    );
-    expect(screen.getByTestId('gap-test-small')).toHaveClass('underline-offset-[4px]');
-
-    rerender(
-      <Link href="#" gap="medium" data-testid="gap-test-medium">
-        {SAMPLE_TEXT}
-      </Link>,
-    );
-    expect(screen.getByTestId('gap-test-medium')).toHaveClass('underline-offset-[6px]');
-
-    rerender(
-      <Link href="#" gap="large" data-testid="gap-test-large">
-        {SAMPLE_TEXT}
-      </Link>,
-    );
-    expect(screen.getByTestId('gap-test-large')).toHaveClass('underline-offset-[8px]');
-  });
-
   it('should handle multiple children with spacing', () => {
     // Test with small spacing (4px)
     render(

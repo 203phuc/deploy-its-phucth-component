@@ -11,7 +11,6 @@ export const SPACING_VARIANTS = {
 
 export type SpacingVariant = keyof typeof SPACING_VARIANTS;
 
-// Match the color variants from Text component
 const colorVariants = {
   default: 'text-text-blue',
   'black-400': 'text-black-400',
@@ -26,66 +25,73 @@ const colorVariants = {
   white: 'text-white',
 };
 
-export const linkCva = cva('inline-flex items-center transition-colors duration-200', {
+// ✅ New: Underline offset + thickness variants
+const underlineOffsetVariants = {
+  none: 'after:bottom-0',
+  small: 'after:-bottom-[2px]',
+  medium: 'after:-bottom-[4px]',
+  large: 'after:-bottom-[6px]',
+} as const;
+
+const underlineThicknessVariants = {
+  thin: 'after:h-[1px]',
+  medium: 'after:h-[2px]',
+  thick: 'after:h-[3px]',
+} as const;
+
+export const linkCva = cva(
   // Base styles
-  variants: {
-    /**
-     * Font weight variants for the Link component
-     * - regular: Normal font weight (400)
-     * - moderate: Medium font weight (500)
-     * - semiBold: Semi-bold font weight (600)
-     * - bold: Bold font weight (700)
-     */
-    weight: {
-      regular: 'font-normal',
-      semiBold: 'font-semibold',
-      bold: 'font-bold',
-      moderate: 'font-medium',
+  'relative inline-flex items-center transition-colors duration-200 after:absolute after:left-0 after:w-full after:bg-current after:content-[""]',
+  {
+    variants: {
+      weight: {
+        regular: 'font-normal',
+        semiBold: 'font-semibold',
+        bold: 'font-bold',
+        moderate: 'font-medium',
+      },
+      font: {
+        inter: 'font-inter',
+        spaceGrotesk: 'font-space-grotesk',
+      },
+      size: {
+        xsmall: 'text-xs leading-5',
+        small: 'text-sm leading-6',
+        medium: 'text-base leading-[26px]',
+        large: 'text-lg leading-[30px]',
+        xlarge: 'text-xl leading-[32px]',
+        '2xlarge': 'text-2xl leading-[34px]',
+        '3xlarge': 'text-[1.375rem] leading-[34px]',
+        '4xlarge': 'text-[1.625rem] leading-[40px]',
+      },
+      color: colorVariants,
+
+      // Hover underline toggle
+      hoverUnderline: {
+        true: 'after:opacity-0 hover:after:opacity-100',
+        false: 'after:opacity-100',
+      },
+
+      // Custom underline offset and size
+      underlineOffset: underlineOffsetVariants,
+      underlineThickness: underlineThicknessVariants,
+
+      // Width of the spacer between children
+      spacing: SPACING_VARIANTS,
     },
-    font: {
-      inter: 'font-inter',
-      spaceGrotesk: 'font-space-grotesk',
+
+    defaultVariants: {
+      size: 'medium',
+      weight: 'regular',
+      font: 'inter',
+      color: 'default',
+      hoverUnderline: false,
+      spacing: 'none',
+      underlineOffset: 'small',
+      underlineThickness: 'thin',
     },
-    size: {
-      xsmall: 'text-xs leading-5',
-      small: 'text-sm leading-6',
-      medium: 'text-base leading-[26px]',
-      large: 'text-lg leading-[30px]',
-      xlarge: 'text-xl leading-[32px]',
-      '2xlarge': 'text-2xl leading-[34px]',
-      '3xlarge': 'text-[1.375rem] leading-[34px]',
-      '4xlarge': 'text-[1.625rem] leading-[40px]',
-    },
-    color: colorVariants,
-    /**
-     * Gap between the text and the underline
-     */
-    gap: {
-      none: 'underline-offset-0', // 0px
-      small: 'underline-offset-[4px]', // 4px
-      medium: 'underline-offset-[6px]', // 6px
-      large: 'underline-offset-[8px]', // 8px
-    },
-    /**
-     * Whether to show the underline on hover only
-     */
-    hoverUnderline: {
-      true: 'hover:underline',
-      false: 'underline',
-    },
-    // Width of the spacer between children (in pixels)
-    spacing: SPACING_VARIANTS,
   },
-  defaultVariants: {
-    size: 'medium',
-    weight: 'regular',
-    font: 'inter',
-    color: 'default',
-    gap: 'small',
-    hoverUnderline: false,
-    spacing: 'none',
-  },
-});
+);
 
 export type LinkCvaProps = VariantProps<typeof linkCva>;
 

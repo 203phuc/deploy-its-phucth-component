@@ -2,7 +2,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { DropdownDirection, DropdownVariant } from './type';
 
 const dropdownVariants = cva(
-  'absolute z-50 max-h-70 w-full overflow-auto bg-white text-left shadow-[0px_8px_16px_0px_#00000009]',
+  'absolute top-full z-50 max-h-70 min-w-max overflow-auto bg-white text-left shadow-[0px_8px_16px_0px_#00000009]',
   {
     variants: {
       direction: {

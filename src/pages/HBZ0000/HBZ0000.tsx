@@ -1,6 +1,7 @@
 import { Link } from '@components/Atom/Link';
 import { Logo } from '@components/Atom/Logo/Logo';
 import Toggle from '@components/Atom/Toggle/Toggle';
+import { NavigationBar } from '@pages/Homepage/sections/NavigationBar';
 import { memo, useState } from 'react';
 import { Button } from '../../components/Atom/Button/Button';
 import { Input } from '../../components/Atom/Input/Input';
@@ -60,6 +61,7 @@ const HBZ0000Component = () => {
           <Slider slides={sliderSlides} width={200} autoPlay={3000} loop={true} />
         </div>
       </div>
+      <NavigationBar></NavigationBar>
     </>
   );
 };
