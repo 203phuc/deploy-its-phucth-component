@@ -10,7 +10,7 @@ export interface DropdownOption {
 export type DropdownVariant = 'default' | 'xs' | 'sm' | 'md' | 'lg' | 'other';
 export type DropdownDirection = 'down' | 'up';
 
-export interface DropdownProps {
+export interface DropdownProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Array of select options with label, value, and optional properties
    */
@@ -38,7 +38,7 @@ export interface DropdownProps {
   /**
    * Callback function called when an option is selected
    */
-  onChange?: (value: string | number) => void;
+  onSelect?: (value: string | number) => void;
   /**
    * Whether the entire select component is disabled
    */

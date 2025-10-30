@@ -11,7 +11,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   isOpen,
   onClose,
   value,
-  onChange,
+  onSelect,
   font = 'spaceGrotesk',
   color = 'black-900',
   weight = 'moderate',
@@ -68,7 +68,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
     if (disabled || option.disabled) return;
 
     setDropdownValue(optionValue);
-    onChange?.(optionValue);
+    onSelect?.(optionValue);
     onClose?.();
   };
 
