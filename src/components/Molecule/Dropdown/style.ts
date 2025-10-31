@@ -1,20 +1,17 @@
 import { cva, type VariantProps } from 'class-variance-authority';
 import { DropdownDirection, DropdownVariant } from './type';
 
-const dropdownVariants = cva(
-  'absolute z-50 max-h-70 w-full overflow-auto bg-white text-left shadow-[0px_8px_16px_0px_#00000009]',
-  {
-    variants: {
-      direction: {
-        up: 'bottom-full mb-1',
-        down: 'top-full mt-1',
-      },
-    },
-    defaultVariants: {
-      direction: 'down',
+const dropdownVariants = cva('absolute z-50 w-full bg-white text-left shadow-[0px_8px_16px_0px_#00000009]', {
+  variants: {
+    direction: {
+      up: 'bottom-full mb-1',
+      down: 'top-full mt-1',
     },
   },
-);
+  defaultVariants: {
+    direction: 'down',
+  },
+});
 
 const optionVariants = cva('w-full cursor-pointer text-left text-sm transition-colors duration-200', {
   variants: {

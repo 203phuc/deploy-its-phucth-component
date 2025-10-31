@@ -38,7 +38,7 @@ export interface DropdownProps {
   /**
    * Callback function called when an option is selected
    */
-  onChange?: (value: string | number) => void;
+  onSelect?: (value: string | number) => void;
   /**
    * Whether the entire select component is disabled
    */
