@@ -54,20 +54,28 @@ const meta: Meta<typeof Link> = {
         defaultValue: { summary: 'regular' },
       },
     },
+    underlineOffset: {
+      control: 'select',
+      options: ['none', 'small', 'medium', 'large'],
+      description: 'the distance the underline ',
+      table: {
+        defaultValue: { summary: 'none' },
+      },
+    },
+    underlineThickness: {
+      control: 'select',
+      options: ['thin', 'medium', 'thick'],
+      description: 'the size thickness of underline',
+      table: {
+        defaultValue: { summary: 'thin' },
+      },
+    },
     font: {
       control: 'select',
       options: ['inter', 'spaceGrotesk'],
       description: 'Font family of the link',
       table: {
         defaultValue: { summary: 'inter' },
-      },
-    },
-    gap: {
-      control: 'select',
-      options: ['none', 'small', 'medium', 'large'],
-      description: 'Gap between the text and underline',
-      table: {
-        defaultValue: { summary: 'small' },
       },
     },
     hoverUnderline: {
@@ -156,15 +164,9 @@ export const GapSizes: Story = {
         The <code>gap</code> prop controls the space between the text and the underline.
       </p>
       <div className="flex flex-col gap-4">
-        <Link href="#" gap="small">
-          Small gap (4px)
-        </Link>
-        <Link href="#" gap="medium">
-          Medium gap (6px)
-        </Link>
-        <Link href="#" gap="large">
-          Large gap (8px)
-        </Link>
+        <Link href="#">Small gap (4px)</Link>
+        <Link href="#">Medium gap (6px)</Link>
+        <Link href="#">Large gap (8px)</Link>
       </div>
     </div>
   ),

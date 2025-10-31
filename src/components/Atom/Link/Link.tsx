@@ -1,20 +1,30 @@
 import React, { useCallback, useMemo } from 'react';
 import { linkCva, SPACING_VARIANTS } from './style';
-import type { LinkColor, LinkFont, LinkProps, LinkSize, LinkWeight } from './type';
+import type {
+  LinkColor,
+  LinkFont,
+  LinkProps,
+  LinkSize,
+  LinkUnderlineOffset,
+  LinkUnderlineThickness,
+  LinkWeight,
+} from './type';
 
 export const Link: React.FC<LinkProps> = ({
   size = 'medium' as LinkSize,
   weight = 'regular' as LinkWeight,
   font = 'inter' as LinkFont,
   color = 'default' as LinkColor,
-  gap = 'small',
   spacing = 'small',
   hoverUnderline = false,
+  underlineOffset = 'small' as LinkUnderlineOffset,
+  underlineThickness = 'thin' as LinkUnderlineThickness,
   external = false,
   className = '',
   children,
   ...props
 }) => {
+  // ✅ Build class names with underline variants
   const baseClasses = useMemo(
     () =>
       [
@@ -23,32 +33,28 @@ export const Link: React.FC<LinkProps> = ({
           weight,
           font,
           color,
-          gap,
           hoverUnderline,
+          underlineOffset,
+          underlineThickness,
           spacing: 'none',
         }),
-        'hover:opacity-80 inline-flex items-center',
+        'inline-flex items-center hover:opacity-80',
         className,
       ]
         .filter(Boolean)
         .join(' '),
-    [size, weight, font, color, gap, hoverUnderline, className],
+    [size, weight, font, color, hoverUnderline, underlineOffset, underlineThickness, className],
   );
 
+  // ✅ Insert spacing elements between children (if spacing > none)
   const renderChildren = useCallback((): React.ReactNode[] => {
-    if (spacing === 'none' || !children) {
-      return React.Children.toArray(children);
-    }
+    if (spacing === 'none' || !children) return React.Children.toArray(children);
 
     const childrenArray = React.Children.toArray(children);
-    if (childrenArray.length <= 1) {
-      return childrenArray;
-    }
+    if (childrenArray.length <= 1) return childrenArray;
 
     const spacingClass = SPACING_VARIANTS[spacing];
-    if (!spacingClass) {
-      return childrenArray;
-    }
+    if (!spacingClass) return childrenArray;
 
     const result: React.ReactNode[] = [childrenArray[0]];
     for (let i = 1; i < childrenArray.length; i++) {
