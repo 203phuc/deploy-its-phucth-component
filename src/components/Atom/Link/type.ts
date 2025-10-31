@@ -20,51 +20,71 @@ export type LinkColor =
   | 'teal-600'
   | 'white';
 
+export type LinkSpacing = 'none' | 'xsmall' | 'small' | 'medium' | 'large';
+
+export type LinkUnderlineOffset = 'none' | 'small' | 'medium' | 'large';
+export type LinkUnderlineThickness = 'thin' | 'medium' | 'thick';
+
 export interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   /**
    * The size of the link text
    * @default 'medium'
    */
   size?: LinkSize;
+
   /**
-   * The spacing between child elements
-   * @default 'small'
+   * The spacing between icon and text
+   * @default 'none'
    */
-  spacing?: 'none' | 'xsmall' | 'small' | 'medium' | 'large';
+  spacing?: LinkSpacing;
+
   /**
    * Font weight of the link text
    * @default 'regular'
    */
   weight?: LinkWeight;
+
   /**
    * Font family
    * @default 'inter'
    */
   font?: LinkFont;
+
   /**
    * The color of the link text and underline
    * @default 'default'
    */
   color?: LinkColor;
+
   /**
-   * The gap between the text and the underline
-   * @default 'default'
-   */
-  gap?: 'none' | 'small' | 'medium' | 'large';
-  /**
-   * Whether to show the underline on hover only
+   * Whether to show the underline only on hover
    * @default false
    */
   hoverUnderline?: boolean;
+
   /**
-   * Optional class name to add to the link
+   * Controls the distance between text baseline and the underline
+   * @default 'small'
+   */
+  underlineOffset?: LinkUnderlineOffset;
+
+  /**
+   * Controls the thickness of the underline
+   * @default 'thin'
+   */
+  underlineThickness?: LinkUnderlineThickness;
+
+  /**
+   * Optional custom class name
    */
   className?: string;
+
   /**
    * Whether the link is external (adds target="_blank" and rel="noopener noreferrer")
    * @default false
    */
   external?: boolean;
+
   /**
    * The URL to link to
    */
@@ -72,7 +92,6 @@ export interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement>
 }
 
 /**
- * Type for the Link component's variant props
- * @see {@link Link} component for usage
+ * Type for the Link component’s variant props (from CVA)
  */
 export type LinkCvaProps = VariantProps<typeof linkCva>;
