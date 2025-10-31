@@ -29,18 +29,17 @@ const DropDownHover = ({ navLinks = localNavLinks }: DropDownHoverProps) => {
   return (
     <Flex direction="row" gap={40} align="center">
       {navLinks.map((item) => (
-        <Section h="100%" key={item.id} className="relative">
-          <Section
-            h="100%"
-            key={item.id}
-            className="relative"
-            onMouseEnter={() => handleMouseEnter(item.id)}
-            onMouseLeave={handleMouseLeave}
-          >
+        <Section
+          h="100%"
+          key={item.id}
+          onMouseEnter={() => handleMouseEnter(item.id)}
+          onMouseLeave={handleMouseLeave}
+        >
+          <Section h="100%" key={item.id}>
             <Flex height="100%" align="center">
               <Link
                 font="spaceGrotesk"
-                weight="bold"
+                weight="moderate"
                 color="black-900"
                 href="#"
                 hoverUnderline
