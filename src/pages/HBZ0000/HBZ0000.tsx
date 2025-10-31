@@ -6,12 +6,45 @@ import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
 import Toggle from '@components/Atom/Toggle/Toggle';
 import { NavigationBar } from '@pages/Homepage/sections/NavigationBar';
-import { memo, useState } from 'react';
+import { memo, useEffect, useRef, useState } from 'react';
 import { Button } from '../../components/Atom/Button/Button';
 import { Input } from '../../components/Atom/Input/Input';
+import { Dropdown } from '../../components/Molecule/Dropdown/Dropdown';
 import { Slider, SliderSlide } from '../../components/Molecule/Slider';
 const HBZ0000Component = () => {
   const [pss, setPss] = useState<'text' | 'password'>('text');
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const [inputValue, setInputValue] = useState(''); // what the user types
+  const [selectedValue, setSelectedValue] = useState(''); // actual dropdown selection
+
+  // Sample dropdown options
+  const dropdownOptions = [
+    { label: 'Option 1', value: 'option1' },
+    { label: 'Option 2', value: 'option2' },
+    { label: 'Option 3', value: 'option3' },
+    { label: 'Option 4', value: 'option4' },
+  ];
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  const handleOptionSelect = (value: string | number) => {
+    setSelectedValue(String(value));
+    setInputValue(String(value)); // update input as well
+    setIsDropdownOpen(false);
+  };
 
   const sliderSlides: SliderSlide[] = [
     {
@@ -40,10 +73,37 @@ const HBZ0000Component = () => {
       <Link href="#">Hello from HAIBAZO ^_^</Link>
       <Toggle />
       <Logo size="large" logoName="PumaLogo" />
+      <div className="mb-4">
+        <Section w={700}>
+          <Input
+            label="Select an option"
+            value={inputValue}
+            placeholder="Select an option"
+            onChange={(e) => setInputValue(e.target.value)}
+            onClick={() => !isDropdownOpen && setIsDropdownOpen(true)}
+            iconEnd="ChevronDownIcon"
+            onIconEndClick={() => setIsDropdownOpen(!isDropdownOpen)}
+          />
+          {isDropdownOpen && (
+            <Dropdown
+              options={dropdownOptions.filter((option) =>
+                option.label.toLowerCase().includes(inputValue.toLowerCase()),
+              )}
+              isOpen={isDropdownOpen}
+              onClose={() => setIsDropdownOpen(false)}
+              onSelect={handleOptionSelect}
+              value={selectedValue}
+              variant="other"
+              className="w-full rounded-md border border-gray-200 shadow-lg"
+            />
+          )}
+        </Section>
+      </div>
+
       <Input
-        label="Hello"
+        label="Password Toggle"
         type={pss}
-        placeholder="Hello"
+        placeholder="Enter password"
         iconEnd="ChevronDownIcon"
         onIconEndClick={() => setPss(pss === 'text' ? 'password' : 'text')}
         buttonEnd={

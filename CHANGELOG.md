@@ -1,3 +1,17 @@
+# [1.0.0-develop.18](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.17...v1.0.0-develop.18) (2025-10-31)
+
+### Features
+
+- **ITS-IR01-186:** adding new styling in dropdown component ([dae8bb4](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/dae8bb48c03f1a3ab300cdb69f5db57f01612cdf))
+- **ITS-IR01-186:** remove limited height in style of dropdown ([d34eebd](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/d34eebdbaa8364a797e0443b2eb9d46f2224ed54))
+
+# [1.0.0-develop.17](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.16...v1.0.0-develop.17) (2025-10-30)
+
+### Features
+
+- **ITS-IR01-187:** add width and height for flex ([d761747](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/d7617478b34085c752b8c68eff0fc172cf7641b8))
+- **ITS-IR01-188:** add width and height for grid ([89cdfba](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/89cdfbaa90f55495489397844e5d75fe33409284))
+
 # [1.0.0-develop.16](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.15...v1.0.0-develop.16) (2025-10-30)
 
 ### Bug Fixes

@@ -62,14 +62,6 @@ const meta: Meta<typeof Link> = {
         defaultValue: { summary: 'inter' },
       },
     },
-    gap: {
-      control: 'select',
-      options: ['none', 'small', 'medium', 'large'],
-      description: 'Gap between the text and underline',
-      table: {
-        defaultValue: { summary: 'small' },
-      },
-    },
     hoverUnderline: {
       control: 'boolean',
       description: 'Show underline on hover only',

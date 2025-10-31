@@ -16,8 +16,8 @@ describe('Select', () => {
   });
 
   it('selects option when clicked', () => {
-    const onChange = vi.fn();
-    render(<Dropdown isOpen={true} options={sampleOptions} onChange={onChange} data-testid="select" />);
+    const onSelect = vi.fn();
+    render(<Dropdown isOpen={true} options={sampleOptions} onSelect={onSelect} data-testid="select" />);
 
     const button = screen.getByTestId('select');
     fireEvent.click(button);
@@ -25,7 +25,7 @@ describe('Select', () => {
     const option = dropdown.getByText('Option 1');
     fireEvent.click(option);
 
-    expect(onChange).toHaveBeenCalledWith('option1');
+    expect(onSelect).toHaveBeenCalledWith('option1');
     expect(dropdown.getByText('Option 1')).toBeInTheDocument();
   });
 
@@ -43,8 +43,8 @@ describe('Select', () => {
   });
 
   it('does not select disabled options', () => {
-    const onChange = vi.fn();
-    render(<Dropdown isOpen={true} options={sampleOptions} onChange={onChange} data-testid="select4" />);
+    const onSelect = vi.fn();
+    render(<Dropdown isOpen={true} options={sampleOptions} onSelect={onSelect} data-testid="select4" />);
 
     const button = screen.getByTestId('select4');
 
@@ -53,7 +53,7 @@ describe('Select', () => {
     const disabledOption = dropdown.getByText('Disabled Option');
 
     fireEvent.click(disabledOption);
-    expect(onChange).not.toHaveBeenCalled();
+    expect(onSelect).not.toHaveBeenCalled();
   });
 
   it('does not render when isOpen is false', () => {
@@ -78,13 +78,13 @@ describe('Select', () => {
 
   it('calls onClose after selecting an option', () => {
     const onClose = vi.fn();
-    const onChange = vi.fn();
+    const onSelect = vi.fn();
     render(
       <Dropdown
         isOpen={true}
         options={sampleOptions}
         onClose={onClose}
-        onChange={onChange}
+        onSelect={onSelect}
         data-testid="select5"
       />,
     );
@@ -94,7 +94,7 @@ describe('Select', () => {
     const option = dropdown.getByText('Option 1');
     fireEvent.click(option);
 
-    expect(onChange).toHaveBeenCalledWith('option1');
+    expect(onSelect).toHaveBeenCalledWith('option1');
     expect(onClose).toHaveBeenCalled();
   });
 

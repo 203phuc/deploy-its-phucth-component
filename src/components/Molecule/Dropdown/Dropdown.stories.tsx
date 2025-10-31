@@ -148,7 +148,7 @@ export const Interactive: Story = {
             isOpen={isOpen}
             onClose={() => setIsOpen(false)}
             value={selectedValue}
-            onChange={setSelectedValue}
+            onSelect={setSelectedValue}
             variant="default"
           />
         </div>
