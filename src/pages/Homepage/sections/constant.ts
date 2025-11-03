@@ -15,6 +15,7 @@ export interface NavLinkItem {
   condition: string;
   icon?: IconName;
   dropdown?: NavLinkDropdownItem[];
+  path?: string;
 }
 
 export const navLinks: NavLinkItem[] = [
@@ -23,6 +24,7 @@ export const navLinks: NavLinkItem[] = [
     label: 'Home',
     type: 'link',
     condition: 'Always',
+    path: '/',
   },
   {
     id: '4',
@@ -30,29 +32,30 @@ export const navLinks: NavLinkItem[] = [
     type: 'group',
     condition: 'Always',
     icon: 'ChevronDownIcon',
+    path: '/product',
     dropdown: [
       {
         id: '4_1',
-        label: 'Category 1',
+        label: 'Home & Decor',
         type: 'button',
         condition: 'User hovers over [Shop]',
         icon: 'ChevronDownIcon',
       },
       {
         id: '4_2',
-        label: 'Category 2',
+        label: 'Clothing',
         type: 'button',
         condition: 'User hovers over [Shop]',
         icon: 'ChevronDownIcon',
       },
       {
         id: '4_3',
-        label: 'Category 3',
+        label: 'Accessories',
         type: 'button',
         condition: 'User hovers over [Shop]',
         icon: 'ChevronDownIcon',
       },
-      { id: '4_4', label: 'Category 4', type: 'button', condition: 'User hovers over [Shop]' }, // no icon
+      { id: '4_4', label: 'Outdoor', type: 'button', condition: 'User hovers over [Shop]' }, // no icon
     ],
   },
   {
