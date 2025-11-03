@@ -1,5 +1,6 @@
 import { Flex } from '@components/Atom/Flex';
 import { Icons } from '@components/Atom/Icons';
+import { Input } from '@components/Atom/Input';
 import { Section } from '@components/Atom/Section/Section';
 import { Text } from '@components/Atom/Text';
 import { useState } from 'react';
@@ -10,9 +11,14 @@ interface IconBlockProps {
 
 export const IconBlock = ({ cartItem }: IconBlockProps) => {
   const [background, setBackground] = useState('transparent');
+  const [searchInput, setSearchInput] = useState(false);
   return (
     <Flex align="center" gap={20}>
-      <Icons iconSize={28} iconName="SearchIcon" />
+      {searchInput ? (
+        <Input iconEnd="SearchIcon" />
+      ) : (
+        <Icons iconSize={28} iconName="SearchIcon" box onClick={() => setSearchInput(true)} />
+      )}
       <Icons iconSize={28} iconName="UserIcon" />
       <Icons iconSize={28} iconName="HeartIcon" />
       <Section
