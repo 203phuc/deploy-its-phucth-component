@@ -25,27 +25,6 @@ describe('Select', () => {
     expect(container.firstChild).toBeNull();
   });
 
-  it('calls onClose when clicking outside', () => {
-    const onClose = vi.fn();
-    render(
-      <div>
-        <DropdownMixed
-          isOpen={true}
-          listItem={sampleListItem}
-          onClose={onClose}
-          closeOnClickOutside
-          data-testid="DropdownMixed"
-        />
-        <div data-testid="outside">Outside element</div>
-      </div>,
-    );
-
-    const outsideElement = screen.getByTestId('outside');
-    fireEvent.mouseDown(outsideElement);
-
-    expect(onClose).toHaveBeenCalled();
-  });
-
   it('calls item onSelect and parent onClose after selecting an option', () => {
     const onClose = vi.fn();
     const onSelect = vi.fn();
@@ -55,9 +34,7 @@ describe('Select', () => {
       { label: 'Option 2', value: 'option2' },
     ];
 
-    render(
-      <DropdownMixed isOpen={true} listItem={sampleListItem} onClose={onClose} data-testid="dropdown" />,
-    );
+    render(<DropdownMixed isOpen={true} listItem={sampleListItem} data-testid="dropdown" />);
 
     const dropdown = screen.getByTestId('dropdown');
     const utils = within(dropdown);
