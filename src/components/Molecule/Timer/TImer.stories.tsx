@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Timer } from './Timer';
 
 const meta = {
-  title: 'Atom/Timer',
+  title: 'Molecule/Timer',
   component: Timer,
   parameters: {
     docs: {
@@ -13,7 +13,7 @@ const meta = {
     },
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/design/9UZRn0vjE9VPlnRt17y40H/HAIBAZO-Design-System?node-id=250-341',
+      url: 'https://www.figma.com/design/Ovp63tfHXWbbNr8lzFbAGy/HAIBAZO-INTERNSHIP-FRONTEND?node-id=276-101557&t=8Mb9FH6yn9iXR604-4',
     },
   },
   tags: ['autodocs'],
