@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { useState } from 'react';
 import { DropdownMixed } from './DropdownMixed';
 
 const meta = {
@@ -31,21 +30,9 @@ const meta = {
       control: 'boolean',
       description: 'Whether the dropdown height fits its content',
     },
-    textColor: {
-      control: 'text',
-      description: 'Text color of dropdown items',
-    },
-    textSize: {
-      control: 'text',
-      description: 'Font size for dropdown text',
-    },
-    width: {
-      control: 'text',
-      description: 'control the width of component',
-    },
-    height: {
-      control: 'text',
-      description: 'control the width of component',
+    variant: {
+      control: { type: 'select' },
+      options: ['navigation', 'searchPanel'],
     },
   },
 } satisfies Meta<typeof DropdownMixed>;
@@ -83,6 +70,13 @@ const sampleListItem = [
       console.log('it me 4');
     },
   },
+  {
+    label: 'Option 4',
+    value: 'option4',
+    onSelect: () => {
+      console.log('it me 4');
+    },
+  },
 ];
 
 const languageListItem = [
@@ -107,37 +101,19 @@ export const Default: Story = {
   },
 };
 
-export const Medium: Story = {
+export const Navigation: Story = {
   args: {
     listItem: sampleListItem,
     isOpen: true,
-    width: 228,
+    variant: 'navigation',
   },
 };
 
-export const Small: Story = {
+export const SearchPanel: Story = {
   args: {
     listItem: sampleListItem,
     isOpen: true,
-    width: 173,
-  },
-};
-
-export const ExtraSmall: Story = {
-  args: {
-    listItem: sampleListItem,
-    isOpen: true,
-    width: 114,
-  },
-};
-
-export const WithSelectedValue: Story = {
-  args: {
-    listItem: sampleListItem.map((opt) =>
-      opt.value === 'option2' ? { ...opt, onSelect: () => console.log('Selected:', opt.label) } : opt,
-    ),
-    isOpen: true,
-    textColor: 'blue-700',
+    variant: 'searchPanel',
   },
 };
 
@@ -148,47 +124,10 @@ export const Disabled: Story = {
   },
 };
 
-export const Interactive: Story = {
-  render: () => {
-    const InteractiveDropdown = () => {
-      const [isOpen, setIsOpen] = useState(false);
-      const [selected, setSelected] = useState<string | number>('');
-
-      const handleSelect = (value: string | number) => {
-        setSelected(value);
-        setIsOpen(false);
-      };
-
-      return (
-        <div className="relative">
-          <button
-            onSelect={() => setIsOpen((prev) => !prev)}
-            className="rounded-md border border-gray-300 bg-white px-4 py-2"
-          >
-            {selected ? sampleListItem.find((opt) => opt.value === selected)?.label : 'Select an option...'}
-          </button>
-          <DropdownMixed
-            listItem={sampleListItem.map((opt) => ({
-              ...opt,
-              onSelect: () => handleSelect(opt.value),
-            }))}
-            isOpen={isOpen}
-            onClose={() => setIsOpen(false)}
-            width={228}
-          />
-        </div>
-      );
-    };
-
-    return <InteractiveDropdown />;
-  },
-};
-
 export const LanguageSelect: Story = {
   args: {
     listItem: languageListItem,
     isOpen: true,
-    width: 114,
   },
 };
 
@@ -196,25 +135,7 @@ export const CurrencySelect: Story = {
   args: {
     listItem: currencyListItem,
     isOpen: true,
-    width: 114,
   },
-};
-
-export const DropUp: Story = {
-  args: {
-    listItem: sampleListItem,
-    isOpen: true,
-    height: 150,
-  },
-  decorators: [
-    (Story) => (
-      <div className="relative h-80 bg-gray-50 p-8">
-        <div className="absolute inset-x-0 bottom-0">
-          <Story />
-        </div>
-      </div>
-    ),
-  ],
 };
 
 export const AllVariants: Story = {
@@ -222,29 +143,11 @@ export const AllVariants: Story = {
     <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
       <div>
         <h3 className="mb-2 text-sm font-medium">XS - 114px</h3>
-        <DropdownMixed
-          listItem={sampleListItem}
-          paddingTop={16}
-          paddingBot={16}
-          paddingLeft={16}
-          paddingRight={16}
-          isOpen={true}
-          textColor="black-900"
-          gap={16}
-          width={255}
-        />
+        <DropdownMixed listItem={sampleListItem} isOpen={true} variant="navigation" />
       </div>
       <div>
-        <h3 className="mb-2 text-sm font-medium">SM - 173px</h3>
-        <DropdownMixed
-          padding={20}
-          listItem={sampleListItem}
-          paddingBot={12}
-          textSize="small"
-          gap={12}
-          isOpen={true}
-          width={173}
-        />
+        <h3 className="mb-2 text-sm font-medium">search panel</h3>
+        <DropdownMixed listItem={sampleListItem} variant="searchPanel" isOpen={true} />
       </div>
     </div>
   ),

@@ -1,5 +1,3 @@
-import { TextSize } from '@components/Atom/Text/type';
-
 export type TextColor =
   | 'default'
   | 'black-400'
@@ -23,18 +21,8 @@ export interface MixedDropDownOption {
 
 export interface DropdownMixedProps extends React.HTMLAttributes<HTMLDivElement> {
   listItem?: MixedDropDownOption[];
-  gap?: number | string;
-  padding?: number | string;
-  isOpen?: boolean;
-  onClose?: () => void;
+  variant?: 'navigation' | 'searchPanel';
   closeOnClickOutside?: boolean;
-  width?: number | string;
-  height?: number | string;
-  fitContent?: boolean; // new prop
-  textColor?: TextColor;
-  textSize?: TextSize;
-  paddingTop?: number | string;
-  paddingBot?: number | string;
-  paddingLeft?: number | string;
-  paddingRight?: number | string;
+  isOpen?: boolean;
+  fitContent?: boolean;
 }
