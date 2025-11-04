@@ -1,3 +1,10 @@
+# [1.0.0-develop.19](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.18...v1.0.0-develop.19) (2025-10-31)
+
+
+### Features
+
+* **ITS-IR01-189:** make new underline using after pseudo-elements ([ed4c385](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/ed4c38541cf11fa01b7d08d35d5edf6f5fd63480))
+
 # [1.0.0-develop.18](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.17...v1.0.0-develop.18) (2025-10-31)
 
 ### Features

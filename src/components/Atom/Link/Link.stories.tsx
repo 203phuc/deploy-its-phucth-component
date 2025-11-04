@@ -54,6 +54,22 @@ const meta: Meta<typeof Link> = {
         defaultValue: { summary: 'regular' },
       },
     },
+    underlineOffset: {
+      control: 'select',
+      options: ['none', 'small', 'medium', 'large'],
+      description: 'the distance the underline ',
+      table: {
+        defaultValue: { summary: 'none' },
+      },
+    },
+    underlineThickness: {
+      control: 'select',
+      options: ['thin', 'medium', 'thick'],
+      description: 'the size thickness of underline',
+      table: {
+        defaultValue: { summary: 'thin' },
+      },
+    },
     font: {
       control: 'select',
       options: ['inter', 'spaceGrotesk'],

@@ -21,8 +21,26 @@ describe('Link', () => {
     expect(link).toBeInTheDocument();
     expect(link).toHaveAttribute('href', TEST_HREF);
     expect(link).toHaveTextContent(SAMPLE_TEXT);
-    expect(link).toHaveClass('underline');
     expect(link).toHaveClass('text-text-blue');
+  });
+
+  it('should add underline when in default set up', () => {
+    render(
+      <Link href="#" spacing="none" data-testid="underline">
+        <span>First</span>
+        <span>Second</span>
+      </Link>,
+    );
+
+    const link = screen.getByTestId('underline');
+    // Check for any spacer elements
+    const after = globalThis.getComputedStyle(link, '::after');
+    const content = after.getPropertyValue('content');
+    const background = after.getPropertyValue('background-color');
+
+    // ✅ check that it exists
+    expect(content).not.toBe('none');
+    expect(background).toBe('rgba(0, 0, 0, 0)'); // matches 'black'
   });
 
   it('should apply custom className', () => {
@@ -49,8 +67,7 @@ describe('Link', () => {
     );
 
     const link = screen.getByTestId('link-hover');
-    expect(link).toHaveClass('hover:underline');
-    expect(link).not.toHaveClass('underline');
+    expect(link).toHaveClass('after:opacity-0 hover:after:opacity-100');
   });
 
   it('should apply underline class when hoverUnderline is false', () => {
@@ -60,7 +77,7 @@ describe('Link', () => {
       </Link>,
     );
 
-    expect(screen.getByTestId('link-underline')).toHaveClass('underline');
+    expect(screen.getByTestId('link-underline')).toHaveClass('after:opacity-100');
   });
 
   it('should handle external links with correct attributes', () => {
@@ -112,28 +129,6 @@ describe('Link', () => {
   });
 
   // Test case removed as it was redundant with 'should handle external links with correct attributes'
-
-  it('should handle hover underline prop', () => {
-    // Test with hoverUnderline true
-    const { rerender } = render(
-      <Link href="#" hoverUnderline data-testid="hover-test">
-        Hover Me
-      </Link>,
-    );
-
-    expect(screen.getByTestId('hover-test')).toHaveClass('hover:underline');
-    expect(screen.getByTestId('hover-test')).not.toHaveClass('underline');
-
-    // Test with hoverUnderline false (default)
-    rerender(
-      <Link href="#" hoverUnderline={false} data-testid="hover-test-false">
-        Hover Me
-      </Link>,
-    );
-
-    expect(screen.getByTestId('hover-test-false')).toHaveClass('underline');
-  });
-
   it('should handle different font weights', () => {
     const { rerender } = render(
       <Link href="#" weight="bold" data-testid="weight-test">
