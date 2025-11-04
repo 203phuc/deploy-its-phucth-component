@@ -44,38 +44,23 @@ const sampleListItem = [
   {
     label: 'Option 1',
     value: 'option1',
-    onSelect: () => {
-      console.log('it me 1');
-    },
   },
   {
     label: 'Option 2',
     value: 'option2',
-    onSelect: () => {
-      console.log('it me 2');
-    },
   },
   {
     label: 'Option 3',
     value: 'option3',
-    onSelect: () => {
-      console.log('it me 3');
-    },
   },
   { label: 'Disabled Option', value: 'disabled', disabled: true },
   {
     label: 'Option 4',
     value: 'option4',
-    onSelect: () => {
-      console.log('it me 4');
-    },
   },
   {
-    label: 'Option 4',
+    label: 'Option 5',
     value: 'option4',
-    onSelect: () => {
-      console.log('it me 4');
-    },
   },
 ];
 
