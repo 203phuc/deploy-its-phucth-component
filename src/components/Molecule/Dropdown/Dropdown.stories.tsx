@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Dropdown } from './Dropdown';
 
 const meta = {
-  title: 'Atom/Dropdown',
+  title: 'Molecule/Dropdown',
   component: Dropdown,
   parameters: {
     docs: {

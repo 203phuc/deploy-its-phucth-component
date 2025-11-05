@@ -12,6 +12,7 @@ export const DropdownMixed: React.FC<DropdownMixedProps> = ({
   closeOnClickOutside,
   isOpen,
   fitContent,
+  onClose,
   ...props
 }) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -22,14 +23,14 @@ export const DropdownMixed: React.FC<DropdownMixedProps> = ({
     if (!closeOnClickOutside || !isOpen) return;
     const handleClickOutside = (e: MouseEvent) => {
       if (ref.current && !ref.current.contains(e.target as Node)) {
-        // intentionally left blank — no onClose call
+        onClose?.();
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [closeOnClickOutside, isOpen]);
+  }, [closeOnClickOutside, isOpen, onClose]);
 
   if (!isOpen) return null;
 
