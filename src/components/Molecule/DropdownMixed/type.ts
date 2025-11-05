@@ -25,4 +25,5 @@ export interface DropdownMixedProps extends React.HTMLAttributes<HTMLDivElement>
   closeOnClickOutside?: boolean;
   isOpen?: boolean;
   fitContent?: boolean;
+  onClose?: () => void;
 }
