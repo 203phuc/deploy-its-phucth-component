@@ -5,11 +5,13 @@ import { Logo } from '@components/Atom/Logo/Logo';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
 import Toggle from '@components/Atom/Toggle/Toggle';
+import { Timer } from '@components/Molecule/Timer/Timer';
 import { memo, useEffect, useRef, useState } from 'react';
 import { Button } from '../../components/Atom/Button/Button';
 import { Input } from '../../components/Atom/Input/Input';
 import { Dropdown } from '../../components/Molecule/Dropdown/Dropdown';
 import { Slider, SliderSlide } from '../../components/Molecule/Slider';
+
 const HBZ0000Component = () => {
   const [pss, setPss] = useState<'text' | 'password'>('text');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -142,6 +144,7 @@ const HBZ0000Component = () => {
         <div style={{ background: 'blue' }}></div>
         <div style={{ background: 'violet' }}></div>
       </Grid>
+      <Timer label="Hurry up" start labelSpan=", offer expired in:" endDate="20/11/2025" mobile />
     </>
   );
 };
