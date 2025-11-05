@@ -2,6 +2,12 @@ import { useEffect, useState } from 'react';
 import { labelCva, labelSpanCva, timeBlockCva, titleCva } from './style';
 import { TimerProps } from './type';
 
+// Define time constants (self-documenting)
+const SECOND = 1000;
+const MINUTE = SECOND * 60;
+const HOUR = MINUTE * 60;
+const DAY = HOUR * 24;
+
 export const Timer = ({ endDate, start, label, mobile, labelSpan, ...props }: TimerProps) => {
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -15,6 +21,7 @@ export const Timer = ({ endDate, start, label, mobile, labelSpan, ...props }: Ti
 
     const [day, month, year] = endDate.split('/').map(Number);
     const end = new Date(year, month - 1, day).getTime();
+
     const interval = setInterval(() => {
       const now = Date.now();
       const distance = end - now;
@@ -24,13 +31,13 @@ export const Timer = ({ endDate, start, label, mobile, labelSpan, ...props }: Ti
         setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
       } else {
         setTimeLeft({
-          days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((distance / (1000 * 60 * 60)) % 24),
-          minutes: Math.floor((distance / (1000 * 60)) % 60),
-          seconds: Math.floor((distance / 1000) % 60),
+          days: Math.floor(distance / DAY),
+          hours: Math.floor((distance % DAY) / HOUR),
+          minutes: Math.floor((distance % HOUR) / MINUTE),
+          seconds: Math.floor((distance % MINUTE) / SECOND),
         });
       }
-    }, 1000);
+    }, SECOND);
 
     return () => clearInterval(interval);
   }, [endDate, start]);
@@ -50,9 +57,9 @@ export const Timer = ({ endDate, start, label, mobile, labelSpan, ...props }: Ti
         ].map((item) => (
           <div
             key={item.label}
-            className={`flex flex-col items-center justify-center ${mobile ?? 'gap-[2px]'} `}
+            className={`flex flex-col items-center justify-center ${mobile ?? 'gap-[2px]'}`}
           >
-            <span className={timeBlockCva({ mobile })}>{String(item.value).padStart(2, '00')}</span>
+            <span className={timeBlockCva({ mobile })}>{String(item.value).padStart(2, '0')}</span>
             <span className={titleCva({ mobile })}>{item.label}</span>
           </div>
         ))}
