@@ -1,12 +1,11 @@
 import { HTMLAttributes } from 'react';
-import { OverlayCvaProps } from './style';
+import { type OverlayCvaProps } from './style';
 
 // Extract the variant types from OverlayCvaProps
-type OverlayVariants = Pick<OverlayCvaProps, 'isOpen'>;
 
 export interface OverlayProps
   extends Omit<HTMLAttributes<HTMLDialogElement>, 'onClick' | 'className'>,
-    OverlayVariants {
+    OverlayCvaProps {
   /**
    * Whether to render the overlay in a portal
    * @default true

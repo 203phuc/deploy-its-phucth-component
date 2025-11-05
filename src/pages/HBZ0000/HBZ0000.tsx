@@ -2,6 +2,7 @@ import { Flex } from '@components/Atom/Flex';
 import { Grid } from '@components/Atom/Grid';
 import { Link } from '@components/Atom/Link';
 import { Logo } from '@components/Atom/Logo/Logo';
+import { Overlay } from '@components/Atom/Overlay';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
 import Toggle from '@components/Atom/Toggle/Toggle';
@@ -25,6 +26,7 @@ const HBZ0000Component = () => {
     { label: 'Option 3', value: 'option3' },
     { label: 'Option 4', value: 'option4' },
   ];
+  const [isOpenOverlay, setIsOpenOverlay] = useState(false);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -145,6 +147,24 @@ const HBZ0000Component = () => {
         <div style={{ background: 'blue' }}></div>
         <div style={{ background: 'violet' }}></div>
       </Grid>
+      <button
+        style={{ width: '100px', height: '100px', backgroundColor: 'black', color: 'white' }}
+        onClick={() => setIsOpenOverlay(true)}
+      >
+        open overlay
+      </button>
+      <Overlay position="right" fullSize="height" isOpen={isOpenOverlay}>
+        <div className="flex w-[500px] flex-col items-center justify-between overflow-auto rounded-none bg-white">
+          <h2 className="mb-4 text-2xl font-bold">Fake Modal</h2>
+          <p className="mb-6 text-gray-700">Your mom</p>
+          <button
+            onClick={() => setIsOpenOverlay(false)}
+            className="rounded-md bg-black px-4 py-2 text-white"
+          >
+            Close
+          </button>
+        </div>
+      </Overlay>
     </>
   );
 };
