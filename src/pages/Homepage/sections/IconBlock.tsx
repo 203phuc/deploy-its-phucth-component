@@ -27,7 +27,7 @@ export const IconBlock = ({ cartItem }: IconBlockProps) => {
         onMouseEnter={() => setBackground('gray')}
         onMouseLeave={() => setBackground('transparent')}
       >
-        <Flex align="center" gap={4}>
+        <Flex align="center" gap={2}>
           <Icons iconSize={28} iconName="BagIcon" />
           {cartItem ? (
             <Section w={20} bgColor="black" h={20} borderRadius="100%">

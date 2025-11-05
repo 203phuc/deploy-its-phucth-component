@@ -34,7 +34,8 @@ export const textCva = cva('inline-block', {
     },
     size: {
       xsmall: 'text-xs leading-5', // default Tailwind
-      small: 'text-sm leading-6', // default Tailwind
+      small: 'text-sm leading-[22px]', // default Tailwind
+      smedium: 'text-sm leading-[24px]', // default Tailwind
       medium: 'text-base leading-[26px]', // default Tailwind
       large: 'text-lg leading-[30px]', // default Tailwind
       xlarge: 'text-xl leading-[32px]', // default Tailwind

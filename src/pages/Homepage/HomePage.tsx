@@ -1,11 +1,3 @@
-import { NavigationBar } from './sections/NavigationBar';
-
-const HomePage = () => {
-  return (
-    <div>
-      <NavigationBar />
-    </div>
-  );
+export const HomePage = () => {
+  return <div>this is home page</div>;
 };
-
-export default HomePage;

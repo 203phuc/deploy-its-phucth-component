@@ -41,7 +41,7 @@ const DropDownHover = ({ navLinks = localNavLinks }: DropDownHoverProps) => {
   };
 
   return (
-    <Flex direction="row" gap={40} align="center">
+    <Flex direction="row" height="100%" gap={40} align="center">
       {navLinks.map((item) => (
         <Section
           h="100%"
@@ -54,8 +54,10 @@ const DropDownHover = ({ navLinks = localNavLinks }: DropDownHoverProps) => {
               <Link
                 font="spaceGrotesk"
                 weight="moderate"
+                spacing="none"
                 color={path === item.path ? 'blue-700' : 'black-900'}
                 href="#"
+                size="smedium"
                 hoverUnderline
                 underlineOffset="none"
                 onClick={(e) => {
@@ -66,6 +68,7 @@ const DropDownHover = ({ navLinks = localNavLinks }: DropDownHoverProps) => {
                 {item.label}
                 {item.icon && (
                   <Icons
+                    iconSize={18}
                     color="black"
                     iconName={
                       hoveredId === item.id && item.icon === 'ChevronDownIcon' ? 'ChevronUpIcon' : item.icon
