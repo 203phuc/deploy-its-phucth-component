@@ -1,9 +1,9 @@
-import { useState } from 'react';
 import { Flex } from '@components/Atom/Flex';
 import { Icons } from '@components/Atom/Icons';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
 import { useScreenSize } from '@pages/CustomHook/getScreenSizeHook';
+import { useState } from 'react';
 
 export const NotificationBar = () => {
   const { width } = useScreenSize();
@@ -19,6 +19,7 @@ export const NotificationBar = () => {
             70% Off Storewide — Limited time
           </Text>
           <Icons
+            box
             onClick={() => setVisible(false)} // 🔹 Click to hide
             iconName="CloseIcon"
             iconSize={20}
@@ -34,6 +35,7 @@ export const NotificationBar = () => {
             70% Off Storewide — Limited time
           </Text>
           <Icons
+            box
             onClick={() => setVisible(false)} // 🔹 Click to hide
             iconName="CloseIcon"
             iconSize={18}

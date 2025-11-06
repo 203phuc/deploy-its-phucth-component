@@ -171,8 +171,8 @@ const reactNodeSlidesText: SliderSlide[] = [
   {
     id: 10,
     content: (
-      <Section w={375} h={298}>
-        <Flex direction="column" gap={28}>
+      <Section w={375} h={298} px={16} pt={24}>
+        <Flex direction="column" gap={24}>
           <Flex direction="column" gap={8}>
             <Text size="small" color="black-900" font="inter" weight="semiBold">
               New Arrivals
@@ -180,14 +180,14 @@ const reactNodeSlidesText: SliderSlide[] = [
             <Heading font="spaceGrotesk" color="black-900" weight="moderate" size="h5">
               Create your dream shop instantly.
             </Heading>
-            <Section w={375}>
+            <Section>
               <Text size="medium" color="black-900" weight="regular">
                 Keep your everyday style chic and on-trend with our selection 20+ styles to choose from.
               </Text>
             </Section>
           </Flex>
           <Section>
-            <Button variant="solid" size="medium" roundness="sharp">
+            <Button variant="solid" size="small" roundness="sharp">
               See Collection
             </Button>
           </Section>
@@ -198,20 +198,28 @@ const reactNodeSlidesText: SliderSlide[] = [
   {
     id: 10,
     content: (
-      <Position position="relative">
-        <Section h={350}>
-          <ImagePlaceholder
-            size="full"
-            objectFit="cover"
-            objectPosition="95%"
-            src={homepage2}
-            alt="this is the homepage1"
-          >
-            {' '}
-            hello thể
-          </ImagePlaceholder>
-        </Section>
-      </Position>
+      <Section w={375} h={298} px={16} pt={24}>
+        <Flex direction="column" gap={24}>
+          <Flex direction="column" gap={8}>
+            <Text size="small" color="black-900" font="inter" weight="bold">
+              Best Seller
+            </Text>
+            <Heading font="spaceGrotesk" color="black-900" weight="moderate" size="h5">
+              Create your dream shop instantly.
+            </Heading>
+            <Section>
+              <Text size="medium" color="black-900" weight="regular">
+                Keep your everyday style chic and on-trend with our selection 20+ styles to choose from.
+              </Text>
+            </Section>
+          </Flex>
+          <Section>
+            <Button variant="solid" size="small" roundness="sharp">
+              See Collection
+            </Button>
+          </Section>
+        </Flex>
+      </Section>
     ),
   },
 ];
