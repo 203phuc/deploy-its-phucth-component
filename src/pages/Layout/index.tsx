@@ -1,9 +1,9 @@
+import { Flex } from '@components/Atom/Flex';
 import { RouterProvider, useSharedRouter } from '@pages/CustomHook/navigateHook';
 import { HomePage } from '@pages/Homepage/HomePage';
 import { NavigationBar } from '@pages/Homepage/sections/NavigationBar';
 import { ProductPage } from '@pages/Product/ProductPage';
-import { ReactNode, useEffect } from 'react';
-import { NotificationBar } from './sections/NotificationBar';
+import { ReactNode } from 'react';
 
 const routes: Record<string, ReactNode> = {
   '/': <HomePage />,
@@ -14,16 +14,10 @@ const routes: Record<string, ReactNode> = {
 // --- App content (uses router) ---
 function AppContent() {
   const { path } = useSharedRouter();
-  useEffect(() => {
-    if (path) {
-      console.log(path);
-    }
-  }, [path]);
   return (
     <div>
-      <NotificationBar />
       <NavigationBar />
-      <main>{routes[path] ?? <h1>404 - Not Found</h1>}</main>
+      <Flex width="100%">{routes[path] ?? <h1>404 - Not Found</h1>}</Flex>
     </div>
   );
 }

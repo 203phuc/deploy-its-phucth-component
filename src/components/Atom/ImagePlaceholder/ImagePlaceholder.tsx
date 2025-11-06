@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { imagePlaceholderCva } from './style';
 import type { ImagePlaceholderProps } from './type';
 
@@ -9,6 +9,10 @@ export const ImagePlaceholder = ({
   src,
   alt,
   fallbackText,
+  objectFit = 'cover',
+  objectPosition = 'center',
+  display = 'block',
+  style,
   ...rest
 }: ImagePlaceholderProps) => {
   const [hasError, setHasError] = useState(false);
@@ -29,7 +33,21 @@ export const ImagePlaceholder = ({
   }
 
   // Otherwise, render the image
-  return <img src={src} alt={alt} className={classes} onError={() => setHasError(true)} {...rest} />;
+  return (
+    <img
+      src={src}
+      alt={alt}
+      className={classes}
+      onError={() => setHasError(true)}
+      style={{
+        objectFit,
+        objectPosition,
+        display,
+        ...style, // allow user to override via props
+      }}
+      {...rest}
+    />
+  );
 };
 
 export default ImagePlaceholder;
