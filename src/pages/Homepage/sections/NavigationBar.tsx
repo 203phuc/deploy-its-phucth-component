@@ -15,7 +15,7 @@ export const NavigationBar = () => {
   const { width } = useScreenSize();
   return width > 768 ? (
     // ====== DESKTOP VERSION ======
-    <Position position="fixed" zIndex={3} top={0} left={0} right={0}>
+    <Position position="fixed" zIndex={3} top={40} left={0} right={0}>
       <Section px={52} h={68} w="100%">
         <Flex align="center" justify="center" height="100%">
           <Section h={30}>
@@ -32,7 +32,7 @@ export const NavigationBar = () => {
     </Position>
   ) : (
     // ====== SMALL SCREEN VERSION ======
-    <Position position="fixed" zIndex={3} top={0} left={0} right={0}>
+    <Position position="fixed" zIndex={3} top={36} left={0} right={0}>
       <Section px={16} h={46} w="100%" bgColor="white">
         <Flex align="center" justify="center" height="100%" width="100%">
           <Section h={30}>

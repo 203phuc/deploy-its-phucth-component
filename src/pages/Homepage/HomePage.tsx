@@ -147,9 +147,77 @@ const reactNodeSlides2: SliderSlide[] = [
       </Position>
     ),
   },
+  {
+    id: 10,
+    content: (
+      <Position position="relative">
+        <Section h={350}>
+          <ImagePlaceholder
+            size="full"
+            objectFit="cover"
+            objectPosition="95%"
+            src={homepage2}
+            alt="this is the homepage1"
+          >
+            {' '}
+            hello thể
+          </ImagePlaceholder>
+        </Section>
+      </Position>
+    ),
+  },
+];
+const reactNodeSlidesText: SliderSlide[] = [
+  {
+    id: 10,
+    content: (
+      <Section w={375} h={298}>
+        <Flex direction="column" gap={28}>
+          <Flex direction="column" gap={8}>
+            <Text size="small" color="black-900" font="inter" weight="semiBold">
+              New Arrivals
+            </Text>
+            <Heading font="spaceGrotesk" color="black-900" weight="moderate" size="h5">
+              Create your dream shop instantly.
+            </Heading>
+            <Section w={375}>
+              <Text size="medium" color="black-900" weight="regular">
+                Keep your everyday style chic and on-trend with our selection 20+ styles to choose from.
+              </Text>
+            </Section>
+          </Flex>
+          <Section>
+            <Button variant="solid" size="medium" roundness="sharp">
+              See Collection
+            </Button>
+          </Section>
+        </Flex>
+      </Section>
+    ),
+  },
+  {
+    id: 10,
+    content: (
+      <Position position="relative">
+        <Section h={350}>
+          <ImagePlaceholder
+            size="full"
+            objectFit="cover"
+            objectPosition="95%"
+            src={homepage2}
+            alt="this is the homepage1"
+          >
+            {' '}
+            hello thể
+          </ImagePlaceholder>
+        </Section>
+      </Position>
+    ),
+  },
 ];
 export const HomePage = () => {
   const [screenWidth, setScreenWidth] = useState<number | null>(null);
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   useEffect(() => {
     const handleResize = () => setScreenWidth(window.innerWidth);
@@ -161,6 +229,11 @@ export const HomePage = () => {
   if (screenWidth === null) {
     return null; // or loading skeleton while waiting for client
   }
+  const handleIndexChange = (index: number) => {
+    console.log('running');
+    console.log(index);
+    setCurrentIndex(index);
+  };
 
   const isMobile = screenWidth <= 768; // ✅ more realistic breakpoint
 
@@ -169,7 +242,20 @@ export const HomePage = () => {
       <Position position="relative">
         {isMobile ? (
           <Section>
-            <Slider autoPlay={3000} height={350} width={375} slides={reactNodeSlides2} />
+            <Slider
+              autoPlay={3000}
+              onSlideChange={(current) => handleIndexChange(current)}
+              height={350}
+              width={375}
+              slides={reactNodeSlides2}
+            />
+            <Slider
+              showDots={false}
+              currentIndex={currentIndex}
+              height={350}
+              width={375}
+              slides={reactNodeSlidesText}
+            />
           </Section>
         ) : (
           <Section w="100%">
