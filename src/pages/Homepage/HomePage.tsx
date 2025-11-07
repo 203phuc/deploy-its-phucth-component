@@ -246,31 +246,59 @@ export const HomePage = () => {
   const isMobile = screenWidth <= 768; // ✅ more realistic breakpoint
 
   return (
-    <Flex justify="center" align="center" width="100%">
-      <Position position="relative">
-        {isMobile ? (
-          <Section>
-            <Slider
-              autoPlay={3000}
-              onSlideChange={(current) => handleIndexChange(current)}
-              height={350}
-              width={375}
-              slides={reactNodeSlides2}
-            />
-            <Slider
-              showDots={false}
-              currentIndex={currentIndex}
-              height={350}
-              width={375}
-              slides={reactNodeSlidesText}
-            />
-          </Section>
-        ) : (
-          <Section w="100%">
-            <Slider autoPlay={3000} height={800} width={1440} slides={reactNodeSlides} />
-          </Section>
-        )}
-      </Position>
+    <Flex direction="column" gap={40} width="100%">
+      <Flex justify="center" align="center" width="100%">
+        <Position position="relative">
+          {isMobile ? (
+            <Section pt={46}>
+              <Slider
+                autoPlay={3000}
+                onSlideChange={(current) => handleIndexChange(current)}
+                height={350}
+                width={375}
+                slides={reactNodeSlides2}
+              />
+              <Slider
+                showDots={false}
+                currentIndex={currentIndex}
+                height={350}
+                width={375}
+                slides={reactNodeSlidesText}
+              />
+            </Section>
+          ) : (
+            <Section w="100%">
+              <Slider autoPlay={3000} height={800} width={1440} slides={reactNodeSlides} />
+            </Section>
+          )}
+        </Position>
+      </Flex>
+      <Flex justify="center" align="center" width="100%">
+        <Position position="relative">
+          {isMobile ? (
+            <Section>
+              <Slider
+                autoPlay={3000}
+                onSlideChange={(current) => handleIndexChange(current)}
+                height={350}
+                width={375}
+                slides={reactNodeSlides2}
+              />
+              <Slider
+                showDots={false}
+                currentIndex={currentIndex}
+                height={350}
+                width={375}
+                slides={reactNodeSlidesText}
+              />
+            </Section>
+          ) : (
+            <Section w="100%">
+              <Slider autoPlay={3000} height={800} width={1440} slides={reactNodeSlides} />
+            </Section>
+          )}
+        </Position>
+      </Flex>
     </Flex>
   );
 };

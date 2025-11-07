@@ -26,6 +26,8 @@ export const Section = ({
   py,
   w,
   h,
+  transition,
+  transform,
   children,
   className,
   ...props
@@ -42,6 +44,10 @@ export const Section = ({
   // Border & Radius
   if (border) style.border = border; // e.g. "1px solid #ccc"
   if (borderRadius !== undefined) style.borderRadius = toUnit(borderRadius); // e.g. 8 or '50%'
+
+  // Transition & Transform
+  if (transition !== undefined) style.transition = transition;
+  if (transform !== undefined) style.transform = transform;
 
   // Margin
   style.margin = toUnit(m ?? undefined);

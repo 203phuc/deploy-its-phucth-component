@@ -1,9 +1,11 @@
 import { Flex } from '@components/Atom/Flex';
+import { Position } from '@components/Atom/Position';
+import { useScreenSize } from '@pages/CustomHook/getScreenSizeHook';
 import { RouterProvider, useSharedRouter } from '@pages/CustomHook/navigateHook';
 import { HomePage } from '@pages/Homepage/HomePage';
 import { NavigationBar } from '@pages/Homepage/sections/NavigationBar';
 import { ProductPage } from '@pages/Product/ProductPage';
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import { NotificationBar } from './sections/NotificationBar';
 
 const routes: Record<string, ReactNode> = {
@@ -14,13 +16,51 @@ const routes: Record<string, ReactNode> = {
 
 // --- App content (uses router) ---
 function AppContent() {
+  const { width } = useScreenSize();
   const { path } = useSharedRouter();
+  const [notificationVisible, setNotificationVisible] = useState(true);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 80;
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [scrolled]);
+
+  // Compute heights so we can push page content below the fixed navbar
+  let notificationHeight = 0;
+  if (notificationVisible && !scrolled) {
+    if (width > 375) {
+      notificationHeight = 40;
+    } else {
+      notificationHeight = 36;
+    }
+  }
+
+  const navTranslate = notificationHeight;
+
   return (
-    <div>
-      <NotificationBar />
-      <NavigationBar />
+    <Position position="relative">
+      <Position position="relative" zIndex={5}>
+        <NotificationBar onClose={() => setNotificationVisible(false)} />
+      </Position>
+      {/* Make the nav full width by anchoring left/right to 0. NavigationBar handles its inner padding. */}
+      <Position position="fixed" top={0} left={0} right={0} zIndex={4}>
+        <NavigationBar
+          scrolled={scrolled}
+          translateY={navTranslate}
+          transition="transform 220ms cubic-bezier(.2,.9,.2,1)"
+        />
+      </Position>
+
       <Flex width="100%">{routes[path] ?? <h1>404 - Not Found</h1>}</Flex>
-    </div>
+    </Position>
   );
 }
 

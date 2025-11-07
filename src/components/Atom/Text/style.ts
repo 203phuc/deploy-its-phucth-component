@@ -33,12 +33,12 @@ export const textCva = cva('inline-block', {
       false: '', // no decoration
     },
     size: {
-      xsmall: 'text-xs leading-5', // default Tailwind
-      small: 'text-sm leading-[22px]', // default Tailwind
-      smedium: 'text-sm leading-[24px]', // default Tailwind
-      medium: 'text-base leading-[26px]', // default Tailwind
-      large: 'text-lg leading-[30px]', // default Tailwind
-      xlarge: 'text-xl leading-[32px]', // default Tailwind
+      xsmall: 'text-[12px] leading-5', // default Tailwind
+      small: 'text-[14px] leading-[22px]', // default Tailwind
+      smedium: 'text-[14px] leading-[24px]', // default Tailwind
+      medium: 'text-[16px] leading-[26px]', // default Tailwind
+      large: 'text-[18px] leading-[30px]', // default Tailwind
+      xlarge: 'text-[20px] leading-[32px]', // default Tailwind
       '2xlarge': 'text-2xl leading-[34px]', // default Tailwind
       '3xlarge': 'text-[1.375rem] leading-[34px]', // 22px
       '4xlarge': 'text-[1.625rem] leading-[40px]', // 26px

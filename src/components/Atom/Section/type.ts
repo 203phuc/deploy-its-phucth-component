@@ -43,4 +43,8 @@ export interface SectionProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
   /** Additional CSS classes */
   className?: string;
+  /** CSS transition string (e.g. 'all 200ms ease') */
+  transition?: string;
+  /** CSS transform string (e.g. 'translateY(-4px)') */
+  transform?: string;
 }

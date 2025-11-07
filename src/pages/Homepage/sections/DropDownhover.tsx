@@ -54,7 +54,7 @@ const DropDownHover = ({ navLinks = localNavLinks }: DropDownHoverProps) => {
               <Link
                 font="spaceGrotesk"
                 weight="moderate"
-                spacing="none"
+                spacing="xsmall"
                 color={path === item.path ? 'blue-700' : 'black-900'}
                 href="#"
                 size="smedium"
