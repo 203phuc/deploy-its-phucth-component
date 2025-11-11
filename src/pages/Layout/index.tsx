@@ -3,9 +3,9 @@ import { Position } from '@components/Atom/Position';
 import { useScreenSize } from '@pages/CustomHook/getScreenSizeHook';
 import { RouterProvider, useSharedRouter } from '@pages/CustomHook/navigateHook';
 import { HomePage } from '@pages/Homepage/HomePage';
-import { NavigationBar } from '@pages/Homepage/sections/NavigationBar';
 import { ProductPage } from '@pages/Product/ProductPage';
 import { ReactNode, useEffect, useState } from 'react';
+import { NavigationBar } from './sections/NavigationBar';
 import { NotificationBar } from './sections/NotificationBar';
 
 const routes: Record<string, ReactNode> = {
