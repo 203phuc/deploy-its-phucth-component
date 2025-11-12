@@ -5,8 +5,61 @@ import { Link } from '@components/Atom/Link';
 import { Logo } from '@components/Atom/Logo';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
+import { useScreenSize } from '@pages/CustomHook/getScreenSizeHook';
 
 export const Branding = () => {
+  const { width } = useScreenSize();
+  const isMobile = typeof width === 'number' && width < 400;
+
+  if (isMobile) {
+    return (
+      <Section w="100%" px={16} py={24}>
+        <Section w="100%" bgColor="var(--color-black-100)" px={16} py={32}>
+          <Flex width="100%" direction="column" gap={32}>
+            {/* Text Section */}
+            <Section w="100%">
+              <Flex direction="column" gap={12} align="start">
+                <Heading font="spaceGrotesk" color="black-900" weight="moderate" size="h5">
+                  Loved brands
+                </Heading>
+                <Text font="inter" weight="regular" size="small">
+                  this is the description for the branding section on the homepage.
+                </Text>
+                <Section pt={8}>
+                  <Link
+                    href="#"
+                    font="spaceGrotesk"
+                    weight="moderate"
+                    underlineOffset="none"
+                    size="special1"
+                    color="black-900"
+                  >
+                    See all Brands <Icons iconName="ArrowRightIcon" />
+                  </Link>
+                </Section>
+              </Flex>
+            </Section>
+            {/* Logo Grid - 2 per row */}
+            <Flex direction="column" gap={16} width="100%">
+              <Flex direction="row" gap={20} justify="center">
+                <Logo logoName="NikeLogo" width={140} height={70} />
+                <Logo logoName="HushLogo" width={140} height={70} />
+              </Flex>
+              <Flex direction="row" gap={20} justify="center">
+                <Logo logoName="PumaLogo" width={140} height={70} />
+                <Logo logoName="ShoeiLogo" width={140} height={70} />
+              </Flex>
+              <Flex direction="row" gap={20} justify="center">
+                <Logo logoName="MarcLogo" width={140} height={70} />
+                <Logo logoName="SupremeLogo" width={140} height={70} />
+              </Flex>
+            </Flex>
+          </Flex>
+        </Section>
+      </Section>
+    );
+  }
+
   return (
     <Section w="100%" h={428} px={52} py={52}>
       <Section w="100%" h={324} bgColor="var(--color-black-100)" px={52} py={70}>

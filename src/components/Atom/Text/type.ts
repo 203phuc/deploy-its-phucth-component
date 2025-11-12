@@ -58,6 +58,11 @@ export interface TextProps extends Partial<TextCvaPropsWithoutSize>, React.HTMLA
   readonly size?: TextSize;
 
   /**
+   * Text alignment
+   */
+  readonly align?: 'left' | 'center' | 'right';
+
+  /**
    * Text children what the content
    */
   readonly children?: React.ReactNode;

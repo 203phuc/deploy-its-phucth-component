@@ -8,6 +8,7 @@ import { bannerItems } from './data/banners';
 import { defaultProducts as homeProducts, link } from './data/products';
 import BannerGrid from './sections/BannerGrid';
 import { Branding } from './sections/Branding';
+import { FeatureSection } from './sections/FeatureSection';
 import ProductGrid from './sections/ProductGrid';
 
 // Inner component that uses the slider context
@@ -74,6 +75,9 @@ const HomePageContent = () => {
       </Section>
       <Section w="100%">
         <Branding />
+      </Section>
+      <Section w="100%">
+        <FeatureSection />
       </Section>
     </Flex>
   );

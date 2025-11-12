@@ -32,6 +32,11 @@ export const textCva = cva('inline-block', {
       true: 'line-through', // applies strikethrough
       false: '', // no decoration
     },
+    align: {
+      left: 'text-left',
+      center: 'text-center',
+      right: 'text-right',
+    },
     size: {
       special1: 'text-[16px] leading-[28px] tracking-[-0.4px]', // 13px / 20px
       xsmall: 'text-[12px] leading-5', // default Tailwind

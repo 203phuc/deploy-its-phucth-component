@@ -10,10 +10,11 @@ export const Text: React.FC<TextProps> = ({
   children,
   line,
   className,
+  align = 'left',
   ...rest
 }) => {
   // Compose class names
-  const classes = [textCva({ weight, font, size, line, color }), className].filter(Boolean).join(' ');
+  const classes = [textCva({ weight, font, size, line, color, align }), className].filter(Boolean).join(' ');
 
   return (
     <div className={classes} {...rest}>
