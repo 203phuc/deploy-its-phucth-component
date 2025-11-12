@@ -9,7 +9,7 @@ import { NavigationBar } from './sections/NavigationBar';
 import { NotificationBar } from './sections/NotificationBar';
 
 const routes: Record<string, ReactNode> = {
-  '/': <HomePage />,
+  '/home': <HomePage />,
   '/product': <ProductPage />,
   '/contact': <h1>Contact Page</h1>,
 };
@@ -28,10 +28,13 @@ function AppContent() {
         setScrolled(isScrolled);
       }
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [scrolled]);
+  useEffect(() => {
+    // Hide notification bar on small screens by default
+  }, [width]);
+  useSharedRouter().navigate('/home');
 
   // Compute heights so we can push page content below the fixed navbar
   let notificationHeight = 0;

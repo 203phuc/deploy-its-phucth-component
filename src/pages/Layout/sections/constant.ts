@@ -24,7 +24,7 @@ export const navLinks: NavLinkItem[] = [
     label: 'Home',
     type: 'link',
     condition: 'Always',
-    path: '/',
+    path: '/home',
   },
   {
     id: '4',

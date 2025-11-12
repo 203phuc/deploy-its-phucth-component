@@ -3,6 +3,7 @@ import type { TextCvaProps } from './style';
 export type TextWeight = 'regular' | 'semiBold' | 'bold' | 'moderate';
 export type TextFont = 'spaceGrotesk' | 'inter';
 export type TextSize =
+  | 'special1'
   | 'xsmall'
   | 'small'
   | 'smedium'

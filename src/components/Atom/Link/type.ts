@@ -2,6 +2,7 @@ import { VariantProps } from 'class-variance-authority';
 import { linkCva } from './style';
 
 export type LinkSize =
+  | 'special1'
   | 'xsmall'
   | 'smedium'
   | 'small'

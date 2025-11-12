@@ -14,7 +14,7 @@ export const NotificationBar = ({ onClose }: { onClose?: () => void }) => {
     setVisible(false);
     onClose?.(); // notify parent
   };
-  return width > 390 ? (
+  return width > 400 ? (
     <Flex align="center" justify="center" height="100%" width="100%">
       <Section w={1440} h={40} bgColor="white" px={16}>
         <Flex height="100%" width="100%" gap={581} align="center" justify="end">

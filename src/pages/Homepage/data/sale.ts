@@ -1,0 +1,56 @@
+import type { ProductItem } from './types';
+
+export const saleProducts: ProductItem[] = [
+  {
+    id: 3,
+    name: 'Sun Glasses',
+    prices: 45,
+    imageUrl: '/src/assets/prod_1.png',
+    currency: 'USD',
+    salePercentage: 10,
+    salePrice: 40,
+  },
+  {
+    id: 6,
+    name: 'Sneakers',
+    prices: 120,
+    imageUrl: '/src/assets/prod_1.png',
+    currency: 'USD',
+  },
+  {
+    id: 15,
+    name: 'Polo Shirt',
+    prices: 60,
+    imageUrl: '/src/assets/prod_1.png',
+    currency: 'USD',
+    salePercentage: 15,
+    salePrice: 51,
+  },
+  {
+    id: 16,
+    name: 'Chinos Pants',
+    prices: 85,
+    imageUrl: '/src/assets/prod_1.png',
+    currency: 'USD',
+    salePercentage: 25,
+    salePrice: 64,
+  },
+  {
+    id: 17,
+    name: 'Sweatshirt',
+    prices: 75,
+    imageUrl: '/src/assets/prod_1.png',
+    currency: 'USD',
+    salePercentage: 20,
+    salePrice: 60,
+  },
+  {
+    id: 18,
+    name: 'Beanie Hat',
+    prices: 35,
+    imageUrl: '/src/assets/prod_1.png',
+    currency: 'USD',
+    salePercentage: 30,
+    salePrice: 25,
+  },
+];

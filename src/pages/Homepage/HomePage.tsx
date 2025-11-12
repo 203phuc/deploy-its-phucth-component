@@ -4,7 +4,11 @@ import { Section } from '@components/Atom/Section';
 import { Slider } from '@components/Molecule/Slider';
 import { useEffect, useState } from 'react';
 import { SliderProvider, useSliderData } from '../../context/SliderContext';
-import BannerGrid, { type BannerItem } from './BannerGrid';
+import { bannerItems } from './data/banners';
+import { defaultProducts as homeProducts, link } from './data/products';
+import BannerGrid from './sections/BannerGrid';
+import { Branding } from './sections/Branding';
+import ProductGrid from './sections/ProductGrid';
 
 // Inner component that uses the slider context
 const HomePageContent = () => {
@@ -63,15 +67,13 @@ const HomePageContent = () => {
       </Flex>
       {/* BannerGrid section: uses same simple data shape (name, imageUrl, link) */}
       <Section w="100%">
-        <BannerGrid
-          items={
-            [
-              { id: 1, name: 'Coats', imageUrl: '/src/assets/homepage1.png', link: '#' },
-              { id: 2, name: 'Purses', imageUrl: '/src/assets/homepage2.png', link: '#' },
-              { id: 3, name: 'Accessories', imageUrl: '/src/assets/homepage3.png', link: '#' },
-            ] as BannerItem[]
-          }
-        />
+        <BannerGrid items={bannerItems} />
+      </Section>
+      <Section w="100%">
+        <ProductGrid products={homeProducts} links={link} />
+      </Section>
+      <Section w="100%">
+        <Branding />
       </Section>
     </Flex>
   );

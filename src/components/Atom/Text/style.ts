@@ -18,10 +18,10 @@ const colorVariants = {
 export const textCva = cva('inline-block', {
   variants: {
     weight: {
-      regular: 'font-normal',
-      semiBold: 'font-semibold',
-      bold: 'font-bold',
-      moderate: 'font-medium',
+      regular: 'font-normal', //400
+      semiBold: 'font-semibold', //600
+      bold: 'font-bold', //700
+      moderate: 'font-medium', //500
     },
     color: colorVariants,
     font: {
@@ -33,6 +33,7 @@ export const textCva = cva('inline-block', {
       false: '', // no decoration
     },
     size: {
+      special1: 'text-[16px] leading-[28px] tracking-[-0.4px]', // 13px / 20px
       xsmall: 'text-[12px] leading-5', // default Tailwind
       small: 'text-[14px] leading-[22px]', // default Tailwind
       smedium: 'text-[14px] leading-[24px]', // default Tailwind
