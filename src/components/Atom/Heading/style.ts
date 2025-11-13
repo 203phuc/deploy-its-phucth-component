@@ -37,12 +37,18 @@ export const headingCva = cva('inline-block', {
       h6: 'text-[28px] leading-[34px] tracking-[-0.6px]', // 28 / 34 / -0.6
       h7: 'text-[20px] leading-[28px] tracking-[0px]', // 20 / 28 / 0
     },
+    align: {
+      left: 'text-left',
+      center: 'text-center',
+      right: 'text-right',
+    },
   },
   defaultVariants: {
     weight: 'regular',
     font: 'spaceGrotesk',
     size: 'h7',
     color: 'default',
+    align: 'left',
   },
 });
 

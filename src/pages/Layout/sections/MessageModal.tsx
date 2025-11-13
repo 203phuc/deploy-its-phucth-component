@@ -24,9 +24,7 @@ export const MessageModal: React.FC<MessageModalProps> = ({
   autoCloseDuration = 5000,
 }) => {
   const [isVisible, setIsVisible] = useState(isOpen);
-  const [isMobile, setIsMobile] = useState<boolean>(
-    () => typeof window !== 'undefined' && window.innerWidth <= 400,
-  );
+  const [isMobile, setIsMobile] = useState<boolean>(() => window.innerWidth <= 400);
 
   React.useEffect(() => {
     const onResize = () => setIsMobile(window.innerWidth <= 400);

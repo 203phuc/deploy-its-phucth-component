@@ -11,6 +11,7 @@ import { Branding } from './sections/Branding';
 import { FeatureSection } from './sections/FeatureSection';
 import { NewsletterSection } from './sections/NewsletterSection';
 import ProductGrid from './sections/ProductGrid';
+import TextImageSection from './sections/TextImageSection';
 
 // Inner component that uses the slider context
 const HomePageContent = () => {
@@ -80,6 +81,19 @@ const HomePageContent = () => {
       </Section>
       <Section w="100%">
         <NewsletterSection />
+      </Section>
+      <Section>
+        <TextImageSection
+          intro="CHECK US OUT"
+          title="On instagram"
+          description="Browse a curated selection of new arrivals and bestsellers — handpicked and ready to ship."
+          images={[
+            '/src/assets/banner1.png',
+            '/src/assets/banner2.png',
+            '/src/assets/banner3.png',
+            '/src/assets/prod_1.png',
+          ]}
+        />
       </Section>
     </Flex>
   );
