@@ -5,6 +5,8 @@ import { RouterProvider, useSharedRouter } from '@pages/CustomHook/navigateHook'
 import { HomePage } from '@pages/Homepage/HomePage';
 import { ProductPage } from '@pages/Product/ProductPage';
 import { ReactNode, useEffect, useState } from 'react';
+import { NewsletterProvider } from '../../context/NewsletterContext';
+import { MessageModal } from './sections/MessageModal';
 import { NavigationBar } from './sections/NavigationBar';
 import { NotificationBar } from './sections/NotificationBar';
 
@@ -20,6 +22,15 @@ function AppContent() {
   const { path } = useSharedRouter();
   const [notificationVisible, setNotificationVisible] = useState(true);
   const [scrolled, setScrolled] = useState(false);
+  const [messageModal, setMessageModal] = useState<{ isOpen: boolean }>({ isOpen: false });
+
+  const handleNewsletterSuccess = () => {
+    setMessageModal({ isOpen: true });
+  };
+
+  const closeMessageModal = () => {
+    setMessageModal({ isOpen: false });
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,10 +42,6 @@ function AppContent() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [scrolled]);
-  useEffect(() => {
-    // Hide notification bar on small screens by default
-  }, [width]);
-  useSharedRouter().navigate('/home');
 
   // Compute heights so we can push page content below the fixed navbar
   let notificationHeight = 0;
@@ -50,6 +57,13 @@ function AppContent() {
 
   return (
     <Position position="relative">
+      <MessageModal
+        type="success"
+        message="You have successfully subscribed!"
+        isOpen={messageModal.isOpen}
+        onClose={closeMessageModal}
+        autoCloseDuration={5000}
+      />
       <Position position="relative" zIndex={5}>
         <NotificationBar onClose={() => setNotificationVisible(false)} />
       </Position>
@@ -62,7 +76,11 @@ function AppContent() {
         />
       </Position>
 
-      <Flex width="100%">{routes[path] ?? <h1>404 - Not Found</h1>}</Flex>
+      <Flex width="100%">
+        <NewsletterProvider onSignupSuccess={handleNewsletterSuccess}>
+          {routes[path] ?? <h1>404 - Not Found</h1>}
+        </NewsletterProvider>
+      </Flex>
     </Position>
   );
 }
