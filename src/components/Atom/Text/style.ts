@@ -39,6 +39,7 @@ export const textCva = cva('inline-block', {
     },
     size: {
       special1: 'text-[16px] leading-[28px] tracking-[-0.4px]', // 13px / 20px
+      special2: 'text-[18px] leading-[32px] tracking-[-0.4px]', // 18px / 32px
       xsmall: 'text-[12px] leading-5', // default Tailwind
       small: 'text-[14px] leading-[22px]', // default Tailwind
       smedium: 'text-[14px] leading-[24px]', // default Tailwind

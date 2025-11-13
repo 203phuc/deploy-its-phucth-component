@@ -9,6 +9,7 @@ import { defaultProducts as homeProducts, link } from './data/products';
 import BannerGrid from './sections/BannerGrid';
 import { Branding } from './sections/Branding';
 import { FeatureSection } from './sections/FeatureSection';
+import { IconBoxSection } from './sections/IconBoxSection';
 import { NewsletterSection } from './sections/NewsletterSection';
 import ProductGrid from './sections/ProductGrid';
 import TextImageSection from './sections/TextImageSection';
@@ -94,6 +95,9 @@ const HomePageContent = () => {
             '/src/assets/prod_1.png',
           ]}
         />
+      </Section>
+      <Section>
+        <IconBoxSection />
       </Section>
     </Flex>
   );
