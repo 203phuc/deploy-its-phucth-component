@@ -60,7 +60,7 @@ export const TextImageSection: React.FC<TextImageSectionProps> = ({ intro, title
 
         {/* Image block */}
         <Section w="100%">
-          <Flex direction={isMobile ? 'column' : 'row'} gap={isMobile ? 16 : 32} wrap="nowrap">
+          <Flex direction={isMobile ? 'column' : 'row'} gap={isMobile ? 16 : 32} justify="center">
             {imgs.map((src, idx) => (
               <Section w={isMobile ? 343 : 310} h={isMobile ? 343 : 310} key={src || `gallery-${idx}`}>
                 <ImagePlaceholder src={src} alt={`gallery-${idx}`} size="full" objectFit="cover" />

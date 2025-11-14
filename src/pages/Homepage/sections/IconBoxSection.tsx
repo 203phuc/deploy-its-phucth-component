@@ -43,7 +43,7 @@ export const IconBoxSection = () => {
             <Section w={156} h={84}>
               <Flex direction="column" align="center" justify="center">
                 <Section pb={8}>
-                  <Icons iconSize={32} iconName="PhoneIcon" />
+                  <Icons iconSize={32} strokeWidth={1} iconName="PhoneIcon" />
                 </Section>
                 <Text size="smedium" font="spaceGrotesk" weight="semiBold">
                   Premium Support

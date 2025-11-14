@@ -6,6 +6,7 @@ import { HomePage } from '@pages/Homepage/HomePage';
 import { ProductPage } from '@pages/Product/ProductPage';
 import { ReactNode, useEffect, useState } from 'react';
 import { NewsletterProvider } from '../../context/NewsletterContext';
+import { Footer } from './sections/Footer';
 import { MessageModal } from './sections/MessageModal';
 import { NavigationBar } from './sections/NavigationBar';
 import { NotificationBar } from './sections/NotificationBar';
@@ -81,6 +82,7 @@ function AppContent() {
           {routes[path] ?? <h1>404 - Not Found</h1>}
         </NewsletterProvider>
       </Flex>
+      <Footer />
     </Position>
   );
 }

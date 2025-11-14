@@ -5,10 +5,10 @@ import { Logo } from '@components/Atom/Logo';
 import { Section } from '@components/Atom/Section/Section';
 import { Text } from '@components/Atom/Text/Text';
 import { useScreenSize } from '../../CustomHook/getScreenSizeHook';
+import { useSharedRouter } from '../../CustomHook/navigateHook';
 import { navLinks } from './constant';
 import DropDownHover from './DropDownhover';
 import { IconBlock } from './IconBlock';
-
 interface NavigationBarProps {
   scrolled?: boolean;
   /** vertical translation in px applied to the nav (for slide animations) */
@@ -24,6 +24,7 @@ export const NavigationBar = ({
 }: NavigationBarProps) => {
   const cartItem = 2;
   const { width } = useScreenSize();
+  const { path } = useSharedRouter();
   const transformValue = `translateY(${translateY}px)`;
 
   return width > 768 ? (
@@ -33,13 +34,13 @@ export const NavigationBar = ({
         px={52}
         h={68}
         w="100%"
-        bgColor={scrolled ? 'white' : 'transparent'}
+        bgColor={scrolled || path !== '/home' ? 'white' : 'transparent'}
         transition={transition}
         transform={transformValue}
       >
         <Flex align="center" justify="center" height="100%" width="100%">
           <Section h={60}>
-            <Grid columns="auto 343px auto 298px auto" align="center" height="100%">
+            <Grid columns="auto 343px auto 298px auto" align="center" height="100%" width={1337.66}>
               <Logo logoName="NayzakLogo" height={30} width={155} />
               <div />
               <DropDownHover navLinks={navLinks} />

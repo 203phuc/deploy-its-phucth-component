@@ -54,6 +54,11 @@ export interface IconBaseProps extends Partial<IconCvaProps>, React.HTMLAttribut
   readonly iconClassName?: string;
 
   /**
+   * Stroke width of the icon
+   */
+  readonly strokeWidth?: number;
+
+  /**
    * Name of the icon to display
    */
   readonly iconName: IconName;
