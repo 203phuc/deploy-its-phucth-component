@@ -32,25 +32,11 @@ export const overlayCva = cva(
         height: 'items-center justify-center [&>*]:h-full',
         both: 'items-center justify-center [&>*]:w-full [&>*]:h-full',
       },
-
-      zIndex: {
-        1: 'z-10',
-        2: 'z-20',
-        3: 'z-30',
-        4: 'z-40',
-        5: 'z-50',
-        6: 'z-60',
-        7: 'z-70',
-        8: 'z-80',
-        9: 'z-90',
-        10: 'z-100',
-      },
     },
     defaultVariants: {
       isOpen: false,
       position: 'center',
       fullSize: 'none',
-      zIndex: 5,
     },
   } as const,
 );

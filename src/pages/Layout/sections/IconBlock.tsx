@@ -8,9 +8,10 @@ import { useState } from 'react';
 
 interface IconBlockProps {
   cartItem?: number; // or number if it's a count
+  setFlyoutCartOpen?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const IconBlock = ({ cartItem }: IconBlockProps) => {
+export const IconBlock = ({ cartItem, setFlyoutCartOpen }: IconBlockProps) => {
   const [background, setBackground] = useState('transparent');
   const [searchInput, setSearchInput] = useState(false);
   return (
@@ -42,7 +43,10 @@ export const IconBlock = ({ cartItem }: IconBlockProps) => {
         <Icons iconSize={28} iconName="HeartIcon" />
         <Section
           bgColor={background}
-          onClick={() => console.log('your mom')}
+          onClick={() => {
+            if (!setFlyoutCartOpen) return;
+            setFlyoutCartOpen((prev) => !prev);
+          }}
           onMouseEnter={() => setBackground('gray')}
           onMouseLeave={() => setBackground('transparent')}
         >

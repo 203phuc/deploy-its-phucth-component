@@ -19,5 +19,5 @@ export interface OverlayProps
    * Z-index level for the overlay (1-10)
    * @default 5
    */
-  zIndex?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
+  zIndex?: number;
 }

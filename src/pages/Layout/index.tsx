@@ -1,4 +1,5 @@
 import { Flex } from '@components/Atom/Flex';
+import { Overlay } from '@components/Atom/Overlay';
 import { Position } from '@components/Atom/Position';
 import { useScreenSize } from '@pages/CustomHook/getScreenSizeHook';
 import { RouterProvider, useSharedRouter } from '@pages/CustomHook/navigateHook';
@@ -6,6 +7,7 @@ import { HomePage } from '@pages/Homepage/HomePage';
 import { ProductPage } from '@pages/Product/ProductPage';
 import { ReactNode, useEffect, useState } from 'react';
 import { NewsletterProvider } from '../../context/NewsletterContext';
+import { FlyoutCart } from './sections/FlyoutCart';
 import { Footer } from './sections/Footer';
 import { MessageModal } from './sections/MessageModal';
 import { NavigationBar } from './sections/NavigationBar';
@@ -19,6 +21,7 @@ const routes: Record<string, ReactNode> = {
 
 // --- App content (uses router) ---
 function AppContent() {
+  const [flyoutCartOpen, setFlyoutCartOpen] = useState<boolean>(false);
   const { width } = useScreenSize();
   const { path } = useSharedRouter();
   const [notificationVisible, setNotificationVisible] = useState(true);
@@ -65,12 +68,22 @@ function AppContent() {
         onClose={closeMessageModal}
         autoCloseDuration={5000}
       />
+      <Overlay
+        isOpen={flyoutCartOpen}
+        onClose={() => setFlyoutCartOpen(false)}
+        zIndex={1000}
+        position="right"
+      >
+        {' '}
+        <FlyoutCart />
+      </Overlay>
       <Position position="relative" zIndex={5}>
         <NotificationBar onClose={() => setNotificationVisible(false)} />
       </Position>
       {/* Make the nav full width by anchoring left/right to 0. NavigationBar handles its inner padding. */}
       <Position position="fixed" top={0} left={0} right={0} zIndex={4}>
         <NavigationBar
+          setFlyoutCartOpen={setFlyoutCartOpen}
           scrolled={scrolled}
           translateY={navTranslate}
           transition="transform 220ms cubic-bezier(.2,.9,.2,1)"

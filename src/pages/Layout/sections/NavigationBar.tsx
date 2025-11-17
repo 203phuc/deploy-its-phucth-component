@@ -15,12 +15,14 @@ interface NavigationBarProps {
   translateY?: number;
   /** css transition to apply to the transform */
   transition?: string;
+  setFlyoutCartOpen?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const NavigationBar = ({
   scrolled = false,
   translateY = 0,
   transition = 'transform 220ms cubic-bezier(.2,.9,.2,1)',
+  setFlyoutCartOpen,
 }: NavigationBarProps) => {
   const cartItem = 2;
   const { width } = useScreenSize();
@@ -45,7 +47,7 @@ export const NavigationBar = ({
               <div />
               <DropDownHover navLinks={navLinks} />
               <div />
-              <IconBlock cartItem={cartItem} />
+              <IconBlock cartItem={cartItem} setFlyoutCartOpen={setFlyoutCartOpen} />
             </Grid>
           </Section>
         </Flex>

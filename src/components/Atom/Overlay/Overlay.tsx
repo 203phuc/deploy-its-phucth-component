@@ -45,7 +45,8 @@ export const Overlay = ({
   return (
     <div
       ref={overlayRef}
-      className={overlayCva({ isOpen, className, zIndex, position, fullSize })}
+      className={overlayCva({ isOpen, className, position, fullSize })}
+      style={{ zIndex }} // ← ADD THIS LINE
       aria-modal="true"
       aria-label="Dialog Overlay"
       tabIndex={-1}
