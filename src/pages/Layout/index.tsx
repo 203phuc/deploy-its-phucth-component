@@ -27,6 +27,7 @@ function AppContent() {
   const [notificationVisible, setNotificationVisible] = useState(true);
   const [scrolled, setScrolled] = useState(false);
   const [messageModal, setMessageModal] = useState<{ isOpen: boolean }>({ isOpen: false });
+  const [FlyoutMenu, setFlyoutMenuOpen] = useState(false);
 
   const handleNewsletterSuccess = () => {
     setMessageModal({ isOpen: true });
@@ -68,14 +69,16 @@ function AppContent() {
         onClose={closeMessageModal}
         autoCloseDuration={5000}
       />
+      <Overlay isOpen={FlyoutMenu} onClose={() => setFlyoutMenuOpen(false)} zIndex={1000} position="left">
+        <FlyoutCart setFlyoutCartOpen={setFlyoutCartOpen} />
+      </Overlay>
       <Overlay
         isOpen={flyoutCartOpen}
         onClose={() => setFlyoutCartOpen(false)}
         zIndex={1000}
         position="right"
       >
-        {' '}
-        <FlyoutCart />
+        <FlyoutCart setFlyoutCartOpen={setFlyoutCartOpen} />
       </Overlay>
       <Position position="relative" zIndex={5}>
         <NotificationBar onClose={() => setNotificationVisible(false)} />
@@ -84,6 +87,7 @@ function AppContent() {
       <Position position="fixed" top={0} left={0} right={0} zIndex={4}>
         <NavigationBar
           setFlyoutCartOpen={setFlyoutCartOpen}
+          setFlyoutMenuOpen={setFlyoutMenuOpen}
           scrolled={scrolled}
           translateY={navTranslate}
           transition="transform 220ms cubic-bezier(.2,.9,.2,1)"

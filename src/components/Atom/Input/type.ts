@@ -43,7 +43,11 @@ interface BaseInputProps {
    * @default 'gray'
    */
   placeholderColor?: InputPlaceholderColor;
-
+  /**
+   * Text alignment inside the input
+   * @default 'left'
+   */
+  textAlign?: 'left' | 'center' | 'right';
   /**
    * Optional leading icon name or React element
    */

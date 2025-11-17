@@ -158,6 +158,7 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
 
           {/* Input element */}
           <input
+            style={{ textAlign: props.textAlign ?? 'left' }}
             {...(props as React.InputHTMLAttributes<HTMLInputElement>)}
             ref={ref as React.ForwardedRef<HTMLInputElement>}
             type={type}

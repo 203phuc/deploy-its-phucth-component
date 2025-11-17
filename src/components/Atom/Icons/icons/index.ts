@@ -34,6 +34,7 @@ export { ListIcon } from './ListIcon';
 export { LockIcon } from './LockIcon';
 export { LogoutIcon } from './LogoutIcon';
 export { MessageIcon } from './MessageIcon';
+export { MinusIcon } from './MinusIcon';
 export { MoneyIcon } from './MoneyIcon';
 export { NotFoundIcon } from './NotFoundIcon';
 export { PhoneIcon } from './PhoneIcon';

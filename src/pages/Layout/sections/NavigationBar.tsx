@@ -16,6 +16,7 @@ interface NavigationBarProps {
   /** css transition to apply to the transform */
   transition?: string;
   setFlyoutCartOpen?: React.Dispatch<React.SetStateAction<boolean>>;
+  setFlyoutMenuOpen?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const NavigationBar = ({
@@ -23,6 +24,7 @@ export const NavigationBar = ({
   translateY = 0,
   transition = 'transform 220ms cubic-bezier(.2,.9,.2,1)',
   setFlyoutCartOpen,
+  setFlyoutMenuOpen,
 }: NavigationBarProps) => {
   const cartItem = 2;
   const { width } = useScreenSize();
@@ -62,7 +64,7 @@ export const NavigationBar = ({
             <Logo logoName="NayzakLogo" height={22} width={114} />
             <div></div>
             <Flex gap={16}>
-              <Flex align="center" gap={3}>
+              <Flex align="center" gap={3} onClick={() => setFlyoutCartOpen?.(true)}>
                 <Icons iconSize={26} iconName="BagIcon" />
                 {cartItem ? (
                   <Section w={20} h={20} bgColor="black" borderRadius="100%">
@@ -74,7 +76,12 @@ export const NavigationBar = ({
                   </Section>
                 ) : null}
               </Flex>
-              <Icons iconSize={26} iconName="HamburgerMenuIcon"></Icons>
+              <Icons
+                iconSize={26}
+                box
+                onClick={() => setFlyoutMenuOpen?.(true)}
+                iconName="HamburgerMenuIcon"
+              ></Icons>
             </Flex>
           </Grid>
         </Section>

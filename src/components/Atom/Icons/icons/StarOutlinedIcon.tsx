@@ -1,10 +1,13 @@
 import { IconProps } from './types';
 
-export const StarOutlinedIcon = ({ color = '#A7A7A7', size = 24 }: IconProps) => (
-  <svg width={size} height={size} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+export const StarOutlinedIcon = ({ size = 24 }: IconProps) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
-      d="M9.53711 4.99805C9.6812 5.34406 10.0072 5.5804 10.3809 5.61035L14.3701 5.93066L11.3301 8.53418C11.0455 8.77814 10.9218 9.16077 11.0088 9.52539L11.9365 13.4189L8.52148 11.332C8.20149 11.1366 7.79851 11.1366 7.47852 11.332L4.06348 13.4189L4.99121 9.52539C5.07818 9.16077 4.9545 8.77814 4.66992 8.53418L1.62988 5.93066L5.61914 5.61035C5.99278 5.5804 6.3188 5.34406 6.46289 4.99805L8 1.30176L9.53711 4.99805Z"
-      stroke={color}
+      d="M12.3245 17.6461L6.15254 20.8911L7.33154 14.0181L2.33154 9.15107L9.23154 8.15107L12.3175 1.89807L15.4035 8.15107L22.3035 9.15107L17.3035 14.0181L18.4825 20.8911L12.3245 17.6461Z"
+      stroke="#121212"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
