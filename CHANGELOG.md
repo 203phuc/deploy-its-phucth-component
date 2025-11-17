@@ -1,9 +1,23 @@
-# [1.0.0-develop.19](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.18...v1.0.0-develop.19) (2025-10-31)
+# [1.0.0-develop.20](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.19...v1.0.0-develop.20) (2025-11-05)
 
+### Bug Fixes
+
+- **ITS-IR01-175:** fix magic number in component timer ([143cb1c](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/143cb1caf4b4b1829a46d524e64264118531e97c))
+- **ITS-IR01-190:** fix with onclose added in component file ([ad402fc](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/ad402fcda97323a04492e72a13952939ba3cbdcc))
+- **ITS-IR01-190:** reconstruct component, style and type file ([546797e](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/546797eba427bdda5d70000ee19ffa61418b6c3a))
+- **ITS-IR01-190:** remove consolelog in stories ([9587f8d](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/9587f8d1fe27707724f46641dd6acc75b4f22987))
 
 ### Features
 
-* **ITS-IR01-189:** make new underline using after pseudo-elements ([ed4c385](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/ed4c38541cf11fa01b7d08d35d5edf6f5fd63480))
+- **ITS-IR01-175:** add figma link ([40f83d0](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/40f83d021f9eac522fe2eee0258890d2ae5f0e12))
+- **ITS-IR01-175:** component, stories and test finsihed for TImer molecule ([d56c6f0](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/d56c6f01b923dd78b5c8b65310e66cb20518dc1f))
+- **ITS-IR01-190:** full component with test and stories finished ([ee8331b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/ee8331bd2d72ab3f3dceff551689aff84189d21b))
+
+# [1.0.0-develop.19](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.18...v1.0.0-develop.19) (2025-10-31)
+
+### Features
+
+- **ITS-IR01-189:** make new underline using after pseudo-elements ([ed4c385](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/ed4c38541cf11fa01b7d08d35d5edf6f5fd63480))
 
 # [1.0.0-develop.18](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.17...v1.0.0-develop.18) (2025-10-31)
 

@@ -1,12 +1,17 @@
+import { Grid } from '@components/Atom/Grid';
 import { Link } from '@components/Atom/Link';
 import { Logo } from '@components/Atom/Logo/Logo';
 import { Overlay } from '@components/Atom/Overlay';
 import { Section } from '@components/Atom/Section';
+import { Text } from '@components/Atom/Text';
 import Toggle from '@components/Atom/Toggle/Toggle';
+import { Timer } from '@components/Molecule/Timer/Timer';
 import { memo, useEffect, useRef, useState } from 'react';
 import { Button } from '../../components/Atom/Button/Button';
+import { Flex } from '../../components/Atom/Flex';
 import { Input } from '../../components/Atom/Input/Input';
 import { Dropdown } from '../../components/Molecule/Dropdown/Dropdown';
+
 const HBZ0000Component = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -44,6 +49,26 @@ const HBZ0000Component = () => {
 
   return (
     <>
+      <Section w={20} bgColor="black" h={20} borderRadius="100%">
+        <Flex align="center">
+          <Text font="inter" color="white" weight="bold" size="xsmall">
+            2
+          </Text>
+        </Flex>
+      </Section>
+      <Section w={40} bgColor="black" h={40} borderRadius="100%">
+        <Flex width="100%" direction="row" height="100%" align="center" justify="center">
+          <Text font="inter" color="white" weight="bold" size="xsmall">
+            2
+          </Text>
+        </Flex>
+      </Section>
+      <Grid columns={2} rows={2} width={800} height={100}>
+        <div style={{ background: 'black' }}></div>
+        <div style={{ background: 'blue' }}></div>
+        <div style={{ background: 'violet' }}></div>
+      </Grid>
+      <Timer label="Hurry up" start labelSpan=", offer expired in:" endDate="20/11/2025" mobile />
       <Button variant="outlined" size="large">
         Hello from HAIBAZO ^_^
       </Button>
