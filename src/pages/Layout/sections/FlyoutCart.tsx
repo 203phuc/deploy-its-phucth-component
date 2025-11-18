@@ -8,7 +8,7 @@ import { Section } from '@components/Atom/Section/Section';
 import { Text } from '@components/Atom/Text/Text';
 import { useScreenSize } from '@pages/CustomHook/getScreenSizeHook';
 import { useState } from 'react';
-import { products } from '../data/SampleProduct';
+import { products } from '../mockData/SampleProduct';
 import { CartItem, Product } from './CartItem';
 interface FlyoutCartProps {
   setFlyoutCartOpen: React.Dispatch<React.SetStateAction<boolean>>;

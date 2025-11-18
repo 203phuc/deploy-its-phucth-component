@@ -8,7 +8,7 @@ import { Text } from '@components/Atom/Text';
 import { Dropdown } from '@components/Molecule/Dropdown';
 import { useScreenSize } from '@pages/CustomHook/getScreenSizeHook';
 import { useState } from 'react';
-import { currencyOptions, languageOptions } from '../data/Dropdown';
+import { currencyOptions, languageOptions } from '../mockData/Dropdown';
 
 export const Footer = () => {
   const [lang, setLang] = useState<string | number>('English');

@@ -4,8 +4,8 @@ import { Link } from '@components/Atom/Link/Link';
 import { Section } from '@components/Atom/Section';
 import { useScreenSize } from '@pages/CustomHook/getScreenSizeHook';
 import { useState } from 'react';
-import { defaultProducts, link, productsByCategory } from '../data/products';
-import type { ProductGridProps } from '../data/types';
+import { defaultProducts, link, productsByCategory } from '../mockData/products';
+import type { ProductGridProps } from '../mockData/types';
 import ProductCardHome from './ProductCardHome';
 
 const ProductGrid = ({ links = link }: ProductGridProps) => {

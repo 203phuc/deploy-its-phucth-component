@@ -6,7 +6,7 @@ import { useScreenSize } from '@pages/CustomHook/getScreenSizeHook';
 import { useState } from 'react';
 import { Input } from 'src/components/Atom/Input';
 import { Text } from 'src/components/Atom/Text/Text';
-import { products } from '../data/SampleProduct';
+import { products } from '../mockData/SampleProduct';
 
 export interface Product {
   id: number;

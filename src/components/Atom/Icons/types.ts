@@ -3,7 +3,7 @@ import { IconCvaProps } from './style';
 
 // List of all available icon names
 export type IconName = keyof typeof AllIcons;
-export type BoxFillType = 'red' | 'green' | 'white' | 'none';
+export type BoxFillType = 'red' | 'green' | 'white' | 'none' | 'gray';
 export type ColorType = 'black-600' | 'black-400' | 'blue' | 'black' | 'white';
 export type BoxRoundnessType = 'pill' | 'round' | 'sharp';
 
