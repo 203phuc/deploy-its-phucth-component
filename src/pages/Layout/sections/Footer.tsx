@@ -2,20 +2,19 @@ import { Flex } from '@components/Atom/Flex';
 import { Icons } from '@components/Atom/Icons';
 import { Link } from '@components/Atom/Link';
 import { Logo } from '@components/Atom/Logo';
-import { Position } from '@components/Atom/Position';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
-import { Dropdown } from '@components/Molecule/Dropdown';
 import { useScreenSize } from '@pages/CustomHook/getScreenSizeHook';
 import { useState } from 'react';
 import { currencyOptions, languageOptions } from '../mockData/Dropdown';
+import { DropdownSelector } from './DropdownSelector';
 
 export const Footer = () => {
   const [lang, setLang] = useState<string | number>('English');
   const { width } = useScreenSize();
-  const [clickLang, setClickLang] = useState<boolean>(false);
+
   const [currency, setCurrency] = useState<string | number>('USD');
-  const [clickCurrency, setClickCurrency] = useState<boolean>(false);
+
   if (width <= 400) {
     return (
       <Section bgColor="var(--color-black-50)" px={16} py={25}>
@@ -103,58 +102,19 @@ export const Footer = () => {
                 <Flex direction="column" justify="center" align="center" gap={16}>
                   <Section>
                     <Flex direction="row" gap={32}>
-                      <Position position="relative">
-                        <Position position="absolute" left={-8}>
-                          <Dropdown
-                            direction="up"
-                            variant="xs"
-                            isOpen={clickLang}
-                            options={languageOptions}
-                            textSize="smedium"
-                            // only provide the value when this dropdown is the selected one
-                            value={lang}
-                            onSelect={(v) => setLang(v)}
-                            // let dropdown request closing (e.g. click outside)
-                          />
-                        </Position>
-                        <Section w={95} onClick={() => setClickLang(!clickLang)}>
-                          <Flex direction="row" align="center" justify="center" gap={2}>
-                            <Section pr={6}>
-                              <Icons iconName={languageOptions.find((opt) => opt.value === lang)!.icon} />
-                            </Section>
-                            <Text size="smedium" font="spaceGrotesk" color="black-900" weight="moderate">
-                              {lang}
-                            </Text>
-                            <Icons iconSize={18} iconName="ChevronDownIcon" />
-                          </Flex>
-                        </Section>
-                      </Position>
-                      <Position position="relative">
-                        <Position position="absolute" left={-22}>
-                          <Dropdown
-                            direction="up"
-                            variant="xs"
-                            isOpen={clickCurrency}
-                            options={currencyOptions}
-                            textSize="smedium"
-                            // only provide the value when this dropdown is the selected one
-                            value={currency}
-                            onSelect={(v) => setCurrency(v)}
-                            // let dropdown request closing (e.g. click outside)
-                          />
-                        </Position>
-                        <Section w={48} onClick={() => setClickCurrency(!clickCurrency)}>
-                          <Flex direction="row" align="center" justify="center" gap={2}>
-                            <Text size="smedium" font="spaceGrotesk" color="black-900" weight="moderate">
-                              {currency}
-                            </Text>
-                            <Icons
-                              iconSize={18}
-                              iconName={clickCurrency ? 'ChevronUpIcon' : 'ChevronDownIcon'}
-                            />
-                          </Flex>
-                        </Section>
-                      </Position>
+                      <DropdownSelector
+                        options={languageOptions}
+                        value={lang}
+                        onSelect={(v) => setLang(v)}
+                        width={95}
+                      />
+
+                      <DropdownSelector
+                        options={currencyOptions}
+                        value={currency}
+                        onSelect={(v) => setCurrency(v)}
+                        width={48}
+                      />
                     </Flex>
                   </Section>
                   <Section pt={16}>
@@ -276,58 +236,19 @@ export const Footer = () => {
                 </Text>
                 <Section>
                   <Flex direction="row" gap={32}>
-                    <Position position="relative">
-                      <Position position="absolute" left={-8}>
-                        <Dropdown
-                          direction="up"
-                          variant="xs"
-                          isOpen={clickLang}
-                          options={languageOptions}
-                          textSize="smedium"
-                          // only provide the value when this dropdown is the selected one
-                          value={lang}
-                          onSelect={(v) => setLang(v)}
-                          // let dropdown request closing (e.g. click outside)
-                        />
-                      </Position>
-                      <Section w={95} onClick={() => setClickLang(!clickLang)}>
-                        <Flex direction="row" align="center" justify="center" gap={2}>
-                          <Section pr={6}>
-                            <Icons iconName={languageOptions.find((opt) => opt.value === lang)!.icon} />
-                          </Section>
-                          <Text size="smedium" font="spaceGrotesk" color="black-900" weight="moderate">
-                            {lang}
-                          </Text>
-                          <Icons iconSize={18} iconName="ChevronDownIcon" />
-                        </Flex>
-                      </Section>
-                    </Position>
-                    <Position position="relative">
-                      <Position position="absolute" left={-22}>
-                        <Dropdown
-                          direction="up"
-                          variant="xs"
-                          isOpen={clickCurrency}
-                          options={currencyOptions}
-                          textSize="smedium"
-                          // only provide the value when this dropdown is the selected one
-                          value={currency}
-                          onSelect={(v) => setCurrency(v)}
-                          // let dropdown request closing (e.g. click outside)
-                        />
-                      </Position>
-                      <Section w={48} onClick={() => setClickCurrency(!clickCurrency)}>
-                        <Flex direction="row" align="center" justify="center" gap={2}>
-                          <Text size="smedium" font="spaceGrotesk" color="black-900" weight="moderate">
-                            {currency}
-                          </Text>
-                          <Icons
-                            iconSize={18}
-                            iconName={clickCurrency ? 'ChevronUpIcon' : 'ChevronDownIcon'}
-                          />
-                        </Flex>
-                      </Section>
-                    </Position>
+                    <DropdownSelector
+                      options={languageOptions}
+                      value={lang}
+                      onSelect={(v) => setLang(v)}
+                      width={95}
+                    />
+
+                    <DropdownSelector
+                      options={currencyOptions}
+                      value={currency}
+                      onSelect={(v) => setCurrency(v)}
+                      width={48}
+                    />
                   </Flex>
                 </Section>
               </Flex>

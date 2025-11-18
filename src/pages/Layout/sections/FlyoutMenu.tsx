@@ -3,13 +3,12 @@ import { Flex } from '@components/Atom/Flex';
 import { Icons } from '@components/Atom/Icons/Icons';
 import { Input } from '@components/Atom/Input/Input';
 import { Logo } from '@components/Atom/Logo';
-import { Position } from '@components/Atom/Position';
 import { Section } from '@components/Atom/Section/Section';
 import { Text } from '@components/Atom/Text/Text';
-import { Dropdown } from '@components/Molecule/Dropdown';
 import { useScreenSize } from '@pages/CustomHook/getScreenSizeHook';
 import { useState } from 'react';
 import { currencyOptions, languageOptions } from '../mockData/Dropdown';
+import { DropdownSelector } from './DropdownSelector';
 import { MobileNav } from './MobileNav';
 
 interface FlyoutMenuProps {
@@ -18,10 +17,8 @@ interface FlyoutMenuProps {
 }
 export const FlyoutMenu = ({ setFlyoutMenuOpen, cartItem = 2 }: FlyoutMenuProps) => {
   const [currency, setCurrency] = useState<string | number>('USD');
-  const [clickCurrency, setClickCurrency] = useState<boolean>(false);
   const [lang, setLang] = useState<string | number>('English');
   const { width } = useScreenSize();
-  const [clickLang, setClickLang] = useState<boolean>(false);
 
   if (width <= 400) {
     return (
@@ -104,63 +101,23 @@ export const FlyoutMenu = ({ setFlyoutMenuOpen, cartItem = 2 }: FlyoutMenuProps)
                       <Text size="smedium" font="spaceGrotesk" color="black-500" weight="moderate">
                         Currency
                       </Text>
-                      <Position position="relative">
-                        <Position position="absolute" right={100}>
-                          <Dropdown
-                            direction="up"
-                            variant="xs"
-                            isOpen={clickCurrency}
-                            options={currencyOptions}
-                            textSize="smedium"
-                            // only provide the value when this dropdown is the selected one
-                            value={currency}
-                            onSelect={(v) => setCurrency(v)}
-                            // let dropdown request closing (e.g. click outside)
-                          />
-                        </Position>
-                        <Section w={48} onClick={() => setClickCurrency(!clickCurrency)}>
-                          <Flex direction="row" align="center" justify="center" gap={2}>
-                            <Text size="smedium" font="spaceGrotesk" color="black-900" weight="moderate">
-                              {currency}
-                            </Text>
-                            <Icons
-                              iconSize={18}
-                              iconName={clickCurrency ? 'ChevronUpIcon' : 'ChevronDownIcon'}
-                            />
-                          </Flex>
-                        </Section>
-                      </Position>
+                      <DropdownSelector
+                        options={currencyOptions}
+                        value={currency}
+                        onSelect={(v) => setCurrency(v)}
+                        width={48}
+                      />
                     </Flex>
                     <Flex align="center" justify="space-between" width="100%">
                       <Text size="smedium" font="spaceGrotesk" color="black-500" weight="moderate">
                         Language
                       </Text>
-                      <Position position="relative">
-                        <Position position="absolute" left={-8}>
-                          <Dropdown
-                            direction="up"
-                            variant="xs"
-                            isOpen={clickLang}
-                            options={languageOptions}
-                            textSize="smedium"
-                            // only provide the value when this dropdown is the selected one
-                            value={lang}
-                            onSelect={(v) => setLang(v)}
-                            // let dropdown request closing (e.g. click outside)
-                          />
-                        </Position>
-                        <Section w={95} onClick={() => setClickLang(!clickLang)}>
-                          <Flex direction="row" align="center" justify="center" gap={2}>
-                            <Section pr={6}>
-                              <Icons iconName={languageOptions.find((opt) => opt.value === lang)!.icon} />
-                            </Section>
-                            <Text size="smedium" font="spaceGrotesk" color="black-900" weight="moderate">
-                              {lang}
-                            </Text>
-                            <Icons iconSize={18} iconName="ChevronDownIcon" />
-                          </Flex>
-                        </Section>
-                      </Position>
+                      <DropdownSelector
+                        options={languageOptions}
+                        value={lang}
+                        onSelect={(v) => setLang(v)}
+                        width={95}
+                      />
                     </Flex>
                   </Flex>
                 </Section>
