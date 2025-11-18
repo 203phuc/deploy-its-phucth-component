@@ -71,7 +71,7 @@ function AppContent() {
         autoCloseDuration={5000}
       />
       <Overlay isOpen={FlyoutMenuOpen} onClose={() => setFlyoutMenuOpen(false)} zIndex={1000} position="left">
-        <FlyoutMenu setFlyoutMenuOpen={setFlyoutMenuOpen} />
+        <FlyoutMenu setFlyoutMenuOpen={setFlyoutMenuOpen} cartItem={2} />
       </Overlay>
       <Overlay
         isOpen={flyoutCartOpen}
