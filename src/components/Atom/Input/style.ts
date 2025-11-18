@@ -10,7 +10,8 @@ export const inputCva = cva('flex items-center transition-all focus-within:borde
       small: 'h-8 gap-1 px-2 text-sm', //32px
       smedium: 'h-[32px] gap-2 px-[8px] py-[6px] text-base', //32px
       medium: 'h-10 gap-2 px-3 text-sm', //40px
-      large: 'h-13 gap-2 px-4 text-base', //52px
+      large: 'h-[46] gap-2 px-3 text-[14px] leading-[22px]', //46px
+      xlarge: 'h-13 gap-2 px-4 text-base', //52px
     },
     error: {
       true: 'border-red-500 focus-within:border-red-500 focus-within:ring-red-500',

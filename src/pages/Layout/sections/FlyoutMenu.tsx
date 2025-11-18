@@ -1,55 +1,44 @@
 import { Button } from '@components/Atom/Button/Button';
 import { Flex } from '@components/Atom/Flex';
-import { Heading } from '@components/Atom/Heading/Heading';
 import { Icons } from '@components/Atom/Icons/Icons';
 import { Input } from '@components/Atom/Input/Input';
+import { Logo } from '@components/Atom/Logo';
 import { Position } from '@components/Atom/Position';
 import { Section } from '@components/Atom/Section/Section';
 import { Text } from '@components/Atom/Text/Text';
 import { useScreenSize } from '@pages/CustomHook/getScreenSizeHook';
-import { useState } from 'react';
-import { products } from '../data/SampleProduct';
-import { CartItem, Product } from './CartItem';
 interface FlyoutMenuProps {
   setFlyoutMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 export const FlyoutMenu = ({ setFlyoutMenuOpen }: FlyoutMenuProps) => {
-  const [cartItems, setCartItems] = useState<Product[]>(products);
   const { width } = useScreenSize();
-  const handleQuantityChange = (id: number, quantity: number) => {
-    setCartItems((prevItems) => prevItems.map((item) => (item.id === id ? { ...item, quantity } : item)));
-  };
 
-  const subtotal = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
   if (width <= 400) {
     return (
       <Section bgColor="white" w={343} h="100vh" pt={16} px={16} pb={16}>
         <Flex direction="column" justify="space-between" height="100%">
           <Section>
-            <Section py={12} w="100%">
+            <Section w="100%">
               <Flex align="center" justify="space-between" width="100%">
-                <Heading font="spaceGrotesk" weight="moderate" size="h5" color="black-900">
-                  Cart
-                </Heading>
+                <Logo logoName="NayzakLogo" width={114} height={22} />
                 <button
                   onClick={() => {
                     setFlyoutMenuOpen(false);
                   }}
-                  style={{ background: 'none', border: 'none', cursor: 'pointer' }}
-                  aria-label="Close cart"
                 >
-                  <Icons iconName="CloseIcon" iconSize={24} />
+                  <Icons iconName="CloseIcon" iconSize={26} />
                 </button>
               </Flex>
             </Section>
-            <Position position="relative">
-              <Section w="100%" h={402} overflow="hidden auto">
-                {/* Cart items will go here */}
-                {cartItems.map((item) => (
-                  <CartItem key={item.id} product={[item]} onQuantityChange={handleQuantityChange} />
-                ))}
-              </Section>
-            </Position>
+
+            <Section mt={28} w="100%" overflow="hidden auto">
+              <Input
+                size="large"
+                placeholder="Search"
+                iconStart={<Icons iconName="SearchIcon" iconSize={24} />}
+              />
+            </Section>
+            <Section mt={16}>hello menu</Section>
           </Section>
           <Section>
             <Flex direction="column" gap={16}>
@@ -84,9 +73,6 @@ export const FlyoutMenu = ({ setFlyoutMenuOpen }: FlyoutMenuProps) => {
                       <Text size="medium" color="black-900">
                         Subtotal
                       </Text>
-                      <Text size="medium" color="black-900" weight="semiBold">
-                        ${subtotal.toFixed(2)}
-                      </Text>
                     </Flex>
                     <Position position="absolute" zIndex={1000} bottom={0}>
                       <Section bgColor="var(--color-black-200)" w={376} h={1}></Section>
@@ -96,14 +82,7 @@ export const FlyoutMenu = ({ setFlyoutMenuOpen }: FlyoutMenuProps) => {
                 <Section mb={24}>
                   <Position position="relative">
                     <Flex gap={16} justify="center" width="100%" height={52} direction="column">
-                      <Flex justify="space-between">
-                        <Text size="large" weight="semiBold" color="black-900">
-                          Total
-                        </Text>
-                        <Text size="large" color="black-900" weight="bold">
-                          ${subtotal.toFixed(2)}
-                        </Text>
-                      </Flex>
+                      <Flex justify="space-between"></Flex>
                     </Flex>
                   </Position>
                 </Section>

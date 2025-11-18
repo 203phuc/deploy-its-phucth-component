@@ -8,6 +8,7 @@ import { ProductPage } from '@pages/Product/ProductPage';
 import { ReactNode, useEffect, useState } from 'react';
 import { NewsletterProvider } from '../../context/NewsletterContext';
 import { FlyoutCart } from './sections/FlyoutCart';
+import { FlyoutMenu } from './sections/FlyoutMenu';
 import { Footer } from './sections/Footer';
 import { MessageModal } from './sections/MessageModal';
 import { NavigationBar } from './sections/NavigationBar';
@@ -27,7 +28,7 @@ function AppContent() {
   const [notificationVisible, setNotificationVisible] = useState(true);
   const [scrolled, setScrolled] = useState(false);
   const [messageModal, setMessageModal] = useState<{ isOpen: boolean }>({ isOpen: false });
-  const [FlyoutMenu, setFlyoutMenuOpen] = useState(false);
+  const [FlyoutMenuOpen, setFlyoutMenuOpen] = useState(false);
 
   const handleNewsletterSuccess = () => {
     setMessageModal({ isOpen: true });
@@ -69,8 +70,8 @@ function AppContent() {
         onClose={closeMessageModal}
         autoCloseDuration={5000}
       />
-      <Overlay isOpen={FlyoutMenu} onClose={() => setFlyoutMenuOpen(false)} zIndex={1000} position="left">
-        <FlyoutCart setFlyoutCartOpen={setFlyoutCartOpen} />
+      <Overlay isOpen={FlyoutMenuOpen} onClose={() => setFlyoutMenuOpen(false)} zIndex={1000} position="left">
+        <FlyoutMenu setFlyoutMenuOpen={setFlyoutMenuOpen} />
       </Overlay>
       <Overlay
         isOpen={flyoutCartOpen}
