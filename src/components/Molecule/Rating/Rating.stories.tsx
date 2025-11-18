@@ -45,3 +45,57 @@ export const Default: Story = {
     noFillColor: 'black',
   },
 };
+export const ZeroRating: Story = {
+  args: {
+    size: 20,
+    rating: 0,
+    noFillColor: 'black',
+  },
+};
+
+export const HalfRating: Story = {
+  args: {
+    size: 20,
+    rating: 3,
+    noFillColor: 'black',
+  },
+};
+
+export const FullRating: Story = {
+  args: {
+    size: 20,
+    rating: 5,
+    noFillColor: 'black',
+  },
+};
+
+export const SmallSize: Story = {
+  args: {
+    size: 16,
+    rating: 4,
+    noFillColor: 'black',
+  },
+};
+
+export const NoFillColorGray: Story = {
+  args: {
+    size: 20,
+    rating: 4,
+    noFillColor: 'black-400',
+  },
+};
+
+export const Interactive: Story = {
+  args: {
+    size: 20,
+    rating: 0,
+    noFillColor: 'black',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Play with hover and click to change stars.',
+      },
+    },
+  },
+};
