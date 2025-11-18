@@ -1,6 +1,5 @@
 import { Button } from '@components/Atom/Button/Button';
 import { Flex } from '@components/Atom/Flex';
-import { Heading } from '@components/Atom/Heading/Heading';
 import { Icons } from '@components/Atom/Icons/Icons';
 import { Input } from '@components/Atom/Input/Input';
 import { Position } from '@components/Atom/Position';
@@ -9,7 +8,8 @@ import { Text } from '@components/Atom/Text/Text';
 import { useScreenSize } from '@pages/CustomHook/getScreenSizeHook';
 import { useState } from 'react';
 import { products } from '../mockData/SampleProduct';
-import { CartItem, Product } from './CartItem';
+import { CartContent } from './CartContent';
+import { Product } from './CartItem';
 interface FlyoutCartProps {
   setFlyoutCartOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -25,32 +25,11 @@ export const FlyoutCart = ({ setFlyoutCartOpen }: FlyoutCartProps) => {
     return (
       <Section bgColor="white" w={343} h="100vh" pt={16} px={16} pb={16}>
         <Flex direction="column" justify="space-between" height="100%">
-          <Section>
-            <Section py={12} w="100%">
-              <Flex align="center" justify="space-between" width="100%">
-                <Heading font="spaceGrotesk" weight="moderate" size="h5" color="black-900">
-                  Cart
-                </Heading>
-                <button
-                  onClick={() => {
-                    setFlyoutCartOpen(false);
-                  }}
-                  style={{ background: 'none', border: 'none', cursor: 'pointer' }}
-                  aria-label="Close cart"
-                >
-                  <Icons iconName="CloseIcon" iconSize={24} />
-                </button>
-              </Flex>
-            </Section>
-            <Position position="relative">
-              <Section w="100%" h={402} overflow="hidden auto">
-                {/* Cart items will go here */}
-                {cartItems.map((item) => (
-                  <CartItem key={item.id} product={[item]} onQuantityChange={handleQuantityChange} />
-                ))}
-              </Section>
-            </Position>
-          </Section>
+          <CartContent
+            cartItems={cartItems}
+            onClose={() => setFlyoutCartOpen(false)}
+            onQuantityChange={handleQuantityChange}
+          />
           <Section>
             <Flex direction="column" gap={16}>
               <Input placeholder="Enter your coupon code" size="large" buttonEnd={<Button>Apply</Button>} />
@@ -120,32 +99,11 @@ export const FlyoutCart = ({ setFlyoutCartOpen }: FlyoutCartProps) => {
   return (
     <Section bgColor="white" w={460} h="100vh" pt={24} px={24} pb={16}>
       <Flex direction="column" justify="space-between" height="100%">
-        <Section>
-          <Section py={12} w="100%">
-            <Flex align="center" justify="space-between" width="100%">
-              <Heading font="spaceGrotesk" weight="moderate" size="h5" color="black-900">
-                Cart
-              </Heading>
-              <button
-                onClick={() => {
-                  setFlyoutCartOpen(false);
-                }}
-                style={{ background: 'none', border: 'none', cursor: 'pointer' }}
-                aria-label="Close cart"
-              >
-                <Icons iconName="CloseIcon" iconSize={24} />
-              </button>
-            </Flex>
-          </Section>
-          <Position position="relative">
-            <Section w="100%" h={402} overflow="hidden auto">
-              {/* Cart items will go here */}
-              {cartItems.map((item) => (
-                <CartItem key={item.id} product={[item]} onQuantityChange={handleQuantityChange} />
-              ))}
-            </Section>
-          </Position>
-        </Section>
+        <CartContent
+          cartItems={cartItems}
+          onClose={() => setFlyoutCartOpen(false)}
+          onQuantityChange={handleQuantityChange}
+        />
         <Section>
           <Flex direction="column" gap={16}>
             <Input placeholder="Enter your coupon code" size="large" buttonEnd={<Button>Apply</Button>} />
