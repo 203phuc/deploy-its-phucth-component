@@ -6,8 +6,8 @@ import { Section } from '@components/Atom/Section/Section';
 import { Text } from '@components/Atom/Text/Text';
 import { useScreenSize } from '../../CustomHook/getScreenSizeHook';
 import { useSharedRouter } from '../../CustomHook/navigateHook';
-import { navLinks } from './constant';
-import DropDownHover from './DropDownhover';
+import { navLinks } from '../mockData/constant';
+import DropDownHover from './Dropdownhover';
 import { IconBlock } from './IconBlock';
 interface NavigationBarProps {
   scrolled?: boolean;

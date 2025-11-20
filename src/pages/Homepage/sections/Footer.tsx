@@ -6,7 +6,7 @@ import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
 import { useScreenSize } from '@pages/CustomHook/getScreenSizeHook';
 import { useState } from 'react';
-import { currencyOptions, languageOptions } from '../mockData/Dropdown';
+import { currencyOptions, languageOptions } from '../mockData/dropdown';
 import { DropdownSelector } from './DropdownSelector';
 
 export const Footer = () => {

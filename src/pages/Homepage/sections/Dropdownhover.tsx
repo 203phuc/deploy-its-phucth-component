@@ -5,7 +5,7 @@ import { Section } from '@components/Atom/Section/Section';
 import { Dropdown } from '@components/Molecule/Dropdown';
 import { useSharedRouter } from '@pages/CustomHook/navigateHook';
 import { useRef, useState } from 'react';
-import { navLinks as localNavLinks } from './constant';
+import { navLinks as localNavLinks } from '../mockData/constant';
 
 export interface DropDownHoverProps {
   navLinks?: typeof localNavLinks;

@@ -1,10 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
-import App from '../Layout';
 import { HomePage } from './HomePage';
 
 const meta = {
   title: 'Page/HomePage',
-  component: App,
+  component: HomePage,
   tags: ['autodocs'],
 } satisfies Meta<typeof HomePage>;
 

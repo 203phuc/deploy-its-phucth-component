@@ -1,10 +1,11 @@
-import Layout from '@pages/Layout';
+// import Layout from '@pages/Layout';
+import { HomePage } from '@pages/Homepage';
 import { memo } from 'react';
 
 import './styles/tailwind.css';
 
 const AppComponent = () => {
-  return <Layout />;
+  return <HomePage />;
 };
 
 export const App = memo(AppComponent);
