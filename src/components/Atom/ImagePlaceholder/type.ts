@@ -31,6 +31,16 @@ export type ImagePlaceholderSize =
 type ImagePlaceholderCvaPropsWithoutSize = Omit<ImagePlaceholderCvaProps, 'size'>;
 
 /**
+ * Allowed values for objectFit variant
+ */
+export type ImageObjectFit = 'cover' | 'contain' | 'fill' | 'none' | 'scale-down';
+
+/**
+ * Allowed values for objectPosition variant
+ */
+export type ImageObjectPosition = 'center' | 'top' | 'bottom' | 'left' | 'right' | 'right1';
+
+/**
  * ImagePlaceholder component props
  */
 export interface ImagePlaceholderProps
@@ -61,15 +71,15 @@ export interface ImagePlaceholderProps
    */
   fallbackText?: string;
   /**
-   * set the image position inside img tag
+   * Object fit variant
    */
-  objectFit?: React.CSSProperties['objectFit'];
+  objectFit?: ImageObjectFit;
   /**
-   * set the image position inside img tag
+   * Object position variant
    */
-  objectPosition?: React.CSSProperties['objectPosition'];
+  objectPosition?: ImageObjectPosition;
   /**
-   * Custom fallback text to display when image fails to load
+   * Display property for img
    */
-  display?: React.CSSProperties['display'];
+  display?: 'block' | 'inline-block' | 'inline' | 'flex' | 'inline-flex' | 'none';
 }

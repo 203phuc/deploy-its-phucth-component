@@ -4,6 +4,7 @@ import type { ImagePlaceholderProps } from './type';
 
 export const ImagePlaceholder = ({
   size = 's1',
+  gap = 'none',
   className = '',
   children,
   src,
@@ -11,14 +12,17 @@ export const ImagePlaceholder = ({
   fallbackText,
   objectFit = 'cover',
   objectPosition = 'center',
-  display = 'block',
   style,
   ...rest
 }: ImagePlaceholderProps) => {
   const [hasError, setHasError] = useState(false);
-  const classes = [imagePlaceholderCva({ size }), className].filter(Boolean).join(' ');
 
-  // If there's an error or no src is provided, show the fallback
+  // Combine CVA classes with user className
+  const classes = [imagePlaceholderCva({ size, gap, objectFit, objectPosition }), className]
+    .filter(Boolean)
+    .join(' ');
+
+  // Show fallback if error or no src
   if (hasError || !src) {
     return (
       <div
@@ -32,7 +36,7 @@ export const ImagePlaceholder = ({
     );
   }
 
-  // Otherwise, render the image
+  // Render image
   return (
     <img
       src={src}
@@ -40,10 +44,7 @@ export const ImagePlaceholder = ({
       className={classes}
       onError={() => setHasError(true)}
       style={{
-        objectFit,
-        objectPosition,
-        display,
-        ...style, // allow user to override via props
+        ...style, // allow user overrides for other properties
       }}
       {...rest}
     />

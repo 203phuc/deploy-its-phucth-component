@@ -69,7 +69,7 @@ const transformSlideData = (
             <ImagePlaceholder
               size="full"
               objectFit="cover"
-              objectPosition="95%"
+              objectPosition="right1"
               src={slide.imageUrl}
               alt={`Slide ${slide.id}`}
             />
