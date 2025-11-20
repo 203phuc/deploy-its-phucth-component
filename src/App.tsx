@@ -1,4 +1,3 @@
-// import Layout from '@pages/Layout';
 import { HomePage } from '@pages/Homepage';
 import { memo } from 'react';
 

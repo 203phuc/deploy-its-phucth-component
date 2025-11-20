@@ -16,7 +16,7 @@ import { type BannerGridProps, BannerItem } from './types';
  * - right column: two rows, each with a box; name displayed bottom-left and an "Explore" Link
  */
 export const BannerGrid = ({ items, isMobile }: BannerGridProps) => {
-  const { left, topRight, bottomRight } = useBannerGrid(items, isMobile);
+  const { left, topRight, bottomRight } = useBannerGrid(isMobile, items);
   // Mobile breakpoint: when width is below 400px, render as stacked rows (one column)
   if (isMobile) {
     const mobileItems = [left, topRight, bottomRight].filter((i): i is BannerItem => i != null);

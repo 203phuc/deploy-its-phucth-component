@@ -79,8 +79,6 @@ const HomePageContent = () => {
           </Position>
           <Position position="fixed" top={0} left={0} right={0} zIndex={10}>
             <NavigationBar
-              // setFlyoutCartOpen={setFlyoutCartOpen}
-              // setFlyoutMenuOpen={setFlyoutMenuOpen}
               isMobile={isMobileScreen}
               scrolled={scrolled}
               translateY={navTranslate}
