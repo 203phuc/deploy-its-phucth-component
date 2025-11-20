@@ -5,6 +5,7 @@ import { Overlay } from '@components/Atom/Overlay';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
 import Toggle from '@components/Atom/Toggle/Toggle';
+import { Rating } from '@components/Molecule/Rating/Rating';
 import { Timer } from '@components/Molecule/Timer/Timer';
 import { memo, useEffect, useRef, useState } from 'react';
 import { Button } from '../../components/Atom/Button/Button';
@@ -69,6 +70,7 @@ const HBZ0000Component = () => {
         <div style={{ background: 'violet' }}></div>
       </Grid>
       <Timer label="Hurry up" start labelSpan=", offer expired in:" endDate="20/11/2025" mobile />
+      <Rating size={20} rating={2} noFillColor="black-400"></Rating>
       <Button variant="outlined" size="large">
         Hello from HAIBAZO ^_^
       </Button>

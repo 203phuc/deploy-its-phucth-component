@@ -1,3 +1,14 @@
+# [1.0.0-develop.21](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.20...v1.0.0-develop.21) (2025-11-20)
+
+### Bug Fixes
+
+- **ITS-IR01-147:** add figma link to stories file ([dca7437](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/dca7437133d6b3c846d489e46d7f250933a73372))
+
+### Features
+
+- **ITS-IR01-147:** add more stories to rating ([c469446](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/c469446003aadee5dd4e2971c7e63690de52bbac))
+- **ITS-IR01-147:** test and list stories of rating ([dd8b2b2](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/dd8b2b2835ba11c9da0133d62e332b7517ce91ea))
+
 # [1.0.0-develop.20](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.19...v1.0.0-develop.20) (2025-11-05)
 
 ### Bug Fixes
