@@ -4,20 +4,11 @@ import { Icons } from '@components/Atom/Icons/Icons';
 import { Logo } from '@components/Atom/Logo';
 import { Section } from '@components/Atom/Section/Section';
 import { Text } from '@components/Atom/Text/Text';
-import { useScreenSize } from '../../CustomHook/getScreenSizeHook';
 import { useSharedRouter } from '../../CustomHook/navigateHook';
 import { navLinks } from '../mockData/constant';
 import DropDownHover from './Dropdownhover';
 import { IconBlock } from './IconBlock';
-interface NavigationBarProps {
-  scrolled?: boolean;
-  /** vertical translation in px applied to the nav (for slide animations) */
-  translateY?: number;
-  /** css transition to apply to the transform */
-  transition?: string;
-  setFlyoutCartOpen?: React.Dispatch<React.SetStateAction<boolean>>;
-  setFlyoutMenuOpen?: React.Dispatch<React.SetStateAction<boolean>>;
-}
+import { type NavigationBarProps } from './types';
 
 export const NavigationBar = ({
   scrolled = false,
@@ -25,13 +16,13 @@ export const NavigationBar = ({
   transition = 'transform 220ms cubic-bezier(.2,.9,.2,1)',
   setFlyoutCartOpen,
   setFlyoutMenuOpen,
+  isMobile,
 }: NavigationBarProps) => {
   const cartItem = 2;
-  const { width } = useScreenSize();
   const { path } = useSharedRouter();
   const transformValue = `translateY(${translateY}px)`;
 
-  return width > 768 ? (
+  return !isMobile ? (
     // ====== DESKTOP VERSION ======
     <Flex width="100%">
       <Section

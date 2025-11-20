@@ -4,18 +4,17 @@ import { Link } from '@components/Atom/Link';
 import { Logo } from '@components/Atom/Logo';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
-import { useScreenSize } from '@pages/CustomHook/getScreenSizeHook';
 import { useState } from 'react';
 import { currencyOptions, languageOptions } from '../mockData/dropdown';
 import { DropdownSelector } from './DropdownSelector';
+import { MutualProps } from './types';
 
-export const Footer = () => {
+export const Footer = ({ isMobile }: MutualProps) => {
   const [lang, setLang] = useState<string | number>('English');
-  const { width } = useScreenSize();
 
   const [currency, setCurrency] = useState<string | number>('USD');
 
-  if (width <= 400) {
+  if (isMobile) {
     return (
       <Section bgColor="var(--color-black-50)" px={16} py={25}>
         <Section pt={23}>

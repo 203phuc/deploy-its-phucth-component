@@ -5,48 +5,12 @@ import { Icons } from '@components/Atom/Icons/Icons';
 import { Input } from '@components/Atom/Input/Input';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
-import { useScreenSize } from '@pages/CustomHook/getScreenSizeHook';
-import React, { useRef, useState } from 'react';
-import { useNewsletter } from '../../../context/NewsletterContext';
+import React from 'react';
+import { useNewsletterSection } from './hooks/NewLettersSectionHook';
+import { type MutualProps } from './types';
 
-export const NewsletterSection: React.FC = () => {
-  const inputRef = useRef<HTMLInputElement | null>(null);
-  const { width } = useScreenSize();
-  const { onSignupSuccess } = useNewsletter();
-  const isMobile = typeof width === 'number' && width < 400;
-  const [error, setError] = useState<string>('');
-
-  // Helper function to validate email format
-  const isValidEmail = (email: string): boolean => {
-    // Simple email validation: must have @ and at least one dot after @
-    return email.includes('@') && email.includes('.') && email.indexOf('@') < email.lastIndexOf('.');
-  };
-
-  const handleSubmit = (e?: React.FormEvent) => {
-    if (e) e.preventDefault();
-    const email = inputRef.current?.value ?? '';
-
-    // Validate email
-    if (!email.trim()) {
-      setError('Email is required');
-      return;
-    }
-
-    if (!isValidEmail(email)) {
-      setError('Email is incorrect');
-      return;
-    }
-
-    // Clear error on successful validation
-    setError('');
-    console.log('Newsletter signup:', email);
-
-    // Call the success callback to show message modal
-    onSignupSuccess();
-
-    // clear input
-    if (inputRef.current) inputRef.current.value = '';
-  };
+export const NewsletterSection: React.FC<MutualProps> = ({ isMobile }) => {
+  const { inputRef, error, handleSubmit, setError } = useNewsletterSection();
   if (isMobile) {
     return (
       <Section w="100%" h={432} px={16} py={16}>

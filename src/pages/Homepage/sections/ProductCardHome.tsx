@@ -4,39 +4,9 @@ import { Position } from '@components/Atom/Position';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
 import { formatPrice } from '../../../util/formatPrice';
-
-interface ProductCardProps {
-  name: string;
-  price: number;
-  /** ISO 4217 currency code, e.g. 'USD', 'EUR' */
-  currency?: string;
-  imageUrl?: string;
-  /** Mark product as new */
-  isNew?: boolean;
-  /** Sale price. Must be provided together with salePercentage */
-  salePrice?: number;
-  /** Sale discount percentage (e.g., 20 for 20% off). Must be provided together with salePrice */
-  salePercentage?: number;
-  /** Visual size variant for the card. Use 'small' for mobile compact layout */
-  size?: 'default' | 'small';
-}
-
+import { useProductCard } from './hooks/ProductCardHomeHook';
+import { ProductCardProps } from './types';
 // Helper function to get size configuration based on size prop
-function getSizeConfig(size: 'default' | 'small') {
-  const configs = {
-    small: {
-      card: { cardW: 163, cardH: 277, imageH: 217, badgeW: 49, badgeH: 24 },
-      flex: { direction: 'column' as const, gap: 8 },
-      text: { badge: 'xsmall' as const, name: 'smedium' as const, price: 'xsmall' as const },
-    },
-    default: {
-      card: { cardW: 424, cardH: 631, imageH: 565, badgeW: 63, badgeH: 30 },
-      flex: { direction: 'row' as const, gap: 12 },
-      text: { badge: 'small' as const, name: 'special1' as const, price: 'small' as const },
-    },
-  };
-  return configs[size];
-}
 
 export const ProductCardHome = ({
   name,
@@ -50,10 +20,13 @@ export const ProductCardHome = ({
 }: ProductCardProps) => {
   // Validate that salePrice and salePercentage are provided together
 
-  const priceLabel = formatPrice(price, currency);
-
-  // size variant configuration
-  const config = getSizeConfig(size);
+  const { config, priceLabel } = useProductCard({
+    price,
+    salePrice,
+    salePercentage,
+    currency,
+    size,
+  });
   const { card, flex, text } = config;
 
   return (

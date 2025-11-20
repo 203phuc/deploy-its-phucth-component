@@ -2,6 +2,7 @@ import { Flex } from '@components/Atom/Flex';
 import { Position } from '@components/Atom/Position';
 import { Section } from '@components/Atom/Section';
 import { Slider } from '@components/Molecule/Slider';
+import { useIsMobile } from '@pages/CustomHook/breakpoint';
 import { useScreenSize } from '@pages/CustomHook/getScreenSizeHook';
 import { RouterProvider } from '@pages/CustomHook/navigateHook';
 import { useEffect, useState } from 'react';
@@ -9,7 +10,7 @@ import { NewsletterProvider } from '../../context/NewsletterContext';
 import { SliderProvider, useSliderData } from '../../context/SliderContext';
 import { bannerItems } from './mockData/banners';
 import { defaultProducts as homeProducts, link } from './mockData/products';
-import BannerGrid from './sections/BannerGrid';
+import { BannerGrid } from './sections/BannerGrid';
 import { Branding } from './sections/Branding';
 import { FeatureSection } from './sections/FeatureSection';
 import { Footer } from './sections/Footer';
@@ -29,6 +30,8 @@ const HomePageContent = () => {
   const [notificationVisible, setNotificationVisible] = useState(true);
   const { width } = useScreenSize();
   const [scrolled, setScrolled] = useState(false);
+  const [isMobileScreen, setIsMobileScreen] = useState(false);
+  const mobile: boolean = useIsMobile(); // safe
 
   // Compute heights so we can push page content below the fixed navbar
   let notificationHeight = 0;
@@ -54,9 +57,10 @@ const HomePageContent = () => {
   useEffect(() => {
     const handleResize = () => setScreenWidth(window.innerWidth);
     handleResize(); // ✅ Set initial value after mount
+    setIsMobileScreen(mobile);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  }, [mobile]);
 
   if (screenWidth === null) {
     return null; // or loading skeleton while waiting for client
@@ -65,19 +69,19 @@ const HomePageContent = () => {
   const handleIndexChange = (index: number) => {
     setCurrentIndex(index);
   };
-  const isMobile = screenWidth <= 768; // ✅ more realistic breakpoint
 
   return (
     <Flex direction="column" width="100%" height="100%">
       <Position position="relative" zIndex={5}>
         <Section transform="translateZ(0)">
-          <Position position="relative" zIndex={5}>
-            <NotificationBar onClose={() => setNotificationVisible(false)} />
+          <Position position="relative" zIndex={15}>
+            <NotificationBar isMobile={isMobileScreen} onClose={() => setNotificationVisible(false)} />
           </Position>
           <Position position="fixed" top={0} left={0} right={0} zIndex={10}>
             <NavigationBar
               // setFlyoutCartOpen={setFlyoutCartOpen}
               // setFlyoutMenuOpen={setFlyoutMenuOpen}
+              isMobile={isMobileScreen}
               scrolled={scrolled}
               translateY={navTranslate}
               transition="transform 220ms cubic-bezier(.2,.9,.2,1)"
@@ -88,7 +92,7 @@ const HomePageContent = () => {
       <Flex direction="column" gap={40} width="100%">
         <Flex justify="center" align="center" width="100%">
           <Position position="relative">
-            {isMobile ? (
+            {isMobileScreen ? (
               <Section pt={47}>
                 <Slider
                   autoPlay={3000}
@@ -115,22 +119,23 @@ const HomePageContent = () => {
       </Flex>
       {/* BannerGrid section: uses same simple data shape (name, imageUrl, link) */}
       <Section w="100%">
-        <BannerGrid items={bannerItems} />
+        <BannerGrid isMobile={isMobileScreen} items={bannerItems} />
       </Section>
       <Section w="100%">
-        <ProductGrid products={homeProducts} links={link} />
+        <ProductGrid isMobile={isMobileScreen} products={homeProducts} links={link} />
       </Section>
       <Section w="100%">
-        <Branding />
+        <Branding isMobile={isMobileScreen} />
       </Section>
       <Section w="100%">
-        <FeatureSection />
+        <FeatureSection isMobile={isMobileScreen} />
       </Section>
       <Section w="100%">
-        <NewsletterSection />
+        <NewsletterSection isMobile={isMobileScreen} />
       </Section>
       <Section>
         <TextImageSection
+          isMobile={isMobileScreen}
           intro="CHECK US OUT"
           title="On instagram"
           description="Browse a curated selection of new arrivals and bestsellers — handpicked and ready to ship."
@@ -143,10 +148,10 @@ const HomePageContent = () => {
         />
       </Section>
       <Section>
-        <IconBoxSection />
+        <IconBoxSection isMobile={isMobileScreen} />
       </Section>
       <Section>
-        <Footer />
+        <Footer isMobile={isMobileScreen} />
       </Section>
     </Flex>
   );

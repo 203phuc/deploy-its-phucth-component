@@ -5,11 +5,7 @@ import { Position } from '@components/Atom/Position';
 import { Section } from '@components/Atom/Section/Section';
 import { Text } from '@components/Atom/Text';
 import { useState } from 'react';
-
-interface IconBlockProps {
-  cartItem?: number; // or number if it's a count
-  setFlyoutCartOpen?: React.Dispatch<React.SetStateAction<boolean>>;
-}
+import { type IconBlockProps } from './types';
 
 export const IconBlock = ({ cartItem, setFlyoutCartOpen }: IconBlockProps) => {
   const [background, setBackground] = useState('transparent');

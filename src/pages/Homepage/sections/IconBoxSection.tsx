@@ -2,11 +2,9 @@ import { Flex } from '@components/Atom/Flex';
 import { Icons } from '@components/Atom/Icons';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
-import { useScreenSize } from '@pages/CustomHook/getScreenSizeHook';
+import { type MutualProps } from './types';
 
-export const IconBoxSection = () => {
-  const { width } = useScreenSize();
-  const isMobile = typeof width === 'number' && width < 400;
+export const IconBoxSection = ({ isMobile }: MutualProps) => {
   if (isMobile) {
     return (
       <Section px={16} py={32}>

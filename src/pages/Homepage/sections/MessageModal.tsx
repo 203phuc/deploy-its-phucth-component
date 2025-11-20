@@ -4,17 +4,9 @@ import { Icons } from '@components/Atom/Icons/Icons';
 import { Position } from '@components/Atom/Position/Position';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
-import React, { useState } from 'react';
-
-export type MessageType = 'success' | 'error';
-
-export interface MessageModalProps {
-  type: MessageType;
-  message: string;
-  isOpen: boolean;
-  onClose: () => void;
-  autoCloseDuration?: number; // milliseconds, 0 to disable auto-close
-}
+import React from 'react';
+import { useMessageModal } from './hooks/MessageModelHook';
+import { type MessageModalProps } from './types';
 
 export const MessageModal: React.FC<MessageModalProps> = ({
   type,
@@ -23,31 +15,7 @@ export const MessageModal: React.FC<MessageModalProps> = ({
   onClose,
   autoCloseDuration = 5000,
 }) => {
-  const [isVisible, setIsVisible] = useState(isOpen);
-  const [isMobile, setIsMobile] = useState<boolean>(() => window.innerWidth <= 400);
-
-  React.useEffect(() => {
-    const onResize = () => setIsMobile(window.innerWidth <= 400);
-
-    window.addEventListener('resize', onResize);
-    // initialize
-    onResize();
-
-    return () => window.removeEventListener('resize', onResize);
-  }, []);
-
-  React.useEffect(() => {
-    setIsVisible(isOpen);
-
-    if (isOpen && autoCloseDuration > 0) {
-      const timer = setTimeout(() => {
-        setIsVisible(false);
-        onClose();
-      }, autoCloseDuration);
-
-      return () => clearTimeout(timer);
-    }
-  }, [isOpen, autoCloseDuration, onClose]);
+  const { isVisible, isMobile, handleClose } = useMessageModal({ isOpen, onClose, autoCloseDuration });
 
   if (!isVisible) return null;
 
@@ -58,10 +26,6 @@ export const MessageModal: React.FC<MessageModalProps> = ({
   const iconName = isSuccess ? 'CheckIcon' : 'CloseIcon';
   const iconColor = 'black';
   const boxColor = isSuccess ? 'green' : 'red';
-  const handleClose = () => {
-    setIsVisible(false);
-    onClose();
-  };
 
   const positionProps = isMobile
     ? { position: 'fixed' as const, top: 0, left: 0, right: 0, zIndex: 9999 }

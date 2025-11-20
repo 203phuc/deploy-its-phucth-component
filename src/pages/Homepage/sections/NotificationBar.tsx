@@ -2,11 +2,10 @@ import { Flex } from '@components/Atom/Flex';
 import { Icons } from '@components/Atom/Icons';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
-import { useScreenSize } from '@pages/CustomHook/getScreenSizeHook';
 import { useState } from 'react';
+import { type NotificationBarProps } from './types';
 
-export const NotificationBar = ({ onClose }: { onClose?: () => void }) => {
-  const { width } = useScreenSize();
+export const NotificationBar = ({ onClose, isMobile }: NotificationBarProps) => {
   const [visible, setVisible] = useState(true);
 
   if (!visible) return null; // 🔹 Hide entire bar when closed
@@ -14,7 +13,7 @@ export const NotificationBar = ({ onClose }: { onClose?: () => void }) => {
     setVisible(false);
     onClose?.(); // notify parent
   };
-  return width > 400 ? (
+  return !isMobile ? (
     <Flex align="center" justify="center" height="100%" width="100%">
       <Section w={1440} h={40} bgColor="white" px={16}>
         <Flex height="100%" width="100%" gap={581} align="center" justify="end">

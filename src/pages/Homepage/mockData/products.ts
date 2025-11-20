@@ -1,7 +1,7 @@
+import type { LinkItem, ProductItem } from '../sections/types';
 import { bestsellerProducts } from './bestsellers';
 import { newarrivalsProducts } from './newarrivals';
 import { saleProducts } from './sale';
-import type { LinkItem, ProductItem } from './types';
 
 export const defaultProducts: ProductItem[] = bestsellerProducts;
 

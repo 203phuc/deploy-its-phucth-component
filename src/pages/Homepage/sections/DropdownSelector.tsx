@@ -3,14 +3,9 @@ import { Icons } from '@components/Atom/Icons';
 import { Position } from '@components/Atom/Position';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
-import { Dropdown, DropdownOption } from '@components/Molecule/Dropdown';
+import { Dropdown } from '@components/Molecule/Dropdown';
 import { useState } from 'react';
-interface DropdownSelectorProps {
-  options: DropdownOption[];
-  value: string | number;
-  onSelect: (val: string | number) => void;
-  width?: number;
-}
+import { DropdownSelectorProps } from './types';
 
 export const DropdownSelector = ({ options, value, onSelect, width = 95 }: DropdownSelectorProps) => {
   const [open, setOpen] = useState(false);

@@ -5,12 +5,9 @@ import { Link } from '@components/Atom/Link';
 import { Logo } from '@components/Atom/Logo';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
-import { useScreenSize } from '@pages/CustomHook/getScreenSizeHook';
+import { type MutualProps } from './types';
 
-export const Branding = () => {
-  const { width } = useScreenSize();
-  const isMobile = typeof width === 'number' && width < 400;
-
+export const Branding = ({ isMobile }: MutualProps) => {
   if (isMobile) {
     return (
       <Section w="100%" px={16} py={24}>

@@ -3,12 +3,9 @@ import { Heading } from '@components/Atom/Heading/Heading';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
 import { VideoPlayer } from '@components/Atom/VideoPlayer/VideoPlayer';
-import { useScreenSize } from '@pages/CustomHook/getScreenSizeHook';
+import { type MutualProps } from './types';
 
-export const FeatureSection = () => {
-  const { width } = useScreenSize();
-  const isMobile = typeof width === 'number' && width < 400;
-
+export const FeatureSection = ({ isMobile }: MutualProps) => {
   if (isMobile) {
     return (
       <Section w="100%" px={16} py={32}>

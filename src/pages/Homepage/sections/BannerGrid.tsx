@@ -5,18 +5,8 @@ import { ImagePlaceholder } from '@components/Atom/ImagePlaceholder';
 import { Link } from '@components/Atom/Link';
 import { Position } from '@components/Atom/Position';
 import { Section } from '@components/Atom/Section';
-import { useScreenSize } from '@pages/CustomHook/getScreenSizeHook';
-
-export interface BannerItem {
-  id: number;
-  name: string;
-  imageUrl: string;
-  link?: string;
-}
-
-interface BannerGridProps {
-  items: BannerItem[]; // expects at least 3 items: left, right-top, right-bottom
-}
+import { useBannerGrid } from './hooks/BannerGridHook';
+import { type BannerGridProps, BannerItem } from './types';
 
 /**
  * BannerGrid
@@ -25,15 +15,10 @@ interface BannerGridProps {
  * - left column: single full-height box with name at top-left
  * - right column: two rows, each with a box; name displayed bottom-left and an "Explore" Link
  */
-export const BannerGrid = ({ items }: BannerGridProps) => {
-  const left = items[0];
-  const topRight = items[1];
-  const bottomRight = items[2];
-
-  const { width } = useScreenSize();
-
+export const BannerGrid = ({ items, isMobile }: BannerGridProps) => {
+  const { left, topRight, bottomRight } = useBannerGrid(items, isMobile);
   // Mobile breakpoint: when width is below 400px, render as stacked rows (one column)
-  if (typeof width === 'number' && width < 400) {
+  if (isMobile) {
     const mobileItems = [left, topRight, bottomRight].filter((i): i is BannerItem => i != null);
 
     return (

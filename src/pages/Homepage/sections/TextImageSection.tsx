@@ -3,15 +3,8 @@ import { Heading } from '@components/Atom/Heading';
 import { ImagePlaceholder } from '@components/Atom/ImagePlaceholder';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
-import { useScreenSize } from '@pages/CustomHook/getScreenSizeHook';
 import React from 'react';
-
-export interface TextImageSectionProps {
-  intro?: string;
-  title: string;
-  description?: string;
-  images: string[]; // expect 4 image urls
-}
+import { type TextImageSectionProps } from './types';
 
 /**
  * TextImageSection
@@ -19,10 +12,13 @@ export interface TextImageSectionProps {
  * - On mobile (width < 400) it stacks vertically: text block above the image row
  * - Uses existing Atom components only (Section, Flex, Text, Heading, ImagePlaceholder)
  */
-export const TextImageSection: React.FC<TextImageSectionProps> = ({ intro, title, description, images }) => {
-  const { width } = useScreenSize();
-  const isMobile = typeof width === 'number' && width < 400;
-
+export const TextImageSection: React.FC<TextImageSectionProps> = ({
+  intro,
+  title,
+  description,
+  images,
+  isMobile,
+}) => {
   // Ensure we render exactly 4 image slots; if fewer provided, fill with empty placeholders
   const imgs = Array.from({ length: 4 }).map((_, i) => images[i] ?? '');
 

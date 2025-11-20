@@ -2,21 +2,18 @@ import Flex from '@components/Atom/Flex/Flex';
 import { Grid } from '@components/Atom/Grid';
 import { Link } from '@components/Atom/Link/Link';
 import { Section } from '@components/Atom/Section';
-import { useScreenSize } from '@pages/CustomHook/getScreenSizeHook';
 import { useState } from 'react';
 import { defaultProducts, link, productsByCategory } from '../mockData/products';
-import type { ProductGridProps } from '../mockData/types';
 import ProductCardHome from './ProductCardHome';
+import type { ProductGridProps } from './types';
 
-const ProductGrid = ({ links = link }: ProductGridProps) => {
+const ProductGrid = ({ links = link, isMobile }: ProductGridProps) => {
   const [selectedLink, setSelectedLink] = useState<string | null>(links?.[0]?.url || null);
 
   // Get products for the selected category
   const displayProducts =
     productsByCategory[selectedLink as keyof typeof productsByCategory] || defaultProducts;
 
-  const { width } = useScreenSize();
-  const isMobile = typeof width === 'number' && width < 400;
   return (
     <Section w="100%" px={isMobile ? 16 : 52} py={isMobile ? 24 : 52}>
       <Flex direction="column" gap={isMobile ? 0 : 52}>
