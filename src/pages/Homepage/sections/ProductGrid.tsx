@@ -2,17 +2,13 @@ import Flex from '@components/Atom/Flex/Flex';
 import { Grid } from '@components/Atom/Grid';
 import { Link } from '@components/Atom/Link/Link';
 import { Section } from '@components/Atom/Section';
-import { useState } from 'react';
-import { defaultProducts, link, productsByCategory } from '../mockData/products';
+import { link } from '../mockData/products';
+import { useProductGrid } from './hooks/ProductGridHook';
 import ProductCardHome from './ProductCardHome';
 import type { ProductGridProps } from './types';
 
 const ProductGrid = ({ links = link, isMobile }: ProductGridProps) => {
-  const [selectedLink, setSelectedLink] = useState<string | null>(links?.[0]?.url || null);
-
-  // Get products for the selected category
-  const displayProducts =
-    productsByCategory[selectedLink as keyof typeof productsByCategory] || defaultProducts;
+  const { selectedLink, handleLinkClick, displayProducts } = useProductGrid(links);
 
   return (
     <Section w="100%" px={isMobile ? 16 : 52} py={isMobile ? 24 : 52}>
@@ -34,7 +30,7 @@ const ProductGrid = ({ links = link, isMobile }: ProductGridProps) => {
                       hoverUnderline={!isSelected}
                       underlineOffset="none"
                       onClick={(e) => {
-                        setSelectedLink(l.url);
+                        handleLinkClick(l.url);
                         globalThis.history.pushState({}, '', globalThis.location.pathname + '/' + l.url);
                         e.preventDefault();
                       }}
