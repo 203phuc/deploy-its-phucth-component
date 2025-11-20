@@ -7,7 +7,7 @@ const meta = {
   parameters: {
     design: {
       type: 'figma',
-      url: '',
+      url: 'https://www.figma.com/design/Ovp63tfHXWbbNr8lzFbAGy/HAIBAZO-INTERNSHIP-FRONTEND?node-id=111-23585&t=NkHrVg9SwkSiPX3f-4',
     },
     docs: {
       description: {
