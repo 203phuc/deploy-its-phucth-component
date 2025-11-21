@@ -11,7 +11,6 @@ const DropDownHover = ({ navLinks = localNavLinks }: DropDownHoverProps) => {
   const {
     hoveredId,
     selectedState,
-    path,
     navigate,
     handleMouseEnter,
     handleMouseLeave,
@@ -34,7 +33,7 @@ const DropDownHover = ({ navLinks = localNavLinks }: DropDownHoverProps) => {
                 font="spaceGrotesk"
                 weight="moderate"
                 spacing="xsmall"
-                color={path === item.path ? 'blue-700' : 'black-900'}
+                color="black-900"
                 href="#"
                 size="smedium"
                 hoverUnderline

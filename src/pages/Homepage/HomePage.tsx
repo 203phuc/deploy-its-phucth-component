@@ -40,7 +40,7 @@ const HomePageContent = () => {
   return (
     <Flex direction="column" width="100%" height="100%">
       <Position position="fixed" zIndex={5} top={0} left={0} right={0}>
-        <Section transform="translateZ(0)">
+        <Section transform="translateZ(0)" w="100%">
           <Position position="relative" zIndex={15}>
             <NotificationBar isMobile={isMobileScreen} onClose={() => setNotificationVisible(false)} />
           </Position>

@@ -38,8 +38,8 @@ export const useHomePage = () => {
   // Compute notification bar height for nav offset
   let notificationHeight = 0;
 
-  if (notificationVisible && !scrolled) {
-    notificationHeight = width && width > 375 ? 40 : 36;
+  if (notificationVisible) {
+    notificationHeight = width && width > 400 ? 40 : 36;
   }
 
   return {

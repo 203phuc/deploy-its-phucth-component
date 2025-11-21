@@ -10,7 +10,6 @@ export const Overlay = ({
   onClose, // 👈 add this prop
   children,
   className = '',
-  zIndex = 5,
   position,
   fullSize,
 }: OverlayProps & { onClose?: () => void }): JSX.Element | null => {
@@ -46,7 +45,6 @@ export const Overlay = ({
     <div
       ref={overlayRef}
       className={overlayCva({ isOpen, className, position, fullSize })}
-      style={{ zIndex }} // ← ADD THIS LINE
       aria-modal="true"
       aria-label="Dialog Overlay"
       tabIndex={-1}
