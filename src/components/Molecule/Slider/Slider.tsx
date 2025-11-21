@@ -37,19 +37,28 @@ export const Slider: React.FC<SliderProps> = ({
 
   // Auto-play functionality
   useEffect(() => {
-    if (autoPlay <= 0) return; // Early return — skip effect entirely
+    if (props.currentIndex !== undefined) {
+      setCurrentIndex(props.currentIndex);
+    }
+
+    if (autoPlay <= 0) return; // Skip autoplay if disabled
 
     const autoLoopSlide = setInterval(() => {
       setCurrentIndex((prev) => {
-        const next = prev + 1;
-        if (next >= slides.length) return loop ? 0 : prev;
+        let next = prev + 1;
+
+        if (next >= slides.length) {
+          next = loop ? 0 : prev;
+        }
+
+        onSlideChange?.(next, slides[next]);
         return next;
       });
     }, autoPlay);
 
-    // Cleanup — React will call this before rerunning or unmounting
     return () => clearInterval(autoLoopSlide);
-  }, [autoPlay, slides.length, loop]);
+  }, [autoPlay, slides.length, loop, props.currentIndex, onSlideChange, slides]);
+
   const slidesWithIds = useMemo(() => addUniqueIds(slides, 'slide'), [slides]);
   // Handle slide change
   const handleSlideChange = (index: number) => {
@@ -62,11 +71,9 @@ export const Slider: React.FC<SliderProps> = ({
     return null;
   }
 
-  const currentSlide = slides[currentIndex];
-
   return (
     <div
-      className={cn(sliderCva({ widthFull }), `w-[${width}px]`, className)}
+      className={cn(sliderCva({ widthFull }), className)}
       style={{
         width: width,
         height: height ?? imageHeight,
@@ -74,21 +81,17 @@ export const Slider: React.FC<SliderProps> = ({
       {...props}
     >
       {/* Main slide content */}
-      <div className="absolute inset-0 z-[-1] overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden">
         <div
           className="flex transition-transform duration-500 ease-in-out"
-          style={
-            {
-              '--slide-width': `${slides.length * 100}%`,
-              '--slide-transform': `-${currentIndex * 100}%`,
-              height: 'fit-content',
-              width: 'var(--slide-width)',
-              transform: 'translateX(var(--slide-transform))',
-            } as React.CSSProperties
-          }
+          style={{
+            width: `${slides.length * 100}%`, // track width
+            transform: `translateX(-${(currentIndex * 100) / slides.length}%)`,
+            transition: 'transform 0.5s ease-in-out',
+          }}
         >
-          {slides.map((slide, index) => (
-            <div key={slide.id} className="w-full flex-shrink-0">
+          {slidesWithIds.map((slide, index) => (
+            <div key={slide.uid} className="w-full">
               {typeof slide.content === 'string' ? (
                 <img
                   ref={imageRef}
@@ -102,32 +105,29 @@ export const Slider: React.FC<SliderProps> = ({
             </div>
           ))}
         </div>
-
-        {/* Optional caption overlay for current slide */}
-        {currentSlide.caption && (
-          <div className="absolute inset-x-0 bottom-0 bg-black/50 p-4 text-white">
-            <p className="text-sm md:text-base">{currentSlide.caption}</p>
-          </div>
-        )}
       </div>
 
       {/* Navigation */}
-      <div className={cn(navigationCva())}>
-        {/* Dots Navigation */}
-        <div className="flex gap-[10px] sm:gap-[16px]">
-          {slidesWithIds.map((slide, index) => (
-            <button
-              key={slide.uid}
-              onClick={() => handleSlideChange(index)}
-              className={
-                dotCva() +
-                ` ${index === currentIndex ? 'bg-black-900 w-[26px] sm:w-[30px]' : 'bg-black-900 hover:bg-gray-400'}`
-              }
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
+      {props.showDots !== false && (
+        <div className={cn(navigationCva())}>
+          {/* Dots Navigation */}
+          <div className="z-1 flex gap-[10px] sm:gap-[16px]">
+            {slidesWithIds.map((slide, index) => (
+              <button
+                key={slide.uid}
+                onClick={() => handleSlideChange(index)}
+                className={cn(
+                  dotCva(),
+                  index === currentIndex
+                    ? 'bg-black-900 w-[26px] sm:w-[30px]'
+                    : 'bg-black-900 hover:bg-gray-400',
+                )}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

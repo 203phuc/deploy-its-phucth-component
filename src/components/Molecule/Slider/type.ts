@@ -19,7 +19,10 @@ export interface SliderSlide {
   caption?: string;
 }
 
-export interface SliderProps extends Partial<NavigationCvaProps>, Partial<SliderCvaProps> {
+export interface SliderProps
+  extends Partial<NavigationCvaProps>,
+    Partial<SliderNavigationProps>,
+    Partial<SliderCvaProps> {
   /**
    * Array of slides to display
    */
@@ -70,10 +73,6 @@ export interface SliderNavigationProps {
    * Current active slide index
    */
   currentIndex: number;
-  /**
-   * Callback when navigation changes
-   */
-  onChange: (index: number) => void;
   /**
    * Whether to show dot navigation
    */

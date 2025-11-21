@@ -1,12 +1,11 @@
 import { HTMLAttributes } from 'react';
-import { OverlayCvaProps } from './style';
+import { type OverlayCvaProps } from './style';
 
 // Extract the variant types from OverlayCvaProps
-type OverlayVariants = Pick<OverlayCvaProps, 'isOpen'>;
 
 export interface OverlayProps
   extends Omit<HTMLAttributes<HTMLDialogElement>, 'onClick' | 'className'>,
-    OverlayVariants {
+    OverlayCvaProps {
   /**
    * Whether to render the overlay in a portal
    * @default true
@@ -20,5 +19,5 @@ export interface OverlayProps
    * Z-index level for the overlay (1-10)
    * @default 5
    */
-  zIndex?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
+  zIndex?: number;
 }

@@ -1,7 +1,7 @@
-import { Flex } from '@components/Atom/Flex';
 import { Grid } from '@components/Atom/Grid';
 import { Link } from '@components/Atom/Link';
 import { Logo } from '@components/Atom/Logo/Logo';
+import { Overlay } from '@components/Atom/Overlay';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
 import Toggle from '@components/Atom/Toggle/Toggle';
@@ -9,12 +9,11 @@ import { Rating } from '@components/Molecule/Rating/Rating';
 import { Timer } from '@components/Molecule/Timer/Timer';
 import { memo, useEffect, useRef, useState } from 'react';
 import { Button } from '../../components/Atom/Button/Button';
+import { Flex } from '../../components/Atom/Flex';
 import { Input } from '../../components/Atom/Input/Input';
 import { Dropdown } from '../../components/Molecule/Dropdown/Dropdown';
-import { Slider, SliderSlide } from '../../components/Molecule/Slider';
 
 const HBZ0000Component = () => {
-  const [pss, setPss] = useState<'text' | 'password'>('text');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [inputValue, setInputValue] = useState(''); // what the user types
@@ -27,6 +26,7 @@ const HBZ0000Component = () => {
     { label: 'Option 3', value: 'option3' },
     { label: 'Option 4', value: 'option4' },
   ];
+  const [isOpenOverlay, setIsOpenOverlay] = useState(false);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -48,26 +48,28 @@ const HBZ0000Component = () => {
     setIsDropdownOpen(false);
   };
 
-  const sliderSlides: SliderSlide[] = [
-    {
-      id: 1,
-      content: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=400&fit=crop',
-      alt: 'Mountain landscape',
-    },
-    {
-      id: 2,
-      content: 'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&h=400&fit=crop',
-      alt: 'Forest path',
-    },
-    {
-      id: 3,
-      content: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=400&fit=crop',
-      alt: 'Tree by lake',
-    },
-  ];
-
   return (
     <>
+      <Section w={20} bgColor="black" h={20} borderRadius="100%">
+        <Flex align="center">
+          <Text font="inter" color="white" weight="bold" size="xsmall">
+            2
+          </Text>
+        </Flex>
+      </Section>
+      <Section w={40} bgColor="black" h={40} borderRadius="100%">
+        <Flex width="100%" direction="row" height="100%" align="center" justify="center">
+          <Text font="inter" color="white" weight="bold" size="xsmall">
+            2
+          </Text>
+        </Flex>
+      </Section>
+      <Grid columns={2} rows={2} width={800} height={100}>
+        <div style={{ background: 'black' }}></div>
+        <div style={{ background: 'blue' }}></div>
+        <div style={{ background: 'violet' }}></div>
+      </Grid>
+      <Timer label="Hurry up" start labelSpan=", offer expired in:" endDate="20/11/2025" mobile />
       <Rating size={20} rating={2} noFillColor="black-400"></Rating>
       <Button variant="outlined" size="large">
         Hello from HAIBAZO ^_^
@@ -102,51 +104,24 @@ const HBZ0000Component = () => {
           )}
         </Section>
       </div>
-
-      <Input
-        label="Password Toggle"
-        type={pss}
-        placeholder="Enter password"
-        iconEnd="ChevronDownIcon"
-        onIconEndClick={() => setPss(pss === 'text' ? 'password' : 'text')}
-        buttonEnd={
-          <Button size="medium" variant="text">
-            Apply
-          </Button>
-        }
-        required
-      />
-
-      {/* Slider Component for Testing */}
-      <div className="mt-8">
-        <h2 className="mb-4 text-2xl font-bold">Slider Test</h2>
-
-        {/* Small Slider */}
-        <div className="mb-8">
-          <h3 className="mb-2 text-lg font-semibold">Small Slider (200x200)</h3>
-          <Slider slides={sliderSlides} width={200} autoPlay={3000} loop={true} />
+      <button
+        style={{ width: '100px', height: '100px', backgroundColor: 'black', color: 'white' }}
+        onClick={() => setIsOpenOverlay(true)}
+      >
+        open overlay
+      </button>
+      <Overlay position="right" fullSize="height" isOpen={isOpenOverlay}>
+        <div className="flex w-[500px] flex-col items-center justify-between overflow-auto rounded-none bg-white">
+          <h2 className="mb-4 text-2xl font-bold">Fake Modal</h2>
+          <p className="mb-6 text-gray-700">Your mom</p>
+          <button
+            onClick={() => setIsOpenOverlay(false)}
+            className="rounded-md bg-black px-4 py-2 text-white"
+          >
+            Close
+          </button>
         </div>
-      </div>
-      <Section w={20} bgColor="black" h={20} borderRadius="100%">
-        <Flex align="center">
-          <Text font="inter" color="white" weight="bold" size="xsmall">
-            2
-          </Text>
-        </Flex>
-      </Section>
-      <Section w={40} bgColor="black" h={40} borderRadius="100%">
-        <Flex width="100%" direction="row" height="100%" align="center" justify="center">
-          <Text font="inter" color="white" weight="bold" size="xsmall">
-            2
-          </Text>
-        </Flex>
-      </Section>
-      <Grid columns={2} rows={2} width={800} height={100}>
-        <div style={{ background: 'black' }}></div>
-        <div style={{ background: 'blue' }}></div>
-        <div style={{ background: 'violet' }}></div>
-      </Grid>
-      <Timer label="Hurry up" start labelSpan=", offer expired in:" endDate="20/11/2025" mobile />
+      </Overlay>
     </>
   );
 };

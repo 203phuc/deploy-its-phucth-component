@@ -3,6 +3,7 @@ export { GooglePayLogo } from './GooglePayLogo';
 export { HushLogo } from './HushLogo';
 export { MarcLogo } from './MarcLogo';
 export { MasterCardLogo } from './MasterCardLogo';
+export { NayzakLogo } from './NayzakLogo';
 export { NikeLogo } from './NikeLogo';
 export { PaypalLogo } from './PaypalLogo';
 export { PumaLogo } from './PumaLogo';

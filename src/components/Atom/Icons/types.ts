@@ -3,7 +3,7 @@ import { IconCvaProps } from './style';
 
 // List of all available icon names
 export type IconName = keyof typeof AllIcons;
-export type BoxFillType = 'red' | 'green' | 'white' | 'none';
+export type BoxFillType = 'red' | 'green' | 'white' | 'none' | 'gray';
 export type ColorType = 'black-600' | 'black-400' | 'blue' | 'black' | 'white';
 export type BoxRoundnessType = 'pill' | 'round' | 'sharp';
 
@@ -52,6 +52,11 @@ export interface IconBaseProps extends Partial<IconCvaProps>, React.HTMLAttribut
    * Additional class name for the icon
    */
   readonly iconClassName?: string;
+
+  /**
+   * Stroke width of the icon
+   */
+  readonly strokeWidth?: number;
 
   /**
    * Name of the icon to display

@@ -1,4 +1,4 @@
-import { cva, VariantProps } from 'class-variance-authority';
+import { cva, type VariantProps } from 'class-variance-authority';
 
 export const imagePlaceholderCva = cva('inline-block rotate-0 opacity-100', {
   variants: {
@@ -39,10 +39,27 @@ export const imagePlaceholderCva = cva('inline-block rotate-0 opacity-100', {
       md: 'gap-4',
       lg: 'gap-6',
     },
+    objectFit: {
+      cover: 'object-cover',
+      contain: 'object-contain',
+      fill: 'object-fill',
+      none: 'object-none',
+      'scale-down': 'object-scale-down',
+    },
+    objectPosition: {
+      center: 'object-center',
+      top: 'object-top',
+      bottom: 'object-bottom',
+      left: 'object-left',
+      right: 'object-right',
+      rightEdge: 'object-[95%]',
+    },
   },
   defaultVariants: {
     size: 's1',
     gap: 'none',
+    objectFit: 'cover',
+    objectPosition: 'center',
   },
 });
 

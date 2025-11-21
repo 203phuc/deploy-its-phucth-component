@@ -1,19 +1,25 @@
 import { cva } from 'class-variance-authority';
 
-export const inputCva = cva('flex items-center bg-white transition-all focus-within:border-black ', {
+export const inputCva = cva('flex items-center transition-all focus-within:border-black ', {
   variants: {
     variant: {
       solid: 'rounded-md border border-gray-300',
       line: 'rounded-none border-b border-gray-400',
     },
     size: {
-      small: 'h-8 gap-1 px-2 text-sm',
-      medium: 'h-10 gap-2 px-3 text-sm',
-      large: 'h-13 gap-2 px-4 text-base',
+      small: 'h-8 gap-1 px-2 text-sm', //32px
+      smedium: 'h-[32px] gap-2 px-[8px] py-[6px] text-base', //32px
+      medium: 'h-10 gap-2 px-3 text-sm', //40px
+      large: 'h-[46] gap-2 px-3 text-[14px] leading-[22px]', //46px
+      xlarge: 'h-13 gap-2 px-4 text-base', //52px
     },
     error: {
       true: 'border-red-500 focus-within:border-red-500 focus-within:ring-red-500',
       false: '',
+    },
+    bgColor: {
+      white: 'bg-white',
+      transparent: 'bg-transparent',
     },
   },
   compoundVariants: [
@@ -37,11 +43,12 @@ export const inputCva = cva('flex items-center bg-white transition-all focus-wit
     variant: 'solid',
     size: 'medium',
     error: false,
+    bgColor: 'white',
   },
 });
 
 export const inputElementCva = cva(
-  'w-full bg-transparent placeholder:text-gray-400 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50',
+  'w-full bg-transparent focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50',
   {
     variants: {
       size: {
@@ -53,10 +60,16 @@ export const inputElementCva = cva(
         inter: 'font-inter placeholder:font-inter',
         grotesk: 'font-space-grotesk placeholder:font-space-grotesk',
       },
+      placeholderColor: {
+        gray: 'placeholder:text-gray-400',
+        black: 'placeholder:text-black-900',
+        white: 'placeholder:text-white',
+      },
     },
     defaultVariants: {
       size: 'medium',
       fontFamily: 'inter',
+      placeholderColor: 'gray',
     },
   },
 );

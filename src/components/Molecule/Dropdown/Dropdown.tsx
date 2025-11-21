@@ -11,6 +11,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   isOpen,
   onClose,
   value,
+  textSize,
   onSelect,
   font = 'spaceGrotesk',
   color = 'black-900',
@@ -100,7 +101,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
                 <div className="flex items-center justify-between">
                   <div className="flex flex-1 items-center gap-2">
                     {option.icon && <Icons iconName={option.icon} iconSize={16} color="black" />}
-                    <Text font={font} weight={weight} color={color} className="flex-1">
+                    <Text font={font} weight={weight} color={color} size={textSize} className="flex-1">
                       {option.label}
                     </Text>
                   </div>
@@ -112,7 +113,13 @@ export const Dropdown: React.FC<DropdownProps> = ({
                 <div className="flex items-center justify-between">
                   <div className="flex flex-1 items-center">
                     {option.icon && <Icons iconName={option.icon} iconSize={16} color="black" />}
-                    <Text font={font} weight={weight} color={color} size="small" className="flex-1">
+                    <Text
+                      font={font}
+                      weight={weight}
+                      color={color}
+                      size={textSize ?? 'small'}
+                      className="flex-1"
+                    >
                       {option.label}
                     </Text>
                   </div>

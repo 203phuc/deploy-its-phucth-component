@@ -1,5 +1,5 @@
+import { type TextSize } from '@components/Atom/Text/type';
 import { IconName } from '../../Atom/Icons/types';
-
 export interface DropdownOption {
   label: string;
   value: string | number;
@@ -51,6 +51,10 @@ export interface DropdownProps {
    * font for the text
    */
   font?: 'spaceGrotesk' | 'inter';
+  /**
+   * size for the text
+   */
+  textSize?: TextSize;
   /**
    * color for the text
    */

@@ -28,7 +28,7 @@ const meta = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['default', 'xs', 'sm', 'md', 'lg'],
+      options: ['default', 'xs', 'sm', 'md', 'lg', 'other'],
       description: 'Select width variant (xs=114px, sm=173px, md=228px, lg=255px)',
     },
     direction: {

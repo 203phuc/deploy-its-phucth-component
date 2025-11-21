@@ -3,15 +3,16 @@ import { overlayCva } from './style';
 import type { OverlayProps } from './type';
 
 /**
- * A simple overlay component that can be used for modals, dialogs, etc.
- * Renders a semi-transparent overlay.
+ * A simple overlay component that supports outside-click closing.
  */
 export const Overlay = ({
   isOpen = false,
+  onClose, // 👈 add this prop
   children,
   className = '',
-  zIndex = 5,
-}: OverlayProps): JSX.Element | null => {
+  position,
+  fullSize,
+}: OverlayProps & { onClose?: () => void }): JSX.Element | null => {
   const overlayRef = useRef<HTMLDivElement>(null);
 
   // Focus the overlay when it opens
@@ -23,20 +24,32 @@ export const Overlay = ({
     }
   }, [isOpen]);
 
-  if (!isOpen) {
-    return null;
-  }
+  // Handle outside clicks
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleClick = (e: MouseEvent) => {
+      // Close only if click is directly on the overlay, not inside children
+      if (overlayRef.current && e.target === overlayRef.current) {
+        onClose?.();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, [isOpen, onClose]);
+
+  if (!isOpen) return null;
 
   return (
     <div
       ref={overlayRef}
-      className={overlayCva({ isOpen, className, zIndex })}
-      role="dialog"
+      className={overlayCva({ isOpen, className, position, fullSize })}
       aria-modal="true"
       aria-label="Dialog Overlay"
       tabIndex={-1}
     >
-      <div className="relative z-10">{children}</div>
+      {children}
     </div>
   );
 };

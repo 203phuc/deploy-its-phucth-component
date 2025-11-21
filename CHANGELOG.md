@@ -1,141 +1,122 @@
 # [1.0.0-develop.21](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.20...v1.0.0-develop.21) (2025-11-20)
 
-
 ### Bug Fixes
 
-* **ITS-IR01-147:** add figma link to stories file ([dca7437](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/dca7437133d6b3c846d489e46d7f250933a73372))
-
+- **ITS-IR01-147:** add figma link to stories file ([dca7437](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/dca7437133d6b3c846d489e46d7f250933a73372))
 
 ### Features
 
-* **ITS-IR01-147:** add more stories to rating ([c469446](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/c469446003aadee5dd4e2971c7e63690de52bbac))
-* **ITS-IR01-147:** test and list stories of rating ([dd8b2b2](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/dd8b2b2835ba11c9da0133d62e332b7517ce91ea))
+- **ITS-IR01-147:** add more stories to rating ([c469446](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/c469446003aadee5dd4e2971c7e63690de52bbac))
+- **ITS-IR01-147:** test and list stories of rating ([dd8b2b2](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/dd8b2b2835ba11c9da0133d62e332b7517ce91ea))
 
 # [1.0.0-develop.20](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.19...v1.0.0-develop.20) (2025-11-05)
 
-
 ### Bug Fixes
 
-* **ITS-IR01-175:** fix magic number in component timer ([143cb1c](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/143cb1caf4b4b1829a46d524e64264118531e97c))
-* **ITS-IR01-190:** fix with onclose added in component file ([ad402fc](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/ad402fcda97323a04492e72a13952939ba3cbdcc))
-* **ITS-IR01-190:** reconstruct component, style and type file ([546797e](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/546797eba427bdda5d70000ee19ffa61418b6c3a))
-* **ITS-IR01-190:** remove consolelog in stories ([9587f8d](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/9587f8d1fe27707724f46641dd6acc75b4f22987))
-
+- **ITS-IR01-175:** fix magic number in component timer ([143cb1c](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/143cb1caf4b4b1829a46d524e64264118531e97c))
+- **ITS-IR01-190:** fix with onclose added in component file ([ad402fc](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/ad402fcda97323a04492e72a13952939ba3cbdcc))
+- **ITS-IR01-190:** reconstruct component, style and type file ([546797e](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/546797eba427bdda5d70000ee19ffa61418b6c3a))
+- **ITS-IR01-190:** remove consolelog in stories ([9587f8d](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/9587f8d1fe27707724f46641dd6acc75b4f22987))
 
 ### Features
 
-* **ITS-IR01-175:** add figma link ([40f83d0](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/40f83d021f9eac522fe2eee0258890d2ae5f0e12))
-* **ITS-IR01-175:** component, stories and test finsihed for TImer molecule ([d56c6f0](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/d56c6f01b923dd78b5c8b65310e66cb20518dc1f))
-* **ITS-IR01-190:** full component with test and stories finished ([ee8331b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/ee8331bd2d72ab3f3dceff551689aff84189d21b))
+- **ITS-IR01-175:** add figma link ([40f83d0](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/40f83d021f9eac522fe2eee0258890d2ae5f0e12))
+- **ITS-IR01-175:** component, stories and test finsihed for TImer molecule ([d56c6f0](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/d56c6f01b923dd78b5c8b65310e66cb20518dc1f))
+- **ITS-IR01-190:** full component with test and stories finished ([ee8331b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/ee8331bd2d72ab3f3dceff551689aff84189d21b))
 
 # [1.0.0-develop.19](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.18...v1.0.0-develop.19) (2025-10-31)
 
-
 ### Features
 
-* **ITS-IR01-189:** make new underline using after pseudo-elements ([ed4c385](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/ed4c38541cf11fa01b7d08d35d5edf6f5fd63480))
+- **ITS-IR01-189:** make new underline using after pseudo-elements ([ed4c385](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/ed4c38541cf11fa01b7d08d35d5edf6f5fd63480))
 
 # [1.0.0-develop.18](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.17...v1.0.0-develop.18) (2025-10-31)
 
-
 ### Features
 
-* **ITS-IR01-186:** adding new styling in dropdown component ([dae8bb4](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/dae8bb48c03f1a3ab300cdb69f5db57f01612cdf))
-* **ITS-IR01-186:** remove limited height in style of dropdown ([d34eebd](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/d34eebdbaa8364a797e0443b2eb9d46f2224ed54))
+- **ITS-IR01-186:** adding new styling in dropdown component ([dae8bb4](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/dae8bb48c03f1a3ab300cdb69f5db57f01612cdf))
+- **ITS-IR01-186:** remove limited height in style of dropdown ([d34eebd](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/d34eebdbaa8364a797e0443b2eb9d46f2224ed54))
 
 # [1.0.0-develop.17](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.16...v1.0.0-develop.17) (2025-10-30)
 
-
 ### Features
 
-* **ITS-IR01-187:** add width and height for flex ([d761747](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/d7617478b34085c752b8c68eff0fc172cf7641b8))
-* **ITS-IR01-188:** add width and height for grid ([89cdfba](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/89cdfbaa90f55495489397844e5d75fe33409284))
+- **ITS-IR01-187:** add width and height for flex ([d761747](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/d7617478b34085c752b8c68eff0fc172cf7641b8))
+- **ITS-IR01-188:** add width and height for grid ([89cdfba](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/89cdfbaa90f55495489397844e5d75fe33409284))
 
 # [1.0.0-develop.16](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.15...v1.0.0-develop.16) (2025-10-30)
 
-
 ### Bug Fixes
 
-* **ITS-IR01-173:** fix review fix component file duplicate code ([ae8ec92](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/ae8ec92512fcade51a45ce7fe3ea57bb28b6c73c))
-* **ITS-IR01-174:** fix review by renaming variable in component file ([def809b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/def809b2cef5a61bb491838e5e0730c2dc1f8293))
-
+- **ITS-IR01-173:** fix review fix component file duplicate code ([ae8ec92](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/ae8ec92512fcade51a45ce7fe3ea57bb28b6c73c))
+- **ITS-IR01-174:** fix review by renaming variable in component file ([def809b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/def809b2cef5a61bb491838e5e0730c2dc1f8293))
 
 ### Features
 
-* **ITS-IR01-173:** finished test, type and component stories ([fece3d1](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/fece3d195e6af89d88e25f4814fde862311ef45e))
-* **ITS-IR01-174:** finished test, stories for Position component ([627d0fe](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/627d0fee3b984d7b197d68bf0fa97a6fd1c8c096))
-* **ITS-IR01-174:** modify stories visual for position ([7aa95d0](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/7aa95d0eeffa1d9b7f45e6b05f44fbe765c03e69))
+- **ITS-IR01-173:** finished test, type and component stories ([fece3d1](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/fece3d195e6af89d88e25f4814fde862311ef45e))
+- **ITS-IR01-174:** finished test, stories for Position component ([627d0fe](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/627d0fee3b984d7b197d68bf0fa97a6fd1c8c096))
+- **ITS-IR01-174:** modify stories visual for position ([7aa95d0](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/7aa95d0eeffa1d9b7f45e6b05f44fbe765c03e69))
 
 # [1.0.0-develop.15](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.14...v1.0.0-develop.15) (2025-10-30)
 
-
 ### Features
 
-* **ITS-IR01-182:** add border radius for section component ([a300a1c](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/a300a1cfe57c666f9302ac16ef5e2dddd835f54f))
-* **ITS-IR01-182:** add div atribute props ([d08801c](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/d08801c64ac96cc62dc1877540383f84525b1125))
-* **ITS-IR01-182:** testing Section border radius ([61eed8b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/61eed8bb39ff76f013af295902a4d8c5175ac8da))
+- **ITS-IR01-182:** add border radius for section component ([a300a1c](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/a300a1cfe57c666f9302ac16ef5e2dddd835f54f))
+- **ITS-IR01-182:** add div atribute props ([d08801c](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/d08801c64ac96cc62dc1877540383f84525b1125))
+- **ITS-IR01-182:** testing Section border radius ([61eed8b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/61eed8bb39ff76f013af295902a4d8c5175ac8da))
 
 # [1.0.0-develop.14](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.13...v1.0.0-develop.14) (2025-10-28)
 
-
 ### Bug Fixes
 
-* **ITS-IR01-172:** add memorization for flex component ([ccf986e](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/ccf986ed0d6f1bdec2518b935a3d9bc3fb01fdea))
-
+- **ITS-IR01-172:** add memorization for flex component ([ccf986e](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/ccf986ed0d6f1bdec2518b935a3d9bc3fb01fdea))
 
 ### Features
 
-* **ITS-IR01-172:** flex component fully tested ([6858e96](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/6858e969536168e209fd1aebdc217e246ca3662e))
+- **ITS-IR01-172:** flex component fully tested ([6858e96](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/6858e969536168e209fd1aebdc217e246ca3662e))
 
 # [1.0.0-develop.13](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.12...v1.0.0-develop.13) (2025-10-28)
 
-
 ### Bug Fixes
 
-* **ITS-IR01-171:** remove debug configurations ([9b7f073](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/9b7f0733c9e9e3f9a5c8f266a570a73d5816eb10))
-
+- **ITS-IR01-171:** remove debug configurations ([9b7f073](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/9b7f0733c9e9e3f9a5c8f266a570a73d5816eb10))
 
 ### Features
 
-* **ITS-IR01-171:** tested and stories section component ([1f52d37](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/1f52d3749eec2318130a877ee90bac891880ebce))
+- **ITS-IR01-171:** tested and stories section component ([1f52d37](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/1f52d3749eec2318130a877ee90bac891880ebce))
 
 # [1.0.0-develop.12](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.11...v1.0.0-develop.12) (2025-10-27)
 
-
 ### Bug Fixes
 
-* **ITS-IR01-130:** fix slider follow recommended react cleanup in component file ([18b7235](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/18b72351d80ed38add20ba4139284eff564037c6))
-
+- **ITS-IR01-130:** fix slider follow recommended react cleanup in component file ([18b7235](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/18b72351d80ed38add20ba4139284eff564037c6))
 
 ### Features
 
-* **ITS-IR01-130:** added test for slider component ([d233538](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/d23353890069a187b073eab2f82815bdf687a9cf))
-* **ITS-IR01-130:** modify render logic for slidr component file ([041ead9](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/041ead9b0b5082823c51b59f049fc7860edc69fe))
-* **ITS-IR01-130:** modify slider story with reactnodeslide ([340119b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/340119bf5051fda6ec9345b745bb3d255368a41d))
+- **ITS-IR01-130:** added test for slider component ([d233538](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/d23353890069a187b073eab2f82815bdf687a9cf))
+- **ITS-IR01-130:** modify render logic for slidr component file ([041ead9](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/041ead9b0b5082823c51b59f049fc7860edc69fe))
+- **ITS-IR01-130:** modify slider story with reactnodeslide ([340119b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/340119bf5051fda6ec9345b745bb3d255368a41d))
 
 # [1.0.0-develop.11](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.10...v1.0.0-develop.11) (2025-10-21)
 
-
 ### Bug Fixes
 
-* **ITS-IR01-146:** review fix add figma link and optimize component ([c92b311](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/c92b311153112ea7ae51756c9f5cb9d920e69085))
-
+- **ITS-IR01-146:** review fix add figma link and optimize component ([c92b311](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/c92b311153112ea7ae51756c9f5cb9d920e69085))
 
 ### Features
 
-* **ITS-IR01-146:** added input combined with button ([db0c684](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/db0c68447fb1c557a4da4467df07cc6d29ee8316))
-* **ITS-IR01-146:** adding input style and type ([55a445b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/55a445b257a6fb2e0c856d6b55fce433a2ca08c5))
-* **ITS-IR01-146:** adding new props for button input ([95a7f16](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/95a7f168efd3bf4f3a3ce220af4c07f76217fc39))
-* **ITS-IR01-146:** adding set up component ([dea7ad6](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/dea7ad6d7bd12839c983772f7c45d815844def2f))
-* **ITS-IR01-146:** making stories ([220b089](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/220b0890eba01aa86d6a85a3d8e5576faba85130))
-* **ITS-IR01-146:** merge develop avoid later conflict ([2ebd728](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/2ebd728d2e38d4b4d5b97761c04bb923a895404b))
+- **ITS-IR01-146:** added input combined with button ([db0c684](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/db0c68447fb1c557a4da4467df07cc6d29ee8316))
+- **ITS-IR01-146:** adding input style and type ([55a445b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/55a445b257a6fb2e0c856d6b55fce433a2ca08c5))
+- **ITS-IR01-146:** adding new props for button input ([95a7f16](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/95a7f168efd3bf4f3a3ce220af4c07f76217fc39))
+- **ITS-IR01-146:** adding set up component ([dea7ad6](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/dea7ad6d7bd12839c983772f7c45d815844def2f))
+- **ITS-IR01-146:** making stories ([220b089](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/220b0890eba01aa86d6a85a3d8e5576faba85130))
+- **ITS-IR01-146:** merge develop avoid later conflict ([2ebd728](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/2ebd728d2e38d4b4d5b97761c04bb923a895404b))
 
 # [1.0.0-develop.10](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.9...v1.0.0-develop.10) (2025-10-21)
 
-
 ### Features
 
-* **ITS-IR01-160:** adding new dimension to change ([7bf3388](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/7bf3388d056488a4e75b9d7f87d23792c8f8f690))
+- **ITS-IR01-160:** adding new dimension to change ([7bf3388](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/7bf3388d056488a4e75b9d7f87d23792c8f8f690))
 
 # [1.0.0-develop.9](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.8...v1.0.0-develop.9) (2025-10-16)
 

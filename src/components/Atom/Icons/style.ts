@@ -14,6 +14,7 @@ export const iconsCva = cva(
         red: 'bg-red-300',
         green: 'bg-teal-600',
         white: 'bg-white',
+        gray: 'bg-[#F5F5F5]',
         none: 'bg-transparent',
       },
 
