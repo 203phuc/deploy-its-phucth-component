@@ -1,3 +1,56 @@
+# [1.0.0-develop.22](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.21...v1.0.0-develop.22) (2025-11-21)
+
+
+### Bug Fixes
+
+* **ITS-IR01-200:** add figma link ([d52a2e7](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/d52a2e7cc1b1b9938a2aa6cb4cb6b2854d73767c))
+* **ITS-IR01-200:** fix imageplaceholder props ([675c421](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/675c421b01a79c2e8e2d9a81da0c5ffe16bb941a))
+* **ITS-IR01-200:** fix overlay zindex ([ec74452](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/ec7445250df59c56ffdb17292eed4a50790430b8))
+* **ITS-IR01-200:** fix remove logic to seperate file and clean up magic number ([1de72c5](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/1de72c5d360dfe22fa99ab158b0d2d8b3fd21778))
+* **ITS-IR01-200:** move logic of homepage and sections of homepage ([9d62def](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/9d62defeb55a07a36a44309851d64e5ae57e662a))
+* **ITS-IR01-200:** remove commented code ([a22b901](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/a22b901e32fdf980f6500d43ecef0135bc1fc2cb))
+* **ITS-IR01-200:** remove laytout to make new sperate task for it ([3bfeec9](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/3bfeec9aaf767d837c34701bc5e7afa66d62f898))
+* **ITS-IR01-200:** remove style prop for imageplaceholder ([b3f9b72](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/b3f9b72c498fde34c9c62b68dc50297f1777170e))
+
+
+### Features
+
+* **ITS-IR01-1xx:** adding layout ([ffc9bcd](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/ffc9bcd011be6388d370811cd0e92d3a69829076))
+* **ITS-IR01-1xx:** creating nav link fix flex ([2711cbe](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/2711cbea8209828c0398aefaf3c5b061f76c9570))
+* **ITS-IR01-1xx:** dropdown checking ([ea5e654](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/ea5e65468520255deee43c79b381a7a6cbd3ab20))
+* **ITS-IR01-1xx:** fixed overlay ([e21a0e4](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/e21a0e4c8bf38ac39f00a4625706bb6b0046a25c))
+* **ITS-IR01-1xx:** input fixing for search header ([170c951](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/170c95134e438a693780a362b58fec12aa9da999))
+* **ITS-IR01-1xx:** lack hover on dropdown ([34fcf50](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/34fcf50d7418a57f633dac72d2f632bf08b797b5))
+* **ITS-IR01-1xx:** making head nav ([84ee2ba](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/84ee2ba3944b0c97bece5999fdb84e9b6835066b))
+* **ITS-IR01-1xx:** merge dev ([70817e3](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/70817e33e8083268b7aa3f6b8e34aa080a04ebe3))
+* **ITS-IR01-1xx:** merge dev ([112e8ea](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/112e8ea6dadd751179ab497eab3a6df73e2f2fab))
+* **ITS-IR01-1xx:** merge grid ([8d24da5](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/8d24da5ef5e6d2e3d628249bc43ae1d2351a52a0))
+* **ITS-IR01-1xx:** new component dropdownmixed ([e741b46](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/e741b466eeb269f8f35abf114471adc83fd55f35))
+* **ITS-IR01-1xx:** try making header first ([7970681](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/7970681f2fc00bf72599bd5e19814e4aae507665))
+* **ITS-IR01-200:** clean up dropdown ([c982c5b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/c982c5b4337da506faaca04ab51d0fd8ad45408b))
+* **ITS-IR01-200:** clean up flyout cart ([931e06a](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/931e06a59db4fade4c4ae00b7394ce30e670bafb))
+* **ITS-IR01-200:** clean up mockdata ([37a62ed](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/37a62ed84a17ed96141b6902be7b491ea42d1841))
+* **ITS-IR01-200:** finish barnding section and feature section for homepage ([611d508](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/611d508a9fe74d12c4bb44417b02d3d45f3529b4))
+* **ITS-IR01-200:** finish homepage with stories ([f2747f5](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/f2747f5da7bf8d1ea44b63f9639c8d774a655511))
+* **ITS-IR01-200:** finish instagram section ([48839cb](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/48839cb746c2ebe7a73d362f8976ff0ffe4b5a41))
+* **ITS-IR01-200:** finish newsletter section fir both mobile and desktop ([3e010e3](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/3e010e30dfb4645a85a562ba099d05de62651dd1))
+* **ITS-IR01-200:** finish product grid and product card for homepage ([5be8748](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/5be8748dd093a50110d1973a204c8d48dcab4ce1))
+* **ITS-IR01-200:** finish section banner grid for both mobile and desktop screen ([859b88c](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/859b88ceb2f77608d2fdc99e532be89da9b8a727))
+* **ITS-IR01-200:** finish section iconbox ([9e47891](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/9e47891af12406278a6541ee00288d68c67c3240))
+* **ITS-IR01-200:** finish slider for hompage ([f9860bc](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/f9860bcdcdc6eefe4d56cfd5cb57c4f8d1d38b78))
+* **ITS-IR01-200:** header with icon and close ([a0745d9](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/a0745d96bfc793f2c9ba2f17c3b23cdb1a10a5e7))
+* **ITS-IR01-200:** making searchable input ([fcffd72](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/fcffd72ef1cf8cd6d478a385047517441366b745))
+* **ITS-IR01-200:** menu mobile setup ([46da7da](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/46da7daa8c59fa761b855739d8b9110728bb4897))
+* **ITS-IR01-200:** merged develop ([0609098](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/0609098f646f97ec0236115aa7b0020f94836ef9))
+* **ITS-IR01-200:** modify resoution flyout cart ([db45975](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/db4597591a47632a81262ca53f02c6d801730edb))
+* **ITS-IR01-200:** mrege develop to avoid conflict ([952af0d](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/952af0d07c5857adc250258394ac71b4f7b1c05e))
+* **ITS-IR01-200:** navbar and slider full set up ([8af88e4](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/8af88e4a12883d63c1f90115e820dca780b51788))
+* **ITS-IR01-200:** navbar and slider set up with responsive ([eed2c05](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/eed2c052bbc7aa7b787f032e740cd93843e5e96b))
+* **ITS-IR01-200:** new notification bar ([0df4c24](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/0df4c249c965abcb2a3f07732d8c97f231a431ce))
+* **ITS-IR01-200:** remove unuse file ([da5379e](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/da5379ece73228c479eb6a66fa752c7f50fc38fa))
+* **ITS-IR01-200:** set up cart flyout ([a327ff3](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/a327ff3b5570f0b95617825e6a47120ecd1ea12a))
+* **ITS-IR01-200:** set up menu flyout ([944bd6e](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/944bd6eeb7cdadff7cd55de0c023d948069a80da))
+
 # [1.0.0-develop.21](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.20...v1.0.0-develop.21) (2025-11-20)
 
 ### Bug Fixes
