@@ -12,7 +12,6 @@ export const ImagePlaceholder = ({
   fallbackText,
   objectFit = 'cover',
   objectPosition = 'center',
-  style,
   ...rest
 }: ImagePlaceholderProps) => {
   const [hasError, setHasError] = useState(false);
@@ -37,18 +36,7 @@ export const ImagePlaceholder = ({
   }
 
   // Render image
-  return (
-    <img
-      src={src}
-      alt={alt}
-      className={classes}
-      onError={() => setHasError(true)}
-      style={{
-        ...style, // allow user overrides for other properties
-      }}
-      {...rest}
-    />
-  );
+  return <img src={src} alt={alt} className={classes} onError={() => setHasError(true)} {...rest} />;
 };
 
 export default ImagePlaceholder;

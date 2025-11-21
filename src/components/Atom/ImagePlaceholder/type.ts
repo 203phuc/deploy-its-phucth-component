@@ -38,7 +38,7 @@ export type ImageObjectFit = 'cover' | 'contain' | 'fill' | 'none' | 'scale-down
 /**
  * Allowed values for objectPosition variant
  */
-export type ImageObjectPosition = 'center' | 'top' | 'bottom' | 'left' | 'right' | 'right1';
+export type ImageObjectPosition = 'center' | 'top' | 'bottom' | 'left' | 'right' | 'rightEdge';
 
 /**
  * ImagePlaceholder component props

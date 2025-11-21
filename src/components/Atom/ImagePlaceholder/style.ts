@@ -52,7 +52,7 @@ export const imagePlaceholderCva = cva('inline-block rotate-0 opacity-100', {
       bottom: 'object-bottom',
       left: 'object-left',
       right: 'object-right',
-      right1: 'object-[95%]',
+      rightEdge: 'object-[95%]',
     },
   },
   defaultVariants: {
