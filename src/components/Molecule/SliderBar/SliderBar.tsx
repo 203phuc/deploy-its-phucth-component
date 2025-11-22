@@ -1,3 +1,4 @@
+import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
 import { useEffect, useRef, useState } from 'react';
 import { knob, sliderWrapper, trackBase, trackRange, valueTextWrapper } from './style';
@@ -50,27 +51,9 @@ export const SliderBar = ({ min = 0, max = 1000, onChange }: SliderBarProps) => 
         }}
       />
 
-      <div
-        role="slider"
-        tabIndex={0}
-        aria-valuemin={min}
-        aria-valuemax={maxValue}
-        aria-valuenow={minValue}
-        onMouseDown={() => setDragging('min')}
-        className={knob()}
-        style={{ left: `${minPercent}%` }}
-      />
+      <Section onMouseDown={() => setDragging('min')} className={knob()} style={{ left: `${minPercent}%` }} />
 
-      <div
-        role="slider"
-        tabIndex={0}
-        aria-valuemin={minValue}
-        aria-valuemax={max}
-        aria-valuenow={maxValue}
-        onMouseDown={() => setDragging('max')}
-        className={knob()}
-        style={{ left: `${maxPercent}%` }}
-      />
+      <Section onMouseDown={() => setDragging('max')} className={knob()} style={{ left: `${maxPercent}%` }} />
 
       <div className={valueTextWrapper()}>
         <Text size="small">
