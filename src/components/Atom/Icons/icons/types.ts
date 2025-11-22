@@ -12,6 +12,11 @@ export interface IconProps {
   color?: string;
 
   /**
+   * The stroke width of the icon
+   */
+  strokeWidth?: number;
+
+  /**
    * Additional class name for the icon
    */
   className?: string;

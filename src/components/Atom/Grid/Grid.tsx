@@ -52,6 +52,7 @@ const Grid = ({
     gridTemplateColumns?: string;
     gridTemplateRows?: string;
   } = {};
+
   if (height !== undefined) {
     customStyles.height = toUnit(height);
   }

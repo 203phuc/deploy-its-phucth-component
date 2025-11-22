@@ -1,20 +1,27 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { imagePlaceholderCva } from './style';
 import type { ImagePlaceholderProps } from './type';
 
 export const ImagePlaceholder = ({
   size = 's1',
+  gap = 'none',
   className = '',
   children,
   src,
   alt,
   fallbackText,
+  objectFit = 'cover',
+  objectPosition = 'center',
   ...rest
 }: ImagePlaceholderProps) => {
   const [hasError, setHasError] = useState(false);
-  const classes = [imagePlaceholderCva({ size }), className].filter(Boolean).join(' ');
 
-  // If there's an error or no src is provided, show the fallback
+  // Combine CVA classes with user className
+  const classes = [imagePlaceholderCva({ size, gap, objectFit, objectPosition }), className]
+    .filter(Boolean)
+    .join(' ');
+
+  // Show fallback if error or no src
   if (hasError || !src) {
     return (
       <div
@@ -28,7 +35,7 @@ export const ImagePlaceholder = ({
     );
   }
 
-  // Otherwise, render the image
+  // Render image
   return <img src={src} alt={alt} className={classes} onError={() => setHasError(true)} {...rest} />;
 };
 

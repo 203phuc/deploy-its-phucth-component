@@ -3,6 +3,8 @@ import type { IconName } from '../Icons/types';
 
 export type InputVariant = 'line' | 'solid';
 export type InputSize = 'small' | 'medium' | 'large';
+export type InputBgColor = 'white' | 'transparent';
+export type InputPlaceholderColor = 'gray' | 'black' | 'white';
 /**
  * Unified onChange handler that works for both input and textarea
  */
@@ -31,14 +33,30 @@ interface BaseInputProps {
   size?: InputSize;
 
   /**
-   * Optional leading icon name
+   * Background color of the input
+   * @default 'white'
    */
-  iconStart?: IconName;
+  bgColor?: InputBgColor;
 
   /**
-   * Optional trailing icon name
+   * Placeholder text color
+   * @default 'gray'
    */
-  iconEnd?: IconName;
+  placeholderColor?: InputPlaceholderColor;
+  /**
+   * Text alignment inside the input
+   * @default 'left'
+   */
+  textAlign?: 'left' | 'center' | 'right';
+  /**
+   * Optional leading icon name or React element
+   */
+  iconStart?: IconName | React.ReactElement;
+
+  /**
+   * Optional trailing icon name or React element
+   */
+  iconEnd?: IconName | React.ReactElement;
 
   /**
    * Optional leading button/element

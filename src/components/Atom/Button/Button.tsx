@@ -12,9 +12,10 @@ export const Button = ({
   fullWidth = false,
   font = 'spaceGrotesk',
   // rest forwarded to underlying element
+  roundness,
   ...rest
 }: ButtonProps) => {
-  const variantProps = { variant, size, roundness: 'round' as const, fullWidth, font };
+  const variantProps = { variant, size, roundness, fullWidth, font };
 
   const classes = [buttonCva(variantProps), className].filter(Boolean).join(' ');
 

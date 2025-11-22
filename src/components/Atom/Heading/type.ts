@@ -3,8 +3,9 @@ import type { HeadingCvaProps } from './style';
 export type HeadingWeight = 'regular' | 'moderate' | 'semiBold' | 'bold';
 export type HeadingFont = 'spaceGrotesk' | 'inter';
 export type HeadingSize = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'h7';
+export type HeadingAlign = 'left' | 'center' | 'right';
 
-type HeadingCvaPropsWithoutSize = Omit<HeadingCvaProps, 'size' | 'color'>;
+type HeadingCvaPropsWithoutSize = Omit<HeadingCvaProps, 'size' | 'color' | 'align'>;
 
 /**
  * Heading component props (children REQUIRED)
@@ -49,6 +50,12 @@ export interface HeadingProps
    * What the actual heading content is (required)
    */
   readonly children: React.ReactNode;
+  /**
+   * Text alignment
+   * @default 'left'
+   */
+  readonly align?: HeadingAlign;
+
   /**
    * ClassName to apply custom styles for the component
    */

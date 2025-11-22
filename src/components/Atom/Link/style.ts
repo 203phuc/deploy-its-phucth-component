@@ -56,9 +56,11 @@ export const linkCva = cva(
       },
       size: {
         xsmall: 'text-xs leading-5',
-        small: 'text-sm leading-6',
+        small: 'text-sm leading-[22px]',
+        smedium: 'text-sm leading-[24px]',
         medium: 'text-base leading-[26px]',
         large: 'text-lg leading-[30px]',
+        special1: 'text-lg leading-[32px]',
         xlarge: 'text-xl leading-[32px]',
         '2xlarge': 'text-2xl leading-[34px]',
         '3xlarge': 'text-[1.375rem] leading-[34px]',

@@ -7,6 +7,7 @@ const toUnit = (value?: string | number) => (typeof value === 'number' ? `${valu
  * and background styling using inline styles.
  */
 export const Section = ({
+  overflow,
   bgColor,
   border,
   borderRadius, // ← add this prop
@@ -26,6 +27,8 @@ export const Section = ({
   py,
   w,
   h,
+  transition,
+  transform,
   children,
   className,
   ...props
@@ -42,6 +45,11 @@ export const Section = ({
   // Border & Radius
   if (border) style.border = border; // e.g. "1px solid #ccc"
   if (borderRadius !== undefined) style.borderRadius = toUnit(borderRadius); // e.g. 8 or '50%'
+
+  // Transition & Transform
+  if (transition !== undefined) style.transition = transition;
+  if (transform !== undefined) style.transform = transform;
+  if (overflow !== undefined) style.overflow = overflow;
 
   // Margin
   style.margin = toUnit(m ?? undefined);

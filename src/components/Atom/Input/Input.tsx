@@ -15,6 +15,8 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
       type = 'text',
       variant = 'solid',
       size = 'medium',
+      bgColor = 'white',
+      placeholderColor = 'gray',
       iconStart,
       iconEnd,
       buttonStart,
@@ -48,6 +50,11 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
         return <div className="flex items-center">{buttonStart}</div>;
       }
       if (iconStart) {
+        // Check if iconStart is a React element
+        if (React.isValidElement(iconStart)) {
+          return <div className="flex items-center">{iconStart}</div>;
+        }
+        // Otherwise, treat it as an icon name
         return <Icons iconName={iconStart} className="h-fit w-fit text-gray-500" />;
       }
       return null;
@@ -71,6 +78,23 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
         return <div className="flex items-center">{buttonEnd}</div>;
       }
       if (iconEnd) {
+        // Check if iconEnd is a React element
+        if (React.isValidElement(iconEnd)) {
+          if (onIconEndClick) {
+            return (
+              <button
+                type="button"
+                className="flex items-center border-0 bg-transparent p-0"
+                onClick={onIconEndClick}
+                style={{ cursor: 'pointer' }}
+              >
+                {iconEnd}
+              </button>
+            );
+          }
+          return <div className="flex items-center">{iconEnd}</div>;
+        }
+        // Otherwise, treat it as an icon name
         return (
           <Icons
             iconName={iconEnd}
@@ -114,8 +138,8 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
     }
 
     // Render as input (default)
-    const wrapperClasses = cn(inputCva({ variant, size, error: !!error }), className);
-    const inputClasses = inputElementCva({ size, fontFamily });
+    const wrapperClasses = cn(inputCva({ variant, size, error: !!error, bgColor }), className);
+    const inputClasses = inputElementCva({ size, fontFamily, placeholderColor });
 
     return (
       <div className="flex flex-col gap-1">
@@ -134,6 +158,7 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
 
           {/* Input element */}
           <input
+            style={{ textAlign: props.textAlign ?? 'left' }}
             {...(props as React.InputHTMLAttributes<HTMLInputElement>)}
             ref={ref as React.ForwardedRef<HTMLInputElement>}
             type={type}

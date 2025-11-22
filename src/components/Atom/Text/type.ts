@@ -2,7 +2,18 @@ import type { TextCvaProps } from './style';
 
 export type TextWeight = 'regular' | 'semiBold' | 'bold' | 'moderate';
 export type TextFont = 'spaceGrotesk' | 'inter';
-export type TextSize = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge' | '2xlarge' | '3xlarge' | '4xlarge';
+export type TextSize =
+  | 'special2'
+  | 'special1'
+  | 'xsmall'
+  | 'small'
+  | 'smedium'
+  | 'medium'
+  | 'large'
+  | 'xlarge'
+  | '2xlarge'
+  | '3xlarge'
+  | '4xlarge';
 
 type TextCvaPropsWithoutSize = Omit<TextCvaProps, 'size' | 'color'>;
 
@@ -46,6 +57,11 @@ export interface TextProps extends Partial<TextCvaPropsWithoutSize>, React.HTMLA
    * @default 'medium'
    */
   readonly size?: TextSize;
+
+  /**
+   * Text alignment
+   */
+  readonly align?: 'left' | 'center' | 'right';
 
   /**
    * Text children what the content
