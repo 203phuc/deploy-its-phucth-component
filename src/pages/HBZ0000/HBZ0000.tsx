@@ -6,6 +6,7 @@ import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
 import Toggle from '@components/Atom/Toggle/Toggle';
 import { Rating } from '@components/Molecule/Rating/Rating';
+import { SliderBar } from '@components/Molecule/SliderBar/SliderBar';
 import { Timer } from '@components/Molecule/Timer/Timer';
 import { memo, useEffect, useRef, useState } from 'react';
 import { Button } from '../../components/Atom/Button/Button';
@@ -50,6 +51,7 @@ const HBZ0000Component = () => {
 
   return (
     <>
+      <SliderBar min={25} max={3000}></SliderBar>
       <Section w={20} bgColor="black" h={20} borderRadius="100%">
         <Flex align="center">
           <Text font="inter" color="white" weight="bold" size="xsmall">
