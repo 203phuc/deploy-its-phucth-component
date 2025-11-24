@@ -7,37 +7,38 @@ import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
 import { useIsMobile } from '@pages/CustomHook/breakpoint';
 
-export const FailPopUp = () => {
+export const SuccessPopUp = () => {
   const mobile = useIsMobile();
   if (mobile) {
     return (
       <Overlay isOpen={true}>
-        <Section w={343} h={262} px={16} py={24} bgColor="white">
+        <Section w={343} px={16} py={24} bgColor="white">
           <Flex gap={32} direction="column">
             <Flex gap={12} width={311} direction="column">
               <Flex gap={12}>
                 <Icons
-                  iconName="CloseIcon"
+                  iconName="CheckIcon"
                   iconSize={16}
                   box
                   boxSize={30}
-                  boxFill="red"
+                  color="white"
+                  boxFill="green"
                   boxRoundness="pill"
                 />
-                <Heading size="hSpecial" font="spaceGrotesk" weight="moderate">
-                  Oops!
+                <Heading size="hSpecial" font="spaceGrotesk" color="black-900" weight="moderate">
+                  Thank you!
                 </Heading>
               </Flex>
-              <Flex align="center" justify="center" height={78}>
+              <Flex align="center" justify="center">
                 <Text size="medium" color="black-900" align="center">
-                  Login failed. <br /> Please ensure your username/email and password are correct!
+                  You have successfully registered!
                 </Text>
               </Flex>
             </Flex>
 
             <Button roundness="round" size="medium">
-              <Text font="spaceGrotesk" size="special2" color="white">
-                Try again
+              <Text size="special2" font="spaceGrotesk" color="white">
+                Continue
               </Text>
             </Button>
           </Flex>
@@ -51,20 +52,28 @@ export const FailPopUp = () => {
         <Flex gap={32} direction="column">
           <Flex gap={16} direction="column">
             <Flex gap={12}>
-              <Icons iconName="CloseIcon" iconSize={18} box boxSize={36} boxFill="red" boxRoundness="pill" />
-              <Heading size="h5" font="spaceGrotesk" weight="moderate">
-                Oops!
+              <Icons
+                iconName="CheckIcon"
+                iconSize={18}
+                color="white"
+                box
+                boxSize={36}
+                boxFill="green"
+                boxRoundness="pill"
+              />
+              <Heading size="h5" font="spaceGrotesk" color="black-900" weight="moderate">
+                Thank you!
               </Heading>
             </Flex>
             <Text size="medium" color="black-900">
-              Login failed. Please ensure your username/email and password are correct!
+              You have successfully registered!
             </Text>
           </Flex>
           <Flex width="100%" justify="end">
             <Section w={129}>
               <Button roundness="round" size="medium">
-                <Text font="spaceGrotesk" size="special2" color="white">
-                  Try again
+                <Text size="special2" font="spaceGrotesk" color="white">
+                  Continue
                 </Text>
               </Button>
             </Section>

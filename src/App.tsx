@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-import { SignUpPage } from '@pages/SignUpPage/SignUpPage';
+import { SignUpPage } from '@pages/SignUppage/SignUpPage';
 import './styles/tailwind.css';
 
 const AppComponent = () => {

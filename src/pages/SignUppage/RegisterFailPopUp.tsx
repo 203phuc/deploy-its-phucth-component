@@ -7,7 +7,7 @@ import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
 import { useIsMobile } from '@pages/CustomHook/breakpoint';
 
-export const FailPopUp = () => {
+export const RegisterFailPopUp = () => {
   const mobile = useIsMobile();
   if (mobile) {
     return (
@@ -30,14 +30,15 @@ export const FailPopUp = () => {
               </Flex>
               <Flex align="center" justify="center" height={78}>
                 <Text size="medium" color="black-900" align="center">
-                  Login failed. <br /> Please ensure your username/email and password are correct!
+                  Registration failed!
+                  <br /> Please check all fields for accuracy.
                 </Text>
               </Flex>
             </Flex>
 
             <Button roundness="round" size="medium">
               <Text font="spaceGrotesk" size="special2" color="white">
-                Try again
+                Close
               </Text>
             </Button>
           </Flex>
@@ -57,14 +58,14 @@ export const FailPopUp = () => {
               </Heading>
             </Flex>
             <Text size="medium" color="black-900">
-              Login failed. Please ensure your username/email and password are correct!
+              Registration failed! Please check all fields for accuracy.
             </Text>
           </Flex>
           <Flex width="100%" justify="end">
             <Section w={129}>
               <Button roundness="round" size="medium">
-                <Text font="spaceGrotesk" size="special2" color="white">
-                  Try again
+                <Text size="special2" color="white">
+                  Close
                 </Text>
               </Button>
             </Section>
