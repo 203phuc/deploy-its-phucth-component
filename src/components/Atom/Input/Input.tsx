@@ -145,7 +145,7 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
       className,
       'passwordInput',
     );
-    const inputClasses = inputElementCva({ fontFamily, placeholderColor, placeholderSize });
+    const inputClasses = inputElementCva({ textSize, fontFamily, placeholderColor, placeholderSize });
 
     return (
       <div className="flex flex-col gap-1">

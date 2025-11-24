@@ -125,7 +125,7 @@ interface InputElementProps
    * @default 'text'
    */
   type?: 'text' | 'password' | 'email' | 'number' | 'url' | 'search' | 'date' | 'tel';
-  textSize:
+  textSize?:
     | 'special1'
     | 'special2'
     | 'xsmall'
@@ -161,7 +161,7 @@ interface TextareaElementProps
   buttonStart?: never;
   buttonEnd?: never;
   onIconEndClick?: never;
-  textSize:
+  textSize?:
     | 'special1'
     | 'special2'
     | 'xsmall'
