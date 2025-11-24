@@ -103,6 +103,10 @@
   font-family: "Space Grotesk", sans-serif;
 }
 
+.passwordInput::-ms-reveal {
+  display: none;
+}
+
 
 /* component base */
 .text {
