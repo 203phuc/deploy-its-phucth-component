@@ -1,3 +1,12 @@
+# [1.0.0-develop.23](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.22...v1.0.0-develop.23) (2025-11-24)
+
+
+### Features
+
+* **ITS-IR01-243:** edit div elemnt in component file ([01f152e](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/01f152e9fbeeb5382f29a03ba782a34354d7e082))
+* **ITS-IR01-243:** finish component sliderbar with test and stories ([0420cb3](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/0420cb3c179ac1f5ed9952ad81dd5553d820650f))
+* **ITS-IR01-243:** merge develop to avoid conflict ([89b61e6](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/89b61e6c50bef1938df530e937c4e8d04bf60980))
+
 # [1.0.0-develop.22](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-develop.21...v1.0.0-develop.22) (2025-11-21)
 
 ### Bug Fixes
