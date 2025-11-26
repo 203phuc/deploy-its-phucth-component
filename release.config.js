@@ -22,7 +22,7 @@ export default {
       '@semantic-release/git',
       {
         assets: ['package.json', 'CHANGELOG.md'],
-        message: 'chore(ITS-0): release ${nextRelease.version} by HAIBABOT',
+        message: 'chore(ITS-BOT): release ${nextRelease.version} by HAIBABOT',
       },
     ],
   ],
