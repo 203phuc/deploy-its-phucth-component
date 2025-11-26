@@ -1,3 +1,10 @@
+# [1.0.0-DEV.2](https://www.gitlab.haibazo.com/its-c/sandbox/its-sandbox-component/compare/v1.0.0-DEV.1...v1.0.0-DEV.2) (2025-11-26)
+
+
+### Features
+
+* **ITS-0:** add favicon and storybook configuration files ([df83379](https://www.gitlab.haibazo.com/its-c/sandbox/its-sandbox-component/commit/df83379077629af094d675411f391339cc9fa674))
+
 # 1.0.0-DEV.1 (2025-11-26)
 
 
