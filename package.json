@@ -81,7 +81,6 @@
     "postinstall": "yarn dlx husky",
     "prettier:fix": "prettier --write --ignore-unknown",
     "preview": "vite preview",
-    "release": "semantic-release",
     "storybook": "storybook dev -p 6006",
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
