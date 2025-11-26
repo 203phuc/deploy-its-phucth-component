@@ -1,3 +1,10 @@
+# [1.0.0-DEV.3](https://www.gitlab.haibazo.com/its-c/sandbox/its-sandbox-component/compare/v1.0.0-DEV.2...v1.0.0-DEV.3) (2025-11-26)
+
+
+### Features
+
+* **ITS-0:** add sass-embedded dependency to enhance styling capabilities ([436d4fa](https://www.gitlab.haibazo.com/its-c/sandbox/its-sandbox-component/commit/436d4fa1eab746925ddd721de71c6f066dce3d85))
+
 # [1.0.0-DEV.2](https://www.gitlab.haibazo.com/its-c/sandbox/its-sandbox-component/compare/v1.0.0-DEV.1...v1.0.0-DEV.2) (2025-11-26)
 
 
