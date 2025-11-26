@@ -5,8 +5,8 @@
 export default {
   branches: [
     'main',
-    { name: 'develop', prerelease: true, channel: 'DEV' },
-    { name: 'release', prerelease: true, channel: 'STG' },
+    { name: 'develop', prerelease: 'DEV', channel: 'DEV' },
+    { name: 'release', prerelease: 'STG', channel: 'STG' },
   ],
   plugins: [
     '@semantic-release/commit-analyzer',
@@ -22,7 +22,7 @@ export default {
       '@semantic-release/git',
       {
         assets: ['package.json', 'CHANGELOG.md'],
-        message: 'chore(release): ${nextRelease.version} by haibazo-devops-bot',
+        message: 'chore(ITS-BOT): release ${nextRelease.version} by HAIBABOT',
       },
     ],
   ],
