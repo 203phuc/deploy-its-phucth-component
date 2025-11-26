@@ -4,7 +4,7 @@ import { isValidEmail } from 'src/util/emailValidation';
 export const useSignInForm = () => {
   const emailOrUsernameRef = useRef<HTMLInputElement | null>(null);
   const passwordRef = useRef<HTMLInputElement | null>(null);
-
+  const REQUIRED_MSG = 'Password is required';
   const [errors, setErrors] = useState({
     emailOrUsername: '',
     password: '',
@@ -28,8 +28,7 @@ export const useSignInForm = () => {
     }
 
     if (!password.trim()) {
-      // eslint-disable-next-line sonarjs/no-hardcoded-passwords
-      newErrors.password = 'Password is required';
+      newErrors.password = REQUIRED_MSG;
       hasError = true;
     }
 

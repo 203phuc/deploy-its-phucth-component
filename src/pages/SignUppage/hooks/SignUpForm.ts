@@ -16,7 +16,7 @@ export const useSignUpForm = () => {
 
   const handleSubmit = (e?: React.FormEvent) => {
     if (e) e.preventDefault();
-
+    const REQUIRED_MSG = 'Password is required';
     const name = nameRef.current?.value ?? '';
     const username = usernameRef.current?.value ?? '';
     const email = emailRef.current?.value ?? '';
@@ -41,8 +41,7 @@ export const useSignUpForm = () => {
       hasError = true;
     }
     if (!password.trim()) {
-      // eslint-disable-next-line sonarjs/no-hardcoded-passwords
-      newErrors.password = 'Password is required';
+      newErrors.password = REQUIRED_MSG;
       hasError = true;
     }
 
