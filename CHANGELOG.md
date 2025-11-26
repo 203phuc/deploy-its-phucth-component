@@ -1,3 +1,10 @@
+# [1.0.0-DEV.4](https://www.gitlab.haibazo.com/its-c/sandbox/its-sandbox-component/compare/v1.0.0-DEV.3...v1.0.0-DEV.4) (2025-11-26)
+
+
+### Bug Fixes
+
+* **ITS-0:** trigger new release by empty commit ([26edcdf](https://www.gitlab.haibazo.com/its-c/sandbox/its-sandbox-component/commit/26edcdfe13bda1e3e7b3baf49a8025c1a54c987d))
+
 # [1.0.0-DEV.3](https://www.gitlab.haibazo.com/its-c/sandbox/its-sandbox-component/compare/v1.0.0-DEV.2...v1.0.0-DEV.3) (2025-11-26)
 
 
