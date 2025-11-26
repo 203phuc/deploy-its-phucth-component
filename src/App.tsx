@@ -1,10 +1,10 @@
 import { memo } from 'react';
 
-import { SignUpPage } from '@pages/SignUppage/SignUpPage';
+import { FailPopUp } from '@pages/SignInpage/FailPopUp';
 import './styles/tailwind.css';
 
 const AppComponent = () => {
-  return <SignUpPage isOpen={true} />;
+  return <FailPopUp />;
 };
 
 export const App = memo(AppComponent);

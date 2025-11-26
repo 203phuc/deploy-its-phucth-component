@@ -64,7 +64,7 @@ export const SignInPage = ({ isOpen }: SignInProps) => {
   );
 
   return (
-    <Overlay isOpen={open} onClose={() => setOpen(false)}>
+    <Overlay isOpen={open}>
       <Section w={mobile ? 343 : 652} bgColor="white" px={mobile ? 16 : 32} py={mobile ? 24 : 32}>
         <form onSubmit={handleSubmit}>
           <Flex direction="column" gap={mobile ? 24 : 32}>
