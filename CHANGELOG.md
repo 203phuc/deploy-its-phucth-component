@@ -1,3 +1,19 @@
+# [1.0.0-DEV.2](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.1...v1.0.0-DEV.2) (2025-11-27)
+
+
+### Bug Fixes
+
+* **ITS-IR01-241:** fix eslint disable sonar rule ([8a16eca](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/8a16eca5d2cd15efefc289776a84f5d949d7d4cd))
+
+
+### Features
+
+* **ITS-IR01-241:** add figma link ([d7e83ec](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/d7e83ec68e8054d62579fd94b1ea5f53f12a371d))
+* **ITS-IR01-241:** adding fail sign in popup ([f4325e6](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/f4325e64ba678e284bff96e8f0580d0eb2237126))
+* **ITS-IR01-241:** finish page sign up ([da11a46](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/da11a46ca5ebcaf2534becc60e2064e0b3c4384e))
+* **ITS-IR01-241:** finish sign in page ([1371b30](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/1371b3016656751c4a1e1427107d4611404a4af9))
+* **ITS-IR01-241:** modify with new file popupbase ([d892837](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/d89283713d532c923ea55194931edd331781df96))
+
 # 1.0.0-DEV.1 (2025-11-26)
 
 
