@@ -4,6 +4,10 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { nextButtonStyles, otpInputStyles } from './style';
 import type { OTPInputProps } from './type';
 
+const SINGLE_DIGIT_OR_EMPTY = /^\d?$/;
+const SINGLE_DIGIT = /^\d$/;
+const NON_DIGITS_GLOBAL = /\D/g;
+
 export const OTPInput = ({
   length = 6,
   onChange,
@@ -39,7 +43,7 @@ export const OTPInput = ({
   const handleChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>, index: number) => {
       const { value } = e.target;
-      if (!/^\d?$/.test(value)) return; // allow empty or single digit
+      if (!SINGLE_DIGIT_OR_EMPTY.test(value)) return; // allow empty or single digit
 
       // Update the OTP value using the updateOtpValue function
       updateOtpValue(index, value);
@@ -89,7 +93,7 @@ export const OTPInput = ({
           break;
         default:
           // For number keys, move to next input after typing
-          if (/^\d$/.test(key) && index < length - 1) {
+          if (SINGLE_DIGIT.test(key) && index < length - 1) {
             // Use setTimeout to ensure the value is updated before moving focus
             setTimeout(() => {
               inputRefs.current[index + 1]?.focus();
@@ -103,7 +107,7 @@ export const OTPInput = ({
   const handlePaste = useCallback(
     (e: ClipboardEvent<HTMLInputElement>) => {
       e.preventDefault();
-      const pasteData = e.clipboardData.getData('text/plain').replace(/\D/g, '').slice(0, length);
+      const pasteData = e.clipboardData.getData('text/plain').replace(NON_DIGITS_GLOBAL, '').slice(0, length);
       if (!pasteData) return;
       pasteData.split('').forEach((digit, i) => updateOtpValue(i, digit));
       const nextFocusIndex = Math.min(pasteData.length, length - 1);

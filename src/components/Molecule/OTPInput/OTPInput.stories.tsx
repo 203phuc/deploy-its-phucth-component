@@ -23,6 +23,12 @@ const OTPInputStory = (args: OTPInputProps) => {
 export default {
   title: 'Molecules/OTPInput',
   component: OTPInput,
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/Ovp63tfHXWbbNr8lzFbAGy/HAIBAZO-INTERNSHIP-FRONTEND?node-id=4508-52900&t=5TECiQ0AHxRoQiSP-4',
+    },
+  },
   tags: ['autodocs'],
   argTypes: {
     length: {
