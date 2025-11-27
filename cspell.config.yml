@@ -1,19 +1,20 @@
 words:
-  - autodocs
-  - haibazo
-  - sonarjs
-  - viewports
-  - storycap
-  - grotesk
-  - xsmall
-  - xlarge
   - 2xlarge
   - 3xlarge
   - 4xlarge
+  - autodocs
+  - grotesk
+  - haibazo
+  - kanzo
+  - Nayzak
+  - newarrivals
   - noopener
   - noreferrer
+  - phucth
   - Shoei
-  - Nayzak
   - smedium
-  - newarrivals
-  - kanzo
+  - sonarjs
+  - storycap
+  - viewports
+  - xlarge
+  - xsmall
