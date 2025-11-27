@@ -71,7 +71,7 @@
   ],
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
-  "name": "@haibazo/its-sandbox-component",
+  "name": "@haibazo/its-phucth-component",
   "packageManager": "yarn@4.9.4",
   "scripts": {
     "build": "yarn run build:package",

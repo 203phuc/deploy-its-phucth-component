@@ -1,10 +1,10 @@
-import { HomePage } from '@pages/Homepage';
+import { OTPInput } from './components/Molecule/OTPInput/OTPInput';
 import { memo } from 'react';
 
 import './styles/tailwind.css';
 
 const AppComponent = () => {
-  return <HomePage />;
+  return <OTPInput />;
 };
 
 export const App = memo(AppComponent);
