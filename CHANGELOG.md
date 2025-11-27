@@ -1,3 +1,10 @@
+# [1.0.0-DEV.3](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.2...v1.0.0-DEV.3) (2025-11-27)
+
+
+### Features
+
+* **ITS-IR01-001:** modify package name ([9d97f2f](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/9d97f2f36d84a55284e6064100a78ee621302d46))
+
 # [1.0.0-DEV.2](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.1...v1.0.0-DEV.2) (2025-11-27)
 
 
