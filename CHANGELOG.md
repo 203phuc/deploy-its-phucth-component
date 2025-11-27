@@ -1,3 +1,11 @@
+# [1.0.0-DEV.5](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.4...v1.0.0-DEV.5) (2025-11-27)
+
+
+### Bug Fixes
+
+* **ITS-IR01-254:** figma link modify new link ([737789f](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/737789feca16b3cf334ec1c85d4433923fe4b30e))
+* **ITS-IR01-254:** fix figma link ([539844f](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/539844fdc377e9a20fbc570d730432758e5345a9))
+
 # [1.0.0-DEV.4](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.3...v1.0.0-DEV.4) (2025-11-27)
 
 
