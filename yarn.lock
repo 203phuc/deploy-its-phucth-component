@@ -1607,9 +1607,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@haibazo/its-sandbox-component@workspace:.":
+"@haibazo/its-phucth-component@workspace:.":
   version: 0.0.0-use.local
-  resolution: "@haibazo/its-sandbox-component@workspace:."
+  resolution: "@haibazo/its-phucth-component@workspace:."
   dependencies:
     "@chromatic-com/storybook": "npm:^4.1.1"
     "@commitlint/cli": "npm:^19.8.1"
