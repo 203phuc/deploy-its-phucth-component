@@ -103,6 +103,11 @@
   font-family: "Space Grotesk", sans-serif;
 }
 
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}
+
 
 /* component base */
 .text {
