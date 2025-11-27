@@ -12,7 +12,7 @@ const meta: Meta<typeof SliderBar> = {
     },
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/design/Ovp63tfHXWbbNr8lzFbAGy/HAIBAZO-INTERNSHIP-FRONTEND?node-id=192-29471&t=cJKZhivOn0GVIeK5-0',
+      url: 'https://www.figma.com/design/Ovp63tfHXWbbNr8lzFbAGy/HAIBAZO-INTERNSHIP-FRONTEND?node-id=7493-63152&t=cJKZhivOn0GVIeK5-4',
     },
   },
   tags: ['autodocs'],
