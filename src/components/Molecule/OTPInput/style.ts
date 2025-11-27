@@ -11,7 +11,7 @@ export const otpInputStyles = cva(
   {
     variants: {
       variant: {
-        mobile: 'h-10 w-10',
+        mobile: 'h-10 w-10 text-lg',
         desktop: 'h-[55px] w-[58px]',
       },
       hasError: {
