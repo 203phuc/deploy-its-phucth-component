@@ -1,3 +1,16 @@
+# [1.0.0-DEV.4](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.3...v1.0.0-DEV.4) (2025-11-27)
+
+
+### Bug Fixes
+
+* **ITS-IR01-250:** fix regex and figma link ([93eaea8](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/93eaea8aaaf08718308f78678ce9847fc95f9179))
+
+
+### Features
+
+* **ITS-IR01-001:** finish test and stories for OTPinput ([054ab0a](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/054ab0a7223e376fa183dd4da3ac51b57e10aa34))
+* **ITS-IR01-250:** base set up for OTP ([f906929](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/f906929dbf2f4eec64c9e3af251b5784a0669159))
+
 # [1.0.0-DEV.3](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.2...v1.0.0-DEV.3) (2025-11-27)
 
 
