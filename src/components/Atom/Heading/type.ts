@@ -2,7 +2,7 @@ import type { HeadingCvaProps } from './style';
 
 export type HeadingWeight = 'regular' | 'moderate' | 'semiBold' | 'bold';
 export type HeadingFont = 'spaceGrotesk' | 'inter';
-export type HeadingSize = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'h7';
+export type HeadingSize = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'h7' | 'hSpecial';
 export type HeadingAlign = 'left' | 'center' | 'right';
 
 type HeadingCvaPropsWithoutSize = Omit<HeadingCvaProps, 'size' | 'color' | 'align'>;

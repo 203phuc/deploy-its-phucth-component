@@ -1,8 +1,9 @@
 import type { InputHTMLAttributes, ReactNode, TextareaHTMLAttributes } from 'react';
 import type { IconName } from '../Icons/types';
+import { InputCvaProps } from './style';
 
 export type InputVariant = 'line' | 'solid';
-export type InputSize = 'small' | 'medium' | 'large';
+export type InputSize = 'small' | 'medium' | 'large' | 'xlarge';
 export type InputBgColor = 'white' | 'transparent';
 export type InputPlaceholderColor = 'gray' | 'black' | 'white';
 /**
@@ -97,26 +98,54 @@ interface BaseInputProps {
    * Font family for all text elements (label, placeholder, and input text)
    * @default 'inter'
    */
-  fontFamily?: InputFontFamily;
+  readonly fontFamily?: 'inter' | 'grotesk';
 }
-
-export type InputFontFamily = 'inter' | 'grotesk';
-
+export type PlaceholderSize =
+  | 'special2'
+  | 'special1'
+  | 'xsmall'
+  | 'small'
+  | 'smedium'
+  | 'medium'
+  | 'large'
+  | 'xlarge'
+  | '2xlarge'
+  | '3xlarge'
+  | '4xlarge';
 /**
  * Props when rendered as input
  */
-interface InputElementProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'>, BaseInputProps {
+interface InputElementProps
+  extends Omit<InputCvaProps, 'fontFamily' | 'placeholderColor' | 'size'>,
+    Omit<InputHTMLAttributes<HTMLInputElement>, 'size'>,
+    BaseInputProps {
   as?: 'input';
   /**
    * The input type
    * @default 'text'
    */
   type?: 'text' | 'password' | 'email' | 'number' | 'url' | 'search' | 'date' | 'tel';
-
+  textSize?:
+    | 'special1'
+    | 'special2'
+    | 'xsmall'
+    | 'small'
+    | 'smedium'
+    | 'medium'
+    | 'large'
+    | 'xlarge'
+    | '2xlarge'
+    | '3xlarge'
+    | '4xlarge';
   /**
    * Callback when input value changes
    */
   onChange?: (event: InputChangeEvent) => void;
+
+  /**
+   * Callback when input value changes
+   */
+  placeholderSize?: PlaceholderSize;
 }
 
 /**
@@ -132,7 +161,22 @@ interface TextareaElementProps
   buttonStart?: never;
   buttonEnd?: never;
   onIconEndClick?: never;
-
+  textSize?:
+    | 'special1'
+    | 'special2'
+    | 'xsmall'
+    | 'small'
+    | 'smedium'
+    | 'medium'
+    | 'large'
+    | 'xlarge'
+    | '2xlarge'
+    | '3xlarge'
+    | '4xlarge';
+  /**
+   * Callback when input value changes
+   */
+  placeholderSize?: PlaceholderSize;
   /**
    * Callback when textarea value changes
    */

@@ -14,7 +14,7 @@ export const IconBlock = ({ cartItem, setFlyoutCartOpen }: IconBlockProps) => {
     <Position position="relative">
       <Flex align="center" justify="end" gap={20} width={194}>
         {searchInput ? (
-          <Position position="absolute" left={-195}>
+          <Position position="absolute" left={-218}>
             <Input
               iconEnd={
                 <Icons

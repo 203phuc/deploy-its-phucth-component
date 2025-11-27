@@ -29,6 +29,7 @@ export const headingCva = cva('inline-block', {
       spaceGrotesk: 'font-space-grotesk',
     },
     size: {
+      hSpecial: 'text-[26px] leading-[38px] tracking-[0px]',
       h1: 'text-[80px] leading-[84px] tracking-[-3px]', // 80 / 84 / -3
       h2: 'text-[72px] leading-[76px] tracking-[-2px]', // 72 / 76 / -2
       h3: 'text-[54px] leading-[58px] tracking-[-1px]', // 54 / 58 / -1

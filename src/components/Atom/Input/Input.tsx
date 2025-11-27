@@ -11,6 +11,7 @@ import type { InputProps } from './type';
 export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(
   (
     {
+      textSize,
       as = 'input',
       type = 'text',
       variant = 'solid',
@@ -28,12 +29,13 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
       error,
       className,
       fontFamily = 'inter',
+      placeholderSize,
       ...props
     },
     ref,
   ) => {
     // Compose label classes using CVA
-    const labelClasses = labelCva({ size, fontFamily });
+    const labelClasses = labelCva({ textSize, fontFamily });
 
     // Helper function to render start decoration (icon or button)
     const renderStartDecoration = () => {
@@ -111,7 +113,7 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
     // Render as textarea
     if (as === 'textarea') {
       const textareaProps = props as React.TextareaHTMLAttributes<HTMLTextAreaElement>;
-      const textareaClasses = cn(textareaCva({ variant, size, error: !!error, fontFamily }), className);
+      const textareaClasses = cn(textareaCva({ variant, error: !!error, fontFamily }), className);
 
       return (
         <div className="flex flex-col gap-1">
@@ -138,8 +140,12 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
     }
 
     // Render as input (default)
-    const wrapperClasses = cn(inputCva({ variant, size, error: !!error, bgColor }), className);
-    const inputClasses = inputElementCva({ size, fontFamily, placeholderColor });
+    const wrapperClasses = cn(
+      inputCva({ variant, size, error: !!error, bgColor }),
+      className,
+      'passwordInput',
+    );
+    const inputClasses = inputElementCva({ textSize, fontFamily, placeholderColor, placeholderSize });
 
     return (
       <div className="flex flex-col gap-1">
