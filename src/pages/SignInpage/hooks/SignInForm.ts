@@ -35,7 +35,6 @@ export const useSignInForm = () => {
     setErrors(newErrors);
 
     if (!hasError) {
-      console.log('Sign in successful', { emailOrUsername, password });
       // clear form
       emailOrUsernameRef.current!.value = '';
       passwordRef.current!.value = '';

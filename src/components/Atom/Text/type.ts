@@ -50,6 +50,7 @@ export interface TextProps extends Partial<TextCvaPropsWithoutSize>, React.HTMLA
     | 'blue-700'
     | 'red-500'
     | 'teal-600'
+    | 'red-special'
     | 'white';
 
   /**
