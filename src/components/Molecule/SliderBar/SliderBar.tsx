@@ -5,16 +5,19 @@ import { knob, sliderWrapper, trackBase, trackRange, valueTextWrapper } from './
 import { type SliderBarProps, Dragging } from './type';
 
 export const SliderBar = ({ min: initialMin = 0, max: initialMax = 1000, onChange }: SliderBarProps) => {
-  // Ensure initial values are not negative
+  const CLICK_MOVE_THRESHOLD = 3; // px
+  const CLICK_TIME_THRESHOLD = 200; // ms
+  const THROTTLE_INTERVAL = 16; // ms (~60fps)
+  const MIN_MOVE_DELTA = 2; // px
+
   const min = Math.max(0, initialMin);
-  // Allow max to be equal to min initially
   const max = Math.max(0, initialMax, min);
 
   const [minValue, setMinValue] = useState(min);
   const [maxValue, setMaxValue] = useState(max);
   const sliderRef = useRef<HTMLButtonElement>(null);
   const [dragging, setDragging] = useState<Dragging>(null);
-  const animationFrameId = useRef<number>(null);
+  const animationFrameId = useRef<number>(0);
   const lastMoveTime = useRef<number>(0);
   const lastX = useRef<number>(0);
   const clickStartX = useRef(0);
@@ -29,7 +32,7 @@ export const SliderBar = ({ min: initialMin = 0, max: initialMax = 1000, onChang
     const dx = Math.abs(e.clientX - clickStartX.current);
     const dt = Date.now() - clickStartTime.current;
 
-    const isClick = dx < 3 && dt < 200; // movement < 3px and time < 200ms
+    const isClick = dx < CLICK_MOVE_THRESHOLD && dt < CLICK_TIME_THRESHOLD;
 
     if (isClick) {
       const rect = sliderRef.current?.getBoundingClientRect();
@@ -45,13 +48,12 @@ export const SliderBar = ({ min: initialMin = 0, max: initialMax = 1000, onChang
     }
   };
 
-  // Throttle the mouse move handler
   const updateValues = useCallback(
     (clientX: number) => {
       if (!sliderRef.current || !dragging) return;
 
       const now = Date.now();
-      if (now - lastMoveTime.current < 16) return; // throttle ~60fps
+      if (now - lastMoveTime.current < THROTTLE_INTERVAL) return;
       lastMoveTime.current = now;
 
       animationFrameId.current = requestAnimationFrame(() => {
@@ -63,10 +65,10 @@ export const SliderBar = ({ min: initialMin = 0, max: initialMax = 1000, onChang
         let value = Math.floor(rawValue);
 
         if (dragging === 'min') {
-          value = Math.min(value, maxValue); // prevent crossing
+          value = Math.min(value, maxValue);
           setMinValue(value);
         } else if (dragging === 'max') {
-          value = Math.max(value, minValue); // prevent crossing
+          value = Math.max(value, minValue);
           setMaxValue(value);
         }
       });
@@ -76,8 +78,7 @@ export const SliderBar = ({ min: initialMin = 0, max: initialMax = 1000, onChang
 
   const handleMouseMove = useCallback(
     (e: MouseEvent) => {
-      // Only process if mouse has moved significantly (improves performance)
-      if (Math.abs(e.clientX - lastX.current) < 2) return;
+      if (Math.abs(e.clientX - lastX.current) < MIN_MOVE_DELTA) return;
       lastX.current = e.clientX;
 
       updateValues(e.clientX);
@@ -103,9 +104,7 @@ export const SliderBar = ({ min: initialMin = 0, max: initialMax = 1000, onChang
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseup', handleMouseUp);
-      if (animationFrameId.current) {
-        cancelAnimationFrame(animationFrameId.current);
-      }
+      if (animationFrameId.current) cancelAnimationFrame(animationFrameId.current);
     };
   }, [dragging, handleMouseMove, handleMouseUp]);
 
@@ -126,14 +125,10 @@ export const SliderBar = ({ min: initialMin = 0, max: initialMax = 1000, onChang
       <div className={trackBase()} />
       <div
         className={trackRange()}
-        style={{
-          left: `${minPercent}%`,
-          width: `${maxPercent - minPercent}%`,
-        }}
+        style={{ left: `${minPercent}%`, width: `${maxPercent - minPercent}%` }}
       />
 
       <Section onMouseDown={() => setDragging('min')} className={knob()} style={{ left: `${minPercent}%` }} />
-
       <Section onMouseDown={() => setDragging('max')} className={knob()} style={{ left: `${maxPercent}%` }} />
 
       <div className={valueTextWrapper()}>
