@@ -1,3 +1,10 @@
+# [1.0.0-DEV.6](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.5...v1.0.0-DEV.6) (2025-12-01)
+
+
+### Features
+
+* **ITS-IR01-266:** tested, stories made for status popup ([f622c06](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/f622c0618c155536125f268d5ed2f909d814dca6))
+
 # [1.0.0-DEV.5](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.4...v1.0.0-DEV.5) (2025-11-27)
 
 
