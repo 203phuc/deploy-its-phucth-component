@@ -53,27 +53,31 @@ export const PasswordReset = ({ onClose, isMobile, onSubmit }: PasswordResetProp
     }
   };
 
-  return (
+  const renderDesktopUI = () => (
     <Flex direction="column">
-      <Section mb={isMobile ? 15 : 32}>
-        <Flex direction="column" gap={isMobile ? 16 : 24}>
-          <Flex justify="space-between" align="center" gap={isMobile ? 8 : 16}>
-            <Heading color="black-900" size={isMobile ? 'hSpecial' : 'h4'}>
-              Password Reset
-            </Heading>
-            <Icons iconName="CloseIcon" box onClick={onClose} iconSize={isMobile ? 32 : 40} />
+      <Section>
+        <Flex direction="column" gap={31}>
+          <Flex direction="column" gap={23}>
+            <Flex justify="space-between" align="center" gap={16}>
+              <Heading color="black-900" size="h4">
+                Password Reset
+              </Heading>
+              <Icons iconName="CloseIcon" box onClick={onClose} iconSize={40} />
+            </Flex>
+            <Text size="special1" color="blue-700">
+              Your identity has been verified. Please enter a new password!
+            </Text>
           </Flex>
-
           <form onSubmit={handleSubmit}>
-            <Flex direction="column" gap={16}>
+            <Flex direction="column" gap={31}>
               <Input
-                size={isMobile ? 'large' : 'xlarge'}
+                size="xlarge"
                 type={showPassword ? 'text' : 'password'}
-                placeholder="Enter new password"
+                placeholder="New Password*"
                 value={password}
                 variant="line"
                 required
-                textSize={isMobile ? 'small' : 'medium'}
+                textSize="medium"
                 onChange={(e) => {
                   setPassword(e.target.value);
                   clearFieldError('password');
@@ -85,43 +89,45 @@ export const PasswordReset = ({ onClose, isMobile, onSubmit }: PasswordResetProp
                     iconName={showPassword ? 'ViewIcon' : 'EyeCloseIcon'}
                     box
                     onClick={() => setShowPassword(!showPassword)}
-                    iconSize={20}
+                    iconSize={24}
                   />
                 }
               />
 
-              <Input
-                size={isMobile ? 'large' : 'xlarge'}
-                type={showConfirmPassword ? 'text' : 'password'}
-                placeholder="Confirm new password"
-                value={confirmPassword}
-                textSize={isMobile ? 'small' : 'medium'}
-                variant="line"
-                required
-                onChange={(e) => {
-                  setConfirmPassword(e.target.value);
-                  clearFieldError('confirmPassword');
-                }}
-                onKeyDown={handleKeyDown}
-                error={errors.confirmPassword}
-                iconEnd={
-                  <Icons
-                    iconName={showConfirmPassword ? 'ViewIcon' : 'EyeCloseIcon'}
-                    box
-                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                    iconSize={20}
-                  />
-                }
-              />
+              <Flex direction="column" gap={13.08}>
+                <Input
+                  size="xlarge"
+                  type={showConfirmPassword ? 'text' : 'password'}
+                  placeholder="Confirm Password*"
+                  value={confirmPassword}
+                  textSize="medium"
+                  variant="line"
+                  required
+                  onChange={(e) => {
+                    setConfirmPassword(e.target.value);
+                    clearFieldError('confirmPassword');
+                  }}
+                  onKeyDown={handleKeyDown}
+                  error={errors.confirmPassword}
+                  iconEnd={
+                    <Icons
+                      iconName={showConfirmPassword ? 'ViewIcon' : 'EyeCloseIcon'}
+                      box
+                      onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                      iconSize={24}
+                    />
+                  }
+                />
 
-              <Text color="black-600" size="small">
-                Password must be 8-128 characters long and contain at least one uppercase letter, one
-                lowercase letter, one number, and one special character.
-              </Text>
+                <Text color="black-900" size="small">
+                  Password must be 8-128 characters long and contain at least one uppercase letter, one
+                  lowercase letter, one number, and one special character.
+                </Text>
+              </Flex>
 
-              <Flex gap={12} direction={isMobile ? 'column' : 'row'}>
-                <Button type="submit" variant="solid" size={isMobile ? 'medium' : 'large'} fullWidth>
-                  Reset Password
+              <Flex gap={12} direction="row">
+                <Button type="submit" roundness="round" variant="solid" size="large" fullWidth>
+                  Submit
                 </Button>
               </Flex>
             </Flex>
@@ -130,4 +136,90 @@ export const PasswordReset = ({ onClose, isMobile, onSubmit }: PasswordResetProp
       </Section>
     </Flex>
   );
+
+  const renderMobileUI = () => (
+    <Flex direction="column">
+      <Section>
+        <Flex direction="column" gap={16}>
+          <Flex direction="column" gap={8}>
+            <Flex justify="space-between" align="center" gap={8}>
+              <Heading color="black-900" size="hSpecial">
+                Password Reset
+              </Heading>
+              <Icons iconName="CloseIcon" box onClick={onClose} iconSize={32} />
+            </Flex>
+            <Text size="small" color="blue-700">
+              Your identity has been verified. Please enter a new password!
+            </Text>
+          </Flex>
+          <form onSubmit={handleSubmit}>
+            <Flex direction="column" gap={14}>
+              <Input
+                size="large"
+                type={showPassword ? 'text' : 'password'}
+                placeholder="New Password*"
+                value={password}
+                variant="line"
+                required
+                textSize="small"
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                  clearFieldError('password');
+                }}
+                onKeyDown={handleKeyDown}
+                error={errors.password}
+                iconEnd={
+                  <Icons
+                    iconName={showPassword ? 'ViewIcon' : 'EyeCloseIcon'}
+                    box
+                    onClick={() => setShowPassword(!showPassword)}
+                    iconSize={24}
+                  />
+                }
+              />
+
+              <Flex direction="column" gap={14}>
+                <Input
+                  size="large"
+                  type={showConfirmPassword ? 'text' : 'password'}
+                  placeholder="Confirm Password*"
+                  value={confirmPassword}
+                  textSize="small"
+                  variant="line"
+                  required
+                  onChange={(e) => {
+                    setConfirmPassword(e.target.value);
+                    clearFieldError('confirmPassword');
+                  }}
+                  onKeyDown={handleKeyDown}
+                  error={errors.confirmPassword}
+                  iconEnd={
+                    <Icons
+                      iconName={showConfirmPassword ? 'ViewIcon' : 'EyeCloseIcon'}
+                      box
+                      onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                      iconSize={24}
+                    />
+                  }
+                />
+
+                <Text color="black-900" size="xsmall">
+                  Password must be 8-128 characters long and contain at least one uppercase letter, one
+                  lowercase letter, one number, and one special character.
+                </Text>
+
+                <Section mt={12}>
+                  <Button type="submit" roundness="round" variant="solid" size="medium" fullWidth>
+                    Submit
+                  </Button>
+                </Section>
+              </Flex>
+            </Flex>
+          </form>
+        </Flex>
+      </Section>
+    </Flex>
+  );
+
+  return isMobile ? renderMobileUI() : renderDesktopUI();
 };
