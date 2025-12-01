@@ -1,37 +1,89 @@
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { knob, sliderWrapper, trackBase, trackRange, valueTextWrapper } from './style';
 import { type SliderBarProps, Dragging } from './type';
 
-export const SliderBar = ({ min = 0, max = 1000, onChange }: SliderBarProps) => {
+export const SliderBar = ({ min: initialMin = 0, max: initialMax = 1000, onChange }: SliderBarProps) => {
+  // Ensure initial values are not negative
+  const min = Math.max(0, initialMin);
+  // Allow max to be equal to min initially
+  const max = Math.max(0, initialMax, min);
+
   const [minValue, setMinValue] = useState(min);
   const [maxValue, setMaxValue] = useState(max);
   const sliderRef = useRef<HTMLDivElement>(null);
   const [dragging, setDragging] = useState<Dragging>(null);
+  const animationFrameId = useRef<number>();
+  const lastMoveTime = useRef<number>(0);
+  const lastX = useRef<number>(0);
 
-  const handleMouseUp = () => setDragging(null);
+  // Throttle the mouse move handler
+  const updateValues = useCallback(
+    (clientX: number) => {
+      if (!sliderRef.current || !dragging) return;
 
-  useEffect(() => {
-    const handleMouseMove = (e: globalThis.MouseEvent) => {
-      if (!dragging || !sliderRef.current) return;
+      const now = Date.now();
+      // Skip processing if the last update was too recent (throttle to ~60fps)
+      if (now - lastMoveTime.current < 16) {
+        // ~60fps
+        return;
+      }
+      lastMoveTime.current = now;
 
       const rect = sliderRef.current.getBoundingClientRect();
-      let percent = (e.clientX - rect.left) / rect.width;
+      let percent = (clientX - rect.left) / rect.width;
       percent = Math.min(Math.max(percent, 0), 1);
-      const value = Math.round(min + percent * (max - min));
+      let value = Math.max(0, Math.round(min + percent * (max - min)));
 
-      if (dragging === 'min' && value < maxValue) setMinValue(value);
-      if (dragging === 'max' && value > minValue) setMaxValue(value);
-    };
+      // Use requestAnimationFrame for smooth updates
+      animationFrameId.current = requestAnimationFrame(() => {
+        if (dragging === 'min') {
+          value = Math.min(value, maxValue);
+          setMinValue(Math.max(0, value));
+        } else if (dragging === 'max') {
+          value = Math.max(value, minValue);
+          setMaxValue(Math.max(0, value));
+        }
+      });
+    },
+    [dragging, max, maxValue, min, minValue],
+  );
 
-    document.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseup', handleMouseUp);
+  const handleMouseMove = useCallback(
+    (e: MouseEvent) => {
+      // Only process if mouse has moved significantly (improves performance)
+      if (Math.abs(e.clientX - lastX.current) < 2) return;
+      lastX.current = e.clientX;
+
+      updateValues(e.clientX);
+    },
+    [updateValues],
+  );
+
+  const handleMouseUp = useCallback(() => {
+    setDragging(null);
+    lastMoveTime.current = 0;
+    lastX.current = 0;
+  }, []);
+
+  useEffect(() => {
+    if (dragging) {
+      document.addEventListener('mousemove', handleMouseMove, { passive: true });
+      document.addEventListener('mouseup', handleMouseUp);
+    } else {
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseup', handleMouseUp);
+    }
+
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseup', handleMouseUp);
+      if (animationFrameId.current) {
+        cancelAnimationFrame(animationFrameId.current);
+      }
     };
-  }, [dragging, minValue, maxValue, max, min]);
+  }, [dragging, handleMouseMove, handleMouseUp]);
 
   useEffect(() => {
     if (onChange) onChange(minValue, maxValue);
