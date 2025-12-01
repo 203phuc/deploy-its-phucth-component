@@ -1,37 +1,112 @@
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { knob, sliderWrapper, trackBase, trackRange, valueTextWrapper } from './style';
 import { type SliderBarProps, Dragging } from './type';
 
-export const SliderBar = ({ min = 0, max = 1000, onChange }: SliderBarProps) => {
+export const SliderBar = ({ min: initialMin = 0, max: initialMax = 1000, onChange }: SliderBarProps) => {
+  const CLICK_MOVE_THRESHOLD = 3; // px
+  const CLICK_TIME_THRESHOLD = 200; // ms
+  const THROTTLE_INTERVAL = 16; // ms (~60fps)
+  const MIN_MOVE_DELTA = 2; // px
+
+  const min = Math.max(0, initialMin);
+  const max = Math.max(0, initialMax, min);
+
   const [minValue, setMinValue] = useState(min);
   const [maxValue, setMaxValue] = useState(max);
-  const sliderRef = useRef<HTMLDivElement>(null);
+  const sliderRef = useRef<HTMLButtonElement>(null);
   const [dragging, setDragging] = useState<Dragging>(null);
+  const animationFrameId = useRef<number>(0);
+  const lastMoveTime = useRef<number>(0);
+  const lastX = useRef<number>(0);
+  const clickStartX = useRef(0);
+  const clickStartTime = useRef(0);
 
-  const handleMouseUp = () => setDragging(null);
+  const handleMouseDownSlider = (e: React.MouseEvent) => {
+    clickStartX.current = e.clientX;
+    clickStartTime.current = Date.now();
+  };
 
-  useEffect(() => {
-    const handleMouseMove = (e: globalThis.MouseEvent) => {
-      if (!dragging || !sliderRef.current) return;
+  const handleMouseUpSlider = (e: React.MouseEvent) => {
+    const dx = Math.abs(e.clientX - clickStartX.current);
+    const dt = Date.now() - clickStartTime.current;
 
-      const rect = sliderRef.current.getBoundingClientRect();
+    const isClick = dx < CLICK_MOVE_THRESHOLD && dt < CLICK_TIME_THRESHOLD;
+
+    if (isClick) {
+      const rect = sliderRef.current?.getBoundingClientRect();
+      if (!rect) return;
+
       let percent = (e.clientX - rect.left) / rect.width;
       percent = Math.min(Math.max(percent, 0), 1);
-      const value = Math.round(min + percent * (max - min));
+      const value = min + percent * (max - min);
 
-      if (dragging === 'min' && value < maxValue) setMinValue(value);
-      if (dragging === 'max' && value > minValue) setMaxValue(value);
-    };
+      setMinValue(Math.floor(value));
+      setMaxValue(Math.floor(value));
+      onChange?.(value, value);
+    }
+  };
 
-    document.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseup', handleMouseUp);
+  const updateValues = useCallback(
+    (clientX: number) => {
+      if (!sliderRef.current || !dragging) return;
+
+      const now = Date.now();
+      if (now - lastMoveTime.current < THROTTLE_INTERVAL) return;
+      lastMoveTime.current = now;
+
+      animationFrameId.current = requestAnimationFrame(() => {
+        const rect = sliderRef.current!.getBoundingClientRect();
+        let percent = (clientX - rect.left) / rect.width;
+        percent = Math.min(Math.max(percent, 0), 1);
+
+        const rawValue = min + percent * (max - min);
+        let value = Math.floor(rawValue);
+
+        if (dragging === 'min') {
+          value = Math.min(value, maxValue);
+          setMinValue(value);
+        } else if (dragging === 'max') {
+          value = Math.max(value, minValue);
+          setMaxValue(value);
+        }
+      });
+    },
+    [dragging, max, maxValue, min, minValue],
+  );
+
+  const handleMouseMove = useCallback(
+    (e: MouseEvent) => {
+      if (Math.abs(e.clientX - lastX.current) < MIN_MOVE_DELTA) return;
+      lastX.current = e.clientX;
+
+      updateValues(e.clientX);
+    },
+    [updateValues],
+  );
+
+  const handleMouseUp = useCallback(() => {
+    setDragging(null);
+    lastMoveTime.current = 0;
+    lastX.current = 0;
+  }, []);
+
+  useEffect(() => {
+    if (dragging) {
+      document.addEventListener('mousemove', handleMouseMove, { passive: true });
+      document.addEventListener('mouseup', handleMouseUp);
+    } else {
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseup', handleMouseUp);
+    }
+
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseup', handleMouseUp);
+      if (animationFrameId.current) cancelAnimationFrame(animationFrameId.current);
     };
-  }, [dragging, minValue, maxValue, max, min]);
+  }, [dragging, handleMouseMove, handleMouseUp]);
 
   useEffect(() => {
     if (onChange) onChange(minValue, maxValue);
@@ -41,18 +116,19 @@ export const SliderBar = ({ min = 0, max = 1000, onChange }: SliderBarProps) => 
   const maxPercent = ((maxValue - min) / (max - min)) * 100;
 
   return (
-    <div ref={sliderRef} className={sliderWrapper()}>
+    <button
+      ref={sliderRef}
+      onMouseDown={handleMouseDownSlider}
+      onMouseUp={handleMouseUpSlider}
+      className={sliderWrapper()}
+    >
       <div className={trackBase()} />
       <div
         className={trackRange()}
-        style={{
-          left: `${minPercent}%`,
-          width: `${maxPercent - minPercent}%`,
-        }}
+        style={{ left: `${minPercent}%`, width: `${maxPercent - minPercent}%` }}
       />
 
       <Section onMouseDown={() => setDragging('min')} className={knob()} style={{ left: `${minPercent}%` }} />
-
       <Section onMouseDown={() => setDragging('max')} className={knob()} style={{ left: `${maxPercent}%` }} />
 
       <div className={valueTextWrapper()}>
@@ -60,6 +136,6 @@ export const SliderBar = ({ min = 0, max = 1000, onChange }: SliderBarProps) => 
           ${minValue.toLocaleString()} - ${maxValue.toLocaleString()}
         </Text>
       </div>
-    </div>
+    </button>
   );
 };
