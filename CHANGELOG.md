@@ -1,3 +1,12 @@
+# [1.0.0-DEV.7](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.6...v1.0.0-DEV.7) (2025-12-01)
+
+
+### Bug Fixes
+
+* **ITS-IR01-264:** fix magic number in component file ([20ca789](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/20ca7895a1b28441d53989b22de47f997e881f22))
+* **ITS-IR01-264:** fix slider color and behaviour ([04c3c05](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/04c3c05f90eb9251d644ba984469ccfe7852f45a))
+* **ITS-IR01-264:** fixed for accepting click from the user ([713101d](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/713101d3a4d41629c2d053d67b12be5c5c45c118))
+
 # [1.0.0-DEV.6](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.5...v1.0.0-DEV.6) (2025-12-01)
 
 
