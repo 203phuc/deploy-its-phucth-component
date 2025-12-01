@@ -12,11 +12,38 @@ export const SliderBar = ({ min: initialMin = 0, max: initialMax = 1000, onChang
 
   const [minValue, setMinValue] = useState(min);
   const [maxValue, setMaxValue] = useState(max);
-  const sliderRef = useRef<HTMLDivElement>(null);
+  const sliderRef = useRef<HTMLButtonElement>(null);
   const [dragging, setDragging] = useState<Dragging>(null);
-  const animationFrameId = useRef<number>();
+  const animationFrameId = useRef<number>(null);
   const lastMoveTime = useRef<number>(0);
   const lastX = useRef<number>(0);
+  const clickStartX = useRef(0);
+  const clickStartTime = useRef(0);
+
+  const handleMouseDownSlider = (e: React.MouseEvent) => {
+    clickStartX.current = e.clientX;
+    clickStartTime.current = Date.now();
+  };
+
+  const handleMouseUpSlider = (e: React.MouseEvent) => {
+    const dx = Math.abs(e.clientX - clickStartX.current);
+    const dt = Date.now() - clickStartTime.current;
+
+    const isClick = dx < 3 && dt < 200; // movement < 3px and time < 200ms
+
+    if (isClick) {
+      const rect = sliderRef.current?.getBoundingClientRect();
+      if (!rect) return;
+
+      let percent = (e.clientX - rect.left) / rect.width;
+      percent = Math.min(Math.max(percent, 0), 1);
+      const value = min + percent * (max - min);
+
+      setMinValue(Math.floor(value));
+      setMaxValue(Math.floor(value));
+      onChange?.(value, value);
+    }
+  };
 
   // Throttle the mouse move handler
   const updateValues = useCallback(
@@ -24,26 +51,23 @@ export const SliderBar = ({ min: initialMin = 0, max: initialMax = 1000, onChang
       if (!sliderRef.current || !dragging) return;
 
       const now = Date.now();
-      // Skip processing if the last update was too recent (throttle to ~60fps)
-      if (now - lastMoveTime.current < 16) {
-        // ~60fps
-        return;
-      }
+      if (now - lastMoveTime.current < 16) return; // throttle ~60fps
       lastMoveTime.current = now;
 
-      const rect = sliderRef.current.getBoundingClientRect();
-      let percent = (clientX - rect.left) / rect.width;
-      percent = Math.min(Math.max(percent, 0), 1);
-      let value = Math.max(0, Math.round(min + percent * (max - min)));
-
-      // Use requestAnimationFrame for smooth updates
       animationFrameId.current = requestAnimationFrame(() => {
+        const rect = sliderRef.current!.getBoundingClientRect();
+        let percent = (clientX - rect.left) / rect.width;
+        percent = Math.min(Math.max(percent, 0), 1);
+
+        const rawValue = min + percent * (max - min);
+        let value = Math.floor(rawValue);
+
         if (dragging === 'min') {
-          value = Math.min(value, maxValue);
-          setMinValue(Math.max(0, value));
+          value = Math.min(value, maxValue); // prevent crossing
+          setMinValue(value);
         } else if (dragging === 'max') {
-          value = Math.max(value, minValue);
-          setMaxValue(Math.max(0, value));
+          value = Math.max(value, minValue); // prevent crossing
+          setMaxValue(value);
         }
       });
     },
@@ -93,7 +117,12 @@ export const SliderBar = ({ min: initialMin = 0, max: initialMax = 1000, onChang
   const maxPercent = ((maxValue - min) / (max - min)) * 100;
 
   return (
-    <div ref={sliderRef} className={sliderWrapper()}>
+    <button
+      ref={sliderRef}
+      onMouseDown={handleMouseDownSlider}
+      onMouseUp={handleMouseUpSlider}
+      className={sliderWrapper()}
+    >
       <div className={trackBase()} />
       <div
         className={trackRange()}
@@ -112,6 +141,6 @@ export const SliderBar = ({ min: initialMin = 0, max: initialMax = 1000, onChang
           ${minValue.toLocaleString()} - ${maxValue.toLocaleString()}
         </Text>
       </div>
-    </div>
+    </button>
   );
 };
