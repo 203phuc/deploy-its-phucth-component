@@ -7,7 +7,7 @@ export interface UseForgotPassPageProps {
   onClose: () => void;
 }
 
-export const useForgotPassPage = ({ onClose }: UseForgotPassPageProps) => {
+export const useForgotPassPage = () => {
   // Mobile detection
   const [mobile, setMobile] = useState(window.innerWidth <= 768);
   useEffect(() => {
@@ -54,9 +54,10 @@ export const useForgotPassPage = ({ onClose }: UseForgotPassPageProps) => {
     return code;
   };
 
-  const handlePasswordReset = (newPassword: string) => {
+  const handlePasswordReset = async (newPassword: string) => {
     console.log('New password:', newPassword);
-    onClose();
+    const timeTest = 1000;
+    await new Promise((resolve) => setTimeout(resolve, timeTest)); // waits 1 second
   };
 
   return {

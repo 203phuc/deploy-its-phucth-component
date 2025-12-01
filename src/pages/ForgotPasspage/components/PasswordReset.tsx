@@ -5,13 +5,14 @@ import { Icons } from '@components/Atom/Icons';
 import { Input } from '@components/Atom/Input';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
+import { SuccessPopup } from '@components/Molecule/StatusPopup/StatusPopup';
 import { useState } from 'react';
 import { passwordsMatch, validatePassword } from '../../../util/passwordUtils';
 
 interface PasswordResetProps {
   onClose: () => void;
   isMobile: boolean;
-  onSubmit: (newPassword: string) => void;
+  onSubmit: (newPassword: string) => Promise<void>;
 }
 
 export const PasswordReset = ({ onClose, isMobile, onSubmit }: PasswordResetProps) => {
@@ -20,6 +21,7 @@ export const PasswordReset = ({ onClose, isMobile, onSubmit }: PasswordResetProp
   const [errors, setErrors] = useState({ password: '', confirmPassword: '' });
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [isSuccessOpen, setIsSuccessOpen] = useState(false);
 
   const clearFieldError = (field: 'password' | 'confirmPassword') => {
     if (errors[field]) {
@@ -29,17 +31,17 @@ export const PasswordReset = ({ onClose, isMobile, onSubmit }: PasswordResetProp
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    submitForm();
+    void submitForm();
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       e.preventDefault();
-      submitForm();
+      void submitForm();
     }
   };
 
-  const submitForm = () => {
+  const submitForm = async () => {
     const passwordError = validatePassword(password);
     const confirmPasswordError = passwordsMatch(password, confirmPassword) ? '' : 'Passwords do not match';
 
@@ -49,7 +51,17 @@ export const PasswordReset = ({ onClose, isMobile, onSubmit }: PasswordResetProp
     });
 
     if (!passwordError && !confirmPasswordError) {
-      onSubmit(password);
+      try {
+        await onSubmit(password);
+        setIsSuccessOpen(true);
+      } catch (error) {
+        console.error('Password reset failed:', error);
+        // Optionally set an error state to show to the user
+        setErrors((prev) => ({
+          ...prev,
+          form: 'Failed to reset password. Please try again.',
+        }));
+      }
     }
   };
 
@@ -82,7 +94,7 @@ export const PasswordReset = ({ onClose, isMobile, onSubmit }: PasswordResetProp
                   setPassword(e.target.value);
                   clearFieldError('password');
                 }}
-                onKeyDown={handleKeyDown}
+                onKeyDown={() => handleKeyDown}
                 error={errors.password}
                 iconEnd={
                   <Icons
@@ -221,5 +233,25 @@ export const PasswordReset = ({ onClose, isMobile, onSubmit }: PasswordResetProp
     </Flex>
   );
 
-  return isMobile ? renderMobileUI() : renderDesktopUI();
+  return (
+    <>
+      {isMobile ? renderMobileUI() : renderDesktopUI()}
+      <SuccessPopup
+        isOpen={isSuccessOpen}
+        onClose={() => {
+          setIsSuccessOpen(false);
+          onClose();
+        }}
+        title="Password Reset Successful!"
+        message="Your password has been reset. Sign in now!"
+        buttonLabel="Sign In"
+        onButtonClick={() => {
+          setIsSuccessOpen(false);
+          onClose();
+          // Add navigation to login page if needed
+          // navigate('/login');
+        }}
+      />
+    </>
+  );
 };

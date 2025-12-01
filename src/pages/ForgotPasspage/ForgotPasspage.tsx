@@ -24,7 +24,7 @@ export const ForgotPassPage = ({ isOpen, onClose }: UseForgotPassPageProps) => {
     errorOTP,
     handleEmailSubmit,
     handlePasswordReset,
-  } = useForgotPassPage({ isOpen, onClose });
+  } = useForgotPassPage();
 
   if (!isOpen) return null;
 
