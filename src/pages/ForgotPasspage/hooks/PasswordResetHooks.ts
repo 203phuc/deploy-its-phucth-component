@@ -1,17 +1,19 @@
 import { useState } from 'react';
 import { passwordsMatch, validatePassword } from '../../../util/passwordUtils';
 
-interface UsePasswordResetProps {
-  onSubmit: (newPassword: string) => void;
+export interface PasswordResetProps {
+  onClose?: () => void;
   isMobile: boolean;
+  onSubmit: (newPassword: string) => Promise<void>; // <-- returns a promise
 }
 
-export const usePasswordReset = ({ onSubmit, isMobile }: UsePasswordResetProps) => {
+export const usePasswordReset = ({ onSubmit, isMobile }: PasswordResetProps) => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errors, setErrors] = useState({ password: '', confirmPassword: '' });
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [isSuccessOpen, setIsSuccessOpen] = useState(false);
 
   // Precompute mobile vs desktop values
   const mb = isMobile ? 15 : 32;
@@ -30,26 +32,40 @@ export const usePasswordReset = ({ onSubmit, isMobile }: UsePasswordResetProps) 
     if (errors[field]) setErrors((prev) => ({ ...prev, [field]: '' }));
   };
 
-  const submitForm = () => {
+  const submitForm = async (): Promise<void> => {
     const passwordError = validatePassword(password);
     const confirmPasswordError = passwordsMatch(password, confirmPassword) ? '' : 'Passwords do not match';
 
-    setErrors({ password: passwordError, confirmPassword: confirmPasswordError });
+    setErrors({
+      password: passwordError,
+      confirmPassword: confirmPasswordError,
+    });
 
     if (!passwordError && !confirmPasswordError) {
-      onSubmit(password);
+      try {
+        await onSubmit(password);
+        setIsSuccessOpen(true);
+      } catch (error) {
+        console.error('Password reset failed:', error);
+        setErrors((prev) => ({
+          ...prev,
+          form: 'Failed to reset password. Please try again.',
+        }));
+      }
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // React form handler — returns void, but internally awaits submitForm
+  const handleSubmit = (e: React.FormEvent): void => {
     e.preventDefault();
-    submitForm();
+    void submitForm(); // run async but return void immediately
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
+  // React keydown handler — returns void, but internally awaits submitForm
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>): void => {
     if (e.key === 'Enter') {
       e.preventDefault();
-      submitForm();
+      void submitForm(); // run async but return void immediately
     }
   };
 
@@ -66,6 +82,8 @@ export const usePasswordReset = ({ onSubmit, isMobile }: UsePasswordResetProps) 
     setShowConfirmPassword,
     handleSubmit,
     handleKeyDown,
+    isSuccessOpen,
+    setIsSuccessOpen,
     // expose precomputed layout values
     mb,
     mainGap,

@@ -6,64 +6,25 @@ import { Input } from '@components/Atom/Input';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
 import { SuccessPopup } from '@components/Molecule/StatusPopup/StatusPopup';
-import { useState } from 'react';
-import { passwordsMatch, validatePassword } from '../../../util/passwordUtils';
-
-interface PasswordResetProps {
-  onClose: () => void;
-  isMobile: boolean;
-  onSubmit: (newPassword: string) => Promise<void>;
-}
+import { PasswordResetProps, usePasswordReset } from '../hooks/PasswordResetHooks';
 
 export const PasswordReset = ({ onClose, isMobile, onSubmit }: PasswordResetProps) => {
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [errors, setErrors] = useState({ password: '', confirmPassword: '' });
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [isSuccessOpen, setIsSuccessOpen] = useState(false);
-
-  const clearFieldError = (field: 'password' | 'confirmPassword') => {
-    if (errors[field]) {
-      setErrors((prev) => ({ ...prev, [field]: '' }));
-    }
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    void submitForm();
-  };
-
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      void submitForm();
-    }
-  };
-
-  const submitForm = async () => {
-    const passwordError = validatePassword(password);
-    const confirmPasswordError = passwordsMatch(password, confirmPassword) ? '' : 'Passwords do not match';
-
-    setErrors({
-      password: passwordError,
-      confirmPassword: confirmPasswordError,
-    });
-
-    if (!passwordError && !confirmPasswordError) {
-      try {
-        await onSubmit(password);
-        setIsSuccessOpen(true);
-      } catch (error) {
-        console.error('Password reset failed:', error);
-        // Optionally set an error state to show to the user
-        setErrors((prev) => ({
-          ...prev,
-          form: 'Failed to reset password. Please try again.',
-        }));
-      }
-    }
-  };
+  const {
+    password,
+    setPassword,
+    confirmPassword,
+    setConfirmPassword,
+    errors,
+    clearFieldError,
+    showPassword,
+    setShowPassword,
+    showConfirmPassword,
+    setShowConfirmPassword,
+    handleSubmit,
+    handleKeyDown,
+    isSuccessOpen,
+    setIsSuccessOpen,
+  } = usePasswordReset({ onSubmit, isMobile });
 
   const renderDesktopUI = () => (
     <Flex direction="column">
@@ -240,14 +201,14 @@ export const PasswordReset = ({ onClose, isMobile, onSubmit }: PasswordResetProp
         isOpen={isSuccessOpen}
         onClose={() => {
           setIsSuccessOpen(false);
-          onClose();
+          onClose?.();
         }}
         title="Password Reset Successful!"
         message="Your password has been reset. Sign in now!"
         buttonLabel="Sign In"
         onButtonClick={() => {
           setIsSuccessOpen(false);
-          onClose();
+          onClose?.();
           // Add navigation to login page if needed
           // navigate('/login');
         }}
