@@ -9,7 +9,6 @@ import { FC } from 'react';
 
 interface OtpVerificationProps {
   contactInfo: string;
-  otp?: string[];
   isResendDisabled: boolean;
   resendTimer: number;
   onOtpChange: (otpValue: string) => void;
