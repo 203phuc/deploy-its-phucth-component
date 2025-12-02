@@ -15,8 +15,7 @@ const meta: Meta<typeof ForgotPassPage> = {
           'A multi-step form for password recovery, including email submission, OTP verification, and password reset',
       },
     },
-  },
-  tags: ['autodocs'],
+  } as const,
   argTypes: {
     isOpen: {
       control: 'boolean',
@@ -27,7 +26,7 @@ const meta: Meta<typeof ForgotPassPage> = {
       action: 'closed',
       description: 'Callback when the modal is closed',
     },
-  },
+  } as const,
 };
 
 export default meta;
@@ -36,7 +35,6 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     isOpen: true,
-    onClose: () => console.log('Modal closed'),
   },
   parameters: {
     docs: {
