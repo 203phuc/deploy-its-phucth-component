@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { ForgotPassPage, ForgotPassPageProps } from './ForgotPassPage';
+import { ForgotPassPage } from './ForgotPasspage';
 
 const meta = {
   title: 'Page/ForgotPassPage',
@@ -27,7 +27,7 @@ const meta = {
       description: 'Callback when the modal is closed',
     },
   } as const,
-} satisfies Meta<ForgotPassPageProps>;
+} satisfies Meta<typeof ForgotPassPage>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

@@ -3,12 +3,7 @@ import { Section } from '@components/Atom/Section';
 import { EmailForm } from './components/EmailForm';
 import { OtpVerification } from './components/OtpVerification';
 import { PasswordReset } from './components/PasswordReset';
-import { useForgotPassPage } from './hooks/ForgotPassHook';
-
-export interface ForgotPassPageProps {
-  isOpen: boolean; // make optional so default can apply
-  onClose: () => void;
-}
+import { useForgotPassPage, type ForgotPassPageProps } from './hooks/ForgotPassHook';
 
 export const ForgotPassPage = ({ isOpen, onClose }: ForgotPassPageProps) => {
   const {
