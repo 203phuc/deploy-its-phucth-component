@@ -3,6 +3,7 @@ import { ForgotPassPage } from './ForgotPassPage';
 
 const meta: Meta<typeof ForgotPassPage> = {
   title: 'Page/ForgotPassPage',
+  component: ForgotPassPage,
   parameters: {
     design: {
       type: 'figma',
