@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ForgotPassPage } from './ForgotPassPage';
 
-const meta: Meta<typeof ForgotPassPage> = {
+const meta = {
+  title: 'Page/ForgotPassPage',
   component: ForgotPassPage,
   parameters: {
     design: {

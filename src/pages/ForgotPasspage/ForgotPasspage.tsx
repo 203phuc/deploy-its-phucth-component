@@ -3,9 +3,9 @@ import { Section } from '@components/Atom/Section';
 import { EmailForm } from './components/EmailForm';
 import { OtpVerification } from './components/OtpVerification';
 import { PasswordReset } from './components/PasswordReset';
-import { useForgotPassPage, UseForgotPassPageProps } from './hooks/ForgotPassHook';
+import { ForgotPassPageProps, useForgotPassPage } from './hooks/ForgotPassHook';
 
-export const ForgotPassPage = ({ isOpen, onClose }: UseForgotPassPageProps) => {
+export const ForgotPassPage = ({ isOpen, onClose }: ForgotPassPageProps) => {
   const {
     mobile,
     emailRef,

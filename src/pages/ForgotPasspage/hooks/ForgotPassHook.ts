@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useForgotPassForm } from '../hooks/ForgotPassForm';
 import { useResendTimer } from '../hooks/useResendTimer';
 
-export interface UseForgotPassPageProps {
+export interface ForgotPassPageProps {
   isOpen: boolean;
   onClose: () => void;
 }
