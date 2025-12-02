@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { ForgotPassPage } from './ForgotPasspage';
+import { ForgotPassPage } from './ForgotPassPage';
 
 const meta: Meta<typeof ForgotPassPage> = {
   title: 'Page/ForgotPassPage',
