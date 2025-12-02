@@ -3,7 +3,7 @@ import { Section } from '@components/Atom/Section';
 import { EmailForm } from './components/EmailForm';
 import { OtpVerification } from './components/OtpVerification';
 import { PasswordReset } from './components/PasswordReset';
-import { ForgotPassPageProps, useForgotPassPage } from './hooks/ForgotPassHook';
+import { type ForgotPassPageProps, useForgotPassPage } from './hooks/ForgotPassHook';
 
 export const ForgotPassPage = ({ isOpen, onClose }: ForgotPassPageProps) => {
   const {
@@ -24,8 +24,6 @@ export const ForgotPassPage = ({ isOpen, onClose }: ForgotPassPageProps) => {
     handleEmailSubmit,
     handlePasswordReset,
   } = useForgotPassPage();
-
-  if (!isOpen) return null;
 
   const stepsMap = {
     email: (
