@@ -7,7 +7,7 @@ const meta: Meta<typeof ForgotPassPage> = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/design/Ovp63tfHXWbbNr8lzFbAGy/HAIBAZO-INTERNSHIP-FRONTEND?node-id=8569-56007&t=l1ryZvhSjDsypmE7-4',
+      url: 'https://www.figma.com/design/Ovp63tfHXWbbNr8lzFbAGy/HAIBAZO-INTERNSHIP-FRONTEND?node-id=8569-56464&t=TAi1D96Myk5qIA12-4',
     },
     docs: {
       description: {
