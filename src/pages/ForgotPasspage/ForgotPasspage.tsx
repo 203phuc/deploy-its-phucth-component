@@ -15,7 +15,6 @@ export const ForgotPassPage = ({ isOpen, onClose }: UseForgotPassPageProps) => {
     currentStep,
     contactInfo,
     setContactInfo,
-    otp,
     handleOtpChange,
     handleResendCode,
     resendTimer,
@@ -44,7 +43,6 @@ export const ForgotPassPage = ({ isOpen, onClose }: UseForgotPassPageProps) => {
     otp: (
       <OtpVerification
         contactInfo={contactInfo}
-        otp={otp}
         isResendDisabled={isResendDisabled}
         resendTimer={resendTimer}
         onOtpChange={handleOtpChange}
