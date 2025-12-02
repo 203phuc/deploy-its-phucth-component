@@ -25,6 +25,8 @@ export const ForgotPassPage = ({ isOpen, onClose }: ForgotPassPageProps) => {
     handlePasswordReset,
   } = useForgotPassPage();
 
+  if (!isOpen) return null;
+
   const stepsMap = {
     email: (
       <EmailForm
@@ -62,5 +64,3 @@ export const ForgotPassPage = ({ isOpen, onClose }: ForgotPassPageProps) => {
     </Overlay>
   );
 };
-
-export default ForgotPassPage;
