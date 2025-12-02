@@ -3,7 +3,6 @@ import { ForgotPassPage } from './ForgotPassPage';
 
 const meta: Meta<typeof ForgotPassPage> = {
   title: 'Page/ForgotPassPage',
-  component: ForgotPassPage,
   parameters: {
     design: {
       type: 'figma',
@@ -40,20 +39,6 @@ export const Default: Story = {
     docs: {
       description: {
         story: 'Default view of the Forgot Password page',
-      },
-    },
-  },
-};
-
-export const MobileView: Story = {
-  ...Default,
-  parameters: {
-    viewport: {
-      defaultViewport: 'mobile1',
-    },
-    docs: {
-      description: {
-        story: 'Mobile view of the Forgot Password page',
       },
     },
   },
