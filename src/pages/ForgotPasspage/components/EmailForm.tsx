@@ -4,42 +4,10 @@ import { Heading } from '@components/Atom/Heading';
 import Icons from '@components/Atom/Icons';
 import { Input } from '@components/Atom/Input';
 import { Text } from '@components/Atom/Text';
-import { useEffect } from 'react';
+import { EmailFormProps, useEmailForm } from '../hooks/useEmailForm';
 
-interface EmailFormProps {
-  emailRef: React.RefObject<HTMLInputElement | null>;
-  errors: Record<string, string>;
-  clearError: (field: string) => void;
-  handleSubmit: (e?: React.FormEvent) => Record<string, string> | null;
-  onClose: () => void;
-  isMobile: boolean;
-  setContactInfo: React.Dispatch<React.SetStateAction<string>>;
-  setShowOTP: (show: boolean) => void;
-}
-
-export const EmailForm = ({
-  emailRef,
-  errors,
-  clearError,
-  handleSubmit,
-  onClose,
-  isMobile,
-  setContactInfo,
-  setShowOTP,
-}: EmailFormProps) => {
-  useEffect(() => {
-    console.log(errors);
-  }, [errors, clearError]);
-  const handleFormSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const newErrors = handleSubmit(e);
-    const email = emailRef.current?.value ?? '';
-    console.log(emailRef.current?.value);
-    if (!newErrors?.email && email) {
-      setContactInfo(email);
-      setShowOTP(true);
-    }
-  };
+export const EmailForm = (props: EmailFormProps) => {
+  const { handleFormSubmit, isMobile, errors, clearError, emailRef, onClose } = useEmailForm(props);
 
   return (
     <form onSubmit={handleFormSubmit}>

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { passwordsMatch, validatePassword } from '../../../util/passwordUtils';
+import { passwordsMatch, validatePassword } from '../functions/passwordUtils';
 
 export interface PasswordResetProps {
   onClose?: () => void;
@@ -46,10 +46,9 @@ export const usePasswordReset = ({ onSubmit, isMobile }: PasswordResetProps) => 
         await onSubmit(password);
         setIsSuccessOpen(true);
       } catch (error) {
-        console.error('Password reset failed:', error);
         setErrors((prev) => ({
           ...prev,
-          form: 'Failed to reset password. Please try again.',
+          form: error ?? 'Failed to reset password. Please try again.',
         }));
       }
     }
@@ -68,6 +67,12 @@ export const usePasswordReset = ({ onSubmit, isMobile }: PasswordResetProps) => 
       void submitForm(); // run async but return void immediately
     }
   };
+  const handleButtonClick = (onClose?: () => void) => {
+    setIsSuccessOpen(false);
+    onClose?.();
+    // Note: Navigation should be handled in the component
+    // as it's a routing concern
+  };
 
   return {
     password,
@@ -84,6 +89,7 @@ export const usePasswordReset = ({ onSubmit, isMobile }: PasswordResetProps) => 
     handleKeyDown,
     isSuccessOpen,
     setIsSuccessOpen,
+    handleButtonClick,
     // expose precomputed layout values
     mb,
     mainGap,

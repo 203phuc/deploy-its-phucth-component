@@ -6,37 +6,22 @@ import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
 import { OTPInput } from '@components/Molecule/OTPInput/OTPInput';
 import { FC } from 'react';
+import { OtpVerificationProps, useOtpVerification } from '../hooks/useOtpVerification';
 
-interface OtpVerificationProps {
-  contactInfo: string;
-  isResendDisabled: boolean;
-  resendTimer: number;
-  onOtpChange: (otpValue: string) => void;
-  onResendCode: () => void;
-  onOtpSubmit: () => void;
-  onClose: () => void;
-  isMobile: boolean;
-  error?: string;
-}
-
-export const OtpVerification: FC<OtpVerificationProps> = ({
-  contactInfo,
-  isResendDisabled,
-  resendTimer,
-  onOtpChange,
-  onResendCode,
-  onOtpSubmit,
-  onClose,
-  isMobile,
-  error,
-}) => {
-  let marginBottom;
-  if (error) {
-    marginBottom = isMobile ? 15 : 29;
-  } else {
-    marginBottom = 51;
-  }
-  const parts = error?.split('!');
+export const OtpVerification: FC<OtpVerificationProps> = (props) => {
+  const {
+    contactInfo,
+    isResendDisabled,
+    resendTimer,
+    onOtpChange,
+    onResendCode,
+    onOtpSubmit,
+    onClose,
+    isMobile,
+    error,
+    marginBottom,
+    errorParts,
+  } = useOtpVerification(props);
 
   return (
     <Flex direction="column">
@@ -80,8 +65,8 @@ export const OtpVerification: FC<OtpVerificationProps> = ({
               <Text color="red-500" align={isMobile ? 'center' : 'left'} weight="regular" size="small">
                 {isMobile ? (
                   <>
-                    {parts?.[0]}!<br />
-                    {parts?.[1]}
+                    {errorParts?.[0]}!<br />
+                    {errorParts?.[1]}
                   </>
                 ) : (
                   error

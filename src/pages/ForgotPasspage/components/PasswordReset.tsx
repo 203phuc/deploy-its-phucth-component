@@ -6,7 +6,7 @@ import { Input } from '@components/Atom/Input';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
 import { SuccessPopup } from '@components/Molecule/StatusPopup/StatusPopup';
-import { PasswordResetProps, usePasswordReset } from '../hooks/PasswordResetHooks';
+import { PasswordResetProps, usePasswordReset } from '../hooks/usePasswordResetHooks';
 
 export const PasswordReset = ({ onClose, isMobile, onSubmit }: PasswordResetProps) => {
   const {
@@ -23,7 +23,7 @@ export const PasswordReset = ({ onClose, isMobile, onSubmit }: PasswordResetProp
     handleSubmit,
     handleKeyDown,
     isSuccessOpen,
-    setIsSuccessOpen,
+    handleButtonClick,
   } = usePasswordReset({ onSubmit, isMobile });
 
   const renderDesktopUI = () => (
@@ -199,19 +199,11 @@ export const PasswordReset = ({ onClose, isMobile, onSubmit }: PasswordResetProp
       {isMobile ? renderMobileUI() : renderDesktopUI()}
       <SuccessPopup
         isOpen={isSuccessOpen}
-        onClose={() => {
-          setIsSuccessOpen(false);
-          onClose?.();
-        }}
+        onClose={handleButtonClick}
         title="Password Reset Successful!"
         message="Your password has been reset. Sign in now!"
         buttonLabel="Sign In"
-        onButtonClick={() => {
-          setIsSuccessOpen(false);
-          onClose?.();
-          // Add navigation to login page if needed
-          // navigate('/login');
-        }}
+        onButtonClick={handleButtonClick}
       />
     </>
   );

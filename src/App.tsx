@@ -1,5 +1,5 @@
 import { Button } from '@components/Atom/Button';
-import { ForgotPassPage } from '@pages/ForgotPasspage/ForgotPassPage';
+import { ForgotPassPage } from '@pages/ForgotPasspage/ForgotPasswordPage';
 import { memo, useState } from 'react';
 import './styles/tailwind.css';
 

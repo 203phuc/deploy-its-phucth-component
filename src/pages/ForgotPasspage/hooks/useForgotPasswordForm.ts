@@ -11,6 +11,7 @@ interface UseForgotPassFormReturn {
   errors: FormErrors;
   handleSubmit: (e?: React.FormEvent) => FormErrors | null;
   clearError: (field: keyof FormErrors) => void;
+  handleClose: (onClose?: () => void) => () => void;
 }
 
 export const useForgotPassForm = (): UseForgotPassFormReturn => {
@@ -42,10 +43,18 @@ export const useForgotPassForm = (): UseForgotPassFormReturn => {
     return hasError ? newErrors : null;
   };
 
+  const handleClose = (onClose?: () => void) => (): void => {
+    // Clear any existing errors when closing
+    setErrors({ email: '' });
+    // Call the provided onClose callback if it exists
+    onClose?.();
+  };
+
   return {
     emailRef,
     errors,
     handleSubmit,
     clearError,
+    handleClose,
   };
 };

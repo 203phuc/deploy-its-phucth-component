@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useForgotPassForm } from './ForgotPassForm';
+import { useForgotPassForm } from './useForgotPasswordForm';
 import { useResendTimer } from './useResendTimer';
 
 export interface ForgotPassPageProps {
@@ -8,32 +8,30 @@ export interface ForgotPassPageProps {
 }
 
 export const useForgotPassPage = () => {
+  const responsive = 768;
+  type form = 'email' | 'otp' | 'reset';
   // Mobile detection
-  const [mobile, setMobile] = useState(window.innerWidth <= 768);
+  const [mobile, setMobile] = useState(window.innerWidth <= responsive);
   useEffect(() => {
-    const handleResize = () => setMobile(window.innerWidth <= 768);
+    const handleResize = () => setMobile(window.innerWidth <= responsive);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   // Form logic
   const { emailRef, errors, clearError, handleSubmit } = useForgotPassForm();
-  const [currentStep, setCurrentStep] = useState<'email' | 'otp' | 'reset'>('email');
+  const [currentStep, setCurrentStep] = useState<form>('email');
   const [errorOTP, setErrorOTP] = useState('');
   const [contactInfo, setContactInfo] = useState('');
   const [otp, setOtp] = useState<string[]>(['', '', '', '', '', '']);
 
   const { resendTimer, isResendDisabled, startResendTimer } = useResendTimer(30);
 
-  useEffect(() => {
-    console.log('contact info', contactInfo);
-  }, [contactInfo]);
-
   const handleClearError = (field: string) => clearError(field as 'email');
   const handleEmailSubmit = () => setCurrentStep('otp');
-
+  const regex = /^\d*$/;
   const handleOtpChange = (otpValue: string) => {
-    if (otpValue && !/^\d*$/.test(otpValue)) return;
+    if (otpValue && regex.test(otpValue)) return;
     setOtp(otpValue.split(''));
   };
 
@@ -55,9 +53,9 @@ export const useForgotPassPage = () => {
   };
 
   const handlePasswordReset = async (newPassword: string) => {
-    console.log('New password:', newPassword);
     const timeTest = 1000;
     await new Promise((resolve) => setTimeout(resolve, timeTest)); // waits 1 second
+    return newPassword;
   };
 
   return {
