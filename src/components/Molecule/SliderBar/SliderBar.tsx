@@ -23,6 +23,12 @@ export const SliderBar = ({ min: initialMin = 0, max: initialMax = 1000, onChang
   const clickStartX = useRef(0);
   const clickStartTime = useRef(0);
 
+  // Sync internal state when props change
+  useEffect(() => {
+    setMinValue(min);
+    setMaxValue(max);
+  }, [min, max]);
+
   const handleMouseDownSlider = (e: React.MouseEvent) => {
     clickStartX.current = e.clientX;
     clickStartTime.current = Date.now();
@@ -31,20 +37,32 @@ export const SliderBar = ({ min: initialMin = 0, max: initialMax = 1000, onChang
   const handleMouseUpSlider = (e: React.MouseEvent) => {
     const dx = Math.abs(e.clientX - clickStartX.current);
     const dt = Date.now() - clickStartTime.current;
-
     const isClick = dx < CLICK_MOVE_THRESHOLD && dt < CLICK_TIME_THRESHOLD;
 
-    if (isClick) {
-      const rect = sliderRef.current?.getBoundingClientRect();
-      if (!rect) return;
+    if (!isClick) return;
 
-      let percent = (e.clientX - rect.left) / rect.width;
-      percent = Math.min(Math.max(percent, 0), 1);
-      const value = min + percent * (max - min);
+    const rect = sliderRef.current?.getBoundingClientRect();
+    if (!rect) return;
 
-      setMinValue(Math.floor(value));
-      setMaxValue(Math.floor(value));
-      onChange?.(value, value);
+    // Get click percentage
+    let percent = (e.clientX - rect.left) / rect.width;
+    percent = Math.min(Math.max(percent, 0), 1);
+    const value = Math.floor(min + percent * (max - min));
+
+    // ✔️ Determine which knob is closer
+    const distToMin = Math.abs(value - minValue);
+    const distToMax = Math.abs(value - maxValue);
+
+    if (distToMin < distToMax) {
+      // Move MIN knob
+      const newMin = Math.min(value, maxValue);
+      setMinValue(newMin);
+      onChange?.(newMin, maxValue);
+    } else {
+      // Move MAX knob
+      const newMax = Math.max(value, minValue);
+      setMaxValue(newMax);
+      onChange?.(minValue, newMax);
     }
   };
 
