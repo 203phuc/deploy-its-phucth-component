@@ -98,7 +98,6 @@ export const SliderBar = ({ min: initialMin = 0, max: initialMax = 1000, onChang
     (e: MouseEvent) => {
       if (Math.abs(e.clientX - lastX.current) < MIN_MOVE_DELTA) return;
       lastX.current = e.clientX;
-
       updateValues(e.clientX);
     },
     [updateValues],

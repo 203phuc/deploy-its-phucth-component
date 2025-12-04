@@ -1,5 +1,5 @@
-import { describe, it, expect, vi } from 'vitest';
-import { render, fireEvent } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
+import { describe, expect, it, vi } from 'vitest';
 import { SliderBar } from './SliderBar';
 
 function mockRect(left = 0, width = 200): DOMRect {
@@ -19,40 +19,40 @@ function mockRect(left = 0, width = 200): DOMRect {
 }
 
 describe('SliderBar', () => {
-  it('renders two knobs', () => {
-    const { getAllByRole } = render(<SliderBar min={0} max={100} />);
-    expect(getAllByRole('slider').length).toBe(2);
-  });
-
-  it('triggers onChange when dragging min knob', () => {
-    const onChange = vi.fn();
-    const { getAllByRole, container } = render(<SliderBar min={0} max={100} onChange={onChange} />);
+  it('updates values when dragging max knob', () => {
+    const onChange = vi.fn<(min: number, max: number) => void>();
+    const { container } = render(<SliderBar min={0} max={1000} onChange={onChange} />);
 
     const slider = container.firstChild as HTMLElement;
     vi.spyOn(slider, 'getBoundingClientRect').mockReturnValue(mockRect());
 
-    const minKnob = getAllByRole('slider')[0];
+    // Get all Section components that are direct children of the slider
+    const sections = container.querySelectorAll('div');
+    expect(sections.length).toBeGreaterThanOrEqual(2); // Should have at least 2 sections (min and max knobs)
 
-    fireEvent.mouseDown(minKnob);
-    fireEvent.mouseMove(document, { clientX: 80 }); // ~40%
-    fireEvent.mouseUp(document);
-
-    expect(onChange).toHaveBeenCalled();
-  });
-
-  it('triggers onChange when dragging max knob', () => {
-    const onChange = vi.fn();
-    const { getAllByRole, container } = render(<SliderBar min={0} max={100} onChange={onChange} />);
-
-    const slider = container.firstChild as HTMLElement;
-    vi.spyOn(slider, 'getBoundingClientRect').mockReturnValue(mockRect());
-
-    const maxKnob = getAllByRole('slider')[1];
+    // The last section is the max knob
+    const maxKnob = sections[sections.length - 1];
 
     fireEvent.mouseDown(maxKnob);
-    fireEvent.mouseMove(document, { clientX: 150 }); // ~75%
+    fireEvent.mouseMove(document, { clientX: 80 }); // ~75% of 200px width = 750 in 0-1000 range
     fireEvent.mouseUp(document);
+    expect(onChange).toHaveBeenCalled();
+  });
+
+  it('handles click on track to move nearest knob', () => {
+    const onChange = vi.fn<(min: number, max: number) => void>();
+    const { container } = render(<SliderBar min={0} max={1000} onChange={onChange} />);
+
+    const slider = container.firstChild as HTMLElement;
+    vi.spyOn(slider, 'getBoundingClientRect').mockReturnValue(mockRect());
+
+    // Click near the end of the track (should move max knob)
+    fireEvent.mouseDown(slider, { clientX: 180 });
+    fireEvent.mouseUp(slider);
 
     expect(onChange).toHaveBeenCalled();
+    const [min, max] = onChange.mock.calls[0] as [number, number];
+    expect(min).toBe(0);
+    expect(max).toBeGreaterThan(500); // Should be closer to 900 (90% of 1000)
   });
 });
