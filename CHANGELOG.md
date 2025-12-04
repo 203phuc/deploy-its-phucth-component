@@ -1,3 +1,36 @@
+# [1.0.0-DEV.8](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.7...v1.0.0-DEV.8) (2025-12-04)
+
+
+### Bug Fixes
+
+* **ITS-IR01-258:** fix code duplication and improve naming ([02cf725](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/02cf725ba2a5dc61295fc718ae9c08b944c4acaa))
+* **ITS-IR01-258:** remove unused files and redundant code ([55fd270](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/55fd27005bfb6069ae5035bb4b2aac6d0f4f3b32))
+
+
+### Features
+
+* **ITS-IR01-258:**  logic handling for forgotpage ([d99b181](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/d99b1817f353ef246e67bdf091fd2ed3c9c42d77))
+* **ITS-IR01-258:** add figma link ([7735a67](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/7735a6734818daf93365bcf03914c91f73e575f9))
+* **ITS-IR01-258:** add type to stories ([5701f86](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/5701f863a6b7a4fc4ad7cd49389a1c1af9c887f7))
+* **ITS-IR01-258:** change type for stories ([1bebacd](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/1bebacd239a981c8004d9d6968d0021915681d41))
+* **ITS-IR01-258:** done full page with stories ([85a62fe](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/85a62fe290daf1b0903ab933c2fdc1b67fa815f3))
+* **ITS-IR01-258:** done full page without stories ([33c2c83](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/33c2c83dbb72c07187a948ad38512ce192624d5b))
+* **ITS-IR01-258:** finish set up for forgot password page ([33b7abf](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/33b7abf097ed9cf6dfad9a03f64d18131c70862a))
+* **ITS-IR01-258:** modify otp verification unused prop ([a26b385](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/a26b3857d4168fea66fe89a7f5464a968de0c69d))
+* **ITS-IR01-258:** modify stories with new type ([f62ce83](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/f62ce8331f052322484e94c5110f5651a8ab0c70))
+* **ITS-IR01-258:** modify story with new story file ([caddf0f](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/caddf0f2de775d328826c37a5e50a7d8428afaa3))
+* **ITS-IR01-258:** new stories file ([0d06bb7](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/0d06bb7855db197853db04f690dfeb683b897d36))
+* **ITS-IR01-258:** password reset popup finished ([e45d4ed](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/e45d4edf0db8e42fe0d55e9bbb72578af849640a))
+* **ITS-IR01-258:** refine component ([9039f80](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/9039f80187f15b8780b780be990c38b2ca1a346c))
+* **ITS-IR01-258:** remove code on stories ([a81df54](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/a81df54fcc9a30fa02241b89d0f5359f724f7afb))
+* **ITS-IR01-258:** remove component in stories file ([def165e](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/def165ec065b1e59b29b42c3c208f48ccaab699e))
+* **ITS-IR01-258:** remove null test ([4a51e13](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/4a51e13ac889b7f25b994b4b53ea389b3a9ee1c5))
+* **ITS-IR01-258:** remove otp prop for forgot page ([eadb368](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/eadb3686315a18cb33f9219c8a3bb5dc7ad3f38e))
+* **ITS-IR01-258:** remove proptype react ([65fa50b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/65fa50bb9fad1edf8202be7241c7cb5832557f75))
+* **ITS-IR01-258:** success popup for resetpassword ([9c9be8c](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/9c9be8c808712afca66b62dcbd572cbc1d3e07b5))
+* **ITS-IR01-258:** test typing for eslint ([8451953](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/8451953071f87fa1f9de1400a337769869948b6c))
+* **ITS-IR01-258:** type argument for stories ([ec4ae82](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/ec4ae82b230141cebb38d0879fa25f9740d1c990))
+
 # [1.0.0-DEV.7](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.6...v1.0.0-DEV.7) (2025-12-01)
 
 
