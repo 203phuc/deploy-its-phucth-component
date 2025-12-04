@@ -8,12 +8,12 @@ export interface ForgotPassPageProps {
 }
 
 export const useForgotPassPage = () => {
-  const responsive = 768;
+  const mobileBreakpoint = 768;
   type form = 'email' | 'otp' | 'reset';
   // Mobile detection
-  const [mobile, setMobile] = useState(window.innerWidth <= responsive);
+  const [mobile, setMobile] = useState(window.innerWidth <= mobileBreakpoint);
   useEffect(() => {
-    const handleResize = () => setMobile(window.innerWidth <= responsive);
+    const handleResize = () => setMobile(window.innerWidth <= mobileBreakpoint);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -29,9 +29,9 @@ export const useForgotPassPage = () => {
 
   const handleClearError = (field: string) => clearError(field as 'email');
   const handleEmailSubmit = () => setCurrentStep('otp');
-  const regex = /^\d*$/;
+  const numericRegex = /^\d*$/;
   const handleOtpChange = (otpValue: string) => {
-    if (otpValue && regex.test(otpValue)) return;
+    if (otpValue && numericRegex.test(otpValue)) return;
     setOtp(otpValue.split(''));
   };
 

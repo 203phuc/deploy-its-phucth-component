@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-
 export interface EmailFormProps {
   emailRef: React.RefObject<HTMLInputElement | null>;
   errors: Record<string, string>;
@@ -21,10 +19,6 @@ export const useEmailForm = ({
   setContactInfo,
   setShowOTP,
 }: EmailFormProps) => {
-  useEffect(() => {
-    console.log('Email form errors:', errors);
-  }, [errors]);
-
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const newErrors = handleSubmit(e);

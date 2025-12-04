@@ -4,7 +4,7 @@ import { passwordsMatch, validatePassword } from '../functions/passwordUtils';
 export interface PasswordResetProps {
   onClose?: () => void;
   isMobile: boolean;
-  onSubmit: (newPassword: string) => Promise<void>; // <-- returns a promise
+  onSubmit: (newPassword: string) => Promise<string>; // <-- returns a promise
 }
 
 export const usePasswordReset = ({ onSubmit, isMobile }: PasswordResetProps) => {
