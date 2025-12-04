@@ -11,6 +11,7 @@ const colorVariants = {
   'black-900': 'text-black-900',
   'blue-700': 'text-blue-700',
   'red-500': 'text-red-500',
+  'red-special': 'text-red-special',
   'teal-600': 'text-teal-600',
   white: 'text-white',
 };
