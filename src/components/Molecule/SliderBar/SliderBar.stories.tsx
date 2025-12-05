@@ -12,7 +12,7 @@ const meta: Meta<typeof SliderBar> = {
     },
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/design/Ovp63tfHXWbbNr8lzFbAGy/HAIBAZO-INTERNSHIP-FRONTEND?node-id=7493-63152&t=cJKZhivOn0GVIeK5-4',
+      url: 'https://www.figma.com/design/Ovp63tfHXWbbNr8lzFbAGy/HAIBAZO-INTERNSHIP-FRONTEND?node-id=192-29471&t=MEgQ74isMgvlDqSr-1',
     },
   },
   tags: ['autodocs'],
@@ -20,6 +20,10 @@ const meta: Meta<typeof SliderBar> = {
     min: { control: 'number' },
     max: { control: 'number' },
     onChange: { action: 'changed' },
+    size: {
+      control: 'radio',
+      options: ['desktop', 'mobile', 'special'],
+    },
   },
 };
 
