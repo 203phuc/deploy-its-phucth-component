@@ -26,7 +26,6 @@ export const ImagePlaceholder = ({
     return (
       <div
         className={`${classes} flex items-center justify-center bg-gray-100 text-gray-500`}
-        role="img"
         aria-label={alt}
         {...rest}
       >
