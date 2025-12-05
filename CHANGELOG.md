@@ -1,3 +1,10 @@
+# [1.0.0-DEV.10](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.9...v1.0.0-DEV.10) (2025-12-05)
+
+
+### Bug Fixes
+
+* **ITS-IR01-306:** imageplaceholder component file ([a1c1f16](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/a1c1f16cd621017515a4bf6b443ab67b94435c6a))
+
 # [1.0.0-DEV.9](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.8...v1.0.0-DEV.9) (2025-12-05)
 
 
