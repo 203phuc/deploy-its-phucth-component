@@ -1,3 +1,10 @@
+# [1.0.0-DEV.11](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.10...v1.0.0-DEV.11) (2025-12-05)
+
+
+### Bug Fixes
+
+* **ITS-IR01-271:** otp component size ([35be997](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/35be9974780cd5792f347e9326d4a19046f0709e))
+
 # [1.0.0-DEV.10](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.9...v1.0.0-DEV.10) (2025-12-05)
 
 
