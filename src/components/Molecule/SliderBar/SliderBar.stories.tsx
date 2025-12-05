@@ -20,6 +20,10 @@ const meta: Meta<typeof SliderBar> = {
     min: { control: 'number' },
     max: { control: 'number' },
     onChange: { action: 'changed' },
+    size: {
+      control: 'radio',
+      options: ['desktop', 'mobile', 'special'],
+    },
   },
 };
 

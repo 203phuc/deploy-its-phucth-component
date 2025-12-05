@@ -4,7 +4,12 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { knob, sliderWrapper, trackBase, trackRange, valueTextWrapper } from './style';
 import { type SliderBarProps, Dragging } from './type';
 
-export const SliderBar = ({ min: initialMin = 0, max: initialMax = 1000, onChange }: SliderBarProps) => {
+export const SliderBar = ({
+  min: initialMin = 0,
+  max: initialMax = 1000,
+  size = 'desktop',
+  onChange,
+}: SliderBarProps) => {
   const CLICK_MOVE_THRESHOLD = 3; // px
   const CLICK_TIME_THRESHOLD = 200; // ms
   const THROTTLE_INTERVAL = 16; // ms (~60fps)
@@ -137,7 +142,7 @@ export const SliderBar = ({ min: initialMin = 0, max: initialMax = 1000, onChang
       ref={sliderRef}
       onMouseDown={handleMouseDownSlider}
       onMouseUp={handleMouseUpSlider}
-      className={sliderWrapper()}
+      className={sliderWrapper({ size })}
     >
       <div className={trackBase()} />
       <div
