@@ -1,3 +1,12 @@
+# [1.0.0-DEV.9](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.8...v1.0.0-DEV.9) (2025-12-05)
+
+
+### Bug Fixes
+
+* **ITS-IR01-264:** fix action required to refresh new range value ([301b79f](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/301b79f01ad8a2b706740f961c6d0c22b71b5451))
+* **ITS-IR01-264:** fix sizing and color for sliderbar ([36ed3c6](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/36ed3c66b8fad7712a1e9fa74842af6602fdef42))
+* **ITS-IR01-264:** fix test file ([1e71343](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/1e71343611798ae9e8a57df8a8af87f2ff0bee70))
+
 # [1.0.0-DEV.8](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.7...v1.0.0-DEV.8) (2025-12-04)
 
 
