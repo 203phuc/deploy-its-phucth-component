@@ -1,6 +1,7 @@
 import { Section } from '@components/Atom/Section';
 import type { ChangeEvent, ClipboardEvent, KeyboardEvent } from 'react';
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { cn } from 'src/util/tailwindClass';
 import { nextButtonStyles, otpInputStyles } from './style';
 import type { OTPInputProps } from './type';
 
@@ -160,9 +161,21 @@ export const OTPInput = ({
     [length, otp, handleChange, handleKeyDown, handlePaste, handleNextClick, variant],
   );
 
+  const gapValue = useMemo(() => {
+    return variant === 'desktop' ? '15px' : '10px';
+  }, [variant]);
+
   return (
     <Section className={className}>
-      <fieldset className="m-0 flex w-full justify-center gap-2 border-none p-0">{renderInputs}</fieldset>
+      <fieldset
+        className={cn(
+          variant === 'desktop' ? 'h-[57px] w-[425px]' : 'h-[41.75px] w-[285.47px]',
+          'm-0 flex justify-center border-none p-0',
+        )}
+        style={{ gap: gapValue }}
+      >
+        {renderInputs}
+      </fieldset>
     </Section>
   );
 };

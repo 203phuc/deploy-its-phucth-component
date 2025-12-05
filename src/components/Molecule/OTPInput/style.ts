@@ -11,8 +11,8 @@ export const otpInputStyles = cva(
   {
     variants: {
       variant: {
-        mobile: 'h-10 w-10 text-lg',
-        desktop: 'mx-[9px] h-[55px] w-[58px]',
+        mobile: 'h-[40px] w-[40px] text-lg',
+        desktop: 'h-[55px] w-[55px]',
       },
       hasError: {
         true: 'border-red-500 focus:border-red-500 focus:ring-red-100',
