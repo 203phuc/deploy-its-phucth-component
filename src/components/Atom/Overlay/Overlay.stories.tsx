@@ -21,15 +21,15 @@ const meta: Meta<typeof Overlay> = {
   component: Overlay,
   parameters: {
     layout: 'fullscreen',
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/Ovp63tfHXWbbNr8lzFbAGy/HAIBAZO-INTERNSHIP-FRONTEND?node-id=247-122254&t=1U9OnktrUuqc9KEP-4',
+    },
+    screenshot: {
+      viewport: '335x76',
+      omitBackground: true,
+    },
     docs: {
-      screenshot: {
-        viewport: '335x76',
-        omitBackground: true,
-      },
-      design: {
-        type: 'figma',
-        url: 'https://www.figma.com/design/Ovp63tfHXWbbNr8lzFbAGy/HAIBAZO-INTERNSHIP-FRONTEND?node-id=247-122254&t=FAdejIKvnfdKCN5j-0',
-      },
       description: {
         component: [
           'A simple overlay component that can be used for modals, dialogs, etc.',
@@ -92,12 +92,12 @@ const SampleContent = (
 export const Default: Story = {
   args: {
     isOpen: true,
-    children: SampleContent,
     zIndex: 5,
     usePortal: true,
+    children: SampleContent,
   },
   parameters: {
-    layout: 'padded',
+    layout: 'centered',
     docs: {
       description: {
         story: `
@@ -107,7 +107,7 @@ Default overlay with standard configuration.
 \`\`\`tsx
 <Overlay
   isOpen={isOpen}
-  onClick={handleClose}
+  onClose={handleClose}
   zIndex={5}
   closeOnClickOutside
   usePortal
@@ -119,6 +119,38 @@ Default overlay with standard configuration.
       },
     },
   },
+};
+
+export const DesktopViewport: Story = {
+  args: {
+    isOpen: true,
+    zIndex: 5,
+    usePortal: true,
+    className: 'absolute',
+  },
+  decorators: [
+    (Story) => (
+      <div className="relative h-[1024px] w-[1440px]">
+        <Story />
+      </div>
+    ),
+  ],
+};
+
+export const MobileViewport: Story = {
+  args: {
+    isOpen: true,
+    zIndex: 5,
+    usePortal: true,
+    className: 'absolute',
+  },
+  decorators: [
+    (Story) => (
+      <div className="relative h-[800px] w-[375px]">
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 /**
