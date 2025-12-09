@@ -6,6 +6,12 @@ const meta: Meta<typeof Icons> = {
   title: 'Atom/Icons',
   component: Icons,
   tags: ['autodocs'],
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/Ovp63tfHXWbbNr8lzFbAGy/HAIBAZO-INTERNSHIP-FRONTEND?node-id=333-80893&t=hXWVImvmV8QxkNQJ-4',
+    },
+  },
   argTypes: {
     iconName: {
       control: 'select',
