@@ -4,7 +4,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 export const trackCva = cva('relative inline-flex items-center transition-colors duration-300 select-none', {
   variants: {
     size: {
-      small: 'h-[18px] w-[38px]',
+      small: 'h-[18px] w-[37.12px]',
       medium: 'h-[24px] w-[50px]',
       large: 'h-[32px] w-[66px]',
     },
@@ -33,7 +33,7 @@ export const knobCva = cva('absolute shadow-md transition-transform duration-300
   compoundVariants: [
     {
       size: 'small',
-      class: 'left-[1px]',
+      class: 'left-[1.5px]',
     },
     {
       size: 'medium',
@@ -46,12 +46,12 @@ export const knobCva = cva('absolute shadow-md transition-transform duration-300
   ],
   variants: {
     size: {
-      small: 'top-[1px] h-[12px] w-[12px]',
-      medium: 'top-[2px] h-[16px] w-[16px]',
-      large: 'top-[3px] h-[22px] w-[22px]',
+      small: 'top-[0.6px] h-[12.85px] w-[12.85px]',
+      medium: 'top-[1.3px] h-[18px] w-[18px]',
+      large: 'top-[2px] h-[24px] w-[24px]',
     },
     checked: {
-      true: 'bg-white data-[size=large]:h-[23px] data-[size=large]:w-[23px] data-[size=large]:translate-x-[34.5px] data-[size=large]:translate-y-[1.5px] data-[size=medium]:h-[17px] data-[size=medium]:w-[17px] data-[size=medium]:translate-x-[26.5px] data-[size=medium]:translate-y-[1.55px] data-[size=small]:h-[13px] data-[size=small]:w-[13px] data-[size=small]:translate-x-[21px] data-[size=small]:translate-y-[1.5px]',
+      true: 'bg-white data-[size=large]:h-[23px] data-[size=large]:w-[23px] data-[size=large]:translate-x-[34.5px] data-[size=large]:translate-y-[1.5px] data-[size=medium]:h-[18px] data-[size=medium]:w-[18px] data-[size=medium]:translate-x-[26.5px] data-[size=medium]:translate-y-[2px] data-[size=small]:h-[13px] data-[size=small]:w-[13px] data-[size=small]:translate-x-[19.5px] data-[size=small]:translate-y-[1.5px]',
       false: 'translate-x-0 border-[2px] bg-black-900',
     },
     shape: {
