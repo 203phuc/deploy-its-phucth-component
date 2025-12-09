@@ -9,7 +9,7 @@ export type CheckboxOnChange = (
 /** Available sizes for the Checkbox component */
 export type CheckboxSize = 'small' | 'medium' | 'large';
 
-export type CheckboxRoundness = 'square' | 'rounded' | 'pill';
+export type CheckboxRoundness = 'square' | 'rounded' | 'pill' | 'sharp';
 
 /**
  * Props for the Checkbox component

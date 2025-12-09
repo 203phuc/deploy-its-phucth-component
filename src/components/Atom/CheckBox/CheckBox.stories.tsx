@@ -47,7 +47,6 @@ const meta = {
   args: {
     label: 'Checkbox label',
     size: 'medium',
-    roundness: 'square',
     disabled: false,
   },
 } satisfies Meta<typeof CheckBox>;

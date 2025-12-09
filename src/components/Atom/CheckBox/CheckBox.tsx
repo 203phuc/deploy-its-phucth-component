@@ -9,7 +9,7 @@ export const CheckBox = forwardRef<HTMLInputElement, CheckboxProps>(
       id,
       label,
       size = 'medium',
-      roundness = 'square',
+      roundness,
       disabled = false,
       checked: controlledChecked,
       defaultChecked,
