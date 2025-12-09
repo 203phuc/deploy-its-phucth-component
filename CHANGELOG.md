@@ -1,3 +1,13 @@
+# [1.0.0-DEV.12](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.11...v1.0.0-DEV.12) (2025-12-09)
+
+
+### Bug Fixes
+
+* **ITS-IR01-275:** fix sizing for stories ([795b2b4](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/795b2b40282df1306f77e7523e51552c87c869f3))
+* **ITS-IR01-276:** add all logos for stories ([99c6000](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/99c6000086ef4eb7c48a2d47cd470282457b0411))
+* **ITS-IR01-277:** add default size ([42f637b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/42f637b47e62fa0c3e72962a8b33ee96c0933f5d))
+* **ITS-IR01-278:** add new shape variant ([f33d788](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/f33d788a4b9b21c8aaeaa46656959c7cb0ddd618))
+
 # [1.0.0-DEV.11](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.10...v1.0.0-DEV.11) (2025-12-05)
 
 
