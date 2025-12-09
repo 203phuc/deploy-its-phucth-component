@@ -15,8 +15,12 @@ export const timeBlockCva = cva(
   },
 );
 
-export const labelCva = cva('font-inter font-semibold text-red-500', {
+export const labelCva = cva('font-inter font-semibold ', {
   variants: {
+    textColor: {
+      red: 'text-red-500',
+      black: 'text-black-900',
+    },
     mobile: {
       true: 'text-[14px] leading-[26px]',
       false: 'text-[16px] leading-[26px]',
