@@ -15,5 +15,4 @@ export const useSharedRouter = () => {
   if (!ctx) throw new Error('useSharedRouter must be used inside RouterProvider');
   return ctx;
 };
-
 export default RouterContext;

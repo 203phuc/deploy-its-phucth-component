@@ -4,47 +4,35 @@ import { Text } from '@components/Atom/Text/Text';
 import { useEffect, useState } from 'react';
 import { Footer } from '../Homepage/sections/Footer';
 import { NavigationBar } from '../Homepage/sections/NavigationBar';
+import BreadCrumb from './components/BreadCrumb';
+import { useBreadcrumbHistory } from './hooks/useBreadcrumbHistory';
 
-export const ShopPage = () => {
+const ShopPage = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const breadcrumbHistory = useBreadcrumbHistory(3);
 
   useEffect(() => {
-    // Set initial mobile state
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
     };
-
-    // Set initial state
     handleResize();
-
-    // Add event listener
     window.addEventListener('resize', handleResize);
-
-    // Cleanup
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return (
-    <Flex direction="column" height="100vh">
-      {/* Header with Navigation */}
-      <header>
-        <NavigationBar scrolled={true} isMobile={isMobile} />
-      </header>
-
-      {/* Main Content */}
+    <Flex direction="column">
+      <NavigationBar isMobile={isMobile} />
       <Flex flex={1} direction="column">
         <Section py={32} px={isMobile ? 16 : 48}>
-          <Text size="xlarge" weight="bold">
+          <BreadCrumb items={breadcrumbHistory} gap={3} className="mb-6" />
+          <Text size="xlarge" weight="bold" className="mb-6">
             Shop
           </Text>
           {/* Add your shop components here */}
         </Section>
       </Flex>
-
-      {/* Footer */}
-      <footer>
-        <Footer />
-      </footer>
+      <Footer />
     </Flex>
   );
 };
