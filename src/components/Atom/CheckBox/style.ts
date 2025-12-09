@@ -10,6 +10,7 @@ export const checkboxCva = cva(
         large: 'h-6 w-6',
       },
       roundness: {
+        sharp: 'rounded-[0px]',
         square: 'rounded-[6px]',
         rounded: 'rounded-[8px]',
         pill: 'rounded-full',
@@ -25,7 +26,6 @@ export const checkboxCva = cva(
     },
     defaultVariants: {
       size: 'medium',
-      roundness: 'square',
       disabled: false,
       checked: false,
     },
