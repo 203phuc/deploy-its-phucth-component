@@ -14,7 +14,7 @@ const meta = {
     },
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/design/9UZRn0vjE9VPlnRt17y40H/HAIBAZO-Design-System?node-id=250-341&t=WxpxLpIj0b9FfDz7-1',
+      url: 'https://www.figma.com/design/Ovp63tfHXWbbNr8lzFbAGy/HAIBAZO-INTERNSHIP-FRONTEND?node-id=238-88535&t=pGQrgdX84pCyxPXj-4',
     },
   },
   decorators: [
