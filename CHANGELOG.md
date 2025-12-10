@@ -1,3 +1,16 @@
+# [1.0.0-DEV.13](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.12...v1.0.0-DEV.13) (2025-12-10)
+
+
+### Bug Fixes
+
+* **ITS-IR01-279:** fix figma link ([01c65c3](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/01c65c303d4c93166a42571f8e2d4e5f71d5ac1e))
+* **ITS-IR01-280:** add link figma and new icon ([b5043f8](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/b5043f8e3e5c24040f9b512d20ce851c51e52bc0))
+* **ITS-IR01-281:** fix toggle sizes ([7aa590b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/7aa590bc33ff8604e23ba0076601021cebd739d6))
+* **ITS-IR01-282:** fix variant size ([68ceb25](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/68ceb25981ef1db3f3d4f69aa8453dc4dc88e14c))
+* **ITS-IR01-282:** test sonar ([1861449](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/18614491d8b74bbcc05c0674a848dec3ef58e638))
+* **ITS-IR01-298:** fix broken link ([a2cf8f4](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/a2cf8f46c8735faa47964e3ca008ec4d4c5743b4))
+* **ITS-IR01-311:** fix variant color text ([9ceda05](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/9ceda05bb91bf64099ff935148bfe3481a255f87))
+
 # [1.0.0-DEV.12](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.11...v1.0.0-DEV.12) (2025-12-09)
 
 
