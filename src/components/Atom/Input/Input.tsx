@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect, useImperativeHandle, useRef, useState } from 'react';
+import { isValidEmail } from 'src/util/emailValidation';
 import { cn } from '../../../util/tailwindClass';
 import { Button, ButtonProps } from '../Button';
 import { Icons } from '../Icons';
+import { Text } from '../Text';
 import { inputCva, inputElementCva, labelCva, textareaCva } from './style';
 import type { InputProps } from './type';
 
@@ -34,8 +36,33 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
     },
     ref,
   ) => {
+    const innerRef = useRef<HTMLInputElement>(null);
+    const innerRefArea = useRef<HTMLTextAreaElement>(null);
+
+    useImperativeHandle(ref, () => innerRef.current!);
+    useImperativeHandle(ref, () => innerRefArea.current!);
     // Compose label classes using CVA
     const labelClasses = labelCva({ textSize, fontFamily });
+    const [errorMessage, setErrorMessage] = useState<string>('');
+    const [value, setValue] = useState<string>('');
+    useEffect(() => {
+      const form = innerRefArea.current?.form;
+      if (!form) return;
+
+      const handleSubmit = (e: Event) => {
+        // optional: prevent actual form submission
+        e.preventDefault();
+        if (type === 'password' && as === 'textarea' && value.length < 12) {
+          // you can set error state here
+          setErrorMessage('Password must be at least 12 characters');
+        } else {
+          setErrorMessage('');
+        }
+      };
+
+      form.addEventListener('submit', handleSubmit);
+      return () => form.removeEventListener('submit', handleSubmit);
+    });
 
     // Helper function to render start decoration (icon or button)
     const renderStartDecoration = () => {
@@ -61,6 +88,41 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
       }
       return null;
     };
+
+    const isValidPassword = (value: string) => {
+      // example: minimum 6 chars
+      return value.length >= 12;
+    };
+    const handleInvalid = (
+      e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement> | Event,
+      setErrorMessage: (msg: string) => void,
+      ref: React.RefObject<HTMLInputElement | HTMLTextAreaElement | null> | null,
+    ) => {
+      e.preventDefault();
+
+      const el = ref?.current ?? (e.target as HTMLInputElement);
+      const type = el.type;
+      const value = el.value;
+
+      if (type === 'email' && !isValidEmail(value)) {
+        setErrorMessage('Invalid email');
+        return;
+      }
+
+      if (type === 'password' && !isValidPassword(value)) {
+        setErrorMessage('Password must be at least 12 characters');
+        return;
+      }
+
+      setErrorMessage('');
+    };
+
+    function normalizeRef<T>(ref: React.ForwardedRef<T>): React.RefObject<T> | null {
+      if (ref && typeof ref !== 'function') {
+        return ref as React.RefObject<T>;
+      }
+      return null;
+    }
 
     // Helper function to render end decoration (icon or button)
     const renderEndDecoration = () => {
@@ -113,7 +175,10 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
     // Render as textarea
     if (as === 'textarea') {
       const textareaProps = props as React.TextareaHTMLAttributes<HTMLTextAreaElement>;
-      const textareaClasses = cn(textareaCva({ variant, error: !!error, fontFamily }), className);
+      const textareaClasses = cn(
+        textareaCva({ variant, error: !!error || !!errorMessage, fontFamily }),
+        className,
+      );
 
       return (
         <div className="flex flex-col gap-1">
@@ -128,27 +193,43 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
           {/* Textarea element */}
           <textarea
             {...textareaProps}
-            ref={ref as React.ForwardedRef<HTMLTextAreaElement>}
+            ref={innerRefArea}
             placeholder={placeholder}
             className={textareaClasses}
+            onChange={(e) => setValue(e.target.value)}
+          />
+
+          <input
+            type={type}
+            value={value}
+            className="hidden"
+            minLength={type === 'password' ? 12 : undefined}
+            onInvalid={(e) => {
+              const objRef = normalizeRef(innerRef);
+              handleInvalid(e, setErrorMessage, objRef); // just call it, no return needed
+            }}
           />
 
           {/* Error message (optional) */}
-          {error && <span className="text-sm text-black">{error}</span>}
+          {(error ?? errorMessage) && (
+            <Text color="black-700" weight="regular" size="xsmall">
+              {errorMessage || error}
+            </Text>
+          )}
         </div>
       );
     }
 
     // Render as input (default)
     const wrapperClasses = cn(
-      inputCva({ variant, size, error: !!error, bgColor }),
+      inputCva({ variant, size, error: !!error || !!errorMessage, bgColor }),
       className,
       'passwordInput',
     );
     const inputClasses = inputElementCva({ textSize, fontFamily, placeholderColor, placeholderSize });
 
     return (
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-2">
         {/* Label (optional) */}
         {label && (
           <label className={labelClasses}>
@@ -166,10 +247,12 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
           <input
             style={{ textAlign: props.textAlign ?? 'left' }}
             {...(props as React.InputHTMLAttributes<HTMLInputElement>)}
-            ref={ref as React.ForwardedRef<HTMLInputElement>}
+            ref={innerRef}
             type={type}
             placeholder={placeholder}
+            minLength={type === 'password' ? 12 : undefined}
             className={inputClasses}
+            onInvalid={(e) => handleInvalid(e, setErrorMessage, normalizeRef(ref))} // <--- FIXED)}
           />
 
           {/* End icon or button (optional) - button takes precedence */}
@@ -177,7 +260,11 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
         </div>
 
         {/* Error message (optional) */}
-        {error && <span className="text-sm text-black">{error}</span>}
+        {(error ?? errorMessage) && (
+          <Text color="black-700" weight="regular" size="xsmall">
+            {errorMessage || error}
+          </Text>
+        )}
       </div>
     );
   },
