@@ -1,4 +1,4 @@
-import { type TimeBlockCvaProps, type LabelCvaProps } from './style';
+import { type LabelCvaProps, type TimeBlockCvaProps } from './style';
 
 export interface TimerProps
   extends Partial<TimeBlockCvaProps>,
@@ -20,4 +20,8 @@ export interface TimerProps
    * Text to input using as cta of the block with highlight
    */
   readonly start?: boolean;
+  /**
+   * Text to input using as cta of the block with highlight
+   */
+  readonly round?: 'pill' | 'sharp';
 }
