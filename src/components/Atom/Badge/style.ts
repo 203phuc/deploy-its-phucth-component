@@ -24,6 +24,7 @@ export const badgeCva = cva('inline-flex items-center justify-center', {
       sharp: 'rounded-none',
     },
   },
+  //default variant
   defaultVariants: {
     variant: 'solid',
     size: 'medium',
