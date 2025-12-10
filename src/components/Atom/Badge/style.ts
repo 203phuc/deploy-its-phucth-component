@@ -8,7 +8,7 @@ export const badgeCva = cva('inline-flex items-center justify-center', {
     },
     size: {
       small: 'gap-[4px] px-[10px] py-[2px] text-[12px] leading-[20px] font-[600]',
-      medium: 'gap-[4px] px-[14px] py-[4px] text-[14px] leading-[24px] font-[600]',
+      medium: 'gap-[4px] px-[14px] py-[3px] text-[14px] leading-[24px] font-[600]',
       large: 'gap-[4px] px-[16px] py-[4px] text-[16px] leading-[26px] font-[600]',
     },
     color: {
@@ -24,6 +24,7 @@ export const badgeCva = cva('inline-flex items-center justify-center', {
       sharp: 'rounded-none',
     },
   },
+  //default variant
   defaultVariants: {
     variant: 'solid',
     size: 'medium',
