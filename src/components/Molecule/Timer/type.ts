@@ -1,6 +1,9 @@
-import { type TimeBlockCvaProps } from './style';
+import { type TimeBlockCvaProps, type LabelCvaProps } from './style';
 
-export interface TimerProps extends Partial<TimeBlockCvaProps>, React.HTMLAttributes<HTMLDivElement> {
+export interface TimerProps
+  extends Partial<TimeBlockCvaProps>,
+    Partial<LabelCvaProps>,
+    React.HTMLAttributes<HTMLDivElement> {
   /**
    * Text font family what font to use
    */

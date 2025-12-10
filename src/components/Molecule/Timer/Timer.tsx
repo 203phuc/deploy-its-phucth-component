@@ -8,7 +8,7 @@ const MINUTE = SECOND * 60;
 const HOUR = MINUTE * 60;
 const DAY = HOUR * 24;
 
-export const Timer = ({ endDate, start, label, mobile, labelSpan, ...props }: TimerProps) => {
+export const Timer = ({ endDate, start, label, mobile, labelSpan, textColor, ...props }: TimerProps) => {
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -44,7 +44,7 @@ export const Timer = ({ endDate, start, label, mobile, labelSpan, ...props }: Ti
 
   return (
     <div className="flex h-fit w-fit flex-col gap-[12px]" {...props}>
-      <div className={labelCva({ mobile })}>
+      <div className={labelCva({ mobile, textColor })}>
         {label}
         <span className={labelSpanCva({ mobile })}>{labelSpan}</span>
       </div>
