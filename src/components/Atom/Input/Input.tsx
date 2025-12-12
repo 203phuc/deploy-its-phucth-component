@@ -51,8 +51,9 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
 
       const handleSubmit = (e: Event) => {
         // optional: prevent actual form submission
+        const validChar = 12;
         e.preventDefault();
-        if (type === 'password' && as === 'textarea' && value.length < 12) {
+        if (type === 'password' && as === 'textarea' && value.length < validChar) {
           // you can set error state here
           setErrorMessage('Password must be at least 12 characters');
         } else {
