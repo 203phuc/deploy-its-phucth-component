@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Input } from './Input';
-import type { InputFontFamily, InputSize, InputVariant } from './type';
+import type { InputSize, InputVariant } from './type';
 
 const meta = {
   title: 'Atom/Input',
@@ -38,7 +38,6 @@ const meta = {
       table: {
         defaultValue: { summary: 'text' },
       },
-      if: { arg: 'as', eq: 'input' },
     },
     variant: {
       control: { type: 'select' },
@@ -95,14 +94,27 @@ const meta = {
     },
     fontFamily: {
       control: { type: 'select' },
-      options: ['inter', 'grotesk'] as InputFontFamily[],
+      options: ['inter', 'grotesk'],
       description: 'Font family for all text elements (label, placeholder, and input text)',
       table: {
         defaultValue: { summary: 'inter' },
       },
     },
   },
+  decorators: [
+    (Story) => (
+      <form onSubmit={(e) => e.preventDefault()} style={{ margin: '3em' }}>
+        <div className="mb-10">
+          <Story />
+        </div>
+        <button type="submit" className="bg-black-900 p-1.5 text-white">
+          submit me
+        </button>
+      </form>
+    ),
+  ],
   args: {
+    id: 'text',
     as: 'input',
     type: 'text',
     variant: 'solid',
@@ -112,7 +124,7 @@ const meta = {
 } satisfies Meta<typeof Input>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof Input>;
 
 // Basic Examples
 export const Default: Story = {
