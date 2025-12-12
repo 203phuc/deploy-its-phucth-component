@@ -1,3 +1,12 @@
+# [1.0.0-DEV.17](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.16...v1.0.0-DEV.17) (2025-12-12)
+
+
+### Bug Fixes
+
+* **ITS-IR01-280:** fix figma link ([4a67952](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/4a67952344ef72a9fb4fa600bcdc5ac5dccb3b6a))
+* **ITS-IR01-281:** fix hover effect and figma link ([39bb1dd](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/39bb1dd70ffa645f49cb76656f7f245ab6ac902c))
+* **ITS-IR01-296:** fix figma link for timer ([98058c0](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/98058c04a11a5337e0bedd0aa5f5cf8a83df7927))
+
 # [1.0.0-DEV.16](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.15...v1.0.0-DEV.16) (2025-12-12)
 
 
