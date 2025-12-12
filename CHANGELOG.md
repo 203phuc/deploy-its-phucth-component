@@ -1,3 +1,12 @@
+# [1.0.0-DEV.15](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.14...v1.0.0-DEV.15) (2025-12-12)
+
+
+### Bug Fixes
+
+* **ITS-IR01-295:** fix hover and validation ([68bfb05](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/68bfb05493a218d3cf0dabeef1325aad8cf9bd8d))
+* **ITS-IR01-295:** fix magic number at input component ([b7ee1e5](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/b7ee1e56c8cf5f0ac7af301c7e2b1abf7f020309))
+* **ITS-IR01-295:** fix password length magic number ([a73e2df](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/a73e2df907d53fee318b4bbee864ab1bac817b52))
+
 # [1.0.0-DEV.14](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.13...v1.0.0-DEV.14) (2025-12-12)
 
 
