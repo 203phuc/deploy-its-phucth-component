@@ -38,6 +38,7 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
   ) => {
     const innerRef = useRef<HTMLInputElement>(null);
     const innerRefArea = useRef<HTMLTextAreaElement>(null);
+    const validChar = 12;
 
     useImperativeHandle(ref, () => innerRef.current!);
     useImperativeHandle(ref, () => innerRefArea.current!);
@@ -51,7 +52,6 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
 
       const handleSubmit = (e: Event) => {
         // optional: prevent actual form submission
-        const validChar = 12;
         e.preventDefault();
         if (type === 'password' && as === 'textarea' && value.length < validChar) {
           // you can set error state here
@@ -92,7 +92,7 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
 
     const isValidPassword = (value: string) => {
       // example: minimum 6 chars
-      return value.length >= 12;
+      return value.length >= validChar;
     };
     const handleInvalid = (
       e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement> | Event,
@@ -204,7 +204,7 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
             type={type}
             value={value}
             className="hidden"
-            minLength={type === 'password' ? 12 : undefined}
+            minLength={type === 'password' ? validChar : undefined}
             onInvalid={(e) => {
               const objRef = normalizeRef(innerRef);
               handleInvalid(e, setErrorMessage, objRef); // just call it, no return needed
@@ -251,7 +251,7 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
             ref={innerRef}
             type={type}
             placeholder={placeholder}
-            minLength={type === 'password' ? 12 : undefined}
+            minLength={type === 'password' ? validChar : undefined}
             className={inputClasses}
             onInvalid={(e) => handleInvalid(e, setErrorMessage, normalizeRef(ref))} // <--- FIXED)}
           />
