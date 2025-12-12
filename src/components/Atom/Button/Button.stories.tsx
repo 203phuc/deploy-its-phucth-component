@@ -37,11 +37,6 @@ const meta = {
       options: ['xlarge', 'large', 'largeCompact', 'medium', 'small', 'xsmall'] as ButtonSize[],
       description: 'Size of the button (not used for underline variant)',
     },
-    underlineSize: {
-      control: { type: 'select' },
-      options: ['xlarge', 'large', 'medium', 'small', 'xsmall'],
-      description: 'Size of the underline variant',
-    },
     roundness: {
       control: { type: 'select' },
       options: ['pill', 'round', 'sharp'] as ButtonRoundness[],
@@ -68,7 +63,7 @@ const meta = {
   },
   args: {
     as: 'button',
-    variant: 'solid',
+    variant: 'solidBlack',
     roundness: 'pill',
     fullWidth: false,
     hasIcon: false,
@@ -84,7 +79,7 @@ type Story = StoryObj<typeof meta>;
 export const Solid: Story = {
   args: {
     children: 'Solid Button',
-    variant: 'solid',
+    variant: 'solidBlack',
   },
 };
 
@@ -107,7 +102,6 @@ export const Underline: Story = {
     children: 'Underline Button',
     variant: 'underline',
     size: undefined, // clear size
-    underlineSize: 'medium', // explicitly set underline size
   },
 };
 
@@ -123,23 +117,6 @@ export const Sizes: Story = {
       <Button {...args} size="medium" />
       <Button {...args} size="small" />
       <Button {...args} size="xsmall" />
-    </div>
-  ),
-};
-
-export const UnderlineSizes: Story = {
-  args: {
-    children: 'Underline Button',
-    variant: 'underline',
-    size: undefined,
-  },
-  render: (args) => (
-    <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
-      <Button {...args} underlineSize="xlarge" />
-      <Button {...args} underlineSize="large" />
-      <Button {...args} underlineSize="medium" />
-      <Button {...args} underlineSize="small" />
-      <Button {...args} underlineSize="xsmall" />
     </div>
   ),
 };
