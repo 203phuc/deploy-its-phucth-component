@@ -13,7 +13,7 @@ const meta = {
     },
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/design/Ovp63tfHXWbbNr8lzFbAGy/HAIBAZO-INTERNSHIP-FRONTEND?node-id=169-28053&t=TAt26nevOhVPoTSS-1',
+      url: 'https://www.figma.com/design/Ovp63tfHXWbbNr8lzFbAGy/HAIBAZO-INTERNSHIP-FRONTEND?node-id=169-28053&t=WB52LU5TqNOlm8Lb-4',
     },
   },
   tags: ['autodocs'],
