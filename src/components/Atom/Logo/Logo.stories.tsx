@@ -110,7 +110,7 @@ export const AllLogos: Story = {
           className={
             mobile
               ? 'grid h-[242px] w-[300px] grid-cols-2 gap-x-[20px] gap-y-[16px]'
-              : 'flex flex-row gap-[72px]'
+              : 'flex w-[1320px] gap-[72px]'
           }
         >
           {logoSet.map(({ name, Component }) => (

@@ -1,7 +1,7 @@
 import * as logos from './logos';
 import { LogoProps } from './type';
 
-export const Logo = ({ size = 'medium', color, width, height, logoName, className, ...props }: LogoProps) => {
+export const Logo = ({ size = 'large', color, width, height, logoName, className, ...props }: LogoProps) => {
   const dimension = {
     large: { width: 160, height: 80 },
     medium: { width: 140, height: 70 },

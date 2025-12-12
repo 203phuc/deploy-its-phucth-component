@@ -7,7 +7,7 @@ export const Button = ({
   className,
   children,
   // CVA handled props
-  variant = 'solid',
+  variant = 'solidBlack',
   size = 'medium',
   fullWidth = false,
   font = 'spaceGrotesk',
