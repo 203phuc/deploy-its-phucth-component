@@ -13,7 +13,7 @@ const meta: Meta<typeof Toggle> = {
     },
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/design/Ovp63tfHXWbbNr8lzFbAGy/HAIBAZO-INTERNSHIP-FRONTEND?node-id=0-590&t=qC61LM7alCjAoJRf-0',
+      url: 'https://www.figma.com/design/Ovp63tfHXWbbNr8lzFbAGy/HAIBAZO-INTERNSHIP-FRONTEND?node-id=3-20593&t=9OU1kduYfvxfQGcj-4',
     },
   },
   tags: ['autodocs'],
