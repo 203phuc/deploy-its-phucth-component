@@ -9,7 +9,7 @@ const meta: Meta<typeof Icons> = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/design/Ovp63tfHXWbbNr8lzFbAGy/HAIBAZO-INTERNSHIP-FRONTEND?node-id=333-80893&t=hXWVImvmV8QxkNQJ-4',
+      url: 'https://www.figma.com/design/Ovp63tfHXWbbNr8lzFbAGy/HAIBAZO-INTERNSHIP-FRONTEND?node-id=8-96709',
     },
   },
   argTypes: {
