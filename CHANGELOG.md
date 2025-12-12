@@ -1,3 +1,11 @@
+# [1.0.0-DEV.14](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.13...v1.0.0-DEV.14) (2025-12-12)
+
+
+### Bug Fixes
+
+* **ITS-IR01-276:** merge dev ([68b18da](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/68b18dae6666ea958f665fced8f577785e651a91))
+* **ITS-IR01-296:** fix sizing and text color ([81fe5fb](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/81fe5fbc3200e88e58f14334cd8abf98c55fae1f))
+
 # [1.0.0-DEV.13](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.12...v1.0.0-DEV.13) (2025-12-10)
 
 
