@@ -38,6 +38,16 @@ const meta = {
       control: 'boolean',
       description: 'Apply responsive mobile styling if true.',
     },
+    round: {
+      control: { type: 'select' },
+      options: ['pill', 'sharp'],
+      description: 'Choose the border style.',
+    },
+    textColor: {
+      control: { type: 'select' },
+      options: ['red', 'black'],
+      description: 'Choose the border style.',
+    },
   },
 } satisfies Meta<typeof Timer>;
 

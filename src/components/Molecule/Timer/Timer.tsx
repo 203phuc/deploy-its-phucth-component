@@ -8,7 +8,16 @@ const MINUTE = SECOND * 60;
 const HOUR = MINUTE * 60;
 const DAY = HOUR * 24;
 
-export const Timer = ({ endDate, start, label, mobile, labelSpan, textColor, ...props }: TimerProps) => {
+export const Timer = ({
+  endDate,
+  start,
+  label,
+  mobile,
+  round = 'pill',
+  labelSpan,
+  textColor = 'black',
+  ...props
+}: TimerProps) => {
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -43,12 +52,15 @@ export const Timer = ({ endDate, start, label, mobile, labelSpan, textColor, ...
   }, [endDate, start]);
 
   return (
-    <div className="flex h-fit w-fit flex-col gap-[12px]" {...props}>
-      <div className={labelCva({ mobile, textColor })}>
+    <div className="flex h-fit w-fit flex-col gap-3" {...props}>
+      <div
+        className={labelCva({ mobile, textColor: textColor! })}
+        style={mobile ? { width: '343px' } : { width: '360px' }}
+      >
         {label}
         <span className={labelSpanCva({ mobile })}>{labelSpan}</span>
       </div>
-      <div className="flex gap-[16px] text-center">
+      <div className="flex gap-4 text-center">
         {[
           { label: 'Days', value: timeLeft.days },
           { label: 'Hours', value: timeLeft.hours },
@@ -57,9 +69,13 @@ export const Timer = ({ endDate, start, label, mobile, labelSpan, textColor, ...
         ].map((item) => (
           <div
             key={item.label}
-            className={`flex flex-col items-center justify-center ${mobile ?? 'gap-[2px]'}`}
+            className={
+              mobile
+                ? 'flex flex-col items-center justify-center gap-0.5'
+                : 'flex flex-col items-center justify-center'
+            }
           >
-            <span className={timeBlockCva({ mobile })}>{String(item.value).padStart(2, '0')}</span>
+            <span className={timeBlockCva({ mobile, round })}>{String(item.value).padStart(2, '0')}</span>
             <span className={titleCva({ mobile })}>{item.label}</span>
           </div>
         ))}
