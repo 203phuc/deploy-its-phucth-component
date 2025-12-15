@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { cn } from 'src/util/tailwindClass';
 import { labelCva, labelSpanCva, timeBlockCva, titleCva } from './style';
 import { TimerProps } from './type';
 
@@ -12,7 +13,7 @@ export const Timer = ({
   endDate,
   start,
   label,
-  mobile,
+  size,
   round = 'pill',
   labelSpan,
   textColor = 'black',
@@ -24,6 +25,7 @@ export const Timer = ({
     minutes: 0,
     seconds: 0,
   });
+  const units = ['d', 'h', 'm', 's'];
 
   useEffect(() => {
     if (!endDate || !start) return;
@@ -54,32 +56,50 @@ export const Timer = ({
   return (
     <div className="flex h-fit w-fit flex-col gap-3" {...props}>
       <div
-        className={labelCva({ mobile, textColor: textColor! })}
-        style={mobile ? { width: '343px' } : { width: '360px' }}
+        className={labelCva({
+          mobile: size?.toLowerCase().includes('mobile'),
+          textColor: textColor!,
+        })}
+        style={size ? { width: '343px' } : { width: '360px' }}
       >
         {label}
-        <span className={labelSpanCva({ mobile })}>{labelSpan}</span>
+        <span className={labelSpanCva({ mobile: size?.toLowerCase().includes('mobile') })}>{labelSpan}</span>
       </div>
-      <div className="flex gap-4 text-center">
-        {[
-          { label: 'Days', value: timeLeft.days },
-          { label: 'Hours', value: timeLeft.hours },
-          { label: 'Minutes', value: timeLeft.minutes },
-          { label: 'Seconds', value: timeLeft.seconds },
-        ].map((item) => (
-          <div
-            key={item.label}
-            className={
-              mobile
-                ? 'flex flex-col items-center justify-center gap-0.5'
-                : 'flex flex-col items-center justify-center'
-            }
-          >
-            <span className={timeBlockCva({ mobile, round })}>{String(item.value).padStart(2, '0')}</span>
-            <span className={titleCva({ mobile })}>{item.label}</span>
-          </div>
-        ))}
-      </div>
+      {
+        <div className={cn('flex text-center', size === 'desktop' || size == 'mobile' ? '' : 'gap-4')}>
+          {[
+            { label: 'Days', value: timeLeft.days },
+            { label: 'Hours', value: timeLeft.hours },
+            { label: 'Minutes', value: timeLeft.minutes },
+            { label: 'Seconds', value: timeLeft.seconds },
+          ].map((item, index, arr) => (
+            <div
+              key={item.label}
+              className={
+                size?.toLowerCase().includes('mobile')
+                  ? 'flex flex-col items-center justify-center gap-0.5'
+                  : 'flex flex-col items-center justify-center'
+              }
+            >
+              {size === 'desktop' || size === 'mobile' ? (
+                <span className={timeBlockCva({ size, round })}>
+                  {index > 0 && '\u00A0'}
+                  {String(item.value).padStart(2, '0')}
+                  {units[index]}
+                  {index < arr.length - 1 && <>{'\u00A0'}:</>}
+                </span>
+              ) : (
+                <>
+                  <span className={timeBlockCva({ size, round })}>{String(item.value).padStart(2, '0')}</span>
+                  <span className={titleCva({ mobile: size?.toLowerCase().includes('mobile') })}>
+                    {item.label}
+                  </span>
+                </>
+              )}
+            </div>
+          ))}
+        </div>
+      }
     </div>
   );
 };
