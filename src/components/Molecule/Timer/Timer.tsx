@@ -44,7 +44,7 @@ export const Timer = ({ endDate, start, label, mobile, labelSpan, textColor, ...
 
   return (
     <div className="flex h-fit w-fit flex-col gap-[12px]" {...props}>
-      <div className={labelCva({ mobile, textColor })}>
+      <div className={labelCva({ mobile, textColor: textColor ?? 'black' })}>
         {label}
         <span className={labelSpanCva({ mobile })}>{labelSpan}</span>
       </div>
