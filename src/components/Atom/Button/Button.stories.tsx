@@ -52,7 +52,7 @@ const meta = {
     },
     font: {
       control: { type: 'select' },
-      options: ['inter', 'space-grotesk'],
+      options: ['inter', 'spaceGrotesk'],
       description: 'Font family for the button text',
     },
     href: {

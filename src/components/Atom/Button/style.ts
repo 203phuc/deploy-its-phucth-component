@@ -9,7 +9,7 @@ export const buttonCva = cva(
         solidBlack: 'bg-black text-white hover:opacity-90',
         solidWhite: 'bg-white text-black-900 hover:opacity-90',
         outlined: 'border-2 border-current bg-transparent hover:bg-black/5',
-        text: 'm-0 border-0 bg-transparent p-0 text-inherit shadow-none hover:bg-transparent hover:opacity-100',
+        text: 'm-0 border-0 bg-transparent p-0 shadow-none hover:bg-transparent hover:opacity-100',
         underline:
           'relative after:absolute after:right-0 after:bottom-0 after:left-0 after:h-[1px] after:bg-black-900',
       },
@@ -38,7 +38,10 @@ export const buttonCva = cva(
         true: '',
         false: '',
       },
-
+      textColor: {
+        black: '!text-black-900',
+        white: '!text-white',
+      },
       font: {
         spaceGrotesk: 'font-space-grotesk',
         inter: 'font-inter',
