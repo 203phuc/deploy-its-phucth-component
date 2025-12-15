@@ -17,6 +17,7 @@ export const SliderBar = ({
 
   const min = Math.max(0, initialMin);
   const max = Math.max(0, initialMax, min);
+  const [trigger, setTrigger] = useState(false);
 
   const [minValue, setMinValue] = useState(min);
   const [maxValue, setMaxValue] = useState(max);
@@ -37,6 +38,7 @@ export const SliderBar = ({
   const handleMouseDownSlider = (e: React.MouseEvent) => {
     clickStartX.current = e.clientX;
     clickStartTime.current = Date.now();
+    setTrigger(true);
   };
 
   const handleMouseUpSlider = (e: React.MouseEvent) => {
@@ -144,9 +146,9 @@ export const SliderBar = ({
       onMouseUp={handleMouseUpSlider}
       className={sliderWrapper({ size })}
     >
-      <div className={trackBase()} />
+      <div className={trackBase({ colorBackground: trigger ? 'gray' : 'black' })} />
       <div
-        className={trackRange()}
+        className={trackRange({ colorBackground: trigger ? 'black' : 'gray' })}
         style={{ left: `${minPercent}%`, width: `${maxPercent - minPercent}%` }}
       />
 
