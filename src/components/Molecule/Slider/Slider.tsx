@@ -26,15 +26,15 @@ export const Slider: React.FC<SliderProps> = ({
   ...props
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [imageLoaded, setImageLoaded] = useState(false);
   const imageRef = useRef<HTMLImageElement | null>(null);
   const [imageHeight, setImageHeight] = useState<number>(0);
   useEffect(() => {
     if (imageRef.current) {
-      const imgHeight = imageRef.current.clientHeight;
-      setImageHeight(imgHeight);
+      const imgHeightRef = imageRef.current.clientHeight;
+      setImageHeight(imgHeightRef);
     }
-  }, [slides, currentIndex, width]);
-
+  }, [slides, currentIndex, width, imageLoaded]);
   // Auto-play functionality
   useEffect(() => {
     if (props.currentIndex !== undefined) {
@@ -67,10 +67,9 @@ export const Slider: React.FC<SliderProps> = ({
       onSlideChange(index, slides[index]);
     }
   };
-  if (slides.length === 0) {
+  if (slides.length === 0 || !imageRef) {
     return null;
   }
-
   return (
     <div
       className={cn(sliderCva({ widthFull }), className)}
@@ -98,6 +97,7 @@ export const Slider: React.FC<SliderProps> = ({
                   src={slide.content}
                   alt={slide.alt ?? `Slide ${index + 1}`}
                   className="h-full w-full object-cover"
+                  onLoad={() => setImageLoaded(true)}
                 />
               ) : (
                 <div className="flex h-full w-full items-center justify-center">{slide.content}</div>

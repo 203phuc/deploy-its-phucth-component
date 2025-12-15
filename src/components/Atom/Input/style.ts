@@ -1,56 +1,59 @@
 import { cva, VariantProps } from 'class-variance-authority';
 
-export const inputCva = cva('flex items-center transition-all focus-within:border-black ', {
-  variants: {
-    variant: {
-      solid: 'rounded-md border border-gray-300',
-      line: 'rounded-none border-b border-gray-400',
+export const inputCva = cva(
+  'flex items-center transition-all focus-within:border-black hover:border-black-900 ',
+  {
+    variants: {
+      variant: {
+        solid: 'rounded-md border border-gray-300',
+        line: 'rounded-none border-b border-gray-400',
+      },
+      size: {
+        small: 'h-8 gap-1 px-2', //32px
+        smedium: 'h-[32px] gap-2 px-[8px] py-[6px]', //32px
+        medium: 'h-10 gap-2 px-3', //40px
+        large: 'h-[46px] gap-2 px-3 ', //46px
+        xlarge: 'h-13 gap-2 px-4', //52px
+      },
+      error: {
+        true: 'border-red-500 focus-within:border-red-500 focus-within:ring-red-500',
+        false: '',
+      },
+      bgColor: {
+        white: 'bg-white',
+        transparent: 'bg-transparent',
+      },
     },
-    size: {
-      small: 'h-8 gap-1 px-2', //32px
-      smedium: 'h-[32px] gap-2 px-[8px] py-[6px]', //32px
-      medium: 'h-10 gap-2 px-3', //40px
-      large: 'h-[46px] gap-2 px-3 ', //46px
-      xlarge: 'h-13 gap-2 px-4', //52px
-    },
-    error: {
-      true: 'border-red-500 focus-within:border-red-500 focus-within:ring-red-500',
-      false: '',
-    },
-    bgColor: {
-      white: 'bg-white',
-      transparent: 'bg-transparent',
-    },
-  },
-  compoundVariants: [
-    {
-      variant: 'line',
-      size: 'small',
-      className: '!px-0',
-    },
-    {
-      variant: 'line',
+    compoundVariants: [
+      {
+        variant: 'line',
+        size: 'small',
+        className: '!px-0',
+      },
+      {
+        variant: 'line',
+        size: 'medium',
+        className: '!px-0',
+      },
+      {
+        variant: 'line',
+        size: 'large',
+        className: '!px-0',
+      },
+      {
+        variant: 'line',
+        size: 'xlarge',
+        className: '!px-0',
+      },
+    ],
+    defaultVariants: {
+      variant: 'solid',
       size: 'medium',
-      className: '!px-0',
+      error: false,
+      bgColor: 'white',
     },
-    {
-      variant: 'line',
-      size: 'large',
-      className: '!px-0',
-    },
-    {
-      variant: 'line',
-      size: 'xlarge',
-      className: '!px-0',
-    },
-  ],
-  defaultVariants: {
-    variant: 'solid',
-    size: 'medium',
-    error: false,
-    bgColor: 'white',
   },
-});
+);
 
 export const inputElementCva = cva(
   'w-full bg-transparent focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50',
@@ -131,7 +134,7 @@ export const labelCva = cva('font-semibold text-gray-700', {
 });
 
 export const textareaCva = cva(
-  'w-full resize-y bg-white transition-all placeholder:text-gray-400 focus:border-black focus:outline-none disabled:cursor-not-allowed disabled:opacity-50',
+  'w-full resize-y bg-white p-[16px] transition-all placeholder:text-gray-400 hover:border-black-900 focus:border-black focus:outline-none disabled:cursor-not-allowed disabled:opacity-50',
   {
     variants: {
       variant: {

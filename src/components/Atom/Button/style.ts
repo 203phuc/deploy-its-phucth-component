@@ -2,22 +2,16 @@
 import { cva, type VariantProps } from 'class-variance-authority';
 
 export const buttonCva = cva(
-  'inline-flex items-center justify-center font-medium disabled:cursor-not-allowed disabled:opacity-50',
+  'relative inline-flex items-center justify-center font-medium disabled:cursor-not-allowed disabled:opacity-50',
   {
     variants: {
       variant: {
-        solid: 'bg-black text-white hover:opacity-90',
+        solidBlack: 'bg-black text-white hover:opacity-90',
+        solidWhite: 'bg-white text-black-900 hover:opacity-90',
         outlined: 'border-2 border-current bg-transparent hover:bg-black/5',
         text: 'm-0 border-0 bg-transparent p-0 text-inherit shadow-none hover:bg-transparent hover:opacity-100',
-        underline: '',
-      },
-
-      underlineSize: {
-        xlarge: 'gap-[8px] text-[26px] leading-[38px] underline underline-offset-[8px]',
-        large: 'gap-[8px] text-[22px] leading-[34px] underline underline-offset-[6px]',
-        medium: 'gap-[4px] text-[18px] leading-[32px] underline underline-offset-[4px]',
-        small: 'gap-[4px] text-[16px] leading-[28px] underline underline-offset-[4px]',
-        xsmall: 'gap-[2px] text-[14px] leading-[24px] underline underline-offset-[4px]',
+        underline:
+          'relative after:absolute after:right-0 after:bottom-0 after:left-0 after:h-[1px] after:bg-black-900',
       },
 
       size: {
@@ -67,7 +61,7 @@ export const buttonCva = cva(
     ],
 
     defaultVariants: {
-      variant: 'solid',
+      variant: 'solidBlack',
       size: 'medium',
       roundness: 'pill',
       fullWidth: false,

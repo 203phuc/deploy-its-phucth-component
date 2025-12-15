@@ -13,7 +13,7 @@ const meta = {
     },
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/design/Ovp63tfHXWbbNr8lzFbAGy/HAIBAZO-INTERNSHIP-FRONTEND?node-id=169-28051&t=pImg20TNQHNs2YYB-4',
+      url: 'https://www.figma.com/design/Ovp63tfHXWbbNr8lzFbAGy/HAIBAZO-INTERNSHIP-FRONTEND?node-id=169-28053&t=WB52LU5TqNOlm8Lb-4',
     },
   },
   tags: ['autodocs'],
@@ -37,6 +37,16 @@ const meta = {
     mobile: {
       control: 'boolean',
       description: 'Apply responsive mobile styling if true.',
+    },
+    round: {
+      control: { type: 'select' },
+      options: ['pill', 'sharp'],
+      description: 'Choose the border style.',
+    },
+    textColor: {
+      control: { type: 'select' },
+      options: ['red', 'black'],
+      description: 'Choose the border style.',
     },
   },
 } satisfies Meta<typeof Timer>;
