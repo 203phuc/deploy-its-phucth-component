@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { createIdGenerator } from 'src/util/uniqueId';
 import { useSharedRouter } from '../../../context/RouterContext'; // Updated import path
 
 export interface BreadCrumbItem {
@@ -10,7 +11,7 @@ export interface BreadCrumbItem {
 export const useBreadcrumbHistory = (maxItems = 3) => {
   const { path } = useSharedRouter();
   const [history, setHistory] = useState<BreadCrumbItem[]>([]);
-
+  const genId = createIdGenerator('breadcrumb');
   useEffect(() => {
     const pathParts = path.split('/').filter(Boolean);
     const currentPage = pathParts[pathParts.length - 1] || 'home';
@@ -22,15 +23,15 @@ export const useBreadcrumbHistory = (maxItems = 3) => {
       }
 
       const newItem = {
-        id: currentPage,
+        id: genId(),
         label: currentPage.charAt(0).toUpperCase() + currentPage.slice(1).replace(/-/g, ' '),
         path: path,
       };
-
+      console.log([...prev, newItem].slice(-maxItems));
       // Keep only the last N items
       return [...prev, newItem].slice(-maxItems);
     });
-  }, [path, maxItems]);
+  }, [path, maxItems, genId]);
 
   return history;
 };

@@ -5,9 +5,10 @@ import { useEffect, useState } from 'react';
 import { Footer } from '../Homepage/sections/Footer';
 import { NavigationBar } from '../Homepage/sections/NavigationBar';
 import BreadCrumb from './components/BreadCrumb';
+import { PageHeader } from './components/PageHeader';
 import { useBreadcrumbHistory } from './hooks/useBreadcrumbHistory';
 
-const ShopPage = () => {
+export const ShopPage = () => {
   const [isMobile, setIsMobile] = useState(false);
   const breadcrumbHistory = useBreadcrumbHistory(3);
 
@@ -32,6 +33,7 @@ const ShopPage = () => {
           {/* Add your shop components here */}
         </Section>
       </Flex>
+      <PageHeader />
       <Footer />
     </Flex>
   );

@@ -1,7 +1,7 @@
 import { Flex } from '@components/Atom/Flex';
 import { Icons } from '@components/Atom/Icons/Icons';
 import { Text } from '@components/Atom/Text/Text';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 export interface BreadCrumbItem {
   id: string;
@@ -19,7 +19,7 @@ interface BreadCrumbProps {
 
 const BreadCrumb: React.FC<BreadCrumbProps> = ({
   items,
-  separator = <Icons iconName="ChevronRightIcon" iconSize={16} />,
+  separator = <Icons iconName="ChevronRightIcon" color="black-600" iconSize={16} />,
   gap = 2,
   className,
 }) => {
@@ -32,6 +32,9 @@ const BreadCrumb: React.FC<BreadCrumbProps> = ({
       window.dispatchEvent(new PopStateEvent('popstate'));
     }
   };
+  useEffect(() => {
+    console.log('this is items', items);
+  }, [items]);
 
   return (
     <Flex align="center" gap={gap} className={className}>

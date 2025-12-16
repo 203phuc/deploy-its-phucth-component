@@ -5,7 +5,8 @@ export const HamburgerMenuIcon = ({ color = '#121212', size = 24 }: IconProps) =
     <path d="M3.896 8H19.896" stroke={color} strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" />
     <path
       d="M3.896 16H19.896"
-      stroke={color}
+      stroke="currentColor"
+      className={color}
       strokeWidth={1.5}
       strokeLinecap="round"
       strokeLinejoin="round"

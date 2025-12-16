@@ -7,7 +7,8 @@ export const PlayIcon = ({ size = 24, color = 'currentColor' }: IconProps) => {
         fillRule="evenodd"
         clipRule="evenodd"
         d="M3.05271 0.889773C1.72033 0.064965 0 1.02328 0 2.5903V21.4097C0 22.9767 1.72033 23.935 3.05271 23.1102L18.253 13.7005C19.516 12.9186 19.516 11.0814 18.253 10.2995L3.05271 0.889773Z"
-        fill={color}
+        className={color}
+        fill="currentColor"
       />
     </svg>
   );
