@@ -40,7 +40,7 @@ const transformSlideData = (
                     </Section>
                   </Flex>
                   <Section>
-                    <Button variant="solid" size="medium" roundness="sharp">
+                    <Button variant="solidBlack" size="medium" roundness="sharp">
                       {slide.buttonText}
                     </Button>
                   </Section>
@@ -69,7 +69,7 @@ const transformSlideData = (
             <ImagePlaceholder
               size="full"
               objectFit="cover"
-              objectPosition="right1"
+              objectPosition="right"
               src={slide.imageUrl}
               alt={`Slide ${slide.id}`}
             />
@@ -96,7 +96,7 @@ const transformSlideData = (
               </Section>
             </Flex>
             <Section bgColor="black-100">
-              <Button variant="solid" size="small" roundness="sharp">
+              <Button variant="solidBlack" size="small" roundness="sharp">
                 {slide.buttonText}
               </Button>
             </Section>
