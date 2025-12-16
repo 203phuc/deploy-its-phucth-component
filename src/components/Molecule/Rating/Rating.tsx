@@ -24,7 +24,7 @@ export const Rating = ({ size, noFillColor, rating = 0, ...props }: RatingProps)
               key={index}
               box
               color={noFillColor}
-              iconName={filled ? 'StarFilledIcon' : 'StarOutlinedIcon'}
+              iconName={filled ? 'StarFilledIcon' : 'StarRateIcon'}
               onMouseEnter={() => setHover(index)}
               onClick={() => setSelected(index)}
             />

@@ -42,14 +42,14 @@ export const Default: Story = {
   args: {
     size: 20,
     rating: 4,
-    noFillColor: 'black',
+    noFillColor: 'black-400',
   },
 };
 export const ZeroRating: Story = {
   args: {
     size: 20,
     rating: 0,
-    noFillColor: 'black',
+    noFillColor: 'black-400',
   },
 };
 
@@ -57,7 +57,7 @@ export const HalfRating: Story = {
   args: {
     size: 20,
     rating: 3,
-    noFillColor: 'black',
+    noFillColor: 'black-400',
   },
 };
 
@@ -73,7 +73,7 @@ export const SmallSize: Story = {
   args: {
     size: 16,
     rating: 4,
-    noFillColor: 'black',
+    noFillColor: 'black-400',
   },
 };
 
