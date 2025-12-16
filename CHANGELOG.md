@@ -1,3 +1,18 @@
+# [1.0.0-DEV.19](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.18...v1.0.0-DEV.19) (2025-12-16)
+
+
+### Bug Fixes
+
+* **ITS-IR01-307:** fix merge conflict ([db6bb58](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/db6bb580c8d6882e2da5da905d2c0a7de739e565))
+* **ITS-IR01-307:** make new selection option for logoname field ([9806ec5](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/9806ec5e245895a36195e7480626b2427865277c))
+* **ITS-IR01-308:** add hover effect to checkbox ([ed5a496](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/ed5a496a1f2d3e8031b659259ff5165bfc06c4b6))
+* **ITS-IR01-322:** fix rating color for outline star ([b0dd270](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/b0dd27037d053ad3125d585df94ea7b1cf2223b0))
+
+
+### Features
+
+* **ITS-IR01-358:** update with develop change for homepage ([27e2e18](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/27e2e18ed821108a224803cb9d8d1d700866f8aa))
+
 # [1.0.0-DEV.18](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.17...v1.0.0-DEV.18) (2025-12-16)
 
 
