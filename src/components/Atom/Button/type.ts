@@ -42,7 +42,7 @@ export type ButtonProps = {
   /**
    * Font family to use for the button text
    */
-  readonly under?: ButtonFont;
+  readonly textColor?: 'black' | 'white';
   /**
    * Button content
    */
