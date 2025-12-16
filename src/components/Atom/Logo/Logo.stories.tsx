@@ -17,6 +17,30 @@ const meta = {
       },
     },
   },
+
+  argTypes: {
+    logoName: {
+      control: 'select',
+      options: [
+        'ApplePayLogo',
+        'GooglePayLogo',
+        'HushLogo',
+        'MarcLogo',
+        'MasterCardLogo',
+        'NayzakLogo',
+        'NikeLogo',
+        'PaypalLogo',
+        'PumaLogo',
+        'ShoeiLogo',
+        'SupremeLogo',
+        'VisaLogo',
+      ],
+      description: 'this is all the logo in this website',
+      table: {
+        defaultValue: { summary: 'ShoeiLogo' },
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof Logo>;
 
