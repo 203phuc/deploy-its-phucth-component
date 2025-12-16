@@ -1,3 +1,19 @@
+# [1.0.0-DEV.18](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.17...v1.0.0-DEV.18) (2025-12-16)
+
+
+### Bug Fixes
+
+* **ITS-IR01-282:** fix add new circle variants ([77d788f](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/77d788f647cd81d5338a44db78024b628d2f52ce))
+* **ITS-IR01-299:** fix button size ([df84d10](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/df84d10fe841d2faa8d529f6c95b8da001408db8))
+* **ITS-IR01-311:** fix size and variant for timer component ([a3c8fe6](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/a3c8fe67c4b94daabd11e2072a9bdbf6ddacb37a))
+* **ITS-IR01-311:** fix text size for timer ([02e854c](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/02e854c9476fb0f54fc267ac5a9fd90973b7e550))
+
+
+### Features
+
+* **ITS-IR01-299:** add color to button variant ([ff7f898](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/ff7f8983cce68961aac7c462509374a5e2414fcf))
+* **ITS-IR01-357:** add new behavior to sliderbar ([64b39d5](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/64b39d5cdac014b6f5487a964c1055bb02150ee7))
+
 # [1.0.0-DEV.17](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.16...v1.0.0-DEV.17) (2025-12-12)
 
 ### Bug Fixes
