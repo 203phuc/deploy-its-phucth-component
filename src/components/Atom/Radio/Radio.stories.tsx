@@ -35,12 +35,12 @@ type Story = StoryObj<typeof Radio>;
 export default meta;
 
 // ===== Stories =====
-const Template: Story = {
-  render: (args) => <Radio {...args} />,
-};
+export const Default: Story = {
+  render: (args) => {
+    const [checked, setChecked] = useState(false);
 
-export const Default = {
-  ...Template,
+    return <Radio {...args} checked={checked} onChange={setChecked} />;
+  },
 };
 
 export const Sizes: Story = {
