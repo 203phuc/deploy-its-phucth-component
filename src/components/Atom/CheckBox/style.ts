@@ -1,7 +1,7 @@
 import { cva } from 'class-variance-authority';
 
 export const checkboxCva = cva(
-  'inline-flex items-center justify-center border-[1.5px] bg-transparent p-[2px] transition-colors',
+  'inline-flex items-center justify-center border-[1.5px] bg-transparent p-[2px] transition-colors hover:outline hover:outline-2 hover:outline-black-500',
   {
     variants: {
       size: {
