@@ -13,7 +13,7 @@ const meta = {
     },
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/design/Ovp63tfHXWbbNr8lzFbAGy/HAIBAZO-INTERNSHIP-FRONTEND?node-id=276-101557&t=8Mb9FH6yn9iXR604-4',
+      url: 'https://www.figma.com/design/Ovp63tfHXWbbNr8lzFbAGy/HAIBAZO-INTERNSHIP-FRONTEND?node-id=169-28053&t=WB52LU5TqNOlm8Lb-4',
     },
   },
   tags: ['autodocs'],
@@ -34,9 +34,19 @@ const meta = {
       control: 'boolean',
       description: 'Whether the countdown should start automatically.',
     },
-    mobile: {
-      control: 'boolean',
-      description: 'Apply responsive mobile styling if true.',
+    size: {
+      control: { type: 'select' },
+      options: ['mobileSharp', 'mobileRound', 'desktopRound', 'desktopSharp', 'desktop', 'mobile'],
+    },
+    round: {
+      control: { type: 'select' },
+      options: ['pill', 'sharp'],
+      description: 'Choose the border style.',
+    },
+    textColor: {
+      control: { type: 'select' },
+      options: ['red', 'black'],
+      description: 'Choose the border style.',
     },
   },
 } satisfies Meta<typeof Timer>;
@@ -48,18 +58,71 @@ export const Default: Story = {
   args: {
     label: 'Hurry up',
     labelSpan: ', offer expires in:',
-    endDate: '20/11/2025',
+    endDate: '20/1/2026',
     start: true,
   },
 };
 
-export const Mobile: Story = {
+export const DesktopRound: Story = {
   args: {
     label: 'Limited Time',
     labelSpan: ', ends soon!',
     endDate: '15/11/2025',
     start: true,
-    mobile: true,
+    size: 'desktopRound',
+    round: 'pill',
+  },
+};
+
+export const DesktopSharp: Story = {
+  args: {
+    label: 'Limited Time',
+    labelSpan: ', ends soon!',
+    endDate: '15/11/2025',
+    start: true,
+    size: 'desktopSharp',
+    round: 'sharp',
+  },
+};
+
+export const MobileSharp: Story = {
+  args: {
+    label: 'Limited Time',
+    labelSpan: ', ends soon!',
+    endDate: '15/11/2025',
+    start: true,
+    size: 'mobileSharp',
+    round: 'sharp',
+  },
+};
+export const MobileRound: Story = {
+  args: {
+    label: 'Limited Time',
+    labelSpan: ', ends soon!',
+    endDate: '15/11/2025',
+    start: true,
+    size: 'mobileRound',
+    round: 'pill',
+  },
+};
+
+export const DesktopNoBound: Story = {
+  args: {
+    label: 'Limited Time',
+    labelSpan: ', ends soon!',
+    endDate: '15/11/2025',
+    start: true,
+    size: 'desktop',
+  },
+};
+
+export const MobileNoBound: Story = {
+  args: {
+    label: 'Limited Time',
+    labelSpan: ', ends soon!',
+    endDate: '15/11/2025',
+    start: true,
+    size: 'mobile',
   },
 };
 

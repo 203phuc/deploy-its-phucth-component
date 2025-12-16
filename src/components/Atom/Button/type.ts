@@ -5,7 +5,7 @@ import { buttonCva } from './style';
 
 export type ButtonCvaProps = VariantProps<typeof buttonCva>;
 
-export type ButtonVariant = 'solid' | 'outlined' | 'text' | 'underline';
+export type ButtonVariant = 'solidBlack' | 'outlined' | 'text' | 'underline' | 'solidWhite';
 export type ButtonSize = 'xlarge' | 'large' | 'largeCompact' | 'medium' | 'small' | 'xsmall';
 export type ButtonRoundness = 'pill' | 'round' | 'sharp';
 export type ButtonFont = 'spaceGrotesk' | 'inter';
@@ -19,9 +19,6 @@ export type ButtonProps = {
    * The size of the button
    * */
   readonly size?: ButtonSize;
-  /**
-   * The size of the underline (only applicable for underline variant) */
-  readonly underlineSize?: 'xlarge' | 'large' | 'medium' | 'small' | 'xsmall';
   /**
    * The border radius of the button
    */
@@ -42,6 +39,10 @@ export type ButtonProps = {
    * Font family to use for the button text
    */
   readonly font?: ButtonFont;
+  /**
+   * Font family to use for the button text
+   */
+  readonly textColor?: 'black' | 'white';
   /**
    * Button content
    */

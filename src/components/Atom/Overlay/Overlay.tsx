@@ -1,4 +1,5 @@
 import { JSX, useEffect, useRef } from 'react';
+import { cn } from 'src/util/tailwindClass';
 import { overlayCva } from './style';
 import type { OverlayProps } from './type';
 
@@ -44,8 +45,7 @@ export const Overlay = ({
   return (
     <div
       ref={overlayRef}
-      className={overlayCva({ isOpen, className, position, fullSize })}
-      aria-modal="true"
+      className={cn(overlayCva({ isOpen, className, position, fullSize }))}
       aria-label="Dialog Overlay"
       tabIndex={-1}
     >

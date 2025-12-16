@@ -43,7 +43,7 @@ const meta: Meta<typeof Link> = {
       options: ['xsmall', 'small', 'medium', 'large', 'xlarge', '2xlarge', '3xlarge', '4xlarge'],
       description: 'Text size and line height',
       table: {
-        defaultValue: { summary: 'medium' },
+        defaultValue: { summary: 'small' },
       },
     },
     weight: {
@@ -96,6 +96,7 @@ const meta: Meta<typeof Link> = {
   args: {
     children: 'Click me',
     href: '#',
+    size: 'xsmall', // <-- default size
   },
 };
 
@@ -107,6 +108,8 @@ export const Default: Story = {
   args: {
     children: 'Default Link',
     href: '#',
+    size: 'xsmall',
+    hoverUnderline: true,
   },
 };
 

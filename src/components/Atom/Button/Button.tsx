@@ -1,4 +1,5 @@
 import React from 'react';
+import { cn } from 'src/util/tailwindClass';
 import { buttonCva } from './style';
 import type { ButtonProps } from './type';
 
@@ -7,15 +8,16 @@ export const Button = ({
   className,
   children,
   // CVA handled props
-  variant = 'solid',
+  variant = 'solidBlack',
   size = 'medium',
   fullWidth = false,
-  font = 'spaceGrotesk',
+  font = 'inter',
   // rest forwarded to underlying element
   roundness,
+  textColor,
   ...rest
 }: ButtonProps) => {
-  const variantProps = { variant, size, roundness, fullWidth, font };
+  const variantProps = { variant, size, roundness, fullWidth, font, textColor };
 
   const classes = [buttonCva(variantProps), className].filter(Boolean).join(' ');
 
@@ -32,7 +34,7 @@ export const Button = ({
   buttonProps.type = buttonProps.type ?? 'button'; // default type to avoid accidental form submit
 
   return (
-    <button className={classes} {...buttonProps}>
+    <button className={cn(classes)} {...buttonProps}>
       {children}
     </button>
   );

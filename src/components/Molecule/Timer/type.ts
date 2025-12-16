@@ -1,6 +1,9 @@
-import { type TimeBlockCvaProps } from './style';
+import { type LabelCvaProps, type TimeBlockCvaProps } from './style';
 
-export interface TimerProps extends Partial<TimeBlockCvaProps>, React.HTMLAttributes<HTMLDivElement> {
+export interface TimerProps
+  extends Partial<TimeBlockCvaProps>,
+    Partial<LabelCvaProps>,
+    React.HTMLAttributes<HTMLDivElement> {
   /**
    * Text font family what font to use
    */
@@ -10,6 +13,10 @@ export interface TimerProps extends Partial<TimeBlockCvaProps>, React.HTMLAttrib
    */
   readonly label?: string;
   /**
+   * Text to input using as cta of the block
+   */
+  readonly size?: 'mobile' | 'mobileSharp' | 'desktopRound' | 'desktopSharp' | 'desktop' | 'mobileRound';
+  /**
    * Text to input using as cta of the block with highlight
    */
   readonly labelSpan?: string;
@@ -17,4 +24,8 @@ export interface TimerProps extends Partial<TimeBlockCvaProps>, React.HTMLAttrib
    * Text to input using as cta of the block with highlight
    */
   readonly start?: boolean;
+  /**
+   * Text to input using as cta of the block with highlight
+   */
+  readonly round?: 'pill' | 'sharp';
 }

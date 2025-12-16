@@ -2,31 +2,25 @@
 import { cva, type VariantProps } from 'class-variance-authority';
 
 export const buttonCva = cva(
-  'inline-flex items-center justify-center font-medium disabled:cursor-not-allowed disabled:opacity-50',
+  'relative inline-flex items-center justify-center font-medium disabled:cursor-not-allowed disabled:opacity-50',
   {
     variants: {
       variant: {
-        solid: 'bg-black text-white hover:opacity-90',
+        solidBlack: 'bg-black text-white hover:opacity-90',
+        solidWhite: 'bg-white text-black-900 hover:opacity-90',
         outlined: 'border-2 border-current bg-transparent hover:bg-black/5',
-        text: 'm-0 border-0 bg-transparent p-0 text-inherit shadow-none hover:bg-transparent hover:opacity-100',
-        underline: '',
-      },
-
-      underlineSize: {
-        xlarge: 'gap-[8px] text-[26px] leading-[38px] underline underline-offset-[8px]',
-        large: 'gap-[8px] text-[22px] leading-[34px] underline underline-offset-[6px]',
-        medium: 'gap-[4px] text-[18px] leading-[32px] underline underline-offset-[4px]',
-        small: 'gap-[4px] text-[16px] leading-[28px] underline underline-offset-[4px]',
-        xsmall: 'gap-[2px] text-[14px] leading-[24px] underline underline-offset-[4px]',
+        text: 'm-0 border-0 bg-transparent p-0 shadow-none hover:bg-transparent hover:opacity-100',
+        underline:
+          'relative after:absolute after:right-0 after:bottom-0 after:left-0 after:h-[1px] after:bg-black-900',
       },
 
       size: {
-        xlarge: 'h-[76px] min-w-[190px] gap-[8px] px-[55px] py-[19px] text-[26px] leading-[38px]',
-        large: 'h-[72px] min-w-[148px] gap-[8px] px-[44px] py-[19px] text-[22px] leading-[34px]',
-        largeCompact: 'h-[53px] min-w-[117px] gap-[8px] px-[44px] py-[19px] text-[22px] leading-[34px]',
-        medium: 'h-[52px] min-w-[119px] gap-[4px] px-[26px] py-[10px] text-[18px] leading-[32px]',
-        small: 'h-[46px] min-w-[88px] gap-[4px] px-[24px] py-[9px] text-[16px] leading-[28px]',
-        xsmall: 'h-[40px] min-w-[84px] gap-[2px] px-[20px] py-[8px] text-[14px] leading-[24px]',
+        xlarge: 'h-[76px] gap-[8px] px-[55px] py-[19px] text-[26px] leading-[38px]',
+        large: 'h-[72px] gap-[8px] px-[44px] py-[19px] text-[22px] leading-[34px]',
+        largeCompact: 'h-[53px] gap-[8px] px-[44px] py-[19px] text-[22px] leading-[34px]',
+        medium: 'h-[52px] gap-[4px] px-[26px] py-[10px] text-[18px] leading-[32px]',
+        small: 'h-[46px] gap-[4px] px-[24px] py-[9px] text-[16px] leading-[28px]',
+        xsmall: 'h-[40px] gap-[2px] px-[20px] py-[8px] text-[14px] leading-[24px]',
       },
 
       roundness: {
@@ -44,7 +38,10 @@ export const buttonCva = cva(
         true: '',
         false: '',
       },
-
+      textColor: {
+        black: '!text-black-900',
+        white: '!text-white',
+      },
       font: {
         spaceGrotesk: 'font-space-grotesk',
         inter: 'font-inter',
@@ -67,7 +64,7 @@ export const buttonCva = cva(
     ],
 
     defaultVariants: {
-      variant: 'solid',
+      variant: 'solidBlack',
       size: 'medium',
       roundness: 'pill',
       fullWidth: false,
