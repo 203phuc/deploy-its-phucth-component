@@ -13,6 +13,10 @@ export interface TimerProps
    */
   readonly label?: string;
   /**
+   * Text to input using as cta of the block
+   */
+  readonly size?: 'mobile' | 'mobileSharp' | 'desktopRound' | 'desktopSharp' | 'desktop' | 'mobileRound';
+  /**
    * Text to input using as cta of the block with highlight
    */
   readonly labelSpan?: string;
