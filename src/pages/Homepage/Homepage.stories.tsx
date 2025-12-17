@@ -5,6 +5,7 @@ const meta = {
   title: 'Page/HomePage',
   component: HomePage,
   parameters: {
+    layout: 'fullscreen',
     design: {
       type: 'figma',
       url: 'https://www.figma.com/design/Ovp63tfHXWbbNr8lzFbAGy/HAIBAZO-INTERNSHIP-FRONTEND?node-id=127-21076&t=NkHrVg9SwkSiPX3f-4',
