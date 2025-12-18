@@ -60,22 +60,6 @@ const meta = {
         '4xlarge',
       ],
     },
-    textSize: {
-      control: 'select',
-      options: [
-        'special2',
-        'special1',
-        'xsmall',
-        'small',
-        'smedium',
-        'medium',
-        'large',
-        'xlarge',
-        '2xlarge',
-        '3xlarge',
-        '4xlarge',
-      ],
-    },
     value: {
       control: 'text',
       description: 'Currently selected value',
