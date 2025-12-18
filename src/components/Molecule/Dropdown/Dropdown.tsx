@@ -34,7 +34,6 @@ export const Dropdown: React.FC<DropdownProps> = ({
   switch (variant) {
     case 'default':
     case 'sm':
-    case 'md':
     case 'other':
       optionVariant = 'default';
       break;
@@ -43,6 +42,9 @@ export const Dropdown: React.FC<DropdownProps> = ({
       break;
     case 'lg':
       optionVariant = 'none';
+      break;
+    case 'md':
+      optionVariant = 'md';
       break;
     default:
       optionVariant = 'default';
