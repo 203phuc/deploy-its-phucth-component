@@ -115,7 +115,7 @@ const initialSlides: SlideData[] = [
     title: 'Create your dream shop instantly.',
     description: 'Keep your everyday style chic and on-trend with our selection 20+ styles to choose from.',
     buttonText: 'See Collection',
-    imageUrl: '/src/assets/homepage1.png',
+    imageUrl: '/assets/homepage1.png',
     textColor: 'black-900',
   },
   {
@@ -124,7 +124,7 @@ const initialSlides: SlideData[] = [
     title: 'Create your dream shop instantly.',
     description: 'Keep your everyday style chic and on-trend with our selection 20+ styles to choose from.',
     buttonText: 'See Collection',
-    imageUrl: '/src/assets/homepage2.png',
+    imageUrl: '/assets/homepage2.png',
     textColor: 'black-900',
   },
   {
@@ -133,7 +133,7 @@ const initialSlides: SlideData[] = [
     title: 'Indulge yourself with the finest kimonos.',
     description: 'Keep your everyday style chic and on-trend with our selection 20+ styles to choose from.',
     buttonText: 'See Collection',
-    imageUrl: '/src/assets/homepage3.png',
+    imageUrl: '/assets/homepage3.png',
     textColor: 'black-900',
   },
 ];

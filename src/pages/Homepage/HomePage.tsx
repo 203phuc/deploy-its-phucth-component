@@ -105,12 +105,7 @@ const HomePageContent = () => {
           intro="CHECK US OUT"
           title="On instagram"
           description="Browse a curated selection of new arrivals and bestsellers — handpicked and ready to ship."
-          images={[
-            '/src/assets/banner1.png',
-            '/src/assets/banner2.png',
-            '/src/assets/banner3.png',
-            '/src/assets/prod_1.png',
-          ]}
+          images={['/assets/banner1.png', '/assets/banner2.png', '/assets/banner3.png', '/assets/prod_1.png']}
         />
       </Section>
       <Section>
