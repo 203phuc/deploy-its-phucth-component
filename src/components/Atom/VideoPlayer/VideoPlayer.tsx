@@ -8,9 +8,7 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
   src,
   className = '',
   poster,
-  size = 'medium',
-  iconSize = 20,
-  iconBoxSize,
+  size = 'default',
   ...props
 }) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -62,9 +60,9 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
         {!isPlaying && (
           <Icons
             iconName="PlayIcon"
-            iconSize={iconSize}
+            boxClassName="lg:w-[95px] lg:h-[95px] w-[65px] h-[65px]"
             box
-            boxSize={iconBoxSize ?? Math.round(iconSize * 3)}
+            iconClassName="lg:w-[21px] lg:h-[26px] w-[13.5px] h-[17.75px]"
             boxFill="white"
             boxRoundness="pill"
           />

@@ -9,7 +9,7 @@ export interface VideoTrack {
   default?: boolean;
 }
 
-export type VideoPlayerSize = 'small' | 'medium' | 'large';
+export type VideoPlayerSize = 'default' | 'special';
 
 export interface VideoPlayerProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
@@ -35,9 +35,9 @@ export interface VideoPlayerProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Pixel size of the central play/close icon
    */
-  iconSize?: number;
+  iconSize?: 21 | 13;
   /**
    * Pixel size of the icon's surrounding box
    */
-  iconBoxSize?: number;
+  iconBoxSize?: 65 | 95;
 }
