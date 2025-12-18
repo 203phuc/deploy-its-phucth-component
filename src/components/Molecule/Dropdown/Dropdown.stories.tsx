@@ -48,6 +48,22 @@ const meta = {
       control: 'boolean',
       description: 'Whether the select is disabled',
     },
+    textSize: {
+      control: 'select',
+      options: [
+        'special2',
+        'special1',
+        'xsmall',
+        'small',
+        'smedium',
+        'medium',
+        'large',
+        'xlarge',
+        '2xlarge',
+        '3xlarge',
+        '4xlarge',
+      ],
+    },
     value: {
       control: 'text',
       description: 'Currently selected value',
