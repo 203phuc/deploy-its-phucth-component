@@ -6,6 +6,8 @@ export const videoPlayerCva = cva('relative overflow-hidden bg-black', {
       small: 'h-[375px] w-[343px]',
       medium: 'h-[494px] w-[766px]',
       large: 'h-[668px] w-[1336px]',
+      desktop: 'h-[668px] w-[1336px]',
+      mobile: 'h-[375px] w-[375px]',
     },
   },
   defaultVariants: {

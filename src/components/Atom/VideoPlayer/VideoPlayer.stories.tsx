@@ -21,7 +21,7 @@ const meta = {
   argTypes: {
     size: {
       control: { type: 'select' },
-      options: ['small', 'medium', 'large'] as VideoPlayerSize[],
+      options: ['small', 'medium', 'large', 'desktop', 'mobile'] as VideoPlayerSize[],
       description: 'Preset dimensions for the container',
     },
     iconSize: {
