@@ -1,3 +1,10 @@
+# [1.0.0-DEV.20](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.19...v1.0.0-DEV.20) (2025-12-18)
+
+
+### Features
+
+* **ITS-IR01-362:** add images to deploy page ([cd1c9dc](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/cd1c9dc08c7e9e37a4ebcaef18a0499d364a4e13))
+
 # [1.0.0-DEV.19](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.18...v1.0.0-DEV.19) (2025-12-16)
 
 
