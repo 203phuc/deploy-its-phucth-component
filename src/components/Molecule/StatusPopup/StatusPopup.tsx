@@ -5,7 +5,8 @@ import { Icons } from '@components/Atom/Icons';
 import { Overlay } from '@components/Atom/Overlay';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
-import { useIsMobile } from '@pages/CustomHook/breakpoint';
+import { useEffect, useState } from 'react';
+import { onSmallScreenChange } from 'src/util/mediaQueries';
 import type { StatusPopupProps } from './StatusPopup.types';
 
 export const StatusPopup = ({
@@ -17,13 +18,15 @@ export const StatusPopup = ({
   status,
   onButtonClick,
 }: StatusPopupProps) => {
-  const mobile = useIsMobile();
+  const [mobile, setMobile] = useState(false);
   const isSuccess = status === 'success';
   const iconName = isSuccess ? 'CheckIcon' : 'CloseIcon';
   const iconBoxFill = isSuccess ? 'green' : 'red';
 
+  useEffect(() => {
+    onSmallScreenChange(setMobile);
+  }, []); // empty array = run only once
   if (!isOpen) return null;
-
   if (mobile) {
     return (
       <Overlay isOpen={isOpen} onClose={onClose}>
@@ -51,10 +54,14 @@ export const StatusPopup = ({
               </Flex>
             </Flex>
 
-            <Button roundness="round" size="medium" onClick={() => onButtonClick?.()} type="button">
-              <Text font="spaceGrotesk" size="special2" color="white">
-                {buttonLabel}
-              </Text>
+            <Button
+              roundness="round"
+              size="small"
+              font="spaceGrotesk"
+              onClick={() => onButtonClick?.()}
+              type="button"
+            >
+              {buttonLabel}
             </Button>
           </Flex>
         </Section>
