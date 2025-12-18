@@ -44,10 +44,6 @@ const meta = {
       control: 'boolean',
       description: 'Whether the dropdown is open',
     },
-    disabled: {
-      control: 'boolean',
-      description: 'Whether the select is disabled',
-    },
     textSize: {
       control: 'select',
       options: [
@@ -134,7 +130,6 @@ export const Disabled: Story = {
   args: {
     options: sampleOptions,
     isOpen: true,
-    disabled: true,
     variant: 'default',
   },
 };
