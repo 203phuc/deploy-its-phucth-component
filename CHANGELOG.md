@@ -1,3 +1,18 @@
+# [1.0.0-DEV.21](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.20...v1.0.0-DEV.21) (2025-12-18)
+
+
+### Bug Fixes
+
+* **ITS-IR01-301:** remove and fix icons belong to videoplayer ([892f47e](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/892f47eb3e13b7762987c60fe87842665e70d0ac))
+* **ITS-IR01-301:** specify sizes for video player ([10ee9cb](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/10ee9cb0c23dd00e942973fa655ec1d62dfce466))
+* **ITS-IR01-312:** fix size for dropdown ([17e0d41](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/17e0d418b293bf625ad01f544e43c0cc87501a56))
+* **ITS-IR01-313:** fix disable issues ([c0154a8](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/c0154a88dd96f8bca081078683cc7f731cf0e440))
+
+
+### Features
+
+* **ITS-IR01-1xx:** adding layout ([0bcd25b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/0bcd25bf7bca006ce01722b070d558ae9bea1086))
+
 # [1.0.0-DEV.20](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.19...v1.0.0-DEV.20) (2025-12-18)
 
 
