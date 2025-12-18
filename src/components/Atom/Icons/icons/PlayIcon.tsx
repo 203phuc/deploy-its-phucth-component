@@ -1,8 +1,15 @@
 import { IconProps } from './types';
 
-export const PlayIcon = ({ size = 24, color = 'currentColor' }: IconProps) => {
+export const PlayIcon = ({ size = 24, color = 'currentColor', className }: IconProps) => {
   return (
-    <svg width={size} height={size} viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      width={size}
+      height={size + 4}
+      viewBox="0 0 20 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
       <path
         fillRule="evenodd"
         clipRule="evenodd"

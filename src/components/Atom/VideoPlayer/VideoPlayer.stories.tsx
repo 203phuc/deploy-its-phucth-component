@@ -21,7 +21,7 @@ const meta = {
   argTypes: {
     size: {
       control: { type: 'select' },
-      options: ['small', 'medium', 'large', 'desktop', 'mobile'] as VideoPlayerSize[],
+      options: ['default', 'special'] as VideoPlayerSize[],
       description: 'Preset dimensions for the container',
     },
     iconSize: {
@@ -47,8 +47,7 @@ const meta = {
   },
   args: {
     src: 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4',
-    size: 'medium',
-    iconSize: 20,
+    size: 'default',
     poster: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop',
   },
 } satisfies Meta<typeof VideoPlayer>;
@@ -61,29 +60,15 @@ export const Default: Story = {};
 export const Sizes: Story = {
   render: (args) => (
     <div style={{ display: 'grid', gap: 16 }}>
-      <VideoPlayer {...args} size="small" />
-      <VideoPlayer {...args} size="medium" />
-      <VideoPlayer {...args} size="large" />
+      <VideoPlayer {...args} size="default" />
+      <VideoPlayer {...args} size="special" />
     </div>
   ),
 };
 
 export const CustomDimensions: Story = {
   args: {
-    size: 'small',
+    size: 'special',
     className: 'w-[600px] h-[340px]',
-  },
-};
-
-export const BiggerIcon: Story = {
-  args: {
-    iconSize: 28,
-  },
-};
-
-export const ExplicitIconBox: Story = {
-  args: {
-    iconSize: 24,
-    iconBoxSize: 64,
   },
 };
