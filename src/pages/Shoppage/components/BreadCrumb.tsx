@@ -17,9 +17,9 @@ interface BreadCrumbProps {
   className?: string;
 }
 
-const BreadCrumb: React.FC<BreadCrumbProps> = ({
+export const BreadCrumb: React.FC<BreadCrumbProps> = ({
   items,
-  separator = <Icons iconName="ChevronRightIcon" color="black-600" iconSize={16} />,
+  separator = <Icons iconName="ChevronRightIcon" color="black-600" iconSize={12} />,
   gap = 2,
   className,
 }) => {
@@ -49,7 +49,6 @@ const BreadCrumb: React.FC<BreadCrumbProps> = ({
             onClick={(e) => handleClick(item, index, e)}
             size="small"
             color={index === items.length - 1 ? 'black-900' : 'black-500'}
-            weight={index === items.length - 1 ? 'bold' : 'regular'}
             className={index < items.length - 1 ? 'cursor-pointer' : 'cursor-default'}
           >
             {item.label}
@@ -59,5 +58,3 @@ const BreadCrumb: React.FC<BreadCrumbProps> = ({
     </Flex>
   );
 };
-
-export default BreadCrumb;
