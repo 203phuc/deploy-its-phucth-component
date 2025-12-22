@@ -1,3 +1,12 @@
+# [1.0.0-DEV.22](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.21...v1.0.0-DEV.22) (2025-12-22)
+
+
+### Bug Fixes
+
+* **ITS-IR01-313:** fix add new disable state to the dropdown ([fc3e4ab](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/fc3e4ab933a2aad4f9c1cb78d9e670d28b61571d))
+* **ITS-IR01-313:** fix sonar Unnecessary use of conditional expression for default assignment ([fa966a2](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/fa966a2781282cc22265687eee2d3dd6cb497e85))
+* **ITS-IR01-321:** fix sizing for button on mobile screen ([4301e27](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/4301e27a05a85ad9a0317e3682dc4f302af74675))
+
 # [1.0.0-DEV.21](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.20...v1.0.0-DEV.21) (2025-12-18)
 
 
