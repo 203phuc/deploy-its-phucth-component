@@ -16,6 +16,10 @@ export interface DropdownProps {
    */
   options: DropdownOption[];
   /**
+   * Whether the dropdown is currently disabled
+   */
+  disabled: boolean;
+  /**
    * Whether the dropdown is currently open/visible
    */
   isOpen: boolean;

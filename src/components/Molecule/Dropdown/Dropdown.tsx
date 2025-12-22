@@ -19,6 +19,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   className = '',
   variant = 'default',
   direction = 'down',
+  disabled,
   ...props
 }) => {
   const [dropdownValue, setDropdownValue] = useState<string | number | undefined>(value);
@@ -86,8 +87,8 @@ export const Dropdown: React.FC<DropdownProps> = ({
           const optionClasses = optionVariants({
             variant: optionVariant,
             selected: isSelected,
-            disabled: option.disabled,
-            className: !option.disabled ? 'hover:bg-gray-100' : '',
+            disabled: disabled || option.disabled,
+            className: !option.disabled && !disabled ? 'hover:bg-gray-100' : '',
           });
 
           return (
@@ -95,7 +96,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
               key={String(option.value)}
               className={optionClasses}
               onClick={() => handleOptionClick(option.value, option)}
-              disabled={option.disabled} // prevents click on disabled options
+              disabled={disabled || option.disabled} // prevents click on disabled options
               type="button" // always good practice in forms
             >
               {variant !== 'other' ? (
