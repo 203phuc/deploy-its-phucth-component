@@ -18,6 +18,7 @@ const optionVariants = cva('w-full cursor-pointer text-left text-sm transition-c
     variant: {
       default: 'px-4 py-3',
       xs: 'px-3 py-2',
+      md: 'px-4 py-2',
       none: '',
     },
     selected: {
@@ -59,12 +60,13 @@ export const getSelectStyles = (
   direction: DropdownDirection = 'down',
 ) => {
   const width = widthVariants({ variant });
+  const optionVariant = variant === 'sm' ? 'default' : (variant as 'default' | 'xs' | 'md' | 'none');
 
   return {
     dropdown: dropdownVariants({ direction }),
     option: (selected?: boolean, disabled?: boolean) =>
       optionVariants({
-        variant: variant === 'xs' ? 'xs' : 'default',
+        variant: optionVariant,
         selected,
         disabled,
       }),

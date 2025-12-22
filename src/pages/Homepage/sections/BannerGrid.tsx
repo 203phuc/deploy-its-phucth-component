@@ -32,7 +32,7 @@ export const BannerGrid = ({ items, isMobile }: BannerGridProps) => {
                   alt={it.name}
                   size="full"
                   objectFit="cover"
-                  objectPosition="95%"
+                  objectPosition="right"
                 />
                 <Position position="absolute" top={index === 0 ? 32 : 138} left={24} zIndex={2}>
                   <Heading size="h7" weight="moderate" color="black-900" font="spaceGrotesk">

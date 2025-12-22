@@ -16,6 +16,10 @@ export interface DropdownProps {
    */
   options: DropdownOption[];
   /**
+   * Whether the dropdown is currently disabled
+   */
+  disabled: boolean;
+  /**
    * Whether the dropdown is currently open/visible
    */
   isOpen: boolean;
@@ -39,10 +43,6 @@ export interface DropdownProps {
    * Callback function called when an option is selected
    */
   onSelect?: (value: string | number) => void;
-  /**
-   * Whether the entire select component is disabled
-   */
-  disabled?: boolean;
   /**
    * Additional CSS classes for the dropdown container
    */

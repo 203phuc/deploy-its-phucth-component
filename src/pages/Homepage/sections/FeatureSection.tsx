@@ -35,7 +35,7 @@ export const FeatureSection = ({ isMobile }: MutualProps) => {
                 size="small"
                 iconBoxSize={65}
                 iconSize={17.5}
-                poster="src/assets/videoHome.png"
+                poster="/assets/videoHome.png"
               />
             </Section>
           </Flex>
@@ -72,7 +72,7 @@ export const FeatureSection = ({ isMobile }: MutualProps) => {
               size="large"
               iconBoxSize={96}
               iconSize={26}
-              poster="src/assets/videoHome.png"
+              poster="/assets/videoHome.png"
             />
           </Section>
         </Flex>

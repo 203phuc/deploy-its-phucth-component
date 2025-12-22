@@ -39,7 +39,7 @@ export const NewsletterSection: React.FC<MutualProps> = ({ isMobile }) => {
                   error={error}
                   onChange={() => error && setError('')}
                   buttonEnd={
-                    <Button type="submit" variant="solid" size="medium">
+                    <Button type="submit" variant="solidBlack" size="medium">
                       Signup
                     </Button>
                   }
@@ -78,7 +78,7 @@ export const NewsletterSection: React.FC<MutualProps> = ({ isMobile }) => {
                 error={error}
                 onChange={() => error && setError('')}
                 buttonEnd={
-                  <Button type="submit" variant="solid" size="medium">
+                  <Button type="submit" variant="solidBlack" size="medium">
                     Signup
                   </Button>
                 }

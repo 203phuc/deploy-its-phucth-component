@@ -40,7 +40,7 @@ const transformSlideData = (
                     </Section>
                   </Flex>
                   <Section>
-                    <Button variant="solid" size="medium" roundness="sharp">
+                    <Button variant="solidBlack" size="medium" roundness="sharp">
                       {slide.buttonText}
                     </Button>
                   </Section>
@@ -69,7 +69,7 @@ const transformSlideData = (
             <ImagePlaceholder
               size="full"
               objectFit="cover"
-              objectPosition="right1"
+              objectPosition="right"
               src={slide.imageUrl}
               alt={`Slide ${slide.id}`}
             />
@@ -96,7 +96,7 @@ const transformSlideData = (
               </Section>
             </Flex>
             <Section bgColor="black-100">
-              <Button variant="solid" size="small" roundness="sharp">
+              <Button variant="solidBlack" size="small" roundness="sharp">
                 {slide.buttonText}
               </Button>
             </Section>
@@ -115,7 +115,7 @@ const initialSlides: SlideData[] = [
     title: 'Create your dream shop instantly.',
     description: 'Keep your everyday style chic and on-trend with our selection 20+ styles to choose from.',
     buttonText: 'See Collection',
-    imageUrl: '/src/assets/homepage1.png',
+    imageUrl: '/assets/homepage1.png',
     textColor: 'black-900',
   },
   {
@@ -124,7 +124,7 @@ const initialSlides: SlideData[] = [
     title: 'Create your dream shop instantly.',
     description: 'Keep your everyday style chic and on-trend with our selection 20+ styles to choose from.',
     buttonText: 'See Collection',
-    imageUrl: '/src/assets/homepage2.png',
+    imageUrl: '/assets/homepage2.png',
     textColor: 'black-900',
   },
   {
@@ -133,7 +133,7 @@ const initialSlides: SlideData[] = [
     title: 'Indulge yourself with the finest kimonos.',
     description: 'Keep your everyday style chic and on-trend with our selection 20+ styles to choose from.',
     buttonText: 'See Collection',
-    imageUrl: '/src/assets/homepage3.png',
+    imageUrl: '/assets/homepage3.png',
     textColor: 'black-900',
   },
 ];

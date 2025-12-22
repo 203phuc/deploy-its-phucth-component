@@ -11,6 +11,7 @@ export const Icons = ({
   boxRoundness = 'round',
   boxBorderWidth = null,
   boxClassName = '',
+  iconClassName = '',
   boxSize,
   iconSize = 20,
   ...props
@@ -31,7 +32,7 @@ export const Icons = ({
     className: box ? boxClassName : '',
   });
 
-  const iconElement = <IconComponent size={iconSize} color={iconsCva({ color })} className={boxClassName} />;
+  const iconElement = <IconComponent size={iconSize} color={color} className={iconClassName} />;
   if (!box) {
     return iconElement;
   }
