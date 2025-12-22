@@ -23,7 +23,6 @@ import TextImageSection from './sections/TextImageSection';
 
 const HomePageContent = () => {
   const {
-    screenWidth,
     currentIndex,
     handleIndexChange,
     setNotificationVisible,
@@ -34,8 +33,6 @@ const HomePageContent = () => {
     mobileImageSlides,
     mobileTextSlides,
   } = useHomePage();
-
-  if (screenWidth === null) return null;
 
   return (
     <Flex direction="column" width="100%" height="100%">
