@@ -115,7 +115,7 @@ const initialSlides: SlideData[] = [
     title: 'Create your dream shop instantly.',
     description: 'Keep your everyday style chic and on-trend with our selection 20+ styles to choose from.',
     buttonText: 'See Collection',
-    imageUrl: '/assets/homepage1.png',
+    imageUrl: 'https://res.cloudinary.com/dnuicbze9/image/upload/v1766379462/homepage1_omytqz.png',
     textColor: 'black-900',
   },
   {
@@ -124,7 +124,7 @@ const initialSlides: SlideData[] = [
     title: 'Create your dream shop instantly.',
     description: 'Keep your everyday style chic and on-trend with our selection 20+ styles to choose from.',
     buttonText: 'See Collection',
-    imageUrl: '/assets/homepage2.png',
+    imageUrl: 'https://res.cloudinary.com/dnuicbze9/image/upload/v1766379463/hompage2_pfkexw.png',
     textColor: 'black-900',
   },
   {
@@ -133,7 +133,7 @@ const initialSlides: SlideData[] = [
     title: 'Indulge yourself with the finest kimonos.',
     description: 'Keep your everyday style chic and on-trend with our selection 20+ styles to choose from.',
     buttonText: 'See Collection',
-    imageUrl: '/assets/homepage3.png',
+    imageUrl: 'https://res.cloudinary.com/dnuicbze9/image/upload/v1766379463/homepage3_gnpexc.png',
     textColor: 'black-900',
   },
 ];
