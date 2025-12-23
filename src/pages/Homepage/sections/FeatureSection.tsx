@@ -32,10 +32,9 @@ export const FeatureSection = ({ isMobile }: MutualProps) => {
             <Section>
               <VideoPlayer
                 src="your-video-url.mp4"
-                size="small"
+                size="special"
                 iconBoxSize={65}
-                iconSize={17.5}
-                poster="/assets/videoHome.png"
+                poster="https://res.cloudinary.com/dnuicbze9/image/upload/v1766383908/videoHome_bzkzdh.png"
               />
             </Section>
           </Flex>
@@ -69,10 +68,8 @@ export const FeatureSection = ({ isMobile }: MutualProps) => {
           <Section>
             <VideoPlayer
               src="your-video-url.mp4"
-              size="large"
-              iconBoxSize={96}
-              iconSize={26}
-              poster="/assets/videoHome.png"
+              size="special"
+              poster="https://res.cloudinary.com/dnuicbze9/image/upload/v1766383908/videoHome_bzkzdh.png"
             />
           </Section>
         </Flex>

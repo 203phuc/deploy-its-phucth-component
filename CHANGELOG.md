@@ -1,64 +1,56 @@
 # [1.0.0-DEV.22](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.21...v1.0.0-DEV.22) (2025-12-22)
 
-
 ### Bug Fixes
 
-* **ITS-IR01-313:** fix add new disable state to the dropdown ([fc3e4ab](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/fc3e4ab933a2aad4f9c1cb78d9e670d28b61571d))
-* **ITS-IR01-313:** fix sonar Unnecessary use of conditional expression for default assignment ([fa966a2](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/fa966a2781282cc22265687eee2d3dd6cb497e85))
-* **ITS-IR01-321:** fix sizing for button on mobile screen ([4301e27](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/4301e27a05a85ad9a0317e3682dc4f302af74675))
+- **ITS-IR01-313:** fix add new disable state to the dropdown ([fc3e4ab](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/fc3e4ab933a2aad4f9c1cb78d9e670d28b61571d))
+- **ITS-IR01-313:** fix sonar Unnecessary use of conditional expression for default assignment ([fa966a2](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/fa966a2781282cc22265687eee2d3dd6cb497e85))
+- **ITS-IR01-321:** fix sizing for button on mobile screen ([4301e27](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/4301e27a05a85ad9a0317e3682dc4f302af74675))
 
 # [1.0.0-DEV.21](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.20...v1.0.0-DEV.21) (2025-12-18)
 
-
 ### Bug Fixes
 
-* **ITS-IR01-301:** remove and fix icons belong to videoplayer ([892f47e](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/892f47eb3e13b7762987c60fe87842665e70d0ac))
-* **ITS-IR01-301:** specify sizes for video player ([10ee9cb](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/10ee9cb0c23dd00e942973fa655ec1d62dfce466))
-* **ITS-IR01-312:** fix size for dropdown ([17e0d41](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/17e0d418b293bf625ad01f544e43c0cc87501a56))
-* **ITS-IR01-313:** fix disable issues ([c0154a8](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/c0154a88dd96f8bca081078683cc7f731cf0e440))
-
+- **ITS-IR01-301:** remove and fix icons belong to videoplayer ([892f47e](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/892f47eb3e13b7762987c60fe87842665e70d0ac))
+- **ITS-IR01-301:** specify sizes for video player ([10ee9cb](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/10ee9cb0c23dd00e942973fa655ec1d62dfce466))
+- **ITS-IR01-312:** fix size for dropdown ([17e0d41](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/17e0d418b293bf625ad01f544e43c0cc87501a56))
+- **ITS-IR01-313:** fix disable issues ([c0154a8](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/c0154a88dd96f8bca081078683cc7f731cf0e440))
 
 ### Features
 
-* **ITS-IR01-1xx:** adding layout ([0bcd25b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/0bcd25bf7bca006ce01722b070d558ae9bea1086))
+- **ITS-IR01-1xx:** adding layout ([0bcd25b](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/0bcd25bf7bca006ce01722b070d558ae9bea1086))
 
 # [1.0.0-DEV.20](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.19...v1.0.0-DEV.20) (2025-12-18)
 
-
 ### Features
 
-* **ITS-IR01-362:** add images to deploy page ([cd1c9dc](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/cd1c9dc08c7e9e37a4ebcaef18a0499d364a4e13))
+- **ITS-IR01-362:** add images to deploy page ([cd1c9dc](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/cd1c9dc08c7e9e37a4ebcaef18a0499d364a4e13))
 
 # [1.0.0-DEV.19](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.18...v1.0.0-DEV.19) (2025-12-16)
 
-
 ### Bug Fixes
 
-* **ITS-IR01-307:** fix merge conflict ([db6bb58](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/db6bb580c8d6882e2da5da905d2c0a7de739e565))
-* **ITS-IR01-307:** make new selection option for logoname field ([9806ec5](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/9806ec5e245895a36195e7480626b2427865277c))
-* **ITS-IR01-308:** add hover effect to checkbox ([ed5a496](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/ed5a496a1f2d3e8031b659259ff5165bfc06c4b6))
-* **ITS-IR01-322:** fix rating color for outline star ([b0dd270](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/b0dd27037d053ad3125d585df94ea7b1cf2223b0))
-
+- **ITS-IR01-307:** fix merge conflict ([db6bb58](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/db6bb580c8d6882e2da5da905d2c0a7de739e565))
+- **ITS-IR01-307:** make new selection option for logoname field ([9806ec5](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/9806ec5e245895a36195e7480626b2427865277c))
+- **ITS-IR01-308:** add hover effect to checkbox ([ed5a496](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/ed5a496a1f2d3e8031b659259ff5165bfc06c4b6))
+- **ITS-IR01-322:** fix rating color for outline star ([b0dd270](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/b0dd27037d053ad3125d585df94ea7b1cf2223b0))
 
 ### Features
 
-* **ITS-IR01-358:** update with develop change for homepage ([27e2e18](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/27e2e18ed821108a224803cb9d8d1d700866f8aa))
+- **ITS-IR01-358:** update with develop change for homepage ([27e2e18](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/27e2e18ed821108a224803cb9d8d1d700866f8aa))
 
 # [1.0.0-DEV.18](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.17...v1.0.0-DEV.18) (2025-12-16)
 
-
 ### Bug Fixes
 
-* **ITS-IR01-282:** fix add new circle variants ([77d788f](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/77d788f647cd81d5338a44db78024b628d2f52ce))
-* **ITS-IR01-299:** fix button size ([df84d10](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/df84d10fe841d2faa8d529f6c95b8da001408db8))
-* **ITS-IR01-311:** fix size and variant for timer component ([a3c8fe6](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/a3c8fe67c4b94daabd11e2072a9bdbf6ddacb37a))
-* **ITS-IR01-311:** fix text size for timer ([02e854c](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/02e854c9476fb0f54fc267ac5a9fd90973b7e550))
-
+- **ITS-IR01-282:** fix add new circle variants ([77d788f](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/77d788f647cd81d5338a44db78024b628d2f52ce))
+- **ITS-IR01-299:** fix button size ([df84d10](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/df84d10fe841d2faa8d529f6c95b8da001408db8))
+- **ITS-IR01-311:** fix size and variant for timer component ([a3c8fe6](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/a3c8fe67c4b94daabd11e2072a9bdbf6ddacb37a))
+- **ITS-IR01-311:** fix text size for timer ([02e854c](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/02e854c9476fb0f54fc267ac5a9fd90973b7e550))
 
 ### Features
 
-* **ITS-IR01-299:** add color to button variant ([ff7f898](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/ff7f8983cce68961aac7c462509374a5e2414fcf))
-* **ITS-IR01-357:** add new behavior to sliderbar ([64b39d5](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/64b39d5cdac014b6f5487a964c1055bb02150ee7))
+- **ITS-IR01-299:** add color to button variant ([ff7f898](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/ff7f8983cce68961aac7c462509374a5e2414fcf))
+- **ITS-IR01-357:** add new behavior to sliderbar ([64b39d5](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/64b39d5cdac014b6f5487a964c1055bb02150ee7))
 
 # [1.0.0-DEV.17](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.16...v1.0.0-DEV.17) (2025-12-12)
 
