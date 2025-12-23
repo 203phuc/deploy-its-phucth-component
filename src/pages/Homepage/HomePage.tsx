@@ -23,7 +23,6 @@ import TextImageSection from './sections/TextImageSection';
 
 const HomePageContent = () => {
   const {
-    screenWidth,
     currentIndex,
     handleIndexChange,
     setNotificationVisible,
@@ -34,8 +33,6 @@ const HomePageContent = () => {
     mobileImageSlides,
     mobileTextSlides,
   } = useHomePage();
-
-  if (screenWidth === null) return null;
 
   return (
     <Flex direction="column" width="100%" height="100%">
@@ -105,7 +102,12 @@ const HomePageContent = () => {
           intro="CHECK US OUT"
           title="On instagram"
           description="Browse a curated selection of new arrivals and bestsellers — handpicked and ready to ship."
-          images={['/assets/banner1.png', '/assets/banner2.png', '/assets/banner3.png', '/assets/prod_1.png']}
+          images={[
+            'https://res.cloudinary.com/dnuicbze9/image/upload/v1766379463/banner1_mfkrjx.png',
+            'https://res.cloudinary.com/dnuicbze9/image/upload/v1766379462/banner2_afsx5i.png',
+            'https://res.cloudinary.com/dnuicbze9/image/upload/v1766379461/banner3_z9eyfw.png',
+            'https://res.cloudinary.com/dnuicbze9/image/upload/v1766383908/prod_1_lc42xu.png',
+          ]}
         />
       </Section>
       <Section>
