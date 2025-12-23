@@ -2,7 +2,7 @@
 import { cva, type VariantProps } from 'class-variance-authority';
 
 export const buttonCva = cva(
-  'relative inline-flex items-center justify-center font-medium disabled:cursor-not-allowed disabled:opacity-50',
+  'relative inline-flex cursor-pointer items-center justify-center font-medium disabled:cursor-not-allowed disabled:opacity-50',
   {
     variants: {
       variant: {
@@ -21,6 +21,7 @@ export const buttonCva = cva(
         medium: 'h-[52px] gap-[4px] px-[26px] py-[10px] text-[18px] leading-[32px]',
         small: 'h-[46px] gap-[4px] px-[24px] py-[9px] text-[16px] leading-[28px]',
         xsmall: 'h-[40px] gap-[2px] px-[20px] py-[8px] text-[14px] leading-[24px]',
+        specialSmall: 'h-[20px] gap-[2px] text-[12px] leading-[20px] !font-semibold',
       },
 
       roundness: {
@@ -40,6 +41,7 @@ export const buttonCva = cva(
       },
       textColor: {
         black: '!text-black-900',
+        gray: '!text-black-500',
         white: '!text-white',
       },
       font: {

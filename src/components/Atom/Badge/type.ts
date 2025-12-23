@@ -18,7 +18,7 @@ export interface BadgeProps extends Partial<BadgeCvaProps>, React.HTMLAttributes
   /**
    * The color of the badge background
    */
-  readonly color?: 'red' | 'green' | 'black' | 'white' | 'none';
+  readonly color?: 'red' | 'green' | 'black' | 'white' | 'none' | 'gray';
   /**
    * The size of the badge
    */

@@ -14,14 +14,12 @@ interface BreadCrumbProps {
   items: BreadCrumbItem[];
   separator?: React.ReactNode;
   gap?: number;
-  className?: string;
 }
 
 export const BreadCrumb: React.FC<BreadCrumbProps> = ({
   items,
   separator = <Icons iconName="ChevronRightIcon" color="black-600" iconSize={12} />,
   gap = 2,
-  className,
 }) => {
   const handleClick = (item: BreadCrumbItem, index: number, e: React.MouseEvent) => {
     if (item.onClick) {
@@ -37,7 +35,7 @@ export const BreadCrumb: React.FC<BreadCrumbProps> = ({
   }, [items]);
 
   return (
-    <Flex align="center" gap={gap} className={className}>
+    <Flex align="center" gap={gap}>
       {items.map((item, index) => (
         <React.Fragment key={item.id}>
           {index > 0 && (
@@ -47,7 +45,7 @@ export const BreadCrumb: React.FC<BreadCrumbProps> = ({
           )}
           <Text
             onClick={(e) => handleClick(item, index, e)}
-            size="small"
+            size="xsmall"
             color={index === items.length - 1 ? 'black-900' : 'black-500'}
             className={index < items.length - 1 ? 'cursor-pointer' : 'cursor-default'}
           >

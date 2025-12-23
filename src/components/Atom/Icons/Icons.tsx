@@ -32,7 +32,7 @@ export const Icons = ({
     className: box ? boxClassName : '',
   });
 
-  const iconElement = <IconComponent size={iconSize} color={color} className={iconClassName} />;
+  const iconElement = <IconComponent size={iconSize} color={iconsCva({ color })} className={iconClassName} />;
   if (!box) {
     return iconElement;
   }
