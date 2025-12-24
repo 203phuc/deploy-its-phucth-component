@@ -12,10 +12,25 @@ import { useState } from 'react';
 interface ToolBarProps {
   productCount: number;
   isMobile?: boolean;
+  setColumns: React.Dispatch<React.SetStateAction<'list' | '5column' | '4column' | '3column' | '2column'>>;
 }
+type ColumnIcon = 'ListIcon' | 'FiveColumnsIcon' | 'FourColumnsIcon' | 'ThreeColumnsIcon' | 'TwoColumnsIcon';
 
-export const ToolBar = ({ productCount, isMobile }: ToolBarProps) => {
+type ColumnValue = 'list' | '5column' | '4column' | '3column' | '2column';
+const columnMap: Record<ColumnIcon, ColumnValue> = {
+  ListIcon: 'list',
+  FiveColumnsIcon: '5column',
+  FourColumnsIcon: '4column',
+  ThreeColumnsIcon: '3column',
+  TwoColumnsIcon: '2column',
+};
+
+export const ToolBar = ({ productCount, isMobile, setColumns }: ToolBarProps) => {
   const [selected, setSelected] = useState(isMobile ? 'TwoColumnsIcon' : 'FiveColumnsIcon'); // default selected
+  const handleSelect = (item: ColumnIcon) => {
+    setSelected(item);
+    setColumns(columnMap[item]); // ✅ fully type-safe
+  };
 
   const icons = [
     'FiveColumnsIcon',
@@ -24,7 +39,7 @@ export const ToolBar = ({ productCount, isMobile }: ToolBarProps) => {
     'TwoColumnsIcon',
     'ListIcon',
   ] as IconName[];
-  const iconsMobile = ['TwoColumnsIcon', 'ListIcon'] as IconName[];
+  const iconsMobile = ['TwoColumnsIcon', 'ListIcon'] as ColumnIcon[];
   if (isMobile) {
     return (
       <Section w="100%" h={129} my={16}>
@@ -61,7 +76,7 @@ export const ToolBar = ({ productCount, isMobile }: ToolBarProps) => {
                     <Section
                       key={icon}
                       bgColor={selected === icon ? 'var(--color-black-100)' : 'white'}
-                      onClick={() => setSelected(icon)}
+                      onClick={() => handleSelect(icon)}
                       w={35}
                       h={32}
                     >
@@ -144,7 +159,7 @@ export const ToolBar = ({ productCount, isMobile }: ToolBarProps) => {
                     <Section
                       key={icon}
                       bgColor={selected === icon ? 'var(--color-black-100)' : 'white'}
-                      onClick={() => setSelected(icon)}
+                      onClick={() => handleSelect(icon as ColumnIcon)}
                       w={45}
                       h={40}
                     >
