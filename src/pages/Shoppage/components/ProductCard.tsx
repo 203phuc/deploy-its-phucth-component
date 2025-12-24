@@ -17,11 +17,13 @@ export interface ProductCardProps {
   rating?: 0 | 1 | 2 | 3 | 4 | 5;
   isNew?: boolean;
   salePercentage?: number;
+  description?: string;
 }
 
 const cardDimensions = {
   '5column': { w: 241.5, h: 408, imageSize: 's5' as ImagePlaceholderSize },
   '4column': { w: 310, h: 499, imageSize: 's8' as ImagePlaceholderSize },
+  '4columnFilter': { w: 228, h: 390, imageSize: 's30' as ImagePlaceholderSize },
   '3column': { w: 424, h: 651, imageSize: 's19' as ImagePlaceholderSize },
   '2column': { w: 652, h: 975, imageSize: 's23' as ImagePlaceholderSize },
 };
@@ -34,6 +36,7 @@ export const ProductCard = ({
   salePercentage,
   rating,
   imageUrl,
+  description,
 }: ProductCardProps) => {
   if (!price) return null;
   if (size === 'list') {
@@ -91,8 +94,8 @@ export const ProductCard = ({
                   </Section>
                   <Section mt={12} w={612} h={52}>
                     <Text>
-                      If you want, I can make it even more compact so you don’t need to repeat keys at all. Do
-                      you want me to do that?
+                      {description ??
+                        'If you want, I can make it even more compact so you don’t need to repeat keys at all. Do you want me to do that?'}
                     </Text>
                   </Section>
                   <Section mt={20} w={298} h={40}>
