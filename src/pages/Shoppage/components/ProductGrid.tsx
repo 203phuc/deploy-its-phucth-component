@@ -19,7 +19,7 @@ const columnMap: Record<ColumnType, number> = {
 const defaultRowGap = 56;
 
 const rowGapMap: Record<ColumnType, number> = {
-  list: 32,
+  list: 0,
   '5column': 52,
   '4column': defaultRowGap,
   '3column': defaultRowGap,

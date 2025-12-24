@@ -31,7 +31,7 @@ export const NavigationBar = ({
         w="100%"
         bgColor={scrolled || path !== '/home' ? 'white' : 'transparent'}
         transition={transition}
-        transform={scrolled && path === '/home' ? transformValue : ''}
+        transform={path === '/home' ? transformValue : ''}
       >
         <Flex align="center" justify="center" height="100%" width="100%">
           <Section h={60}>

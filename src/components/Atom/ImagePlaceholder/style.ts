@@ -32,6 +32,7 @@ export const imagePlaceholderCva = cva('inline-block rotate-0 opacity-100', {
       s27: 'h-[400px] w-[1336px]',
       s28: 'h-[889px] w-[1336px]',
       s29: 'h-[467px] w-[1440px]',
+      s30: 'h-[304px] w-[228px]',
       full: 'h-full w-full',
     },
     gap: {
