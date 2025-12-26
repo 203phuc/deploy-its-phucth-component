@@ -10,7 +10,18 @@ import { Text } from '@components/Atom/Text';
 import Rating from '@components/Molecule/Rating/Rating';
 
 export interface ProductCardProps {
-  size?: 'list' | '5column' | '4column' | '3column' | '2column';
+  size?:
+    | 'list'
+    | '5column'
+    | '4column'
+    | '3column'
+    | '2column'
+    | '4columnFilter'
+    | '3columnFilter'
+    | '2columnFilter'
+    | 'listColumnFilter'
+    | '2columnMobile'
+    | 'listMobile';
   imageUrl?: string;
   title?: string;
   price: number;
@@ -26,6 +37,9 @@ const cardDimensions = {
   '4columnFilter': { w: 228, h: 390, imageSize: 's30' as ImagePlaceholderSize },
   '3column': { w: 424, h: 651, imageSize: 's19' as ImagePlaceholderSize },
   '2column': { w: 652, h: 975, imageSize: 's23' as ImagePlaceholderSize },
+  '2columnFilter': { w: 483, h: 709, imageSize: 's32' as ImagePlaceholderSize },
+  '3columnFilter': { w: 313, h: 499, imageSize: 's31' as ImagePlaceholderSize },
+  '2columnMobile': { w: 163, h: 277, imageSize: 's2' as ImagePlaceholderSize },
 };
 
 export const ProductCard = ({
@@ -39,7 +53,7 @@ export const ProductCard = ({
   description,
 }: ProductCardProps) => {
   if (!price) return null;
-  if (size === 'list') {
+  if (size === 'list' || size === 'listColumnFilter' || size === 'listMobile') {
     return (
       <Section py={24}>
         <Position position="relative">
@@ -68,7 +82,7 @@ export const ProductCard = ({
                   </Flex>
                 </Section>
               </Position>
-              <Section w={1068} h={258}>
+              <Section w={size === 'listColumnFilter' ? 726 : 1068} h={258}>
                 <Flex direction="column" height="100%" gap={4}>
                   <Text size="special1" font="spaceGrotesk" color="black-900" weight="moderate">
                     {title}

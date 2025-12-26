@@ -2,43 +2,104 @@ import { Badge } from '@components/Atom/Badge/Badge';
 import { Button } from '@components/Atom/Button/Button';
 import { Flex } from '@components/Atom/Flex';
 import Grid from '@components/Atom/Grid/Grid';
-import { IconName } from '@components/Atom/Icons';
 import { Icons } from '@components/Atom/Icons/Icons';
 import { Position } from '@components/Atom/Position/Position';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text/Text';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { type ColumnType } from './ProductGrid';
 
 interface ToolBarProps {
   productCount: number;
   isMobile?: boolean;
-  setColumns: React.Dispatch<React.SetStateAction<'list' | '5column' | '4column' | '3column' | '2column'>>;
+  setColumns: React.Dispatch<React.SetStateAction<ColumnType>>;
+  setFilter?: React.Dispatch<React.SetStateAction<boolean>>;
+  filter?: boolean;
 }
 type ColumnIcon = 'ListIcon' | 'FiveColumnsIcon' | 'FourColumnsIcon' | 'ThreeColumnsIcon' | 'TwoColumnsIcon';
-
-type ColumnValue = 'list' | '5column' | '4column' | '3column' | '2column';
-const columnMap: Record<ColumnIcon, ColumnValue> = {
+const columnMap: Record<ColumnIcon, ColumnType> = {
   ListIcon: 'list',
   FiveColumnsIcon: '5column',
   FourColumnsIcon: '4column',
   ThreeColumnsIcon: '3column',
   TwoColumnsIcon: '2column',
 };
+const columnFilterMap: Record<ColumnIcon, ColumnType> = {
+  ListIcon: 'listColumnFilter',
+  FourColumnsIcon: '4columnFilter',
+  ThreeColumnsIcon: '3columnFilter',
+  TwoColumnsIcon: '2columnFilter',
+  FiveColumnsIcon: '4columnFilter',
+};
+const filterColumnMap: Record<ColumnType, ColumnType> = {
+  '5column': '4columnFilter',
+  '4column': '4columnFilter',
+  '3column': '3columnFilter',
+  '2column': '2columnFilter',
+  listMobile: 'listMobile',
+  list: 'listColumnFilter',
+  '2columnMobile': '2columnMobile', // stays same
+  '4columnFilter': '4columnFilter',
+  '3columnFilter': '3columnFilter',
+  '2columnFilter': '2columnFilter',
+  listColumnFilter: 'listColumnFilter',
+};
 
-export const ToolBar = ({ productCount, isMobile, setColumns }: ToolBarProps) => {
-  const [selected, setSelected] = useState(isMobile ? 'TwoColumnsIcon' : 'FiveColumnsIcon'); // default selected
+const normalColumnMap: Record<ColumnType, ColumnType> = {
+  '4columnFilter': '4column',
+  '3columnFilter': '3column',
+  '2columnFilter': '2column',
+  listColumnFilter: 'list',
+  '2columnMobile': '2columnMobile',
+  listMobile: 'list',
+  '5column': '5column',
+  '4column': '4column',
+  '3column': '3column',
+  '2column': '2column',
+  list: 'list',
+};
+
+export const ToolBar = ({ productCount, isMobile, setColumns, setFilter, filter }: ToolBarProps) => {
   const handleSelect = (item: ColumnIcon) => {
-    setSelected(item);
-    setColumns(columnMap[item]); // ✅ fully type-safe
-  };
+    if (filter && item === 'FiveColumnsIcon') return; //block on filter selected
 
-  const icons = [
-    'FiveColumnsIcon',
-    'FourColumnsIcon',
-    'ThreeColumnsIcon',
-    'TwoColumnsIcon',
-    'ListIcon',
-  ] as IconName[];
+    setSelected(item);
+    setColumns(filter ? columnFilterMap[item] : columnMap[item]);
+  };
+  const [selected, setSelected] = useState<ColumnIcon>('FiveColumnsIcon');
+
+  useEffect(() => {
+    if (filter) {
+      setColumns((prev) => {
+        const newColumn = filterColumnMap[prev] || prev;
+        setSelected(() => {
+          // Map the new column to the correct icon
+          switch (newColumn) {
+            case '4columnFilter':
+              return 'FourColumnsIcon';
+            case '3columnFilter':
+              return 'ThreeColumnsIcon';
+            case '2columnFilter':
+              return 'TwoColumnsIcon';
+            case 'listColumnFilter':
+              return 'ListIcon';
+            case '2columnMobile':
+              return 'TwoColumnsIcon';
+            default:
+              return 'FiveColumnsIcon'; // fallback
+          }
+        });
+        return newColumn;
+      });
+    } else {
+      setColumns((prev) => normalColumnMap[prev]);
+    }
+  }, [filter, setColumns]);
+  const icons = (
+    filter
+      ? ['FourColumnsIcon', 'ThreeColumnsIcon', 'TwoColumnsIcon', 'ListIcon']
+      : ['FiveColumnsIcon', 'FourColumnsIcon', 'ThreeColumnsIcon', 'TwoColumnsIcon', 'ListIcon']
+  ) as ColumnIcon[];
   const iconsMobile = ['TwoColumnsIcon', 'ListIcon'] as ColumnIcon[];
   if (isMobile) {
     return (
@@ -54,7 +115,12 @@ export const ToolBar = ({ productCount, isMobile, setColumns }: ToolBarProps) =>
           </Flex>
           <Section w="100%" h={1} bgColor="var(--color-black-200)" />
           <Flex justify="space-between" align="center" width="100%">
-            <Button font="spaceGrotesk" size="small" variant="text">
+            <Button
+              onClick={() => setFilter?.((prev) => !prev)}
+              font="spaceGrotesk"
+              size="small"
+              variant="text"
+            >
               Filter <Icons iconName="SettingIcon" />
             </Button>
             <Section
@@ -133,7 +199,12 @@ export const ToolBar = ({ productCount, isMobile, setColumns }: ToolBarProps) =>
             {productCount} products
           </Text>
           <Flex gap={32}>
-            <Button font="spaceGrotesk" size="small" variant="text">
+            <Button
+              onClick={() => setFilter?.((prev) => !prev)}
+              font="spaceGrotesk"
+              size="small"
+              variant="text"
+            >
               Filter <Icons iconName="SettingIcon" />
             </Button>
             <Button font="spaceGrotesk" size="small" variant="text">
@@ -145,34 +216,36 @@ export const ToolBar = ({ productCount, isMobile, setColumns }: ToolBarProps) =>
               bgColor="var(--color-black-200)"
               border="1px solid var(--color-black-200)"
               overflow="hidden"
-              w={230}
+              w={filter ? 184 : 230}
               h={40}
             >
               <Grid
-                columns={5}
+                columns={filter ? 4 : 5}
                 gap={1} // fake inner borders
                 width="100%"
                 height="100%"
               >
-                {icons.map((icon) => (
-                  <Position key={icon} position="relative" zIndex={5}>
-                    <Section
-                      key={icon}
-                      bgColor={selected === icon ? 'var(--color-black-100)' : 'white'}
-                      onClick={() => handleSelect(icon as ColumnIcon)}
-                      w={45}
-                      h={40}
-                    >
-                      <Flex align="center" justify="center" width="100%" height="100%">
-                        <Icons
-                          iconName={icon}
-                          iconSize={24}
-                          color={selected === icon ? 'black' : 'black-400'}
-                        />
-                      </Flex>
-                    </Section>
-                  </Position>
-                ))}
+                {icons.map((icon) => {
+                  return (
+                    <Position key={icon} position="relative" zIndex={5}>
+                      <Section
+                        key={icon}
+                        bgColor={selected === icon ? 'var(--color-black-100)' : 'white'}
+                        onClick={() => handleSelect(icon)}
+                        w={45}
+                        h={40}
+                      >
+                        <Flex align="center" justify="center" width="100%" height="100%">
+                          <Icons
+                            iconName={icon}
+                            iconSize={24}
+                            color={selected === icon ? 'black' : 'black-400'}
+                          />
+                        </Flex>
+                      </Section>
+                    </Position>
+                  );
+                })}
               </Grid>
             </Section>
           </Flex>

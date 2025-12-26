@@ -1,4 +1,4 @@
-import { ProductCardProps } from '../components/ProductCard';
+import { ProductCardProps } from '../../HOC/ProductCard';
 export const products: ProductCardProps[] = [
   {
     title: 'Classic Leather Chair',

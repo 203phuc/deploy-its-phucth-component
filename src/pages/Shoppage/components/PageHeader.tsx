@@ -10,7 +10,7 @@ import React from 'react';
 import { useBreadcrumbHistory } from '../hooks/useBreadcrumbHistory';
 import { BreadCrumb } from './BreadCrumb';
 
-interface PageHeaderProps {
+export interface PageHeaderProps {
   isMobile?: boolean;
 }
 
