@@ -27,7 +27,7 @@ export const ProductGridLayout = ({
   setColumns,
   component,
 }: ProductGridLayoutProps) => (
-  <Section w="100%" px={isMobile ? 16 : 52}>
+  <Section w="100%" px={isMobile ? 16 : 52} pb={isMobile ? 46 : 120}>
     <Flex width="100%" direction="column" align="center" justify="center">
       {component}
       <Flex gap={32}>

@@ -40,6 +40,7 @@ const cardDimensions = {
   '2columnFilter': { w: 483, h: 709, imageSize: 's32' as ImagePlaceholderSize },
   '3columnFilter': { w: 313, h: 499, imageSize: 's31' as ImagePlaceholderSize },
   '2columnMobile': { w: 163, h: 277, imageSize: 's2' as ImagePlaceholderSize },
+  listMobile: { w: 343, h: 522, imageSize: 's14' as ImagePlaceholderSize },
 };
 
 export const ProductCard = ({
@@ -53,7 +54,7 @@ export const ProductCard = ({
   description,
 }: ProductCardProps) => {
   if (!price) return null;
-  if (size === 'list' || size === 'listColumnFilter' || size === 'listMobile') {
+  if (size === 'list' || size === 'listColumnFilter') {
     return (
       <Section py={24}>
         <Position position="relative">

@@ -88,7 +88,7 @@ export const ProductGrid = ({ isMobile, product, columns = '5column' }: ProductG
     setVisibleCount(ITEMS_PER_PAGE[columns as keyof typeof ITEMS_PER_PAGE]);
   }, [isMobile, columns]);
 
-  const gridColumns = isMobile ? 2 : columnMap[columns];
+  const gridColumns = columnMap[columns];
   const gridRowGap = isMobile ? 52 : rowGapMap[columns];
   const gridColumnGapMap = isMobile ? 16 : columnGapMap[columns];
 
@@ -131,7 +131,7 @@ export const ProductGrid = ({ isMobile, product, columns = '5column' }: ProductG
       </Grid>
       {canLoadMore && (
         <Flex justify="center">
-          <Button onClick={handleLoadMore} roundness="round" size="medium">
+          <Button onClick={handleLoadMore} roundness="round" size={isMobile ? 'xsmall' : 'medium'}>
             Load More
           </Button>
         </Flex>

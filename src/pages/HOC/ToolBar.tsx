@@ -6,7 +6,7 @@ import { Icons } from '@components/Atom/Icons/Icons';
 import { Position } from '@components/Atom/Position/Position';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text/Text';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { type ColumnType } from './ProductGrid';
 
 interface ToolBarProps {
@@ -31,18 +31,13 @@ const columnFilterMap: Record<ColumnIcon, ColumnType> = {
   TwoColumnsIcon: '2columnFilter',
   FiveColumnsIcon: '4columnFilter',
 };
-const filterColumnMap: Record<ColumnType, ColumnType> = {
-  '5column': '4columnFilter',
-  '4column': '4columnFilter',
-  '3column': '3columnFilter',
-  '2column': '2columnFilter',
-  listMobile: 'listMobile',
-  list: 'listColumnFilter',
-  '2columnMobile': '2columnMobile', // stays same
-  '4columnFilter': '4columnFilter',
-  '3columnFilter': '3columnFilter',
-  '2columnFilter': '2columnFilter',
-  listColumnFilter: 'listColumnFilter',
+
+const columnMapMobile: Record<ColumnIcon, ColumnType> = {
+  ListIcon: 'listMobile',
+  TwoColumnsIcon: '2columnMobile',
+  FourColumnsIcon: '2columnMobile',
+  ThreeColumnsIcon: '2columnMobile',
+  FiveColumnsIcon: '2columnMobile',
 };
 
 const normalColumnMap: Record<ColumnType, ColumnType> = {
@@ -60,15 +55,42 @@ const normalColumnMap: Record<ColumnType, ColumnType> = {
 };
 
 export const ToolBar = ({ productCount, isMobile, setColumns, setFilter, filter }: ToolBarProps) => {
+  const filterColumnMap = useRef<Record<ColumnType, ColumnType>>({
+    '5column': '4columnFilter',
+    '4column': '4columnFilter',
+    '3column': '3columnFilter',
+    '2column': '2columnFilter',
+    list: isMobile ? 'listMobile' : 'listColumnFilter',
+    listMobile: filter ? 'listColumnFilter' : 'list',
+    '2columnMobile': '2columnMobile', // stays same
+    '4columnFilter': '4columnFilter',
+    '3columnFilter': '3columnFilter',
+    '2columnFilter': '2columnFilter',
+    listColumnFilter: 'listColumnFilter',
+  }).current;
   const handleSelect = (item: ColumnIcon) => {
     if (filter && item === 'FiveColumnsIcon') return; //block on filter selected
 
     setSelected(item);
-    setColumns(filter ? columnFilterMap[item] : columnMap[item]);
+    if (isMobile) {
+      setColumns(columnMapMobile[item]);
+      return;
+    }
+
+    if (filter) {
+      setColumns(columnFilterMap[item]);
+      return;
+    }
+
+    setColumns(columnMap[item]);
   };
   const [selected, setSelected] = useState<ColumnIcon>('FiveColumnsIcon');
 
   useEffect(() => {
+    if (isMobile) {
+      setColumns('2columnMobile');
+      setSelected('TwoColumnsIcon');
+    }
     if (filter) {
       setColumns((prev) => {
         const newColumn = filterColumnMap[prev] || prev;
@@ -94,7 +116,7 @@ export const ToolBar = ({ productCount, isMobile, setColumns, setFilter, filter 
     } else {
       setColumns((prev) => normalColumnMap[prev]);
     }
-  }, [filter, setColumns]);
+  }, [filter, setColumns, isMobile, filterColumnMap]);
   const icons = (
     filter
       ? ['FourColumnsIcon', 'ThreeColumnsIcon', 'TwoColumnsIcon', 'ListIcon']
