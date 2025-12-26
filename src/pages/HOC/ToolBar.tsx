@@ -6,6 +6,8 @@ import { Icons } from '@components/Atom/Icons/Icons';
 import { Position } from '@components/Atom/Position/Position';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text/Text';
+import { Dropdown } from '@components/Molecule/Dropdown';
+import { sortItem } from '@pages/Shoppage/mockData/dropdown';
 import { useEffect, useRef, useState } from 'react';
 import { type ColumnType } from './ProductGrid';
 
@@ -45,7 +47,7 @@ const normalColumnMap: Record<ColumnType, ColumnType> = {
   '3columnFilter': '3column',
   '2columnFilter': '2column',
   listColumnFilter: 'list',
-  '2columnMobile': '2columnMobile',
+  '2columnMobile': '2column',
   listMobile: 'list',
   '5column': '5column',
   '4column': '4column',
@@ -85,11 +87,12 @@ export const ToolBar = ({ productCount, isMobile, setColumns, setFilter, filter 
     setColumns(columnMap[item]);
   };
   const [selected, setSelected] = useState<ColumnIcon>('FiveColumnsIcon');
-
+  const [openSort, setOpenSort] = useState<boolean>(false);
   useEffect(() => {
     if (isMobile) {
       setColumns('2columnMobile');
       setSelected('TwoColumnsIcon');
+      return;
     }
     if (filter) {
       setColumns((prev) => {
@@ -105,8 +108,6 @@ export const ToolBar = ({ productCount, isMobile, setColumns, setFilter, filter 
               return 'TwoColumnsIcon';
             case 'listColumnFilter':
               return 'ListIcon';
-            case '2columnMobile':
-              return 'TwoColumnsIcon';
             default:
               return 'FiveColumnsIcon'; // fallback
           }
@@ -131,8 +132,14 @@ export const ToolBar = ({ productCount, isMobile, setColumns, setFilter, filter 
             <Text color="black-600" size="small" align="center">
               {productCount} products
             </Text>
-            <Button font="spaceGrotesk" size="xsmall" variant="underline">
+            <Button
+              onClick={() => setOpenSort((prev) => !prev)}
+              font="spaceGrotesk"
+              size="xsmall"
+              variant="underline"
+            >
               Sort by
+              <Dropdown isOpen={openSort} disabled={false} options={sortItem} />
             </Button>
           </Flex>
           <Section w="100%" h={1} bgColor="var(--color-black-200)" />

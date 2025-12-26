@@ -17,8 +17,9 @@ const ShopPageContent = () => {
   const [filter, setFilter] = useState<boolean>(false);
   useEffect(() => {
     console.log('filter', filter);
+    console.log(columns);
     return onSmallScreenChange(setIsMobile);
-  }, [filter]);
+  }, [filter, isMobile, columns]);
   return (
     <React.Fragment>
       <Position position={scrolled ? 'fixed' : 'relative'} top={0} left={0} right={0} zIndex={10}>

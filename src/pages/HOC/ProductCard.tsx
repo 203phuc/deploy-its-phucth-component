@@ -39,7 +39,13 @@ const cardDimensions = {
   '2column': { w: 652, h: 975, imageSize: 's23' as ImagePlaceholderSize },
   '2columnFilter': { w: 483, h: 709, imageSize: 's32' as ImagePlaceholderSize },
   '3columnFilter': { w: 313, h: 499, imageSize: 's31' as ImagePlaceholderSize },
-  '2columnMobile': { w: 163, h: 277, imageSize: 's2' as ImagePlaceholderSize },
+  '2columnMobile': {
+    w: 163,
+    h: 277,
+    textSize: 'smedium',
+    priceSize: 'xsmall',
+    imageSize: 's2' as ImagePlaceholderSize,
+  },
   listMobile: { w: 343, h: 522, imageSize: 's14' as ImagePlaceholderSize },
 };
 
@@ -155,8 +161,8 @@ export const ProductCard = ({
         />
         <Position position="absolute" top={0} left={0}>
           <Section w={w} px={16} py={16}>
-            <Flex justify="space-between" align="center">
-              <Flex gap={12}>
+            <Flex justify="space-between" align={size?.includes('Mobile') ? 'start' : 'center'}>
+              <Flex direction={size?.includes('Mobile') ? 'column' : 'row'} gap={12}>
                 {isNew && <Badge size="small">NEW</Badge>}
                 {Number(salePercentage) > 0 && (
                   <Badge size="small" color="green">
