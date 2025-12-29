@@ -11,6 +11,7 @@ interface FilterSideBarProps {
   items?: string[];
   setOption?: React.Dispatch<React.SetStateAction<string[] | undefined>>;
   setFilter?: React.Dispatch<React.SetStateAction<boolean>>;
+  isMobile?: boolean;
 }
 
 const colors = [
@@ -21,9 +22,9 @@ const colors = [
 ];
 const sizes = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
 
-export const FilterSideBar = ({ items, setOption, setFilter }: FilterSideBarProps) => {
+export const FilterSideBar = ({ items, setOption, setFilter, isMobile }: FilterSideBarProps) => {
   return (
-    <Section w={310} h={1024} px={24} py={24}>
+    <Section bgColor="white" w={310} h={1024} px={24} py={24}>
       <Flex direction="column" gap={32} width={262} height={976}>
         <Flex align="center" width="100%" justify="space-between">
           <Text color="black-900" font="inter" weight="semiBold" size="3xlarge">
@@ -58,12 +59,14 @@ export const FilterSideBar = ({ items, setOption, setFilter }: FilterSideBarProp
               <SliderBar size="special" min={25} max={3000} />
             </Section>
           </Section>
-          <Section>
-            <Text color="black-900" font="inter" weight="semiBold" size="small">
-              STYLE
-            </Text>
-            <Select items={items} setOption={setOption} />
-          </Section>
+          {!isMobile && (
+            <Section>
+              <Text color="black-900" font="inter" weight="semiBold" size="small">
+                STYLE
+              </Text>
+              <Select items={items} setOption={setOption} />
+            </Section>
+          )}
         </Flex>
       </Flex>
     </Section>

@@ -1,15 +1,21 @@
 import { cva, type VariantProps } from 'class-variance-authority';
 import { DropdownDirection, DropdownVariant } from './type';
 
-const dropdownVariants = cva('absolute z-50 w-full bg-white text-left shadow-[0px_8px_16px_0px_#00000009]', {
+const dropdownVariants = cva('absolute z-50 bg-white text-left shadow-[0px_8px_16px_0px_#00000009]', {
   variants: {
     direction: {
       up: 'bottom-full mb-1',
       down: 'top-full mt-1',
     },
+    align: {
+      left: 'left-0',
+      right: 'right-0',
+      center: 'left-1/2 -translate-x-1/2',
+    },
   },
   defaultVariants: {
     direction: 'down',
+    align: 'left',
   },
 });
 
@@ -58,12 +64,13 @@ type WidthVariants = VariantProps<typeof widthVariants>;
 export const getSelectStyles = (
   variant: DropdownVariant = 'default',
   direction: DropdownDirection = 'down',
+  align: 'left' | 'right' | 'center' = 'left',
 ) => {
   const width = widthVariants({ variant });
   const optionVariant = variant === 'sm' ? 'default' : (variant as 'default' | 'xs' | 'md' | 'none');
 
   return {
-    dropdown: dropdownVariants({ direction }),
+    dropdown: dropdownVariants({ direction, align }),
     option: (selected?: boolean, disabled?: boolean) =>
       optionVariants({
         variant: optionVariant,

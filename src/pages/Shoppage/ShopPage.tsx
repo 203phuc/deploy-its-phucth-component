@@ -1,4 +1,5 @@
 import { Position } from '@components/Atom/Position/Position';
+import { ProductCardProps } from '@pages/HOC/ProductCard';
 import { ProductGridLayout } from '@pages/HOC/ProductGridLayout';
 import React, { useEffect, useState } from 'react';
 import { onSmallScreenChange } from 'src/util/mediaQueries';
@@ -8,13 +9,13 @@ import { Footer } from '../Homepage/sections/Footer';
 import { useHomePage } from '../Homepage/sections/hooks/HomePageHook';
 import { NavigationBar } from '../Homepage/sections/NavigationBar';
 import { PageHeader } from './components/PageHeader';
-import { products } from './mockData/products';
 
 const ShopPageContent = () => {
   const [isMobile, setIsMobile] = useState(false);
   const { notificationHeight, scrolled } = useHomePage();
   const [columns, setColumns] = useState<ColumnType>('5column');
   const [filter, setFilter] = useState<boolean>(false);
+  const product: ProductCardProps[] = [];
   useEffect(() => {
     console.log('filter', filter);
     console.log(columns);
@@ -32,7 +33,7 @@ const ShopPageContent = () => {
       </Position>
       <ProductGridLayout
         isMobile={isMobile}
-        products={products}
+        products={product}
         columns={columns}
         setColumns={setColumns}
         filter={filter}

@@ -132,15 +132,16 @@ export const ToolBar = ({ productCount, isMobile, setColumns, setFilter, filter 
             <Text color="black-600" size="small" align="center">
               {productCount} products
             </Text>
-            <Button
-              onClick={() => setOpenSort((prev) => !prev)}
-              font="spaceGrotesk"
-              size="xsmall"
-              variant="underline"
-            >
-              Sort by
-              <Dropdown isOpen={openSort} disabled={false} options={sortItem} />
-            </Button>
+            <Dropdown align="right" variant="sm" isOpen={openSort} disabled={false} options={sortItem}>
+              <Button
+                onClick={() => setOpenSort((prev) => !prev)}
+                font="spaceGrotesk"
+                size="xsmall"
+                variant="underline"
+              >
+                Sort by
+              </Button>
+            </Dropdown>
           </Flex>
           <Section w="100%" h={1} bgColor="var(--color-black-200)" />
           <Flex justify="space-between" align="center" width="100%">
@@ -227,7 +228,7 @@ export const ToolBar = ({ productCount, isMobile, setColumns, setFilter, filter 
           <Text color="black-600" size="medium" align="center">
             {productCount} products
           </Text>
-          <Flex gap={32}>
+          <Flex align="center" gap={32}>
             <Button
               onClick={() => setFilter?.((prev) => !prev)}
               font="spaceGrotesk"
@@ -236,10 +237,17 @@ export const ToolBar = ({ productCount, isMobile, setColumns, setFilter, filter 
             >
               Filter <Icons iconName="SettingIcon" />
             </Button>
-            <Button font="spaceGrotesk" size="small" variant="text">
-              Sort by <Icons iconName="ChevronDownIcon" />
-            </Button>
-
+            <Dropdown align="center" variant="sm" isOpen={openSort} disabled={false} options={sortItem}>
+              <Button
+                font="spaceGrotesk"
+                size="small"
+                onClick={() => setOpenSort((prev) => !prev)}
+                variant={openSort ? 'underline' : 'text'}
+              >
+                Sort by{' '}
+                <Icons iconName={openSort ? 'ChevronUpIcon' : 'ChevronDownIcon'} iconSize={20}></Icons>
+              </Button>
+            </Dropdown>
             <Section
               borderRadius={4}
               bgColor="var(--color-black-200)"

@@ -1,6 +1,10 @@
+import { Button } from '@components/Atom/Button';
 import { Flex } from '@components/Atom/Flex';
+import { Heading } from '@components/Atom/Heading';
 import { Overlay } from '@components/Atom/Overlay';
+import { Position } from '@components/Atom/Position';
 import { Section } from '@components/Atom/Section/Section';
+import { Text } from '@components/Atom/Text';
 import { PageHeaderProps } from '@pages/Shoppage/components/PageHeader';
 import React from 'react';
 import { FilterSideBar } from './FilterSideBar';
@@ -30,12 +34,14 @@ export const ProductGridLayout = ({
   <Section w="100%" px={isMobile ? 16 : 52} pb={isMobile ? 46 : 120}>
     <Flex width="100%" direction="column" align="center" justify="center">
       {component}
-      <Flex gap={32}>
+      <Flex width="100%" gap={32}>
         {filter &&
           (isMobile ? (
-            <Overlay>
-              <FilterSideBar setFilter={setFilter} />
-            </Overlay>
+            <Position zIndex={10}>
+              <Overlay position="left" onClose={() => setFilter?.(false)} isOpen={filter}>
+                <FilterSideBar setFilter={setFilter} isMobile={isMobile} />
+              </Overlay>
+            </Position>
           ) : (
             <FilterSideBar setFilter={setFilter} />
           ))}
@@ -48,7 +54,23 @@ export const ProductGridLayout = ({
             setFilter={setFilter}
             filter={filter}
           />
-          <ProductGrid product={products} columns={columns} isMobile={isMobile} />
+          {products.length > 0 ? (
+            <ProductGrid product={products} columns={columns} isMobile={isMobile} />
+          ) : (
+            <Section w="100%" pt={46}>
+              <Flex width="100%" align="center" justify="center" direction="column" gap={12}>
+                <Heading font="spaceGrotesk" weight="moderate" color="black-900" size="h5">
+                  No items were found.
+                </Heading>
+                <Text size="large">Try remove a filter</Text>
+                <Section pt={30}>
+                  <Button font="spaceGrotesk" roundness="round" size="medium">
+                    Remove all
+                  </Button>
+                </Section>
+              </Flex>
+            </Section>
+          )}
         </Section>
       </Flex>
     </Flex>
