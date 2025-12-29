@@ -84,12 +84,14 @@ export const Dropdown: React.FC<DropdownProps> = ({
       <div className={dropdownClasses}>
         {options.map((option) => {
           const isSelected = option.value === dropdownValue;
-          const optionClasses = optionVariants({
-            variant: optionVariant,
-            selected: isSelected,
-            disabled: disabled || option.disabled,
-            className: !option.disabled && !disabled ? 'hover:bg-gray-100' : '',
-          });
+          const optionClasses = cn(
+            optionVariants({
+              variant: optionVariant,
+              selected: isSelected,
+              disabled: disabled || option.disabled,
+              className: !option.disabled && !disabled ? 'hover:bg-gray-100' : '',
+            }),
+          );
 
           return (
             <button
