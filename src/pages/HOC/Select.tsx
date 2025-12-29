@@ -3,19 +3,10 @@ import { Flex } from '@components/Atom/Flex';
 import { Section } from '@components/Atom/Section/Section';
 import { Text } from '@components/Atom/Text/Text';
 import { categories } from '@pages/Shoppage/mockData/select';
-import { useState } from 'react';
-
-interface SelectProps {
-  items?: string[];
-  setOption?: React.Dispatch<React.SetStateAction<string[] | undefined>>;
-}
+import { SelectProps, useSelect } from './hooks/useSelect';
 
 export const Select = ({ items = categories, setOption }: SelectProps) => {
-  const [selected, setSelected] = useState<string | null>(null);
-  const handleSelect = (category: string) => {
-    setSelected(category);
-    setOption?.([category]);
-  };
+  const { handleSelect, selected } = useSelect({ setOption });
   return (
     <Section w={262} h={192} mt={16} overflow="auto">
       <Flex direction="column" gap={12} align="start">

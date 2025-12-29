@@ -2,18 +2,10 @@ import { Button } from '@components/Atom/Button/Button';
 import { Flex } from '@components/Atom/Flex';
 import { Position } from '@components/Atom/Position';
 import { Section } from '@components/Atom/Section/Section';
-import { useState } from 'react';
-
-interface ColorSwatchProps {
-  colors: string[];
-}
+import { ColorSwatchProps, useColorSwatch } from './hooks/useColorSwatch';
 
 export const ColorSwatch = ({ colors }: ColorSwatchProps) => {
-  const [selectedColors, setSelectedColors] = useState<string[]>([]);
-
-  const toggleColor = (color: string) => {
-    setSelectedColors((prev) => (prev.includes(color) ? prev.filter((c) => c !== color) : [...prev, color]));
-  };
+  const { selectedColors, toggleColor } = useColorSwatch();
 
   return (
     <Section mt={16}>

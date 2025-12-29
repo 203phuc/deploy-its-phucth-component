@@ -1,17 +1,10 @@
 import Flex from '@components/Atom/Flex/Flex';
 import { Section } from '@components/Atom/Section/Section';
 import { Text } from '@components/Atom/Text/Text';
-import { useState } from 'react';
-
-interface SizeSwatchProps {
-  sizes: string[];
-}
+import { useSizeSwatch, type SizeSwatchProps } from './hooks/useSizeSwatch';
 
 const SizeSwatch = ({ sizes }: SizeSwatchProps) => {
-  const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
-  const toggleSize = (size: string) => {
-    setSelectedSizes((prev) => (prev.includes(size) ? prev.filter((s) => s !== size) : [...prev, size]));
-  };
+  const { selectedSizes, toggleSize } = useSizeSwatch();
   return (
     <Section mt={16}>
       <Flex gap={16} wrap="wrap">

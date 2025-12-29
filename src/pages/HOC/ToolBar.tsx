@@ -8,122 +8,15 @@ import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text/Text';
 import { Dropdown } from '@components/Molecule/Dropdown';
 import { sortItem } from '@pages/Shoppage/mockData/dropdown';
-import { useEffect, useRef, useState } from 'react';
-import { type ColumnType } from './ProductGrid';
-
-interface ToolBarProps {
-  productCount: number;
-  isMobile?: boolean;
-  setColumns: React.Dispatch<React.SetStateAction<ColumnType>>;
-  setFilter?: React.Dispatch<React.SetStateAction<boolean>>;
-  filter?: boolean;
-}
-type ColumnIcon = 'ListIcon' | 'FiveColumnsIcon' | 'FourColumnsIcon' | 'ThreeColumnsIcon' | 'TwoColumnsIcon';
-const columnMap: Record<ColumnIcon, ColumnType> = {
-  ListIcon: 'list',
-  FiveColumnsIcon: '5column',
-  FourColumnsIcon: '4column',
-  ThreeColumnsIcon: '3column',
-  TwoColumnsIcon: '2column',
-};
-const columnFilterMap: Record<ColumnIcon, ColumnType> = {
-  ListIcon: 'listColumnFilter',
-  FourColumnsIcon: '4columnFilter',
-  ThreeColumnsIcon: '3columnFilter',
-  TwoColumnsIcon: '2columnFilter',
-  FiveColumnsIcon: '4columnFilter',
-};
-
-const columnMapMobile: Record<ColumnIcon, ColumnType> = {
-  ListIcon: 'listMobile',
-  TwoColumnsIcon: '2columnMobile',
-  FourColumnsIcon: '2columnMobile',
-  ThreeColumnsIcon: '2columnMobile',
-  FiveColumnsIcon: '2columnMobile',
-};
-
-const normalColumnMap: Record<ColumnType, ColumnType> = {
-  '4columnFilter': '4column',
-  '3columnFilter': '3column',
-  '2columnFilter': '2column',
-  listColumnFilter: 'list',
-  '2columnMobile': '2column',
-  listMobile: 'list',
-  '5column': '5column',
-  '4column': '4column',
-  '3column': '3column',
-  '2column': '2column',
-  list: 'list',
-};
+import { ToolBarProps, useToolBar } from './hooks/useToolBar';
 
 export const ToolBar = ({ productCount, isMobile, setColumns, setFilter, filter }: ToolBarProps) => {
-  const filterColumnMap = useRef<Record<ColumnType, ColumnType>>({
-    '5column': '4columnFilter',
-    '4column': '4columnFilter',
-    '3column': '3columnFilter',
-    '2column': '2columnFilter',
-    list: isMobile ? 'listMobile' : 'listColumnFilter',
-    listMobile: filter ? 'listColumnFilter' : 'list',
-    '2columnMobile': '2columnMobile', // stays same
-    '4columnFilter': '4columnFilter',
-    '3columnFilter': '3columnFilter',
-    '2columnFilter': '2columnFilter',
-    listColumnFilter: 'listColumnFilter',
-  }).current;
-  const handleSelect = (item: ColumnIcon) => {
-    if (filter && item === 'FiveColumnsIcon') return; //block on filter selected
+  const { selected, openSort, setOpenSort, handleSelect, icons, iconsMobile } = useToolBar({
+    isMobile,
+    filter,
+    setColumns,
+  });
 
-    setSelected(item);
-    if (isMobile) {
-      setColumns(columnMapMobile[item]);
-      return;
-    }
-
-    if (filter) {
-      setColumns(columnFilterMap[item]);
-      return;
-    }
-
-    setColumns(columnMap[item]);
-  };
-  const [selected, setSelected] = useState<ColumnIcon>('FiveColumnsIcon');
-  const [openSort, setOpenSort] = useState<boolean>(false);
-  useEffect(() => {
-    if (isMobile) {
-      setColumns('2columnMobile');
-      setSelected('TwoColumnsIcon');
-      return;
-    }
-    if (filter) {
-      setColumns((prev) => {
-        const newColumn = filterColumnMap[prev] || prev;
-        setSelected(() => {
-          // Map the new column to the correct icon
-          switch (newColumn) {
-            case '4columnFilter':
-              return 'FourColumnsIcon';
-            case '3columnFilter':
-              return 'ThreeColumnsIcon';
-            case '2columnFilter':
-              return 'TwoColumnsIcon';
-            case 'listColumnFilter':
-              return 'ListIcon';
-            default:
-              return 'FiveColumnsIcon'; // fallback
-          }
-        });
-        return newColumn;
-      });
-    } else {
-      setColumns((prev) => normalColumnMap[prev]);
-    }
-  }, [filter, setColumns, isMobile, filterColumnMap]);
-  const icons = (
-    filter
-      ? ['FourColumnsIcon', 'ThreeColumnsIcon', 'TwoColumnsIcon', 'ListIcon']
-      : ['FiveColumnsIcon', 'FourColumnsIcon', 'ThreeColumnsIcon', 'TwoColumnsIcon', 'ListIcon']
-  ) as ColumnIcon[];
-  const iconsMobile = ['TwoColumnsIcon', 'ListIcon'] as ColumnIcon[];
   if (isMobile) {
     return (
       <Section w="100%" h={129} my={16}>
@@ -132,16 +25,15 @@ export const ToolBar = ({ productCount, isMobile, setColumns, setFilter, filter 
             <Text color="black-600" size="small" align="center">
               {productCount} products
             </Text>
-            <Dropdown align="right" variant="sm" isOpen={openSort} disabled={false} options={sortItem}>
-              <Button
-                onClick={() => setOpenSort((prev) => !prev)}
-                font="spaceGrotesk"
-                size="xsmall"
-                variant="underline"
-              >
-                Sort by
-              </Button>
-            </Dropdown>
+            <Button
+              onClick={() => setOpenSort((prev) => !prev)}
+              font="spaceGrotesk"
+              size="xsmall"
+              variant="underline"
+            >
+              Sort by
+              <Dropdown isOpen={openSort} disabled={false} options={sortItem} />
+            </Button>
           </Flex>
           <Section w="100%" h={1} bgColor="var(--color-black-200)" />
           <Flex justify="space-between" align="center" width="100%">
@@ -237,17 +129,24 @@ export const ToolBar = ({ productCount, isMobile, setColumns, setFilter, filter 
             >
               Filter <Icons iconName="SettingIcon" />
             </Button>
-            <Dropdown align="center" variant="sm" isOpen={openSort} disabled={false} options={sortItem}>
+            <Dropdown
+              align="center"
+              variant="sm"
+              isOpen={openSort}
+              disabled={false}
+              options={sortItem}
+              textSize="smedium"
+            >
               <Button
+                onClick={() => setOpenSort((prev) => !prev)}
                 font="spaceGrotesk"
                 size="small"
-                onClick={() => setOpenSort((prev) => !prev)}
                 variant={openSort ? 'underline' : 'text'}
               >
-                Sort by{' '}
-                <Icons iconName={openSort ? 'ChevronUpIcon' : 'ChevronDownIcon'} iconSize={20}></Icons>
+                Sort by <Icons iconName="ChevronDownIcon" />
               </Button>
             </Dropdown>
+
             <Section
               borderRadius={4}
               bgColor="var(--color-black-200)"

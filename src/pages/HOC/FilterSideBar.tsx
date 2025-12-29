@@ -6,21 +6,7 @@ import { SliderBar } from '@components/Molecule/SliderBar/SliderBar';
 import { ColorSwatch } from './ColorSwatch';
 import { Select } from './Select';
 import SizeSwatch from './SizeSwatch';
-
-interface FilterSideBarProps {
-  items?: string[];
-  setOption?: React.Dispatch<React.SetStateAction<string[] | undefined>>;
-  setFilter?: React.Dispatch<React.SetStateAction<boolean>>;
-  isMobile?: boolean;
-}
-
-const colors = [
-  'var(--color-teal-500)',
-  'var(--color-indigo-200)',
-  'var(--color-red-500)',
-  'var(--color-black-900)',
-];
-const sizes = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
+import { FilterSideBarProps, colors, sizes } from './hooks/useSelect';
 
 export const FilterSideBar = ({ items, setOption, setFilter, isMobile }: FilterSideBarProps) => {
   return (

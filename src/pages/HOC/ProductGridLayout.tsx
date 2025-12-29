@@ -5,22 +5,10 @@ import { Overlay } from '@components/Atom/Overlay';
 import { Position } from '@components/Atom/Position';
 import { Section } from '@components/Atom/Section/Section';
 import { Text } from '@components/Atom/Text';
-import { PageHeaderProps } from '@pages/Shoppage/components/PageHeader';
-import React from 'react';
 import { FilterSideBar } from './FilterSideBar';
-import { ProductCardProps } from './ProductCard';
-import { ProductGrid, type ColumnType } from './ProductGrid';
+import { ProductGridLayoutProps } from './hooks/type';
+import { ProductGrid } from './ProductGrid';
 import { ToolBar } from './ToolBar';
-
-interface ProductGridLayoutProps {
-  isMobile: boolean;
-  products: ProductCardProps[];
-  columns: ColumnType;
-  setColumns: React.Dispatch<React.SetStateAction<ColumnType>>;
-  filter?: boolean;
-  setFilter?: React.Dispatch<React.SetStateAction<boolean>>;
-  component?: React.ReactElement<PageHeaderProps>;
-}
 
 export const ProductGridLayout = ({
   filter,

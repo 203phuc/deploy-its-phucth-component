@@ -19,7 +19,7 @@ const dropdownVariants = cva('absolute z-50 bg-white text-left shadow-[0px_8px_1
   },
 });
 
-const optionVariants = cva('w-full cursor-pointer text-left text-sm transition-colors duration-200', {
+const optionVariants = cva(' w-full cursor-pointer text-left text-sm transition-colors duration-200', {
   variants: {
     variant: {
       default: 'px-4 py-3',

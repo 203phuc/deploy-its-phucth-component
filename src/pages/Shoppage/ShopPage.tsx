@@ -1,26 +1,15 @@
 import { Position } from '@components/Atom/Position/Position';
-import { ProductCardProps } from '@pages/HOC/ProductCard';
 import { ProductGridLayout } from '@pages/HOC/ProductGridLayout';
-import React, { useEffect, useState } from 'react';
-import { onSmallScreenChange } from 'src/util/mediaQueries';
+import React from 'react';
 import { SliderProvider } from '../../context/SliderContext';
-import { type ColumnType } from '../HOC/ProductGrid';
 import { Footer } from '../Homepage/sections/Footer';
-import { useHomePage } from '../Homepage/sections/hooks/HomePageHook';
 import { NavigationBar } from '../Homepage/sections/NavigationBar';
 import { PageHeader } from './components/PageHeader';
+import { useShopPage } from './hooks/useShopPage';
+import { products } from './mockData/products';
 
 const ShopPageContent = () => {
-  const [isMobile, setIsMobile] = useState(false);
-  const { notificationHeight, scrolled } = useHomePage();
-  const [columns, setColumns] = useState<ColumnType>('5column');
-  const [filter, setFilter] = useState<boolean>(false);
-  const product: ProductCardProps[] = [];
-  useEffect(() => {
-    console.log('filter', filter);
-    console.log(columns);
-    return onSmallScreenChange(setIsMobile);
-  }, [filter, isMobile, columns]);
+  const { isMobile, columns, setColumns, filter, setFilter, notificationHeight, scrolled } = useShopPage();
   return (
     <React.Fragment>
       <Position position={scrolled ? 'fixed' : 'relative'} top={0} left={0} right={0} zIndex={10}>
@@ -33,7 +22,7 @@ const ShopPageContent = () => {
       </Position>
       <ProductGridLayout
         isMobile={isMobile}
-        products={product}
+        products={products}
         columns={columns}
         setColumns={setColumns}
         filter={filter}

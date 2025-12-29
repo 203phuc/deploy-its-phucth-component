@@ -3,51 +3,11 @@ import { Button } from '@components/Atom/Button';
 import { Flex } from '@components/Atom/Flex';
 import Icons from '@components/Atom/Icons';
 import { ImagePlaceholder } from '@components/Atom/ImagePlaceholder/ImagePlaceholder';
-import { ImagePlaceholderSize } from '@components/Atom/ImagePlaceholder/type';
 import { Position } from '@components/Atom/Position/Position';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
 import Rating from '@components/Molecule/Rating/Rating';
-
-export interface ProductCardProps {
-  size?:
-    | 'list'
-    | '5column'
-    | '4column'
-    | '3column'
-    | '2column'
-    | '4columnFilter'
-    | '3columnFilter'
-    | '2columnFilter'
-    | 'listColumnFilter'
-    | '2columnMobile'
-    | 'listMobile';
-  imageUrl?: string;
-  title?: string;
-  price: number;
-  rating?: 0 | 1 | 2 | 3 | 4 | 5;
-  isNew?: boolean;
-  salePercentage?: number;
-  description?: string;
-}
-
-const cardDimensions = {
-  '5column': { w: 241.5, h: 408, imageSize: 's5' as ImagePlaceholderSize },
-  '4column': { w: 310, h: 499, imageSize: 's8' as ImagePlaceholderSize },
-  '4columnFilter': { w: 228, h: 390, imageSize: 's30' as ImagePlaceholderSize },
-  '3column': { w: 424, h: 651, imageSize: 's19' as ImagePlaceholderSize },
-  '2column': { w: 652, h: 975, imageSize: 's23' as ImagePlaceholderSize },
-  '2columnFilter': { w: 483, h: 709, imageSize: 's32' as ImagePlaceholderSize },
-  '3columnFilter': { w: 313, h: 499, imageSize: 's31' as ImagePlaceholderSize },
-  '2columnMobile': {
-    w: 163,
-    h: 277,
-    textSize: 'smedium',
-    priceSize: 'xsmall',
-    imageSize: 's2' as ImagePlaceholderSize,
-  },
-  listMobile: { w: 343, h: 522, imageSize: 's14' as ImagePlaceholderSize },
-};
+import { ProductCardProps, cardDimensions } from './hooks/type';
 
 export const ProductCard = ({
   size,

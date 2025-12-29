@@ -103,15 +103,16 @@ export const Dropdown: React.FC<DropdownProps> = ({
               >
                 {variant !== 'other' ? (
                   <div className="flex items-center justify-between">
-                    <div className="flex flex-1 items-center gap-2">
+                    <div className="flex w-full flex-1 items-center gap-2">
                       {option.icon && <Icons iconName={option.icon} iconSize={16} color="black" />}
                       <Text font={font} weight={weight} color={color} size={textSize} className="flex-1">
                         {option.label}
                       </Text>
                     </div>
-                    {variant !== 'xs' && option.value === dropdownValue && (
-                      <Icons iconName="CheckIcon" iconSize={20} color="black" />
-                    )}
+                    {(variant !== 'xs' && option.value === dropdownValue) ||
+                      (variant !== 'sm' && option.value === dropdownValue && (
+                        <Icons iconName="CheckIcon" iconSize={20} color="black" />
+                      ))}
                   </div>
                 ) : (
                   <div className="flex items-center justify-between">
