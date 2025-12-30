@@ -1,3 +1,31 @@
+# [1.0.0-DEV.25](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.24...v1.0.0-DEV.25) (2025-12-30)
+
+
+### Bug Fixes
+
+* **ITS-IR01-317:** fix review remove logs and move logic ([2076da3](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/2076da31404ea736db331b8061884dd645e9044a))
+
+
+### Features
+
+* **ITS-IR01-317:** added new pageheader ([a6c4ac0](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/a6c4ac062a9aeca6202e2c2aed609a6e6608564e))
+* **ITS-IR01-317:** adding new product card ([35a7c58](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/35a7c586ca867939667389ca59aeaac984c682d5))
+* **ITS-IR01-317:** adding tags and filerbar ([fcca7c4](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/fcca7c48ad7088b9a81daf355ce7666c6b935a8f))
+* **ITS-IR01-317:** base set up for shop page ([68a2245](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/68a2245796b827bf2d57b68d980ca44a15dd38d3))
+* **ITS-IR01-317:** breadcrumb making ([406c0f9](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/406c0f98166e1d96efa52c736cfe39b7ed9d831f))
+* **ITS-IR01-317:** developing product grid ([ce6dc28](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/ce6dc28b93c96c924585c56a17205e4cbe3342fc))
+* **ITS-IR01-317:** done all UI ([7792bf8](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/7792bf8c457182648c539d2acab9764efe7b3b19))
+* **ITS-IR01-317:** done story and hooks distribution for component ([b69f049](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/b69f049edeed5e7089adcbe2b54fe8c4de31441d))
+* **ITS-IR01-317:** full UI no flow ([3f91b38](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/3f91b3877498a6acfb86e6a5ea4990e216bc1d9d))
+* **ITS-IR01-317:** icon add new  refine ([4328342](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/432834292ec5e5eaca4cb0eff94d4cbe382592ad))
+* **ITS-IR01-317:** list item option done ([2e5ed34](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/2e5ed3459e8580affda6bb4fa29a9070d736197e))
+* **ITS-IR01-317:** load more button ([5b1b673](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/5b1b67335214c2fe60ef4a89e84fda7d560ea971))
+* **ITS-IR01-317:** making product grid for mobile ([8a75f8c](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/8a75f8c3d79f0fbf229c41b0690300641ead9f63))
+* **ITS-IR01-317:** merge dev branch to handle resolution ([352a0a8](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/352a0a8dac468f5be5e053043b71b096af29a0ba))
+* **ITS-IR01-317:** merge develop avoid later conflict ([1def732](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/1def7328c9815bb15067d5619de668141ca02317))
+* **ITS-IR01-317:** notification bar for shoppage ([f616f8d](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/f616f8ddd122991c6097d5a63ad80bbb591fb955))
+* **ITS-IR01-317:** responsive done ([4ed7452](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/4ed7452b784cf86479c521527d015134ff67f773))
+
 # [1.0.0-DEV.24](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.23...v1.0.0-DEV.24) (2025-12-29)
 
 ### Bug Fixes
