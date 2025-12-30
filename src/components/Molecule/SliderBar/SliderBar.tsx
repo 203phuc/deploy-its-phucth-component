@@ -152,8 +152,16 @@ export const SliderBar = ({
         style={{ left: `${minPercent}%`, width: `${maxPercent - minPercent}%` }}
       />
 
-      <Section onMouseDown={() => setDragging('min')} className={knob()} style={{ left: `${minPercent}%` }} />
-      <Section onMouseDown={() => setDragging('max')} className={knob()} style={{ left: `${maxPercent}%` }} />
+      <Section
+        onMouseDown={() => setDragging('min')}
+        className={knob()}
+        style={{ left: `calc(${minPercent} * (100% - 16px) / 100 + 8px)` }}
+      />
+      <Section
+        onMouseDown={() => setDragging('max')}
+        className={knob()}
+        style={{ left: `calc(${maxPercent} * (100% - 16px) / 100 + 8px)` }}
+      />
 
       <div className={valueTextWrapper()}>
         <Text size="small">

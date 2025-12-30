@@ -59,6 +59,7 @@ const DropDownHover = ({ navLinks = localNavLinks }: DropDownHoverProps) => {
 
           {item.dropdown && (
             <Dropdown
+              disabled={false}
               variant="md"
               isOpen={hoveredId === item.id}
               options={item.dropdown.map((drop) => ({

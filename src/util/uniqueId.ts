@@ -7,3 +7,11 @@ export function addUniqueIds<T extends object>(items: T[], prefix = 'item'): (T 
     return { ...item, uid: `${prefix}-${id}` };
   });
 }
+export function createIdGenerator(prefix = 'item') {
+  let counter = 0;
+
+  return function generateId() {
+    counter += 1;
+    return `${prefix}-${counter}`;
+  };
+}

@@ -26,6 +26,13 @@ export type ImagePlaceholderSize =
   | 's23'
   | 's24'
   | 's25'
+  | 's26'
+  | 's27'
+  | 's28'
+  | 's29'
+  | 's30'
+  | 's31'
+  | 's32'
   | 'full';
 
 type ImagePlaceholderCvaPropsWithoutSize = Omit<ImagePlaceholderCvaProps, 'size'>;

@@ -1,18 +1,16 @@
 # [1.0.0-DEV.24](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.23...v1.0.0-DEV.24) (2025-12-29)
 
-
 ### Bug Fixes
 
-* **ITS-IR01-313:** fix cursor icon ([a59a9b8](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/a59a9b8c70b684a153ccee467782490b3e2ae6b1))
+- **ITS-IR01-313:** fix cursor icon ([a59a9b8](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/a59a9b8c70b684a153ccee467782490b3e2ae6b1))
 
 # [1.0.0-DEV.23](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.22...v1.0.0-DEV.23) (2025-12-23)
 
-
 ### Features
 
-* **ITS-IR01-369:** add new file for resolution handling ([556b318](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/556b31897d3d5c0018b857b78b78321368342725))
-* **ITS-IR01-369:** change how resolution handling work ([4bd151e](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/4bd151e25030f38444d2955ef07d7e836f9ab534))
-* **ITS-IR01-369:** fix images resolutions ([9e9f0eb](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/9e9f0ebd6caa1ac7a3467a15055041fa020bbb25))
+- **ITS-IR01-369:** add new file for resolution handling ([556b318](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/556b31897d3d5c0018b857b78b78321368342725))
+- **ITS-IR01-369:** change how resolution handling work ([4bd151e](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/4bd151e25030f38444d2955ef07d7e836f9ab534))
+- **ITS-IR01-369:** fix images resolutions ([9e9f0eb](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/9e9f0ebd6caa1ac7a3467a15055041fa020bbb25))
 
 # [1.0.0-DEV.22](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.21...v1.0.0-DEV.22) (2025-12-22)
 

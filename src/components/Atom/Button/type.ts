@@ -6,7 +6,7 @@ import { buttonCva } from './style';
 export type ButtonCvaProps = VariantProps<typeof buttonCva>;
 
 export type ButtonVariant = 'solidBlack' | 'outlined' | 'text' | 'underline' | 'solidWhite';
-export type ButtonSize = 'xlarge' | 'large' | 'largeCompact' | 'medium' | 'small' | 'xsmall';
+export type ButtonSize = 'xlarge' | 'large' | 'largeCompact' | 'medium' | 'small' | 'xsmall' | 'specialSmall';
 export type ButtonRoundness = 'pill' | 'round' | 'sharp';
 export type ButtonFont = 'spaceGrotesk' | 'inter';
 
@@ -42,7 +42,7 @@ export type ButtonProps = {
   /**
    * Font family to use for the button text
    */
-  readonly textColor?: 'black' | 'white';
+  readonly textColor?: 'black' | 'white' | 'gray';
   /**
    * Button content
    */

@@ -24,6 +24,7 @@ export const badgeCva = cva('inline-flex items-center justify-center', {
       green: 'bg-teal-600 text-white',
       black: 'bg-black text-white',
       white: 'bg-white text-black',
+      gray: 'bg-black-100 text-black-900',
       none: '',
     },
     roundness: {

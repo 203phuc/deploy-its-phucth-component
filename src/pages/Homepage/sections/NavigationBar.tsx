@@ -31,7 +31,7 @@ export const NavigationBar = ({
         w="100%"
         bgColor={scrolled || path !== '/home' ? 'white' : 'transparent'}
         transition={transition}
-        transform={transformValue}
+        transform={path === '/home' ? transformValue : ''}
       >
         <Flex align="center" justify="center" height="100%" width="100%">
           <Section h={60}>
@@ -48,7 +48,14 @@ export const NavigationBar = ({
     </Flex>
   ) : (
     // ====== SMALL SCREEN VERSION ======
-    <Section px={16} h={46} w="100%" bgColor="white" transition={transition} transform={transformValue}>
+    <Section
+      px={16}
+      h={46}
+      w="100%"
+      bgColor="white"
+      transition={transition}
+      transform={scrolled && path === '/home' ? transformValue : ''}
+    >
       <Flex align="center" justify="center" height="100%" width="100%">
         <Section h={30}>
           <Grid columns="auto 137px auto" align="center" justify="space-between" height="100%">

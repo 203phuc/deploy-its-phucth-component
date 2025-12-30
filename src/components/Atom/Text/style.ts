@@ -16,7 +16,7 @@ const colorVariants = {
   white: 'text-white',
 };
 
-export const textCva = cva('inline-block', {
+export const textCva = cva('block', {
   variants: {
     weight: {
       regular: 'font-normal', //400
