@@ -22,7 +22,7 @@ export const ProductGridLayout = ({
   <Section w="100%" px={isMobile ? 16 : 52} pb={isMobile ? 46 : 120}>
     <Flex width="100%" direction="column" align="center" justify="center">
       {component}
-      <Flex width="100%" gap={32}>
+      <Flex width="100%" justify="center" gap={32}>
         {filter &&
           (isMobile ? (
             <Position zIndex={10}>

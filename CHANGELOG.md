@@ -1,3 +1,9 @@
+# [1.0.0-DEV.24](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.23...v1.0.0-DEV.24) (2025-12-29)
+
+### Bug Fixes
+
+- **ITS-IR01-313:** fix cursor icon ([a59a9b8](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/commit/a59a9b8c70b684a153ccee467782490b3e2ae6b1))
+
 # [1.0.0-DEV.23](https://www.gitlab.haibazo.com/its-c/phucth/its-phucth-component/compare/v1.0.0-DEV.22...v1.0.0-DEV.23) (2025-12-23)
 
 ### Features
