@@ -1,39 +1,15 @@
 import { Flex } from '@components/Atom/Flex';
 import { Icons } from '@components/Atom/Icons/Icons';
 import { Text } from '@components/Atom/Text/Text';
-import React, { useEffect } from 'react';
-
-export interface BreadCrumbItem {
-  id: string;
-  label: string;
-  path: string;
-  onClick?: () => void;
-}
-
-interface BreadCrumbProps {
-  items: BreadCrumbItem[];
-  separator?: React.ReactNode;
-  gap?: number;
-}
+import React from 'react';
+import { BreadCrumbProps, useBreadcrumb } from '../hooks/useBreadcrumb';
 
 export const BreadCrumb: React.FC<BreadCrumbProps> = ({
   items,
   separator = <Icons iconName="ChevronRightIcon" color="black-600" iconSize={12} />,
   gap = 2,
 }) => {
-  const handleClick = (item: BreadCrumbItem, index: number, e: React.MouseEvent) => {
-    if (item.onClick) {
-      item.onClick();
-    } else if (index < items.length - 1) {
-      e.preventDefault();
-      window.history.pushState({}, '', item.path);
-      window.dispatchEvent(new PopStateEvent('popstate'));
-    }
-  };
-  useEffect(() => {
-    console.log('this is items', items);
-  }, [items]);
-
+  const handleClick = useBreadcrumb({ items });
   return (
     <Flex align="center" gap={gap}>
       {items.map((item, index) => (

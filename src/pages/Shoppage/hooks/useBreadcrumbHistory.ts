@@ -22,12 +22,13 @@ export const useBreadcrumbHistory = (maxItems = 3) => {
         return prev;
       }
 
+      const DASH_REGEX = /-/g;
+
       const newItem = {
         id: genId(),
-        label: currentPage.charAt(0).toUpperCase() + currentPage.slice(1).replace(/-/g, ' '),
+        label: currentPage.charAt(0).toUpperCase() + currentPage.slice(1).replace(DASH_REGEX, ' '),
         path: path,
       };
-      console.log([...prev, newItem].slice(-maxItems));
       // Keep only the last N items
       return [...prev, newItem].slice(-maxItems);
     });
