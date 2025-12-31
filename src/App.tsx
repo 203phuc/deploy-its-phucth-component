@@ -1,12 +1,12 @@
 import { RouterProvider } from '@context/RouterContext';
-import { ShopPage } from '@pages/Shoppage/ShopPage';
+import { NotFoundPage } from '@pages/NotFoundpage/NotFoundPage';
 import { memo } from 'react';
 import './styles/tailwind.css';
 
 const AppComponent = () => {
   return (
     <RouterProvider>
-      <ShopPage />
+      <NotFoundPage />
     </RouterProvider>
   );
 };
