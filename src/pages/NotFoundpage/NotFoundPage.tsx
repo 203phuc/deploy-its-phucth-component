@@ -5,13 +5,13 @@ import Icons from '@components/Atom/Icons';
 import { Position } from '@components/Atom/Position';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
+import { RouterProvider } from '@context/RouterContext';
 import { NotificationBar } from '@pages/Homepage/sections/NotificationBar';
-import { useEffect, useState } from 'react';
-import { onSmallScreenChange } from 'src/util/mediaQueries';
 import { SliderProvider } from '../../context/SliderContext';
 import { Footer } from '../Homepage/sections/Footer';
 import { useHomePage } from '../Homepage/sections/hooks/HomePageHook';
 import { NavigationBar } from '../Homepage/sections/NavigationBar';
+import { useNotFound } from './hooks/useNotFound';
 
 interface NotFoundPageContentProps {
   isMobile: boolean;
@@ -84,14 +84,13 @@ const NotFoundPageContent = ({ isMobile }: NotFoundPageContentProps) => {
   );
 };
 export const NotFoundPage = () => {
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    return onSmallScreenChange(setIsMobile);
-  }, []); // ✅ run once
+  const { isMobile } = useNotFound();
   return (
-    <SliderProvider>
-      <NotFoundPageContent isMobile={isMobile} />
-      <Footer isMobile={isMobile} />
-    </SliderProvider>
+    <RouterProvider>
+      <SliderProvider>
+        <NotFoundPageContent isMobile={isMobile} />
+        <Footer isMobile={isMobile} />
+      </SliderProvider>
+    </RouterProvider>
   );
 };
