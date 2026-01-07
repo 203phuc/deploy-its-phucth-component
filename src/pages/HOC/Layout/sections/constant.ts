@@ -6,6 +6,7 @@ export interface NavLinkDropdownItem {
   type: string;
   condition: string;
   icon?: IconName;
+  path?: string;
 }
 
 export interface NavLinkItem {
@@ -94,6 +95,7 @@ export const navLinks: NavLinkItem[] = [
         id: '6_2',
         label: 'About us',
         type: 'button',
+        path: '/about-us',
         condition: 'User hovers over [Pages]',
         icon: 'ChevronDownIcon',
       },

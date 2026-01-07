@@ -19,6 +19,7 @@ export const DropdownSelector = ({ options, value, onSelect, width = 95 }: Dropd
     <Position position="relative">
       <Position position="absolute" left={-22}>
         <Dropdown
+          disabled={false}
           direction="up"
           variant="xs"
           isOpen={open}

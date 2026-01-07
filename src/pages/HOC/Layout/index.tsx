@@ -13,10 +13,12 @@ import { MessageModal } from './sections/MessageModal';
 import { NavigationBar } from './sections/NavigationBar';
 import { NotificationBar } from './sections/NotificationBar';
 import { ShopPage } from '@pages/Shoppage/ShopPage';
+import { AboutUsPage } from '@pages/AboutUspage/AboutUsPage';
 
 const routes: Record<string, ReactNode> = {
   '/home': <HomePage />,
   '/shop': <ShopPage />,
+  '/about-us': <AboutUsPage />,
   '/contact': <>this is contact page</>,
 };
 

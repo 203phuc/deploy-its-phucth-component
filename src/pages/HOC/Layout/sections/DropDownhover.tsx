@@ -34,10 +34,13 @@ const DropDownHover = ({ navLinks = localNavLinks }: DropDownHoverProps) => {
   };
 
   // when an option is selected in a dropdown, make that dropdown the one with a selected value
-  const handleSelect = (dropdownId: string, value: string | number) => {
+  const handleSelect = (dropdownId: string, value: string | number, path?: string) => {
     setSelectedState({ id: dropdownId, value });
     // close dropdown after selection (hover logic will hide it; but keep hoveredId behavior consistent)
     setHoveredId(null);
+    if (path) {
+      navigate(path);
+    }
   };
 
   return (
@@ -81,17 +84,20 @@ const DropDownHover = ({ navLinks = localNavLinks }: DropDownHoverProps) => {
 
           {item.dropdown && (
             <Dropdown
+              disabled={false}
               variant="md"
               isOpen={hoveredId === item.id}
-              options={item.dropdown.map((drop) => ({
+              options={item.dropdown?.map((drop) => ({
                 label: drop.label,
                 value: drop.id,
+                path: drop.path, // may be undefined
               }))}
               // only provide the value when this dropdown is the selected one
               value={selectedState.id === item.id ? selectedState.value! : undefined}
-              onSelect={(v) => handleSelect(item.id, v)}
-              // let dropdown request closing (e.g. click outside)
-              onClose={() => setHoveredId(null)}
+              onSelect={(value) => {
+                const selected = item.dropdown?.find((d) => d.id === value);
+                handleSelect(item.id, value, selected?.path);
+              }}
             />
           )}
         </Section>

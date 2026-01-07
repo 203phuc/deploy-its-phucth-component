@@ -37,6 +37,7 @@ export const NavigationBar = ({
     const cleanup = onSmallScreenChange(setIsSmallScreen);
     return cleanup;
   }, []);
+  const transparentPages = ['/home', '/about-us'];
 
   return !isSmallScreen ? (
     // ====== DESKTOP VERSION ======
@@ -45,7 +46,7 @@ export const NavigationBar = ({
         px={52}
         h={68}
         w="100%"
-        bgColor={scrolled || path !== '/home' ? 'white' : 'transparent'}
+        bgColor={scrolled || !transparentPages.includes(path) ? 'white' : 'transparent'}
         transition={transition}
         transform={transformValue}
       >
@@ -64,7 +65,14 @@ export const NavigationBar = ({
     </Flex>
   ) : (
     // ====== SMALL SCREEN VERSION ======
-    <Section px={16} h={46} w="100%" bgColor="white" transition={transition} transform={transformValue}>
+    <Section
+      px={16}
+      h={46}
+      w="100%"
+      bgColor={scrolled || path !== '/about-us' ? 'white' : 'transparent'}
+      transition={transition}
+      transform={transformValue}
+    >
       <Flex align="center" justify="center" height="100%" width="100%">
         <Section h={30}>
           <Grid columns="auto 137px auto" align="center" justify="space-between" height="100%">
