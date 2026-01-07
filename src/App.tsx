@@ -1,14 +1,9 @@
-import { RouterProvider } from '@context/RouterContext';
-import { ShopPage } from '@pages/Shoppage/ShopPage';
+import App from '@pages/HOC/Layout';
 import { memo } from 'react';
 import './styles/tailwind.css';
 
 const AppComponent = () => {
-  return (
-    <RouterProvider>
-      <ShopPage />
-    </RouterProvider>
-  );
+  return <App />;
 };
 
-export const App = memo(AppComponent);
+export default memo(AppComponent);

@@ -4,17 +4,22 @@ import { Link } from '@components/Atom/Link';
 import { Logo } from '@components/Atom/Logo';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
-import { useState } from 'react';
-import { currencyOptions, languageOptions } from '../mockData/dropdown';
+import { useEffect, useState } from 'react';
+import { onSmallScreenChange } from '../../../../../src/util/mediaQueries';
+import { currencyOptions, languageOptions } from '../mockData/Dropdown';
 import { DropdownSelector } from './DropdownSelector';
-import { MutualProps } from './types';
 
-export const Footer = ({ isMobile }: MutualProps) => {
+export const Footer = () => {
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [lang, setLang] = useState<string | number>('English');
-
   const [currency, setCurrency] = useState<string | number>('USD');
 
-  if (isMobile) {
+  useEffect(() => {
+    const cleanup = onSmallScreenChange(setIsSmallScreen);
+    return cleanup;
+  }, []);
+
+  if (isSmallScreen) {
     return (
       <Section bgColor="var(--color-black-50)" px={16} py={25}>
         <Section pt={23}>
