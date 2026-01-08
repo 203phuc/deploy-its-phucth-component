@@ -3,42 +3,20 @@ import Icons from '@components/Atom/Icons';
 import { Link } from '@components/Atom/Link';
 import { Section } from '@components/Atom/Section/Section';
 import { Dropdown } from '@components/Molecule/Dropdown';
-import { useSharedRouter } from '@pages/CustomHook/navigateHook';
-import { useRef, useState } from 'react';
 import { navLinks as localNavLinks } from './constant';
+import { useDropDownHover } from './hooks/useDropDownHover';
 import type { DropDownHoverProps } from './types';
 
 const DropDownHover = ({ navLinks = localNavLinks }: DropDownHoverProps) => {
-  const [hoveredId, setHoveredId] = useState<string | null>(null);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const { path, navigate } = useSharedRouter();
-
-  // new: only one dropdown can hold the selected value at a time
-  const [selectedState, setSelectedState] = useState<{ id: string | null; value?: string | number | null }>({
-    id: null,
-    value: undefined,
-  });
-
-  const handleMouseEnter = (id: string) => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    setHoveredId(id);
-  };
-
-  const handleMouseLeave = () => {
-    timeoutRef.current = setTimeout(() => {
-      setHoveredId(null);
-    }, 200);
-  };
-
-  // when an option is selected in a dropdown, make that dropdown the one with a selected value
-  const handleSelect = (dropdownId: string, value: string | number, path?: string) => {
-    setSelectedState({ id: dropdownId, value });
-    // close dropdown after selection (hover logic will hide it; but keep hoveredId behavior consistent)
-    setHoveredId(null);
-    if (path) {
-      navigate(path);
-    }
-  };
+  const {
+    hoveredId,
+    selectedState,
+    handleMouseEnter,
+    handleMouseLeave,
+    handleSelect,
+    isActivePath,
+    navigate,
+  } = useDropDownHover();
 
   return (
     <Flex direction="row" height="100%" gap={40} align="center">
@@ -55,7 +33,7 @@ const DropDownHover = ({ navLinks = localNavLinks }: DropDownHoverProps) => {
                 font="spaceGrotesk"
                 weight="moderate"
                 spacing="xsmall"
-                color={path === item.path ? 'blue-700' : 'black-900'}
+                color={isActivePath(item.path) ? 'blue-700' : 'black-900'}
                 href="#"
                 size="smedium"
                 hoverUnderline

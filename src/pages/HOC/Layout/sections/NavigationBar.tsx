@@ -4,11 +4,9 @@ import { Icons } from '@components/Atom/Icons/Icons';
 import { Logo } from '@components/Atom/Logo';
 import { Section } from '@components/Atom/Section/Section';
 import { Text } from '@components/Atom/Text/Text';
-import { useSharedRouter } from '@context/RouterContext';
-import { useEffect, useState } from 'react';
-import { onSmallScreenChange } from '../../../../util/mediaQueries';
 import { navLinks } from './constant';
 import DropDownHover from './DropDownhover';
+import { useNavigationBar } from './hooks/useNavigationBar';
 import { IconBlock } from './IconBlock';
 import type { NavigationBarProps } from './types';
 
@@ -20,15 +18,7 @@ export const NavigationBar = ({
   setFlyoutMenuOpen,
 }: NavigationBarProps) => {
   const cartItem = 2;
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
-  const { path } = useSharedRouter();
-  const transformValue = `translateY(${translateY}px)`;
-
-  useEffect(() => {
-    const cleanup = onSmallScreenChange(setIsSmallScreen);
-    return cleanup;
-  }, []);
-  const transparentPages = ['/home', '/about-us'];
+  const { isSmallScreen, path, transparentPages, transformValue } = useNavigationBar(translateY);
 
   return !isSmallScreen ? (
     // ====== DESKTOP VERSION ======

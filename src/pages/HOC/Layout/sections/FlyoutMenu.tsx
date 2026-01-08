@@ -5,22 +5,14 @@ import { Input } from '@components/Atom/Input/Input';
 import { Logo } from '@components/Atom/Logo';
 import { Section } from '@components/Atom/Section/Section';
 import { Text } from '@components/Atom/Text/Text';
-import { useEffect, useState } from 'react';
-import { onSmallScreenChange } from '../../../../../src/util/mediaQueries';
 import { currencyOptions, languageOptions } from '../mockData/Dropdown';
 import { DropdownSelector } from './DropdownSelector';
+import { useFlyoutMenu } from './hooks/useFlyoutMenu';
 import { MobileNav } from './MobileNav';
 import type { FlyoutMenuProps } from './types';
 
 export const FlyoutMenu = ({ setFlyoutMenuOpen, cartItem = 2 }: FlyoutMenuProps) => {
-  const [currency, setCurrency] = useState<string | number>('USD');
-  const [lang, setLang] = useState<string | number>('English');
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
-
-  useEffect(() => {
-    const cleanup = onSmallScreenChange(setIsSmallScreen);
-    return cleanup;
-  }, []);
+  const { currency, lang, isSmallScreen, setCurrency, setLang } = useFlyoutMenu();
 
   if (isSmallScreen) {
     return (
@@ -30,13 +22,8 @@ export const FlyoutMenu = ({ setFlyoutMenuOpen, cartItem = 2 }: FlyoutMenuProps)
             <Section w="100%">
               <Flex align="center" justify="space-between" width="100%">
                 <Logo logoName="NayzakLogo" width={114} height={22} />
-                <Button
-                  onClick={() => {
-                    setFlyoutMenuOpen(false);
-                  }}
-                >
-                  <Icons iconName="CloseIcon" iconSize={26} />
-                </Button>
+
+                <Icons box iconName="CloseIcon" onClick={() => setFlyoutMenuOpen(false)} iconSize={26} />
               </Flex>
             </Section>
 

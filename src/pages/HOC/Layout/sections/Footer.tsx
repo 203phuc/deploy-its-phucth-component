@@ -4,20 +4,12 @@ import { Link } from '@components/Atom/Link';
 import { Logo } from '@components/Atom/Logo';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
-import { useEffect, useState } from 'react';
-import { onSmallScreenChange } from '../../../../../src/util/mediaQueries';
 import { currencyOptions, languageOptions } from '../mockData/Dropdown';
 import { DropdownSelector } from './DropdownSelector';
+import { useFooter } from './hooks/useFooter';
 
 export const Footer = () => {
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
-  const [lang, setLang] = useState<string | number>('English');
-  const [currency, setCurrency] = useState<string | number>('USD');
-
-  useEffect(() => {
-    const cleanup = onSmallScreenChange(setIsSmallScreen);
-    return cleanup;
-  }, []);
+  const { isSmallScreen, lang, setLang, currency, setCurrency } = useFooter();
 
   if (isSmallScreen) {
     return (

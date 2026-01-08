@@ -2,24 +2,14 @@ import { Flex } from '@components/Atom/Flex';
 import { Icons } from '@components/Atom/Icons';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
-import { useEffect, useState } from 'react';
-import { onSmallScreenChange } from '../../../../../src/util/mediaQueries';
+import { useNotificationBar } from './hooks/useNotificationBar';
 import type { NotificationBarProps } from './types';
 
 export const NotificationBar = ({ onClose }: NotificationBarProps) => {
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
-  const [visible, setVisible] = useState(true);
-
-  useEffect(() => {
-    const cleanup = onSmallScreenChange(setIsSmallScreen);
-    return cleanup;
-  }, []);
+  const { isSmallScreen, visible, handleClose } = useNotificationBar(onClose);
 
   if (!visible) return null; // 🔹 Hide entire bar when closed
-  const handleClose = () => {
-    setVisible(false);
-    onClose?.(); // notify parent
-  };
+
   return !isSmallScreen ? (
     <Section w="100%" h={40} bgColor="white" px={16}>
       <Flex align="center" justify="center" height="100%" width="100%">
