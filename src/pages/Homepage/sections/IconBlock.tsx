@@ -1,36 +1,140 @@
 import { Flex } from '@components/Atom/Flex';
 import { Icons } from '@components/Atom/Icons';
 import { Input } from '@components/Atom/Input';
+import type { InputChangeEvent } from '@components/Atom/Input/type';
 import { Position } from '@components/Atom/Position';
 import { Section } from '@components/Atom/Section/Section';
 import { Text } from '@components/Atom/Text';
-import { useState } from 'react';
+import { Dropdown } from '@components/Molecule/Dropdown';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { useSharedRouter } from '../../CustomHook/navigateHook';
+import { products as searchProducts } from '../../SearchProductpage/mockData/products';
+import { products as shopProducts } from '../../Shoppage/mockData/products';
 import { type IconBlockProps } from './types';
 
 export const IconBlock = ({ cartItem, setFlyoutCartOpen }: IconBlockProps) => {
   const [background, setBackground] = useState('transparent');
   const [searchInput, setSearchInput] = useState(false);
+  const [searchValue, setSearchValue] = useState('');
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const { navigate } = useSharedRouter();
+  const inputRef = useRef<HTMLInputElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Combine all products and get unique titles
+  const allProducts = useMemo(() => {
+    const combined = [...shopProducts, ...searchProducts];
+    const uniqueTitles = Array.from(
+      new Set(combined.map((p) => p.title).filter((title): title is string => !!title)),
+    );
+    return uniqueTitles.map((title) => ({ label: title, value: title }));
+  }, []);
+
+  // Filter suggestions based on search value
+  const suggestions = useMemo(() => {
+    if (!searchValue.trim()) return [];
+    const lowerSearch = searchValue.toLowerCase();
+    return allProducts.filter((product) => product.label?.toLowerCase().includes(lowerSearch)).slice(0, 5); // Limit to 5 suggestions
+  }, [searchValue, allProducts]);
+
+  // Handle search navigation
+  const handleSearch = (query: string) => {
+    if (query.trim()) {
+      navigate('/search-product-page', { q: query });
+      setSearchInput(false);
+      setSearchValue('');
+      setShowSuggestions(false);
+    }
+  };
+
+  // Handle input change
+  const handleInputChange = (e: InputChangeEvent) => {
+    const value = e.target.value;
+    setSearchValue(value);
+    setShowSuggestions(value.trim().length > 0);
+  };
+
+  // Handle Enter key
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleSearch(searchValue);
+    } else if (e.key === 'Escape') {
+      setShowSuggestions(false);
+    }
+  };
+
+  // Handle suggestion select
+  const handleSuggestionSelect = (value: string | number) => {
+    handleSearch(String(value));
+  };
+
+  // Close suggestions when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node) &&
+        inputRef.current &&
+        !inputRef.current.contains(event.target as Node)
+      ) {
+        setShowSuggestions(false);
+      }
+    };
+
+    if (showSuggestions) {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => document.removeEventListener('mousedown', handleClickOutside);
+    }
+  }, [showSuggestions]);
+
   return (
     <Position position="relative">
       <Flex align="center" justify="end" gap={20} width={194}>
         {searchInput ? (
-          <Position position="absolute" left={-218}>
-            <Input
-              iconEnd={
-                <Icons
-                  iconName="SearchIcon"
-                  iconSize={28}
-                  strokeWidth={2}
-                  box
-                  onClick={() => setSearchInput(false)}
-                />
-              }
-              variant="line"
-              size="small"
-              placeholder="Search"
-              bgColor="transparent"
-              placeholderColor="gray"
-            />
+          <Position position="absolute" left={-218} zIndex={100}>
+            <div ref={dropdownRef}>
+              <Input
+                ref={inputRef}
+                iconStart={<Icons iconName="SearchIcon" iconSize={20} />}
+                iconEnd={
+                  <Icons
+                    iconName="CloseIcon"
+                    iconSize={20}
+                    box
+                    onClick={() => {
+                      setSearchInput(false);
+                      setSearchValue('');
+                      setShowSuggestions(false);
+                    }}
+                  />
+                }
+                variant="line"
+                size="small"
+                placeholder="Search products..."
+                bgColor="white"
+                placeholderColor="gray"
+                value={searchValue}
+                onChange={handleInputChange}
+                onKeyDown={handleKeyDown}
+                onFocus={() => setShowSuggestions(searchValue.trim().length > 0)}
+              />
+              {showSuggestions && suggestions.length > 0 && (
+                <Position position="absolute" top="100%" left={0} right={0}>
+                  <Section mt={4}>
+                    <Dropdown
+                      options={suggestions}
+                      isOpen={true}
+                      onClose={() => setShowSuggestions(false)}
+                      onSelect={handleSuggestionSelect}
+                      disabled={false}
+                      variant="default"
+                      direction="down"
+                      align="left"
+                    />
+                  </Section>
+                </Position>
+              )}
+            </div>
           </Position>
         ) : (
           <Icons iconSize={28} iconName="SearchIcon" box onClick={() => setSearchInput(true)} />
