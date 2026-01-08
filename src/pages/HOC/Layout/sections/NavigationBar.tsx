@@ -4,11 +4,22 @@ import { Icons } from '@components/Atom/Icons/Icons';
 import { Logo } from '@components/Atom/Logo';
 import { Section } from '@components/Atom/Section/Section';
 import { Text } from '@components/Atom/Text/Text';
-import { useSharedRouter } from '../../CustomHook/navigateHook';
-import { navLinks } from '../mockData/constant';
-import DropDownHover from './Dropdownhover';
+import { useSharedRouter } from '@context/RouterContext';
+import { useEffect, useState } from 'react';
+import { onSmallScreenChange } from '../../../../util/mediaQueries';
+import { navLinks } from './constant';
+import DropDownHover from './DropDownhover';
 import { IconBlock } from './IconBlock';
-import { type NavigationBarProps } from './types';
+
+interface NavigationBarProps {
+  scrolled?: boolean;
+  /** vertical translation in px applied to the nav (for slide animations) */
+  translateY?: number;
+  /** css transition to apply to the transform */
+  transition?: string;
+  setFlyoutCartOpen?: React.Dispatch<React.SetStateAction<boolean>>;
+  setFlyoutMenuOpen?: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
 export const NavigationBar = ({
   scrolled = false,
@@ -16,22 +27,28 @@ export const NavigationBar = ({
   transition = 'transform 220ms cubic-bezier(.2,.9,.2,1)',
   setFlyoutCartOpen,
   setFlyoutMenuOpen,
-  isMobile,
 }: NavigationBarProps) => {
   const cartItem = 2;
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
   const { path } = useSharedRouter();
   const transformValue = `translateY(${translateY}px)`;
 
-  return !isMobile ? (
+  useEffect(() => {
+    const cleanup = onSmallScreenChange(setIsSmallScreen);
+    return cleanup;
+  }, []);
+  const transparentPages = ['/home', '/about-us'];
+
+  return !isSmallScreen ? (
     // ====== DESKTOP VERSION ======
     <Flex width="100%">
       <Section
         px={52}
         h={68}
         w="100%"
-        bgColor={scrolled || path !== '/' ? 'white' : 'transparent'}
+        bgColor={scrolled || !transparentPages.includes(path) ? 'white' : 'transparent'}
         transition={transition}
-        transform={path === '/' ? '' : transformValue}
+        transform={transparentPages.includes(path) ? transformValue : ''}
       >
         <Flex align="center" justify="center" height="100%" width="100%">
           <Section h={60}>
@@ -52,9 +69,9 @@ export const NavigationBar = ({
       px={16}
       h={46}
       w="100%"
-      bgColor="white"
+      bgColor={scrolled || !transparentPages.includes(path) ? 'white' : 'transparent'}
       transition={transition}
-      transform={path !== '/' ? transformValue : ''}
+      transform={transparentPages.includes(path) ? transformValue : ''}
     >
       <Flex align="center" justify="center" height="100%" width="100%">
         <Section h={30}>

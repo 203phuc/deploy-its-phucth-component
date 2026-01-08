@@ -5,11 +5,16 @@ import { Icons } from '@components/Atom/Icons';
 import { Overlay } from '@components/Atom/Overlay';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
-import { useIsMobile } from '@pages/CustomHook/breakpoint';
+import { useEffect, useState } from 'react';
+import { onSmallScreenChange } from 'src/util/mediaQueries';
 
 export const SuccessPopUp = () => {
-  const mobile = useIsMobile();
-  if (mobile) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    return onSmallScreenChange(setIsMobile);
+  }, []);
+  if (isMobile) {
     return (
       <Overlay isOpen={true}>
         <Section w={343} px={16} py={24} bgColor="white">

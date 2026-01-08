@@ -2,7 +2,6 @@ import { ColumnType } from '@pages/HOC/hooks/type';
 import { useEffect, useState } from 'react';
 import { onSmallScreenChange } from 'src/util/mediaQueries';
 import { useSharedRouter } from '../../CustomHook/navigateHook';
-import { useHomePage } from '../../Homepage/sections/hooks/HomePageHook';
 
 export const useSearchPage = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -11,8 +10,6 @@ export const useSearchPage = () => {
   const { query } = useSharedRouter();
   const initialQuery = query.q || '';
   const [searchQuery, setSearchQuery] = useState(initialQuery);
-
-  const { notificationHeight, scrolled } = useHomePage();
 
   useEffect(() => {
     return onSmallScreenChange(setIsMobile);
@@ -32,8 +29,6 @@ export const useSearchPage = () => {
     setColumns,
     filter,
     setFilter,
-    notificationHeight,
-    scrolled,
     searchQuery,
     setSearchQuery,
   };

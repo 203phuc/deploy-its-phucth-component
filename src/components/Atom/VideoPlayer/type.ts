@@ -9,7 +9,7 @@ export interface VideoTrack {
   default?: boolean;
 }
 
-export type VideoPlayerSize = 'default' | 'special';
+export type VideoPlayerSize = 'default' | 'special' | 'specialPage';
 
 export interface VideoPlayerProps extends React.HTMLAttributes<HTMLDivElement> {
   /**

@@ -1,9 +1,11 @@
+import { RouterProvider, useSharedRouter } from '@pages/CustomHook/navigateHook';
 import { Meta, StoryObj } from '@storybook/react-vite';
-import { ShopPage } from './ShopPage';
+import { useEffect } from 'react';
+import Layout from '../HOC/Layout';
 
 const meta = {
   title: 'Page/ShopPage',
-  component: ShopPage,
+  component: Layout,
   parameters: {
     layout: 'fullscreen',
     design: {
@@ -12,16 +14,36 @@ const meta = {
     },
     docs: {
       description: {
-        component: 'shop page with full sections',
+        component: 'Shop page with full layout and navigation',
       },
     },
   },
+  decorators: [
+    (Story) => {
+      const ShopRouter = () => {
+        const { navigate } = useSharedRouter();
+
+        useEffect(() => {
+          navigate('/shop');
+        }, [navigate]);
+
+        return <Story />;
+      };
+
+      return (
+        <RouterProvider>
+          <ShopRouter />
+        </RouterProvider>
+      );
+    },
+  ],
   tags: ['autodocs'],
-} satisfies Meta<typeof ShopPage>;
+} satisfies Meta<typeof Layout>;
 
 export default meta;
+
 type Story = StoryObj<typeof meta>;
 
-export const Haibazo: Story = {
+export const Default: Story = {
   name: 'Nayzak ShopPage',
 };

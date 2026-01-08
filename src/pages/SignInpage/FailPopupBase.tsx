@@ -5,7 +5,8 @@ import { Icons } from '@components/Atom/Icons';
 import { Overlay } from '@components/Atom/Overlay';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
-import { useIsMobile } from '@pages/CustomHook/breakpoint';
+import { useEffect, useState } from 'react';
+import { onSmallScreenChange } from 'src/util/mediaQueries';
 
 interface FailPopupProps {
   message: string;
@@ -13,9 +14,13 @@ interface FailPopupProps {
 }
 
 export const FailPopupBase = ({ message, buttonLabel }: FailPopupProps) => {
-  const mobile = useIsMobile();
+  const [isMobile, setIsMobile] = useState(false);
 
-  if (mobile) {
+  useEffect(() => {
+    return onSmallScreenChange(setIsMobile);
+  }, []);
+
+  if (isMobile) {
     return (
       <Overlay isOpen={true}>
         <Section w={343} h={262} px={16} py={24} bgColor="white">

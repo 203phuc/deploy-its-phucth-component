@@ -6,11 +6,15 @@ import { Position } from '@components/Atom/Position';
 import { Section } from '@components/Atom/Section/Section';
 import { Text } from '@components/Atom/Text';
 import { Dropdown } from '@components/Molecule/Dropdown';
+import { useSharedRouter } from '@context/RouterContext';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { useSharedRouter } from '../../CustomHook/navigateHook';
-import { products as searchProducts } from '../../SearchProductpage/mockData/products';
-import { products as shopProducts } from '../../Shoppage/mockData/products';
-import { type IconBlockProps } from './types';
+import { products as searchProducts } from '../../../SearchProductpage/mockData/products';
+import { products as shopProducts } from '../../../Shoppage/mockData/products';
+
+interface IconBlockProps {
+  cartItem?: number;
+  setFlyoutCartOpen?: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
 export const IconBlock = ({ cartItem, setFlyoutCartOpen }: IconBlockProps) => {
   const [background, setBackground] = useState('transparent');
@@ -20,6 +24,7 @@ export const IconBlock = ({ cartItem, setFlyoutCartOpen }: IconBlockProps) => {
   const { navigate } = useSharedRouter();
   const inputRef = useRef<HTMLInputElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const blurTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Combine all products and get unique titles
   const allProducts = useMemo(() => {
@@ -63,8 +68,29 @@ export const IconBlock = ({ cartItem, setFlyoutCartOpen }: IconBlockProps) => {
     }
   };
 
+  // Handle input blur with delay to allow dropdown selection
+  const handleInputBlur = () => {
+    // Clear any existing timeout
+    if (blurTimeoutRef.current) {
+      clearTimeout(blurTimeoutRef.current);
+    }
+
+    // Delay blur handling to allow dropdown selection to complete
+    blurTimeoutRef.current = setTimeout(() => {
+      setSearchInput(false);
+      setSearchValue('');
+      setShowSuggestions(false);
+      blurTimeoutRef.current = null;
+    }, 150);
+  };
+
   // Handle suggestion select
   const handleSuggestionSelect = (value: string | number) => {
+    // Clear blur timeout when selecting to prevent closing
+    if (blurTimeoutRef.current) {
+      clearTimeout(blurTimeoutRef.current);
+      blurTimeoutRef.current = null;
+    }
     handleSearch(String(value));
   };
 
@@ -87,6 +113,15 @@ export const IconBlock = ({ cartItem, setFlyoutCartOpen }: IconBlockProps) => {
     }
   }, [showSuggestions]);
 
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (blurTimeoutRef.current) {
+        clearTimeout(blurTimeoutRef.current);
+      }
+    };
+  }, []);
+
   return (
     <Position position="relative">
       <Flex align="center" justify="end" gap={20} width={194}>
@@ -95,28 +130,17 @@ export const IconBlock = ({ cartItem, setFlyoutCartOpen }: IconBlockProps) => {
             <div ref={dropdownRef}>
               <Input
                 ref={inputRef}
-                iconStart={<Icons iconName="SearchIcon" iconSize={20} />}
-                iconEnd={
-                  <Icons
-                    iconName="CloseIcon"
-                    iconSize={20}
-                    box
-                    onClick={() => {
-                      setSearchInput(false);
-                      setSearchValue('');
-                      setShowSuggestions(false);
-                    }}
-                  />
-                }
+                iconEnd={<Icons iconName="SearchIcon" iconSize={28} />}
                 variant="line"
                 size="small"
+                bgColor="transparent"
                 placeholder="Search products..."
-                bgColor="white"
                 placeholderColor="gray"
                 value={searchValue}
                 onChange={handleInputChange}
                 onKeyDown={handleKeyDown}
                 onFocus={() => setShowSuggestions(searchValue.trim().length > 0)}
+                onBlur={handleInputBlur}
               />
               {showSuggestions && suggestions.length > 0 && (
                 <Position position="absolute" top="100%" left={0} right={0}>

@@ -3,20 +3,45 @@ import Icons from '@components/Atom/Icons';
 import { Link } from '@components/Atom/Link';
 import { Section } from '@components/Atom/Section/Section';
 import { Dropdown } from '@components/Molecule/Dropdown';
-import { navLinks as localNavLinks } from '../mockData/constant';
-import { useDropDownHover } from './hooks/DropdownHoverHook';
-import { DropDownHoverProps } from './types';
+import { useSharedRouter } from '@pages/CustomHook/navigateHook';
+import { useRef, useState } from 'react';
+import { navLinks as localNavLinks } from './constant';
+
+export interface DropDownHoverProps {
+  navLinks?: typeof localNavLinks;
+}
 
 const DropDownHover = ({ navLinks = localNavLinks }: DropDownHoverProps) => {
-  const {
-    hoveredId,
-    selectedState,
-    navigate,
-    handleMouseEnter,
-    handleMouseLeave,
-    handleSelect,
-    setHoveredId,
-  } = useDropDownHover(navLinks);
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const { path, navigate } = useSharedRouter();
+
+  // new: only one dropdown can hold the selected value at a time
+  const [selectedState, setSelectedState] = useState<{ id: string | null; value?: string | number | null }>({
+    id: null,
+    value: undefined,
+  });
+
+  const handleMouseEnter = (id: string) => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setHoveredId(id);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setHoveredId(null);
+    }, 200);
+  };
+
+  // when an option is selected in a dropdown, make that dropdown the one with a selected value
+  const handleSelect = (dropdownId: string, value: string | number, path?: string) => {
+    setSelectedState({ id: dropdownId, value });
+    // close dropdown after selection (hover logic will hide it; but keep hoveredId behavior consistent)
+    setHoveredId(null);
+    if (path) {
+      navigate(path);
+    }
+  };
 
   return (
     <Flex direction="row" height="100%" gap={40} align="center">
@@ -33,7 +58,7 @@ const DropDownHover = ({ navLinks = localNavLinks }: DropDownHoverProps) => {
                 font="spaceGrotesk"
                 weight="moderate"
                 spacing="xsmall"
-                color="black-900"
+                color={path === item.path ? 'blue-700' : 'black-900'}
                 href="#"
                 size="smedium"
                 hoverUnderline
@@ -62,15 +87,17 @@ const DropDownHover = ({ navLinks = localNavLinks }: DropDownHoverProps) => {
               disabled={false}
               variant="md"
               isOpen={hoveredId === item.id}
-              options={item.dropdown.map((drop) => ({
+              options={item.dropdown?.map((drop) => ({
                 label: drop.label,
                 value: drop.id,
+                path: drop.path, // may be undefined
               }))}
               // only provide the value when this dropdown is the selected one
               value={selectedState.id === item.id ? selectedState.value! : undefined}
-              onSelect={(v) => handleSelect(item.id, v)}
-              // let dropdown request closing (e.g. click outside)
-              onClose={() => setHoveredId(null)}
+              onSelect={(value) => {
+                const selected = item.dropdown?.find((d) => d.id === value);
+                handleSelect(item.id, value, selected?.path);
+              }}
             />
           )}
         </Section>

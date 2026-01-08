@@ -1,6 +1,6 @@
 // hooks/useMessageModal.ts
-import { useIsMobile } from '@pages/CustomHook/breakpoint';
 import { useEffect, useState } from 'react';
+import { onSmallScreenChange } from 'src/util/mediaQueries';
 import { MessageModalProps } from '../types';
 
 export const useMessageModal = ({
@@ -9,7 +9,12 @@ export const useMessageModal = ({
   autoCloseDuration = 5000,
 }: Pick<MessageModalProps, 'isOpen' | 'onClose' | 'autoCloseDuration'>) => {
   const [isVisible, setIsVisible] = useState(isOpen);
-  const isMobile = useIsMobile(); // directly use the custom hook
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Handle screen size changes
+  useEffect(() => {
+    return onSmallScreenChange(setIsMobile);
+  }, []);
 
   // Track visibility and auto-close
   useEffect(() => {

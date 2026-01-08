@@ -1,5 +1,5 @@
-import { useIsMobile } from '@pages/CustomHook/breakpoint';
 import { useEffect, useState } from 'react';
+import { onSmallScreenChange } from 'src/util/mediaQueries';
 
 export interface SignUpProps {
   isOpen: boolean;
@@ -8,7 +8,11 @@ export interface SignUpProps {
 export const useSignUpLogic = ({ isOpen }: SignUpProps) => {
   const [open, setOpen] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
-  const mobile = useIsMobile();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    return onSmallScreenChange(setIsMobile);
+  }, []);
 
   useEffect(() => {
     if (isOpen) {
@@ -16,5 +20,5 @@ export const useSignUpLogic = ({ isOpen }: SignUpProps) => {
     }
   }, [isOpen]);
 
-  return { mobile, open, setOpen, showPassword, setShowPassword };
+  return { mobile: isMobile, open, setOpen, showPassword, setShowPassword };
 };
