@@ -3,13 +3,8 @@ import { Heading } from '@components/Atom/Heading/Heading';
 import { Icons } from '@components/Atom/Icons/Icons';
 import { Position } from '@components/Atom/Position';
 import { Section } from '@components/Atom/Section/Section';
-import { CartItem, Product } from './CartItem';
-
-interface CartContentProps {
-  cartItems: Product[];
-  onClose: () => void;
-  onQuantityChange: (id: number, quantity: number) => void;
-}
+import { CartItem } from './CartItem';
+import type { CartContentProps } from './types';
 
 export const CartContent = ({ cartItems, onClose, onQuantityChange }: CartContentProps) => {
   return (
@@ -32,7 +27,7 @@ export const CartContent = ({ cartItems, onClose, onQuantityChange }: CartConten
 
       {/* Items */}
       <Position position="relative">
-        <Section w="100%" h={402} overflow="hidden auto">
+        <Section w={420} h={402} overflow="hidden auto">
           {cartItems.map((item) => (
             <CartItem key={item.id} product={[item]} onQuantityChange={onQuantityChange} />
           ))}

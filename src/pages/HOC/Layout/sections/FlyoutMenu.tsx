@@ -10,11 +10,8 @@ import { onSmallScreenChange } from '../../../../../src/util/mediaQueries';
 import { currencyOptions, languageOptions } from '../mockData/Dropdown';
 import { DropdownSelector } from './DropdownSelector';
 import { MobileNav } from './MobileNav';
+import type { FlyoutMenuProps } from './types';
 
-interface FlyoutMenuProps {
-  setFlyoutMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  cartItem: number;
-}
 export const FlyoutMenu = ({ setFlyoutMenuOpen, cartItem = 2 }: FlyoutMenuProps) => {
   const [currency, setCurrency] = useState<string | number>('USD');
   const [lang, setLang] = useState<string | number>('English');

@@ -3,12 +3,9 @@ import { Flex } from '@components/Atom/Flex';
 import { Heading } from '@components/Atom/Heading/Heading';
 import { Icons } from '@components/Atom/Icons';
 import { Input } from '@components/Atom/Input';
-import type { InputChangeEvent } from '@components/Atom/Input/type';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text/Text';
-import { useSharedRouter } from '@context/RouterContext';
-import type { KeyboardEvent } from 'react';
-import { useState } from 'react';
+import { useSearchNoResults } from '../hooks/useSearchNoResults';
 import { PageHeader } from './PageHeader';
 
 interface SearchNoResultsProps {
@@ -17,24 +14,8 @@ interface SearchNoResultsProps {
 }
 
 export const SearchNoResults = ({ searchQuery, isMobile }: SearchNoResultsProps) => {
-  const [newSearchValue, setNewSearchValue] = useState('');
-  const { navigate } = useSharedRouter();
-
-  const handleNewSearch = (value: string) => {
-    if (value.trim()) {
-      navigate('/search-product-page', { q: value });
-    }
-  };
-
-  const handleInputChange = (e: InputChangeEvent) => {
-    setNewSearchValue(e.target.value);
-  };
-
-  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      handleNewSearch(newSearchValue);
-    }
-  };
+  const { newSearchValue, canSubmit, handleNewSearch, handleInputChange, handleKeyDown } =
+    useSearchNoResults();
 
   return (
     <Flex direction="column">
@@ -82,7 +63,7 @@ export const SearchNoResults = ({ searchQuery, isMobile }: SearchNoResultsProps)
                 roundness="round"
                 size="medium"
                 onClick={() => handleNewSearch(newSearchValue)}
-                disabled={!newSearchValue.trim()}
+                disabled={!canSubmit}
                 fullWidth={isMobile}
               >
                 Search

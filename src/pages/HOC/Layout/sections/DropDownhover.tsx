@@ -6,10 +6,7 @@ import { Dropdown } from '@components/Molecule/Dropdown';
 import { useSharedRouter } from '@pages/CustomHook/navigateHook';
 import { useRef, useState } from 'react';
 import { navLinks as localNavLinks } from './constant';
-
-export interface DropDownHoverProps {
-  navLinks?: typeof localNavLinks;
-}
+import type { DropDownHoverProps } from './types';
 
 const DropDownHover = ({ navLinks = localNavLinks }: DropDownHoverProps) => {
   const [hoveredId, setHoveredId] = useState<string | null>(null);

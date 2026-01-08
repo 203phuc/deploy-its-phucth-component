@@ -10,16 +10,7 @@ import { onSmallScreenChange } from '../../../../util/mediaQueries';
 import { navLinks } from './constant';
 import DropDownHover from './DropDownhover';
 import { IconBlock } from './IconBlock';
-
-interface NavigationBarProps {
-  scrolled?: boolean;
-  /** vertical translation in px applied to the nav (for slide animations) */
-  translateY?: number;
-  /** css transition to apply to the transform */
-  transition?: string;
-  setFlyoutCartOpen?: React.Dispatch<React.SetStateAction<boolean>>;
-  setFlyoutMenuOpen?: React.Dispatch<React.SetStateAction<boolean>>;
-}
+import type { NavigationBarProps } from './types';
 
 export const NavigationBar = ({
   scrolled = false,

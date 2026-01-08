@@ -4,8 +4,9 @@ import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
 import { useEffect, useState } from 'react';
 import { onSmallScreenChange } from '../../../../../src/util/mediaQueries';
+import type { NotificationBarProps } from './types';
 
-export const NotificationBar = ({ onClose }: { onClose?: () => void }) => {
+export const NotificationBar = ({ onClose }: NotificationBarProps) => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [visible, setVisible] = useState(true);
 

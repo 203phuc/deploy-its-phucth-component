@@ -1,23 +1,4 @@
-import { IconName } from '@components/Atom/Icons';
-
-export interface NavLinkDropdownItem {
-  id: string;
-  label: string;
-  type: string;
-  condition: string;
-  icon?: IconName;
-  path?: string;
-}
-
-export interface NavLinkItem {
-  id: string;
-  label: string;
-  type: string;
-  condition: string;
-  icon?: IconName;
-  dropdown?: NavLinkDropdownItem[];
-  path?: string;
-}
+import type { NavLinkItem } from './types';
 
 export const navLinks: NavLinkItem[] = [
   {

@@ -2,16 +2,7 @@ import { Flex } from '@components/Atom/Flex';
 import { Icons } from '@components/Atom/Icons/Icons';
 import { Text } from '@components/Atom/Text/Text';
 import React from 'react';
-
-interface BreadCrumbItem {
-  label: string;
-  href?: string;
-}
-
-interface BreadCrumbProps {
-  items: BreadCrumbItem[];
-  gap?: number;
-}
+import type { BreadCrumbProps } from '../hooks/useBreadcrumbHistory';
 
 export const BreadCrumb: React.FC<BreadCrumbProps> = ({ items, gap = 8 }) => {
   return (

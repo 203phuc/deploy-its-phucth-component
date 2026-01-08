@@ -7,21 +7,7 @@ import { Input } from 'src/components/Atom/Input';
 import { Text } from 'src/components/Atom/Text/Text';
 import { onSmallScreenChange } from '../../../../../src/util/mediaQueries';
 import { products } from '../mockData/SampleProduct';
-
-export interface Product {
-  id: number;
-  name: string;
-  size: string;
-  color: string;
-  quantity: number;
-  price: number;
-  image: string;
-}
-
-export interface CartItemProps {
-  product?: Product[];
-  onQuantityChange?: (id: number, quantity: number) => void;
-}
+import type { CartItemProps, Product } from './types';
 
 export const CartItem = ({ product, onQuantityChange }: CartItemProps) => {
   const [items, setItems] = useState<Product[]>(product?.length ? [...product] : [...products]);

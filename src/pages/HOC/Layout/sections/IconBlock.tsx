@@ -10,11 +10,7 @@ import { useSharedRouter } from '@context/RouterContext';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { products as searchProducts } from '../../../SearchProductpage/mockData/products';
 import { products as shopProducts } from '../../../Shoppage/mockData/products';
-
-interface IconBlockProps {
-  cartItem?: number;
-  setFlyoutCartOpen?: React.Dispatch<React.SetStateAction<boolean>>;
-}
+import type { IconBlockProps } from './types';
 
 export const IconBlock = ({ cartItem, setFlyoutCartOpen }: IconBlockProps) => {
   const [background, setBackground] = useState('transparent');

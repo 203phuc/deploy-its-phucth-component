@@ -5,16 +5,7 @@ import { Position } from '@components/Atom/Position/Position';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
 import React, { useState } from 'react';
-
-export type MessageType = 'success' | 'error';
-
-export interface MessageModalProps {
-  type: MessageType;
-  message: string;
-  isOpen: boolean;
-  onClose: () => void;
-  autoCloseDuration?: number; // milliseconds, 0 to disable auto-close
-}
+import type { MessageModalProps } from './types';
 
 export const MessageModal: React.FC<MessageModalProps> = ({
   type,

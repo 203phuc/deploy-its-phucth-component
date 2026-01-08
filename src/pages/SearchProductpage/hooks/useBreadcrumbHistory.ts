@@ -1,8 +1,13 @@
 import { useState } from 'react';
 
-interface BreadCrumbItem {
+export interface BreadCrumbItem {
   label: string;
   href?: string;
+}
+
+export interface BreadCrumbProps {
+  items: BreadCrumbItem[];
+  gap?: number;
 }
 
 export const useBreadcrumbHistory = (maxItems = 3) => {
@@ -10,5 +15,3 @@ export const useBreadcrumbHistory = (maxItems = 3) => {
 
   return history.slice(0, maxItems);
 };
-
-export type { BreadCrumbItem };
