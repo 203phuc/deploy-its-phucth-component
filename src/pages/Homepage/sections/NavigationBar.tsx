@@ -29,9 +29,9 @@ export const NavigationBar = ({
         px={52}
         h={68}
         w="100%"
-        bgColor={scrolled || path !== '/home' ? 'white' : 'transparent'}
+        bgColor={scrolled || path !== '/' ? 'white' : 'transparent'}
         transition={transition}
-        transform={path === '/home' ? transformValue : ''}
+        transform={path === '/' ? '' : transformValue}
       >
         <Flex align="center" justify="center" height="100%" width="100%">
           <Section h={60}>
@@ -54,7 +54,7 @@ export const NavigationBar = ({
       w="100%"
       bgColor="white"
       transition={transition}
-      transform={scrolled && path === '/home' ? transformValue : ''}
+      transform={path !== '/' ? transformValue : ''}
     >
       <Flex align="center" justify="center" height="100%" width="100%">
         <Section h={30}>

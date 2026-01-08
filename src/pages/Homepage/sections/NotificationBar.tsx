@@ -12,7 +12,7 @@ export const NotificationBar = ({ onClose, isMobile }: NotificationBarProps) => 
 
   return (
     <Flex align="center" justify="center" height="100%" width="100%">
-      <Section w={width} h={height} bgColor="white" px={16}>
+      <Section w={width} h={height} bgColor="white" px={isMobile ? 8 : 10}>
         <Flex height="100%" width="100%" gap={gap} align="center" justify="end">
           <Text font="spaceGrotesk" size="smedium" color="black-900" weight="moderate">
             70% Off Storewide — Limited time

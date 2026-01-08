@@ -9,6 +9,10 @@ export interface SectionProps extends React.HTMLAttributes<HTMLDivElement> {
   border?: string;
   /** Border radius (number in px or string like '50%' or '1rem') */
   borderRadius?: string | number;
+  /** minimal height of component (number in px or string like '50%' or '1rem') */
+  minW?: string | number;
+  /** minimal width of component (number in px or string like '50%' or '1rem') */
+  minH?: string | number;
   /** Width value (number in px or Tailwind class) */
   w?: string | number;
   /** Height value (number in px or Tailwind class) */

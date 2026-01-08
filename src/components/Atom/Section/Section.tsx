@@ -30,6 +30,8 @@ export const Section = ({
   transition,
   transform,
   children,
+  minH,
+  minW,
   className,
   ...props
 }: SectionProps) => {
@@ -38,7 +40,8 @@ export const Section = ({
   // Width / Height
   if (w !== undefined) style.width = toUnit(w);
   if (h !== undefined) style.height = toUnit(h);
-
+  if (minW) style.minWidth = toUnit(minW);
+  if (minH) style.minHeight = toUnit(minH);
   // Background color
   if (bgColor) style.backgroundColor = bgColor;
 

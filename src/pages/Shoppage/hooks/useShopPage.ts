@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useHomePage } from '../..//Homepage/sections/hooks/HomePageHook';
+import { useHomePage } from '../../Homepage/sections/hooks/HomePageHook';
 import { onSmallScreenChange } from 'src/util/mediaQueries';
 import { ColumnType } from '@pages/HOC/hooks/type';
 
