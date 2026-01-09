@@ -1,4 +1,4 @@
-export interface PositionProps {
+export interface PositionProps extends React.HTMLAttributes<HTMLDivElement> {
   position?: 'absolute' | 'relative' | 'fixed' | 'sticky';
   top?: string | number;
   left?: string | number;

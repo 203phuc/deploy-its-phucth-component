@@ -5,10 +5,12 @@ import { Section } from '@components/Atom/Section';
 import { NewsletterProvider } from '@context/NewsletterContext';
 import { AboutUsPage } from '@pages/AboutUspage/AboutUsPage';
 import { RouterProvider, useSharedRouter } from '@pages/CustomHook/navigateHook';
-import { HomePage } from '@pages/Homepage/HomePage';
-import { NotFoundPage } from '@pages/NotFoundpage/NotFoundPage';
-import { SearchPage } from '@pages/SearchProductpage/SearchPage';
-import { ShopPage } from '@pages/Shoppage/ShopPage';
+import { HomePage } from '@pages/Homepage';
+import { NotFoundPage } from '@pages/NotFoundpage';
+import { sampleProduct } from '@pages/Productpage/mockData/sampleProduct';
+import { ProductPage } from '@pages/Productpage/ProductPage';
+import { SearchPage } from '@pages/SearchProductpage';
+import { ShopPage } from '@pages/Shoppage';
 import { ReactNode, useEffect, useState } from 'react';
 import { onSmallScreenChange } from '../../../../src/util/mediaQueries';
 import { FlyoutCart } from './sections/FlyoutCart';
@@ -22,6 +24,7 @@ const routes: Record<string, ReactNode> = {
   '/home': <HomePage />,
   '/shop': <ShopPage />,
   '/about-us': <AboutUsPage />,
+  '/product': <ProductPage product={sampleProduct} />,
   '/contact': <>this is contact page</>,
   '/search-product-page': <SearchPage />,
 };

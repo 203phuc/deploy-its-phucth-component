@@ -2,9 +2,9 @@ import type { InputHTMLAttributes, ReactNode, TextareaHTMLAttributes } from 'rea
 import type { IconName } from '../Icons/types';
 import { InputCvaProps } from './style';
 
-export type InputVariant = 'line' | 'solid';
+export type InputVariant = 'line' | 'solid' | 'noBorder';
 export type InputSize = 'small' | 'medium' | 'large' | 'xlarge';
-export type InputBgColor = 'white' | 'transparent';
+export type InputBgColor = 'white' | 'transparent' | 'gray';
 export type InputPlaceholderColor = 'gray' | 'black' | 'white';
 /**
  * Unified onChange handler that works for both input and textarea

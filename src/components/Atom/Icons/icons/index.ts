@@ -6,6 +6,7 @@ export { ArrowRightIcon } from './ArrowRightIcon';
 export { ArrowUpIcon } from './ArrowUpIcon';
 export { BagIcon } from './BagIcon';
 export { BrandingIcon } from './BrandingIcon';
+export { RulerIcon } from './RulerIcon';
 export { CalendarIcon } from './CalendarIcon';
 export { CheckIcon } from './CheckIcon';
 export { ChevronDownIcon } from './ChevronDownIcon';

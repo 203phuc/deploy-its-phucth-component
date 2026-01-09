@@ -44,6 +44,7 @@ export const navLinks: NavLinkItem[] = [
     id: '5',
     label: 'Product',
     type: 'group',
+    path: '/product',
     condition: 'Always',
     icon: 'ChevronDownIcon',
     dropdown: [

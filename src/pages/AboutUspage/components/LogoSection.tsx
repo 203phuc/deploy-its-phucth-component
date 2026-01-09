@@ -34,15 +34,17 @@ export const LogoSection: React.FC<LogoSectionProps> = ({ isMobile }) => {
 
   return (
     <Section py={52} w="100%" bgColor="white">
-      <Section w={1336} h={192} mx={52}>
-        <Section w="100%" h={1} bgColor="var(--color-black-300)"></Section>
-        <Flex direction="row" justify="center" align="center" height="100%" gap={72}>
-          {logos.map((logo) => (
-            <Logo key={logo.id} logoName={logo.name as LogoName} size="large" />
-          ))}
-        </Flex>
-        <Section w="100%" h={1} bgColor="var(--color-black-300)"></Section>
-      </Section>
+      <Flex width="100%" justify="center" align="center">
+        <Section w={1336} h={192} mx={52}>
+          <Section w="100%" h={1} bgColor="var(--color-black-300)"></Section>
+          <Flex direction="row" justify="center" align="center" height="100%" gap={72}>
+            {logos.map((logo) => (
+              <Logo key={logo.id} logoName={logo.name as LogoName} size="large" />
+            ))}
+          </Flex>
+          <Section w="100%" h={1} bgColor="var(--color-black-300)"></Section>
+        </Section>
+      </Flex>
     </Section>
   );
 };

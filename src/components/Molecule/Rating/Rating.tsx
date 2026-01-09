@@ -11,7 +11,7 @@ export const Rating = ({ size, noFillColor, rating = 0, ...props }: RatingProps)
   useEffect(() => setSelected(rating), [rating]);
   return (
     <Position position="relative">
-      <Flex onMouseLeave={() => setHover(0)} {...props} style={{ cursor: 'pointer' }}>
+      <Flex onMouseLeave={() => setHover(0)} {...props} style={{ cursor: 'pointer' }} gap={2}>
         {Array.from({ length: 5 }).map((_, i) => {
           const index = i + 1;
 

@@ -7,6 +7,7 @@ export const inputCva = cva(
       variant: {
         solid: 'rounded-md border border-gray-300',
         line: 'rounded-none border-b border-gray-400',
+        noBorder: 'rounded-none border-none',
       },
       size: {
         small: 'h-8 gap-1 px-2', //32px
@@ -20,6 +21,7 @@ export const inputCva = cva(
         false: '',
       },
       bgColor: {
+        gray: 'bg-[#F5F5F5]',
         white: 'bg-white',
         transparent: 'bg-transparent',
       },
