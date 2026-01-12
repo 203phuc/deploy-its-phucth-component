@@ -14,6 +14,7 @@ interface TabSectionProps {
   reviews: Review[];
   questions: Question[];
   reviewCount: number;
+  isMobile: boolean;
 }
 
 export const TabSection = ({
@@ -22,6 +23,7 @@ export const TabSection = ({
   reviews,
   questions,
   reviewCount,
+  isMobile,
 }: TabSectionProps) => {
   const [activeTab, setActiveTab] = useState<'description' | 'additional-info' | 'reviews' | 'questions'>(
     'description',
@@ -120,10 +122,10 @@ export const TabSection = ({
   };
 
   return (
-    <Section w={1108} my={52} mx={166}>
+    <Section w={isMobile ? 343 : 1108} my={isMobile ? 24 : 52} mx={isMobile ? 16 : 166}>
       <Position position="relative">
         <Position position="absolute" zIndex={-1} left={0} right={0} bottom={0}>
-          <Section bgColor="var(--color-black-200)" w={1108} h={1}></Section>
+          <Section bgColor="var(--color-black-200)" w={isMobile ? 343 : 1108} h={1}></Section>
         </Position>
         <Section overflow="auto">
           <Flex width="100%" gap={80}>

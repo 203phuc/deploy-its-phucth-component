@@ -82,7 +82,7 @@ function AppContent() {
         <FlyoutMenu setFlyoutMenuOpen={setFlyoutMenuOpen} cartItem={2} />
       </Overlay>
       <Overlay isOpen={flyoutCartOpen} onClose={() => setFlyoutCartOpen(false)} zIndex={10} position="right">
-        <FlyoutCart setFlyoutCartOpen={setFlyoutCartOpen} />
+        <FlyoutCart setFlyoutCartOpen={setFlyoutCartOpen} isMobile={isSmallScreen} />
       </Overlay>
 
       <Position position={scrolled ? 'fixed' : 'relative'} top={0} left={0} right={0} zIndex={5}>

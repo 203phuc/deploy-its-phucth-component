@@ -15,6 +15,7 @@ export const ProductPage = ({ product = sampleProduct }: ProductPageProps) => {
     <Flex direction="column">
       <ProductSection product={product} isMobile={isMobile} />
       <TabSection
+        isMobile={isMobile}
         description={product.description}
         specifications={product.specifications ?? {}}
         reviews={product.reviews ?? []}

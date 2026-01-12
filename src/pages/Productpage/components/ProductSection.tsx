@@ -29,7 +29,7 @@ export const ProductSection = ({ product, isMobile = false }: ProductSectionProp
   };
 
   return (
-    <Section w={1108} my={isMobile ? 40 : 52} mx={isMobile ? 16 : 166}>
+    <Section w={isMobile ? 343 : 1108} my={isMobile ? 40 : 52} mx={isMobile ? 16 : 166}>
       <Flex
         direction={isMobile ? 'column' : 'row'}
         gap={isMobile ? 24 : 82}
@@ -46,7 +46,7 @@ export const ProductSection = ({ product, isMobile = false }: ProductSectionProp
         />
 
         {/* Product Details */}
-        <Flex direction="column" width={isMobile ? '100%' : 456}>
+        <Flex direction="column" width={isMobile ? 343 : 456}>
           <Flex direction="column" gap={16}>
             {/* Breadcrumb */}
             <Section w="100%">
@@ -149,7 +149,7 @@ export const ProductSection = ({ product, isMobile = false }: ProductSectionProp
             </Button>
           </Section>
           <Flex direction="column" gap={24} justify="space-between">
-            <Flex direction="column" gap={16} width={456}>
+            <Flex direction="column" gap={16} width={isMobile ? 343 : 456}>
               {/* Add to Cart Section */}
               <Flex direction={isMobile ? 'column' : 'row'} gap={16}>
                 <Flex align="center" width={127} height={52} gap={8} style={{ minWidth: 82 }}>

@@ -44,6 +44,7 @@ export interface CartContentProps {
 
 export interface FlyoutCartProps {
   setFlyoutCartOpen: Dispatch<SetStateAction<boolean>>;
+  isMobile: boolean;
 }
 
 export interface FlyoutMenuProps {

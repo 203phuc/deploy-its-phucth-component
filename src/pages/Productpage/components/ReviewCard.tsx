@@ -10,6 +10,12 @@ interface ReviewCardProps {
   review: Review;
 }
 
+const formatDate = (dateString: string) => {
+  const date = new Date(dateString);
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+};
+
 export const ReviewCard = ({ review }: ReviewCardProps) => {
   return (
     <Section w="100%" pt={32}>
@@ -33,7 +39,7 @@ export const ReviewCard = ({ review }: ReviewCardProps) => {
                 {review.author}
               </Heading>
               <Text align="center" size="small" color="black-600">
-                {review.date}
+                {formatDate(review.date)}
               </Text>
             </Flex>
 
