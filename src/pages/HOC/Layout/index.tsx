@@ -4,6 +4,7 @@ import { Position } from '@components/Atom/Position';
 import { Section } from '@components/Atom/Section';
 import { NewsletterProvider } from '@context/NewsletterContext';
 import { AboutUsPage } from '@pages/AboutUspage/AboutUsPage';
+import { ContactPage } from '@pages/Contactpage/ContactPage';
 import { RouterProvider, useSharedRouter } from '@pages/CustomHook/navigateHook';
 import { HomePage } from '@pages/Homepage';
 import { NotFoundPage } from '@pages/NotFoundpage';
@@ -25,7 +26,7 @@ const routes: Record<string, ReactNode> = {
   '/shop': <ShopPage />,
   '/about-us': <AboutUsPage />,
   '/product': <ProductPage product={sampleProduct} />,
-  '/contact': <>this is contact page</>,
+  '/contact': <ContactPage />,
   '/search-product-page': <SearchPage />,
 };
 

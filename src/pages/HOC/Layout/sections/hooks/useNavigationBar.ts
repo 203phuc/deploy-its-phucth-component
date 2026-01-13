@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState } from 'react';
 import { useSharedRouter } from '@context/RouterContext';
+import { useEffect, useMemo, useState } from 'react';
 import { onSmallScreenChange } from '../../../../../util/mediaQueries';
 
 export const useNavigationBar = (translateY: number) => {
@@ -11,7 +11,7 @@ export const useNavigationBar = (translateY: number) => {
     return cleanup;
   }, []);
 
-  const transparentPages = useMemo(() => ['/home', '/about-us'], []);
+  const transparentPages = useMemo(() => ['/home', '/about-us', '/contact'], []);
 
   const isTransparent = transparentPages.includes(path);
   const transformValue = `translateY(${translateY}px)`;

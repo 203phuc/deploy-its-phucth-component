@@ -85,6 +85,7 @@ export const navLinks: NavLinkItem[] = [
         id: '6_3',
         label: 'Contact us',
         type: 'button',
+        path: '/contact',
         condition: 'User hovers over [Pages]',
         icon: 'PhoneIcon',
       },
