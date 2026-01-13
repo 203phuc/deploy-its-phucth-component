@@ -1,3 +1,4 @@
+import { Timer } from '@components/Molecule/Timer';
 import { useState } from 'react';
 import { Button } from '../../../components/Atom/Button';
 import { Flex } from '../../../components/Atom/Flex';
@@ -7,7 +8,6 @@ import { Section } from '../../../components/Atom/Section';
 import { Text } from '../../../components/Atom/Text';
 import { ColorSwatch } from '../../../pages/HOC/ColorSwatch';
 import SizeSwatch from '../../../pages/HOC/SizeSwatch';
-import { Timer } from '@components/Molecule/Timer';
 
 interface ProductDetailsProps {
   product: {

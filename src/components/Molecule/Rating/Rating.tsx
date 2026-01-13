@@ -4,11 +4,16 @@ import { Position } from '@components/Atom/Position';
 import { useEffect, useState } from 'react';
 import { RatingProps } from './type';
 
-export const Rating = ({ size, noFillColor, rating = 0, ...props }: RatingProps) => {
+export const Rating = ({ size, noFillColor, rating = 0, onRatingChange, ...props }: RatingProps) => {
   const [hover, setHover] = useState(0);
   const [selected, setSelected] = useState<number>(rating);
 
   useEffect(() => setSelected(rating), [rating]);
+
+  const handleRatingClick = (newRating: number) => {
+    setSelected(newRating);
+    onRatingChange?.(newRating as 0 | 1 | 2 | 3 | 4 | 5);
+  };
   return (
     <Position position="relative">
       <Flex onMouseLeave={() => setHover(0)} {...props} style={{ cursor: 'pointer' }} gap={2}>
@@ -26,7 +31,7 @@ export const Rating = ({ size, noFillColor, rating = 0, ...props }: RatingProps)
               color={noFillColor}
               iconName={filled ? 'StarFilledIcon' : 'StarRateIcon'}
               onMouseEnter={() => setHover(index)}
-              onClick={() => setSelected(index)}
+              onClick={() => handleRatingClick(index)}
             />
           );
         })}

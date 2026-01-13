@@ -1,14 +1,16 @@
 import { Button } from '@components/Atom/Button';
 import { Flex } from '@components/Atom/Flex';
 import { Heading } from '@components/Atom/Heading';
-import { Icons } from '@components/Atom/Icons';
+import Icons from '@components/Atom/Icons';
 import { Input } from '@components/Atom/Input';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
 import Rating from '@components/Molecule/Rating/Rating';
 import { Timer } from '@components/Molecule/Timer/Timer';
+import { AskQuestionModal } from '@pages/HOC/AskQuestionModal';
 import { BreadCrumb } from '@pages/HOC/BreadCrumb/BreadCrumb';
 import { ColorSwatch } from '@pages/HOC/ColorSwatch';
+import { SharePopup } from '@pages/HOC/SharePopup';
 import SizeSwatch from '@pages/HOC/SizeSwatch';
 import { useState } from 'react';
 import { Product } from '../types';
@@ -21,6 +23,8 @@ interface ProductSectionProps {
 
 export const ProductSection = ({ product, isMobile = false }: ProductSectionProps) => {
   const [quantity, setQuantity] = useState(1);
+  const [isSharePopupOpen, setIsSharePopupOpen] = useState(false);
+  const [isAskQuestionOpen, setIsAskQuestionOpen] = useState(false);
 
   const updateQuantity = (newQuantity: number) => {
     if (newQuantity >= 1) {
@@ -203,11 +207,18 @@ export const ProductSection = ({ product, isMobile = false }: ProductSectionProp
                 <Icons iconName="HeartIcon" iconSize={16} />
                 <span>Wishlist</span>
               </Button>
-              <Button variant="text" size="small" hasIcon>
+              <Button variant="text" onClick={() => setIsAskQuestionOpen(true)} size="small" hasIcon>
                 <Icons iconName="HelpIcon" iconSize={16} />
                 <span>Ask Question</span>
               </Button>
-              <Button variant="text" size="small" hasIcon>
+              <Button
+                onClick={() => {
+                  setIsSharePopupOpen(true);
+                }}
+                variant="text"
+                size="small"
+                hasIcon
+              >
                 <Icons iconName="ShareIcon" iconSize={16} />
                 <span>Share</span>
               </Button>
@@ -215,6 +226,15 @@ export const ProductSection = ({ product, isMobile = false }: ProductSectionProp
           </Flex>
         </Flex>
       </Flex>
+      <SharePopup isOpen={isSharePopupOpen} onClose={() => setIsSharePopupOpen(false)} isMobile={isMobile} />
+      <AskQuestionModal
+        isOpen={isAskQuestionOpen}
+        onClose={() => setIsAskQuestionOpen(false)}
+        onSubmit={(question) => {
+          console.log('Question submitted:', question);
+          // Handle question submission logic here
+        }}
+      />
     </Section>
   );
 };

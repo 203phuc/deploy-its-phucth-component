@@ -70,7 +70,48 @@ export const sampleProduct: Product = {
       date: '2023-05-08',
       avatar: 'https://picsum.photos/seed/mike/48/48.jpg',
     },
+    {
+      id: 'r4',
+      rating: 3,
+      comment: 'Decent material but the stitching could be better.',
+      author: 'Emily Davis',
+      date: '2023-05-05',
+      avatar: 'https://picsum.photos/seed/emily/48/48.jpg',
+    },
+    {
+      id: 'r5',
+      rating: 5,
+      comment: 'Exceeded my expectations. Holds shape well after washing.',
+      author: 'Daniel Roberts',
+      date: '2023-05-02',
+      avatar: 'https://picsum.photos/seed/daniel/48/48.jpg',
+    },
+    {
+      id: 'r6',
+      rating: 4,
+      comment: 'Nice fabric and color, delivery was fast.',
+      author: 'Laura Nguyen',
+      date: '2023-04-28',
+      avatar: 'https://picsum.photos/seed/laura/48/48.jpg',
+    },
+    {
+      id: 'r7',
+      rating: 2,
+      comment: 'Not bad, but the fit was awkward on the shoulders.',
+      author: 'Chris Walker',
+      date: '2023-04-25',
+      avatar: 'https://picsum.photos/seed/chris/48/48.jpg',
+    },
+    {
+      id: 'r8',
+      rating: 5,
+      comment: 'Perfect everyday t-shirt. I bought two more after the first one.',
+      author: 'Hannah Lee',
+      date: '2023-04-20',
+      avatar: 'https://picsum.photos/seed/hannah/48/48.jpg',
+    },
   ],
+
   questions: [
     {
       id: 'q1',

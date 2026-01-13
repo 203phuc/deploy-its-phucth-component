@@ -4,6 +4,7 @@ export { ArrowDownIcon } from './ArrowDownIcon';
 export { ArrowLeftIcon } from './ArrowLeftIcon';
 export { ArrowRightIcon } from './ArrowRightIcon';
 export { ArrowUpIcon } from './ArrowUpIcon';
+export { PhotoIcon } from './PhotoIcon';
 export { BagIcon } from './BagIcon';
 export { BrandingIcon } from './BrandingIcon';
 export { RulerIcon } from './RulerIcon';

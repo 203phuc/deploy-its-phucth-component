@@ -1,4 +1,6 @@
 import { Flex } from '@components/Atom/Flex';
+import { mockProducts } from '../HOC/data/mockProducts';
+import { ProductCarousel } from './components/ProductCarousel';
 import { ProductSection } from './components/ProductSection';
 import { TabSection } from './components/TabSection';
 import { useProductPage } from './hooks/useProductPage';
@@ -22,6 +24,7 @@ export const ProductPage = ({ product = sampleProduct }: ProductPageProps) => {
         questions={product.questions ?? []}
         reviewCount={product.reviewCount ?? 0}
       />
+      <ProductCarousel products={mockProducts} isMobile={isMobile} />
     </Flex>
   );
 };

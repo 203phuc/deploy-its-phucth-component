@@ -4,19 +4,16 @@ import { ImagePlaceholder } from '@components/Atom/ImagePlaceholder';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
 import Rating from '@components/Molecule/Rating/Rating';
+import { useDateFormat } from '../hooks/useDateFormat';
 import { Review } from '../types';
 
 interface ReviewCardProps {
   review: Review;
 }
 
-const formatDate = (dateString: string) => {
-  const date = new Date(dateString);
-  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
-};
-
 export const ReviewCard = ({ review }: ReviewCardProps) => {
+  const formattedDate = useDateFormat(review.date);
+
   return (
     <Section w="100%" pt={32}>
       <Section bgColor="var(--color-black-300)" h={1} mb={32}></Section>
@@ -39,7 +36,7 @@ export const ReviewCard = ({ review }: ReviewCardProps) => {
                 {review.author}
               </Heading>
               <Text align="center" size="small" color="black-600">
-                {formatDate(review.date)}
+                {formattedDate}
               </Text>
             </Flex>
 

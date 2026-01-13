@@ -5,7 +5,7 @@ import { buttonCva } from './style';
 
 export type ButtonCvaProps = VariantProps<typeof buttonCva>;
 
-export type ButtonVariant = 'solidBlack' | 'outlined' | 'text' | 'underline' | 'solidWhite';
+export type ButtonVariant = 'solidBlack' | 'outlined' | 'text' | 'underline' | 'solidWhite' | 'solidGray';
 export type ButtonSize = 'xlarge' | 'large' | 'largeCompact' | 'medium' | 'small' | 'xsmall' | 'specialSmall';
 export type ButtonRoundness = 'pill' | 'round' | 'sharp';
 export type ButtonFont = 'spaceGrotesk' | 'inter';

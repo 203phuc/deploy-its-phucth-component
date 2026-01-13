@@ -12,7 +12,7 @@ const meta = {
     },
     docs: {
       description: {
-        component: 'Home page with full sections',
+        component: 'notfound page with full sections',
       },
     },
   },

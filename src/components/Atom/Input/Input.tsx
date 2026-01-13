@@ -177,7 +177,7 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
     if (as === 'textarea') {
       const textareaProps = props as React.TextareaHTMLAttributes<HTMLTextAreaElement>;
       const textareaClasses = cn(
-        textareaCva({ variant, error: !!error || !!errorMessage, fontFamily }),
+        textareaCva({ variant: variant as 'solid' | 'line', error: !!error || !!errorMessage, fontFamily }),
         className,
       );
 

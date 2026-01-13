@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import Layout from '../HOC/Layout';
 
 const meta = {
-  title: 'Page/Homepage',
+  title: 'Page/ProductPage',
   component: Layout,
   parameters: {
     layout: 'fullscreen',
@@ -14,17 +14,17 @@ const meta = {
     },
     docs: {
       description: {
-        component: 'homepage page with full layout and navigation',
+        component: 'Product page with full layout and navigation',
       },
     },
   },
   decorators: [
     (Story) => {
-      const HomeRouter = () => {
+      const ProductRouter = () => {
         const { navigate } = useSharedRouter();
 
         useEffect(() => {
-          navigate('/home');
+          navigate('/product');
         }, [navigate]);
 
         return <Story />;
@@ -32,7 +32,7 @@ const meta = {
 
       return (
         <RouterProvider>
-          <HomeRouter />
+          <ProductRouter />
         </RouterProvider>
       );
     },
@@ -45,5 +45,5 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  name: 'Nayzak HomePage',
+  name: 'Nayzak ProductPage',
 };

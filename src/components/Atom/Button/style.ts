@@ -7,6 +7,7 @@ export const buttonCva = cva(
     variants: {
       variant: {
         solidBlack: 'bg-black text-white hover:opacity-90',
+        solidGray: 'bg-[var(--color-black-100)] text-black hover:opacity-90',
         solidWhite: 'bg-white text-black-900 hover:opacity-90',
         outlined: 'border-2 border-current bg-transparent hover:bg-black/5',
         text: 'm-0 border-0 bg-transparent p-0 shadow-none hover:bg-transparent hover:opacity-100',
