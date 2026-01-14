@@ -1,9 +1,11 @@
 import { Flex } from '@components/Atom/Flex';
 import { Section } from '@components/Atom/Section';
+import { FAQSection } from '@pages/HOC/FAQSection';
 import { PageHeader } from '@pages/HOC/PageHeader';
 import { BrandingSection } from './components/BrandingSection';
 import { ContactForm } from './components/ContactForm';
 import { useContactPage } from './hooks/useContactPage';
+import { faqData } from './mockData/faqData';
 
 export const ContactPage = () => {
   const { isMobile, formData, handleInputChange, handleSubmit } = useContactPage();
@@ -33,6 +35,7 @@ export const ContactPage = () => {
       </Section>
 
       <BrandingSection isMobile={isMobile} />
+      <FAQSection isMobile={isMobile} faqData={faqData} />
     </Flex>
   );
 };
