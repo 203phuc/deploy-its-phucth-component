@@ -7,6 +7,7 @@ import { AboutUsPage } from '@pages/AboutUspage/AboutUsPage';
 import { ContactPage } from '@pages/Contactpage/ContactPage';
 import { RouterProvider, useSharedRouter } from '@pages/CustomHook/navigateHook';
 import { HomePage } from '@pages/Homepage';
+import { MyAccountPage } from '@pages/MyAccountPage/MyAccountPage';
 import { NotFoundPage } from '@pages/NotFoundpage';
 import { PolicyPage } from '@pages/PolicyPage/PolicyPage';
 import { sampleProduct } from '@pages/Productpage/mockData/sampleProduct';
@@ -29,6 +30,7 @@ const routes: Record<string, ReactNode> = {
   '/product': <ProductPage product={sampleProduct} />,
   '/contact': <ContactPage />,
   '/search-product-page': <SearchPage />,
+  '/my-account': <MyAccountPage />,
   '/policy/shopping': <PolicyPage policyType="shopping" />,
   '/policy/payment': <PolicyPage policyType="payment" />,
   '/policy/shipping': <PolicyPage policyType="shipping" />,

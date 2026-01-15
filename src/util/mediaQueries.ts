@@ -1,5 +1,5 @@
 export const onSmallScreenChange = (callback: (isSmall: boolean) => void) => {
-  const mq = window.matchMedia('(max-width: 600px)');
+  const mq = globalThis.matchMedia('(max-width: 600px)');
 
   const handler = (e: MediaQueryListEvent) => {
     callback(e.matches);

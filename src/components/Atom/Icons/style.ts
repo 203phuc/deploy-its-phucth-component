@@ -40,6 +40,7 @@ export const iconsCva = cva(
         blue: 'text-blue-500',
         black: 'text-black',
         white: 'text-white',
+        whiteOpacity: 'text-white/50',
       },
 
       // 6. Roundness for box

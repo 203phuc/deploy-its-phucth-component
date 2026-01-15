@@ -54,7 +54,7 @@ export const knobCva = cva('absolute shadow-md transition-transform duration-300
       large: 'top-[2px] h-[24px] w-[24px]',
     },
     checked: {
-      true: 'bg-white data-[size=large]:h-[23px] data-[size=large]:w-[23px] data-[size=large]:translate-x-[34.5px] data-[size=large]:translate-y-[2px] data-[size=medium]:h-[18px] data-[size=medium]:w-[18px] data-[size=medium]:translate-x-[26.5px] data-[size=medium]:translate-y-[1px] data-[size=small]:h-[13px] data-[size=small]:w-[13px] data-[size=small]:translate-x-[19.5px] data-[size=small]:translate-y-[1.5px]',
+      true: 'bg-white data-[size=large]:h-[23px] data-[size=large]:w-[23px] data-[size=large]:translate-x-[34.5px] data-[size=large]:translate-y-[2px] data-[size=medium]:h-[18px] data-[size=medium]:w-[18px] data-[size=medium]:translate-x-[26.5px] data-[size=medium]:translate-y-[1.8px] data-[size=small]:h-[13px] data-[size=small]:w-[13px] data-[size=small]:translate-x-[19.5px] data-[size=small]:translate-y-[1.5px]',
       false: 'translate-x-0 bg-black-900',
     },
     shape: {

@@ -7,5 +7,11 @@
   "editor.formatOnSave": true,
   "eslint.useESLintClass": true,
   "eslint.codeActionsOnSave.options": {},
-  "eslint.useFlatConfig": false
+  "eslint.useFlatConfig": false,
+  "sonarlint.connectedMode.project": {
+    "connectionId": "https-www-sonarqube-haibazo-com",
+    "projectKey": "its-c_phucth_its-phucth-component_77c0aa25-5d97-4dc7-a25d-c19fab6fe902"
+  },
+  "sonarlint.testFilePattern": "**/e2e/**,**/it/**",
+  "sonarlint.pathToCompileCommands": ""
 }

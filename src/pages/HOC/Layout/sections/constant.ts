@@ -89,6 +89,14 @@ export const navLinks: NavLinkItem[] = [
         condition: 'User hovers over [Pages]',
         icon: 'PhoneIcon',
       },
+      {
+        id: '6_4',
+        label: 'My Account',
+        type: 'button',
+        path: '/my-account',
+        condition: 'User hovers over [Pages]',
+        icon: 'UserIcon',
+      },
     ],
   },
 ];
