@@ -9,6 +9,7 @@ import { useState } from 'react';
 export interface FAQSectionProps {
   isMobile?: boolean;
   faqData?: FAQItem[];
+  title?: string;
 }
 
 const FAQAccordion = ({
@@ -42,7 +43,11 @@ const FAQAccordion = ({
   </Section>
 );
 
-export const FAQSection = ({ isMobile, faqData = [] }: FAQSectionProps) => {
+export const FAQSection = ({
+  isMobile,
+  faqData = [],
+  title = 'Frequently Asked Questions',
+}: FAQSectionProps) => {
   const [openItems, setOpenItems] = useState<number[]>([]);
 
   const toggleItem = (id: number) => {
@@ -55,7 +60,7 @@ export const FAQSection = ({ isMobile, faqData = [] }: FAQSectionProps) => {
         {/* Section Header */}
         <Section w="100%">
           <Heading font="spaceGrotesk" color="black-900" weight="moderate" size={isMobile ? 'h5' : 'h4'}>
-            Frequently Asked Questions
+            {title}
           </Heading>
         </Section>
 

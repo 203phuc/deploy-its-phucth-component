@@ -54,17 +54,35 @@ export const Footer = () => {
                         Information
                       </Text>
                       <Flex direction="column" gap={12}>
-                        <Link hoverUnderline size="small" font="inter" href="#" weight="regular">
+                        <Link
+                          hoverUnderline
+                          size="small"
+                          font="inter"
+                          href="/policy/shopping"
+                          weight="regular"
+                        >
+                          Shopping Policy
+                        </Link>
+                        <Link
+                          hoverUnderline
+                          size="small"
+                          font="inter"
+                          href="/policy/shipping"
+                          weight="regular"
+                        >
                           Shipping Policy
                         </Link>
-                        <Link hoverUnderline size="small" font="inter" href="#" weight="regular">
+                        <Link hoverUnderline size="small" font="inter" href="/policy/return" weight="regular">
                           Return & Refunds
                         </Link>
-                        <Link hoverUnderline size="small" font="inter" href="#" weight="regular">
+                        <Link
+                          hoverUnderline
+                          size="small"
+                          font="inter"
+                          href="/policy/cookies"
+                          weight="regular"
+                        >
                           Cookies Policy
-                        </Link>
-                        <Link hoverUnderline size="small" font="inter" href="#" weight="regular">
-                          Frequently asked
                         </Link>
                       </Flex>
                     </Flex>
@@ -78,10 +96,16 @@ export const Footer = () => {
                         <Link hoverUnderline size="small" font="inter" href="#" weight="regular">
                           About Us
                         </Link>
-                        <Link hoverUnderline size="small" font="inter" href="#" weight="regular">
+                        <Link
+                          hoverUnderline
+                          size="small"
+                          font="inter"
+                          href="/policy/privacy"
+                          weight="regular"
+                        >
                           Privacy Policy
                         </Link>
-                        <Link hoverUnderline size="small" font="inter" href="#" weight="regular">
+                        <Link hoverUnderline size="small" font="inter" href="/policy/terms" weight="regular">
                           Terms & Conditions
                         </Link>
                         <Link hoverUnderline size="small" font="inter" href="#" weight="regular">
@@ -184,17 +208,17 @@ export const Footer = () => {
                       Information
                     </Text>
                     <Flex direction="column" gap={12}>
-                      <Link hoverUnderline size="small" font="inter" href="#" weight="regular">
+                      <Link hoverUnderline size="small" font="inter" href="/policy/shopping" weight="regular">
+                        Shopping Policy
+                      </Link>
+                      <Link hoverUnderline size="small" font="inter" href="/policy/shipping" weight="regular">
                         Shipping Policy
                       </Link>
-                      <Link hoverUnderline size="small" font="inter" href="#" weight="regular">
+                      <Link hoverUnderline size="small" font="inter" href="/policy/return" weight="regular">
                         Return & Refunds
                       </Link>
-                      <Link hoverUnderline size="small" font="inter" href="#" weight="regular">
+                      <Link hoverUnderline size="small" font="inter" href="/policy/cookies" weight="regular">
                         Cookies Policy
-                      </Link>
-                      <Link hoverUnderline size="small" font="inter" href="#" weight="regular">
-                        Frequently asked
                       </Link>
                     </Flex>
                   </Flex>
@@ -208,10 +232,10 @@ export const Footer = () => {
                       <Link hoverUnderline type="text" size="small" font="inter" href="#" weight="regular">
                         About Us
                       </Link>
-                      <Link hoverUnderline size="small" font="inter" href="#" weight="regular">
+                      <Link hoverUnderline size="small" font="inter" href="/policy/privacy" weight="regular">
                         Privacy Policy
                       </Link>
-                      <Link hoverUnderline size="small" font="inter" href="#" weight="regular">
+                      <Link hoverUnderline size="small" font="inter" href="/policy/terms" weight="regular">
                         Terms & Conditions
                       </Link>
                       <Link hoverUnderline size="small" font="inter" href="#" weight="regular">
