@@ -45,13 +45,13 @@ export const MyAccountPage = () => {
       {/* My Account Heading */}
       <Section py={52} px={0} w="100%">
         <Flex justify="center">
-          <Heading size="h2" weight="moderate" color="black-900" font="spaceGrotesk">
+          <Heading size={isMobile ? 'h4' : 'h2'} weight="moderate" color="black-900" font="spaceGrotesk">
             My Account
           </Heading>
         </Flex>
       </Section>
       <Section pt={52} pb={120}>
-        <Flex gap={32}>
+        <Flex direction={isMobile ? 'column' : 'row'} gap={32}>
           {/* Navigation */}
           <Flex direction="column" gap={32}>
             <Section w={82} h={82}>

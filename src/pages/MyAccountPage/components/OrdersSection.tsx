@@ -64,10 +64,14 @@ export const OrdersSection = ({ isMobile = false }: OrdersSectionProps) => {
         <Flex direction="column" gap={12}>
           {formattedOrders.map((order) => (
             <Section key={order.id}>
-              <Flex height={72} align="center">
-                <OrderRow order={order} textSizes={textSizes} onTrackClick={handleTrackClick} />
+              <Flex height={isMobile ? 224 : 72} align="center">
+                {isMobile ? (
+                  <OrderCardMobile order={order} textSizes={textSizes} onTrackClick={handleTrackClick} />
+                ) : (
+                  <OrderRow order={order} textSizes={textSizes} onTrackClick={handleTrackClick} />
+                )}
               </Flex>
-              <Section h={1} bgColor="var(--color-black-300)" />
+              <Section h={1} mt={isMobile ? 24 : 0} bgColor="var(--color-black-300)" />
             </Section>
           ))}
         </Flex>
@@ -123,5 +127,58 @@ const OrderRow = ({ order, textSizes, onTrackClick }: OrderRowProps) => (
       </Flex>
       <Section h={1} w="100%" bgColor="var(--color-black-900)" />
     </Section>
+  </Flex>
+);
+const OrderCardMobile = ({ order, onTrackClick }: OrderRowProps) => (
+  <Flex justify="space-between" width="100%">
+    <Grid width="100%" gap={8} align="center">
+      <Flex justify="space-between" width="100%">
+        <Text font="spaceGrotesk" color="black-900" size="special1" weight="moderate">
+          Order
+        </Text>
+        <Text size="special1" color="black-900">
+          {order.id}
+        </Text>
+      </Flex>
+      <Flex justify="space-between" width="100%">
+        <Text font="spaceGrotesk" color="black-900" size="special1" weight="moderate">
+          Date
+        </Text>
+        <Text size="special1" weight="regular" color="black-600">
+          {order.formattedDate}
+        </Text>
+      </Flex>
+      <Flex justify="space-between" width="100%">
+        <Text font="spaceGrotesk" color="black-900" size="special1" weight="moderate">
+          Status
+        </Text>
+        <Text size="special1" weight="regular" color={order.statusColor}>
+          {order.status}
+        </Text>
+      </Flex>
+      <Flex justify="space-between" width="100%">
+        <Text font="spaceGrotesk" color="black-900" size="special1" weight="moderate">
+          Total
+        </Text>
+        <Text size="special1" weight="regular" color="black-900">
+          {order.total}
+        </Text>
+      </Flex>
+      <Section mt={16} w={57}>
+        <Flex gap={2} align="center" width={57}>
+          <Text
+            font="spaceGrotesk"
+            weight="moderate"
+            size="special1"
+            color="black-900"
+            onClick={() => onTrackClick(order.id)}
+          >
+            Track
+          </Text>
+          <Icons iconName="ArrowRightIcon" iconSize={18} />
+        </Flex>
+        <Section h={1} w="100%" bgColor="var(--color-black-900)" />
+      </Section>
+    </Grid>
   </Flex>
 );
