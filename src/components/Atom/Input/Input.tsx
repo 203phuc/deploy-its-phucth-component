@@ -32,6 +32,7 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
       className,
       fontFamily = 'inter',
       placeholderSize,
+      labelColor,
       ...props
     },
     ref,
@@ -43,7 +44,7 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
     useImperativeHandle(ref, () => innerRef.current!);
     useImperativeHandle(ref, () => innerRefArea.current!);
     // Compose label classes using CVA
-    const labelClasses = labelCva({ textSize, fontFamily });
+    const labelClasses = cn(labelCva({ textSize, fontFamily, labelColor }), className);
     const [errorMessage, setErrorMessage] = useState<string>('');
     const [value, setValue] = useState<string>('');
     useEffect(() => {
@@ -201,6 +202,7 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
           />
 
           <input
+            placeholder={placeholder}
             type={type}
             value={value}
             className="hidden"

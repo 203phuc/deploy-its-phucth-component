@@ -16,17 +16,12 @@ const DisplayNameSection = ({ isMobile }: { isMobile: boolean }) => (
   <Section borderRadius={6} border="1px solid var(--color-black-300)" px={24} py={24}>
     <Flex direction="column" gap={24}>
       <Flex width="100%" justify="space-between">
-        <Text font="spaceGrotesk" size={isMobile ? 'large' : '3xlarge'} weight="semiBold" color="black-900">
+        <Text font="spaceGrotesk" size="large" weight="semiBold" color="black-900">
           Display name
         </Text>
         {isMobile && (
           <Flex align="center" gap={8}>
-            <Text
-              color="black-900"
-              font="spaceGrotesk"
-              size={isMobile ? 'large' : '3xlarge'}
-              weight="moderate"
-            >
+            <Text color="black-900" font="spaceGrotesk" size="large" weight="moderate">
               Default
             </Text>
             <Toggle
@@ -49,9 +44,7 @@ const DisplayNameSection = ({ isMobile }: { isMobile: boolean }) => (
             textSize={isMobile ? 'small' : 'medium'}
           />
         </Section>
-        {isMobile ? (
-          <></>
-        ) : (
+        {!isMobile && (
           <Flex align="center" gap={8}>
             <Text size={isMobile ? 'small' : 'medium'} weight="regular" color="black-900">
               Default

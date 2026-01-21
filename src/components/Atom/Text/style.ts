@@ -1,7 +1,7 @@
 import { cva, VariantProps } from 'class-variance-authority';
 
 // limited colors for text
-const colorVariants = {
+export const colorVariants = {
   default: 'text-text-blue', // fallback default
   'black-400': 'text-black-400',
   'black-500': 'text-black-500',

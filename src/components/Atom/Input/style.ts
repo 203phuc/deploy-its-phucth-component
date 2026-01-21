@@ -1,4 +1,5 @@
 import { cva, VariantProps } from 'class-variance-authority';
+import { colorVariants } from '../Text/style';
 
 export const inputCva = cva(
   'flex items-center transition-all focus-within:border-black hover:border-black-900 ',
@@ -119,6 +120,7 @@ export const labelCva = cva('font-semibold text-gray-700', {
       '3xlarge': 'text-[1.375rem] leading-[34px]', // 22px
       '4xlarge': 'text-[1.625rem] leading-[40px]', // 26px
     },
+    labelColor: colorVariants,
     fontFamily: {
       inter: 'font-inter',
       grotesk: 'font-space-grotesk',

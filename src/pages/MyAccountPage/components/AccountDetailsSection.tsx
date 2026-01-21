@@ -1,110 +1,136 @@
+import { Button } from '@components/Atom/Button';
 import { Flex } from '@components/Atom/Flex';
 import { Icons } from '@components/Atom/Icons';
+import { Input } from '@components/Atom/Input';
+import { Position } from '@components/Atom/Position';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
+import { useState } from 'react';
+import { EditAccountDetail } from './EditAccountDetail';
 
 export interface AccountDetailsSectionProps {
   isMobile?: boolean;
 }
 
+// Personal Info Field Component
+const PersonalInfoField = ({
+  label,
+  value,
+  isMobile,
+}: {
+  label: string;
+  value: string;
+  isMobile: boolean;
+}) => (
+  <Flex direction="column" gap={8} flex={1}>
+    <Input
+      disabled
+      labelColor="black-400"
+      label={label}
+      variant="solid"
+      placeholder={value}
+      size={isMobile ? 'large' : 'xlarge'}
+      placeholderSize={isMobile ? 'small' : 'medium'}
+      textSize={isMobile ? 'small' : 'medium'}
+    />
+  </Flex>
+);
+
 // Extract Personal Information Component
-const PersonalInformationSection = ({ isMobile }: { isMobile: boolean }) => (
-  <Flex direction="column" gap={16}>
-    <Text size={isMobile ? 'medium' : 'large'} weight="semiBold" color="black-900">
-      Personal Information
-    </Text>
-    <Flex direction="column" gap={12}>
-      <InfoRow label="Full Name" value="John Doe" isMobile={isMobile} />
-      <InfoRow label="Email" value="john.doe@example.com" isMobile={isMobile} />
-      <InfoRow label="Phone" value="+1 (555) 123-4567" isMobile={isMobile} />
-      <InfoRow label="Date of Birth" value="January 1, 1990" isMobile={isMobile} />
-    </Flex>
-  </Flex>
-);
+const PersonalInformationSection = ({ isMobile, onEdit }: { isMobile: boolean; onEdit: () => void }) => (
+  <Section
+    w={isMobile ? '100%' : 768}
+    px={isMobile ? 16 : 24}
+    py={isMobile ? 16 : 24}
+    border="1px solid var(--color-black-300)"
+    borderRadius={8}
+  >
+    <Flex justify="space-between" align="start">
+      <Section w={isMobile ? '100%' : 652}>
+        <Flex direction="column" gap={12}>
+          {isMobile ? (
+            <Position position="relative">
+              <Flex justify="space-between" align="start">
+                <PersonalInfoField label="First name *" value="John" isMobile={isMobile} />
+                <Position right={0}>
+                  <Button variant="text" onClick={onEdit}>
+                    <Flex gap={4} align="center" justify="center">
+                      <Icons iconName="EditIcon" />
+                      <Text size={isMobile ? 'xsmall' : 'special1'} color="black-900">
+                        Edit
+                      </Text>
+                    </Flex>
+                  </Button>
+                </Position>
+              </Flex>
+            </Position>
+          ) : (
+            <PersonalInfoField label="First name *" value="John" isMobile={isMobile} />
+          )}
 
-// Extract Account Preferences Component
-const AccountPreferencesSection = ({ isMobile }: { isMobile: boolean }) => (
-  <Flex direction="column" gap={16}>
-    <Text size={isMobile ? 'medium' : 'large'} weight="semiBold" color="black-900">
-      Account Preferences
-    </Text>
-    <Flex direction="column" gap={12}>
-      <InfoRow label="Language" value="English" isMobile={isMobile} />
-      <InfoRow label="Currency" value="USD ($)" isMobile={isMobile} />
-      <InfoRow label="Email Notifications" value="Enabled" isMobile={isMobile} />
-    </Flex>
-  </Flex>
-);
-
-// Extract Security Component
-const SecuritySection = ({ isMobile }: { isMobile: boolean }) => (
-  <Flex direction="column" gap={16}>
-    <Text size={isMobile ? 'medium' : 'large'} weight="semiBold" color="black-900">
-      Security
-    </Text>
-    <Flex direction="column" gap={12}>
-      <Flex justify="space-between" align="center">
-        <Text size={isMobile ? 'small' : 'medium'} weight="regular" color="black-600">
-          Password
-        </Text>
-        <Flex align="center" gap={8}>
-          <Text size={isMobile ? 'small' : 'medium'} weight="regular" color="black-900">
-            ********
-          </Text>
-          <Flex align="center" gap={4} style={{ cursor: 'pointer' }}>
+          <PersonalInfoField label="Last name *" value="Doe" isMobile={isMobile} />
+          <PersonalInfoField label="Display name *" value="Display names" isMobile={isMobile} />
+          <PersonalInfoField label="Email Address *" value="john.doe@example.com" isMobile={isMobile} />
+        </Flex>
+      </Section>
+      {!isMobile && (
+        <Button variant="text" onClick={onEdit}>
+          <Flex gap={4} align="center" justify="center">
             <Icons iconName="EditIcon" />
-            <Text size={isMobile ? 'xsmall' : 'small'} weight="regular" color="black-900">
-              Change
+            <Text size={isMobile ? 'xsmall' : 'special1'} color="black-900">
+              Edit
             </Text>
           </Flex>
-        </Flex>
-      </Flex>
-      <InfoRow label="Two-Factor Authentication" value="Disabled" isMobile={isMobile} />
+        </Button>
+      )}
     </Flex>
-  </Flex>
+  </Section>
 );
 
-// Extract Action Buttons Component
-const ActionButtonsSection = ({ isMobile }: { isMobile: boolean }) => (
-  <Flex direction={isMobile ? 'column' : 'row'} gap={16} justify="start">
-    <Section px={24} py={12} borderRadius="medium" bgColor="black-900" style={{ cursor: 'pointer' }}>
-      <Flex align="center" gap={8}>
-        <Icons iconName="EditIcon" color="white" />
-        <Text size={isMobile ? 'small' : 'medium'} weight="regular" color="white">
-          Edit Profile
-        </Text>
-      </Flex>
-    </Section>
-    <Section
-      px={24}
-      py={12}
-      borderRadius="medium"
-      border="1px solid var(--color-black-300)"
-      style={{ cursor: 'pointer' }}
-    >
-      <Flex align="center" gap={8}>
-        <Icons iconName="LogoutIcon" />
-        <Text size={isMobile ? 'small' : 'medium'} weight="regular" color="black-900">
-          Sign Out
-        </Text>
-      </Flex>
-    </Section>
-  </Flex>
-);
-
-// Extract Info Row Component
-const InfoRow = ({ label, value, isMobile }: { label: string; value: string; isMobile: boolean }) => (
-  <Flex justify="space-between" align="center">
-    <Text size={isMobile ? 'small' : 'medium'} weight="regular" color="black-600">
-      {label}
-    </Text>
-    <Text size={isMobile ? 'small' : 'medium'} weight="regular" color="black-900">
-      {value}
-    </Text>
-  </Flex>
+// Extract Password Change Component
+const PasswordChangeSection = ({ isMobile }: { isMobile: boolean }) => (
+  <Section
+    w={isMobile ? '100%' : 768}
+    px={isMobile ? 16 : 24}
+    py={isMobile ? 16 : 24}
+    border="1px solid var(--color-black-300)"
+    borderRadius={8}
+  >
+    <Flex justify="space-between" align="center">
+      <Text size={isMobile ? 'medium' : 'large'} weight="semiBold" color="black-900">
+        Password Change
+      </Text>
+      <Button variant="text">
+        <Flex align="center" gap={4}>
+          <Icons iconName="EditIcon" />
+          <Text size={isMobile ? 'xsmall' : 'special1'} weight="regular" color="black-900">
+            Edit
+          </Text>
+        </Flex>
+      </Button>
+    </Flex>
+  </Section>
 );
 
 export const AccountDetailsSection = ({ isMobile = false }: AccountDetailsSectionProps) => {
+  const [isEditing, setIsEditing] = useState(false);
+
+  const handleEdit = () => {
+    setIsEditing(true);
+  };
+
+  const handleSave = () => {
+    setIsEditing(false);
+  };
+
+  const handleCancel = () => {
+    setIsEditing(false);
+  };
+
+  if (isEditing) {
+    return <EditAccountDetail isMobile={isMobile} onSave={handleSave} onCancel={handleCancel} />;
+  }
+
   return (
     <Section w="100%" bgColor="white" borderRadius="medium" p={24}>
       <Flex direction="column" gap={32}>
@@ -113,10 +139,8 @@ export const AccountDetailsSection = ({ isMobile = false }: AccountDetailsSectio
         </Text>
 
         <Flex direction="column" gap={24}>
-          <PersonalInformationSection isMobile={isMobile} />
-          <AccountPreferencesSection isMobile={isMobile} />
-          <SecuritySection isMobile={isMobile} />
-          <ActionButtonsSection isMobile={isMobile} />
+          <PersonalInformationSection isMobile={isMobile} onEdit={handleEdit} />
+          <PasswordChangeSection isMobile={isMobile} />
         </Flex>
       </Flex>
     </Section>

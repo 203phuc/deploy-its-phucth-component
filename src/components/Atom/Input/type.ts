@@ -1,6 +1,7 @@
 import type { InputHTMLAttributes, ReactNode, TextareaHTMLAttributes } from 'react';
 import type { IconName } from '../Icons/types';
 import { InputCvaProps } from './style';
+import { colorVariants } from '../Text/style';
 
 export type InputVariant = 'line' | 'solid' | 'noBorder';
 export type InputSize = 'small' | 'medium' | 'large' | 'xlarge';
@@ -26,6 +27,11 @@ interface BaseInputProps {
    * @default 'solid'
    */
   variant?: InputVariant;
+  /**
+   * Optional design variant (for styling theme)
+   * @default 'solid'
+   */
+  labelColor?: keyof typeof colorVariants;
 
   /**
    * Size of the input

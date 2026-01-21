@@ -1,5 +1,5 @@
+import { Button } from '@components/Atom/Button';
 import { Flex } from '@components/Atom/Flex';
-import Icons from '@components/Atom/Icons';
 import { Input } from '@components/Atom/Input';
 import type { InputChangeEvent } from '@components/Atom/Input/type';
 import { Position } from '@components/Atom/Position';
@@ -14,7 +14,7 @@ export interface EditAccountDetailProps {
 }
 
 // Edit Personal Information Section
-const EditPersonalInformationSection = ({ isMobile, onSave }: { isMobile: boolean; onSave?: () => void }) => {
+const EditPersonalInformationSection = ({ isMobile }: { isMobile: boolean }) => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -35,22 +35,10 @@ const EditPersonalInformationSection = ({ isMobile, onSave }: { isMobile: boolea
         border="1px solid var(--color-black-300)"
         borderRadius={8}
       >
-        {isMobile && (
-          <Position position="absolute" top={16} right={16}>
-            <Flex gap={4} align="center" onClick={onSave}>
-              <Icons iconName="EditIcon" />
-              <Text size="special1" weight="semiBold" color="black-900">
-                Save
-              </Text>
-            </Flex>
-          </Position>
-        )}
-
         <Flex align="start" gap={isMobile ? 0 : 14}>
-          <Flex direction="column" width="100%" gap={12}>
-            <Section w={isMobile ? '100%' : 652}>
+          <Flex direction="column" width="100%" gap={24}>
+            <Section w="100%">
               <Input
-                labelColor="black-400"
                 size="xlarge"
                 placeholder="First name *"
                 label="First name *"
@@ -58,9 +46,8 @@ const EditPersonalInformationSection = ({ isMobile, onSave }: { isMobile: boolea
                 onChange={(event) => handleInputChange('firstName', event)}
               />
             </Section>
-            <Section w={isMobile ? '100%' : 652}>
+            <Section w="100%">
               <Input
-                labelColor="black-400"
                 size="xlarge"
                 placeholder="Last name *"
                 label="Last name *"
@@ -68,19 +55,22 @@ const EditPersonalInformationSection = ({ isMobile, onSave }: { isMobile: boolea
                 onChange={(event) => handleInputChange('lastName', event)}
               />
             </Section>
-            <Section w={isMobile ? '100%' : 652}>
+            <Section w="100%">
               <Input
-                labelColor="black-400"
                 size="xlarge"
                 placeholder="Display name *"
                 label="Display name *"
                 value={formData.displayName}
                 onChange={(event) => handleInputChange('displayName', event)}
               />
+              <Section pt={8}>
+                <Text size="xsmall" color="black-600">
+                  This will be how your name will be displayed in the account section and in reviews
+                </Text>
+              </Section>
             </Section>
-            <Section w={isMobile ? '100%' : 652}>
+            <Section w="100%">
               <Input
-                labelColor="black-400"
                 size="xlarge"
                 placeholder="Email Address *"
                 label="Email Address *"
@@ -89,14 +79,6 @@ const EditPersonalInformationSection = ({ isMobile, onSave }: { isMobile: boolea
               />
             </Section>
           </Flex>
-          {isMobile ? null : (
-            <Flex gap={4} align="center" onClick={onSave}>
-              <Icons iconName="EditIcon" />
-              <Text size="special1" weight="semiBold" color="black-900">
-                Save
-              </Text>
-            </Flex>
-          )}
         </Flex>
       </Section>
     </Position>
@@ -105,14 +87,14 @@ const EditPersonalInformationSection = ({ isMobile, onSave }: { isMobile: boolea
 
 export const EditAccountDetail = ({ isMobile = false, onSave, onCancel }: EditAccountDetailProps) => {
   return (
-    <Section w="100%" bgColor="white" borderRadius="medium" p={24}>
+    <Section w={isMobile ? '100%' : 768} bgColor="white" borderRadius="medium" p={24}>
       <Flex direction="column" gap={32}>
         <Text size={isMobile ? 'large' : 'xlarge'} weight="semiBold" color="black-900">
           Edit Account Details
         </Text>
 
         <Flex direction="column" gap={32}>
-          <EditPersonalInformationSection isMobile={isMobile} onSave={onSave} />
+          <EditPersonalInformationSection isMobile={isMobile} />
         </Flex>
 
         <Section pt={56}>
@@ -137,16 +119,16 @@ export const EditAccountDetail = ({ isMobile = false, onSave, onCancel }: EditAc
               </Flex>
             </Section>
             <Section w={isMobile ? '100%' : 285}>
-              <Flex justify="center" height="100%" align="center" onClick={onSave}>
-                <Text
-                  font="spaceGrotesk"
-                  weight="moderate"
-                  color="white"
-                  size={isMobile ? 'small' : 'special2'}
-                >
-                  Save Changes
-                </Text>
-              </Flex>
+              <Button
+                font="spaceGrotesk"
+                variant="solidBlack"
+                size={isMobile ? 'small' : 'medium'}
+                roundness="round"
+                fullWidth
+                onClick={onSave}
+              >
+                Submit
+              </Button>
             </Section>
           </Flex>
         </Section>
