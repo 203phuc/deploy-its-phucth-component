@@ -5,8 +5,9 @@ import { Input } from '@components/Atom/Input';
 import { Position } from '@components/Atom/Position';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
-import { useState } from 'react';
+import { useAccountDetails } from '../hooks/useAccountDetails';
 import { EditAccountDetail } from './EditAccountDetail';
+import { EditPasswordForm } from './EditPasswordForm';
 
 export interface AccountDetailsSectionProps {
   isMobile?: boolean;
@@ -88,7 +89,7 @@ const PersonalInformationSection = ({ isMobile, onEdit }: { isMobile: boolean; o
 );
 
 // Extract Password Change Component
-const PasswordChangeSection = ({ isMobile }: { isMobile: boolean }) => (
+const PasswordChangeSection = ({ isMobile, onEdit }: { isMobile: boolean; onEdit: () => void }) => (
   <Section
     w={isMobile ? '100%' : 768}
     px={isMobile ? 16 : 24}
@@ -100,10 +101,10 @@ const PasswordChangeSection = ({ isMobile }: { isMobile: boolean }) => (
       <Text size={isMobile ? 'medium' : 'large'} weight="semiBold" color="black-900">
         Password Change
       </Text>
-      <Button variant="text">
-        <Flex align="center" gap={4}>
+      <Button variant="text" onClick={onEdit}>
+        <Flex gap={4} align="center" justify="center">
           <Icons iconName="EditIcon" />
-          <Text size={isMobile ? 'xsmall' : 'special1'} weight="regular" color="black-900">
+          <Text size={isMobile ? 'xsmall' : 'special1'} color="black-900">
             Edit
           </Text>
         </Flex>
@@ -113,22 +114,22 @@ const PasswordChangeSection = ({ isMobile }: { isMobile: boolean }) => (
 );
 
 export const AccountDetailsSection = ({ isMobile = false }: AccountDetailsSectionProps) => {
-  const [isEditing, setIsEditing] = useState(false);
-
-  const handleEdit = () => {
-    setIsEditing(true);
-  };
-
-  const handleSave = () => {
-    setIsEditing(false);
-  };
-
-  const handleCancel = () => {
-    setIsEditing(false);
-  };
+  const {
+    isEditing,
+    isEditingPassword,
+    handleEdit,
+    handlePasswordEdit,
+    handleSave,
+    handlePasswordSave,
+    handleCancel,
+  } = useAccountDetails();
 
   if (isEditing) {
     return <EditAccountDetail isMobile={isMobile} onSave={handleSave} onCancel={handleCancel} />;
+  }
+
+  if (isEditingPassword) {
+    return <EditPasswordForm isMobile={isMobile} onSave={handlePasswordSave} onCancel={handleCancel} />;
   }
 
   return (
@@ -140,7 +141,7 @@ export const AccountDetailsSection = ({ isMobile = false }: AccountDetailsSectio
 
         <Flex direction="column" gap={24}>
           <PersonalInformationSection isMobile={isMobile} onEdit={handleEdit} />
-          <PasswordChangeSection isMobile={isMobile} />
+          <PasswordChangeSection isMobile={isMobile} onEdit={handlePasswordEdit} />
         </Flex>
       </Flex>
     </Section>

@@ -2,8 +2,7 @@ import { Flex } from '@components/Atom/Flex';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
 import { TextColor } from '@components/Molecule/DropdownMixed/type';
-import { useState } from 'react';
-import type { AccountSection } from '../hooks/useAccountDashboard';
+import { useAccountNav } from '../hooks/useAccountNav';
 
 export interface AccountNavProps {
   activeSection: AccountSection;
@@ -21,15 +20,7 @@ const navItems = [
 ];
 
 export const AccountNav = ({ activeSection, onSectionChange, isMobile = false }: AccountNavProps) => {
-  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
-
-  const handleMouseEnter = (itemId: string) => {
-    setHoveredItem(itemId);
-  };
-
-  const handleMouseLeave = () => {
-    setHoveredItem(null);
-  };
+  const { hoveredItem, handleMouseEnter, handleMouseLeave } = useAccountNav();
 
   return (
     <Section w={isMobile ? '100%' : 196} bgColor="white" borderRadius="medium" p={16}>
