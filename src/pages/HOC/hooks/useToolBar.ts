@@ -7,6 +7,8 @@ export interface ToolBarProps {
   setColumns: React.Dispatch<React.SetStateAction<ColumnType>>;
   setFilter?: React.Dispatch<React.SetStateAction<boolean>>;
   filter?: boolean;
+  maxColumns?: 4 | 5;
+  itemType?: 'products' | 'articles';
 }
 
 /* =======================
@@ -17,6 +19,7 @@ export interface ToolBarLogicProps {
   isMobile?: boolean;
   setColumns: React.Dispatch<React.SetStateAction<ColumnType>>;
   filter?: boolean;
+  maxColumns?: 4 | 5;
 }
 
 export type ColumnIcon =
@@ -72,7 +75,7 @@ const normalColumnMap: Record<ColumnType, ColumnType> = {
   Hook
 ======================= */
 
-export const useToolBar = ({ isMobile, filter, setColumns }: ToolBarLogicProps) => {
+export const useToolBar = ({ isMobile, filter, setColumns, maxColumns = 5 }: ToolBarLogicProps) => {
   const [selected, setSelected] = useState<ColumnIcon>('FiveColumnsIcon');
   const [openSort, setOpenSort] = useState(false);
 
@@ -138,11 +141,20 @@ export const useToolBar = ({ isMobile, filter, setColumns }: ToolBarLogicProps) 
       setColumns((prev) => normalColumnMap[prev]);
     }
   }, [filter, setColumns, isMobile, filterColumnMap]);
-  const icons = (
-    filter
-      ? ['FourColumnsIcon', 'ThreeColumnsIcon', 'TwoColumnsIcon', 'ListIcon']
-      : ['FiveColumnsIcon', 'FourColumnsIcon', 'ThreeColumnsIcon', 'TwoColumnsIcon', 'ListIcon']
-  ) as ColumnIcon[];
+
+  const getIcons = (): ColumnIcon[] => {
+    if (filter) {
+      return ['FourColumnsIcon', 'ThreeColumnsIcon', 'TwoColumnsIcon', 'ListIcon'];
+    }
+
+    if (maxColumns === 4) {
+      return ['FourColumnsIcon', 'ThreeColumnsIcon', 'TwoColumnsIcon', 'ListIcon'];
+    }
+
+    return ['FiveColumnsIcon', 'FourColumnsIcon', 'ThreeColumnsIcon', 'TwoColumnsIcon', 'ListIcon'];
+  };
+
+  const icons = getIcons();
   const iconsMobile = ['TwoColumnsIcon', 'ListIcon'] as ColumnIcon[];
 
   return {

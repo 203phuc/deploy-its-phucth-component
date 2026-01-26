@@ -2,7 +2,7 @@ import { Flex } from '@components/Atom/Flex';
 import { Section } from '@components/Atom/Section';
 import { ProductGridLayout } from '@pages/HOC/ProductGridLayout';
 import { SliderProvider } from '../../context/SliderContext';
-import { BreadCrumb } from '../HOC/BreadCrumb/BreadCrumb';
+import { PageHeader } from './components/PageHeader';
 import { SearchNoResults } from './components/SearchNoResults';
 import { useSearchPage } from './hooks/useSearchPage';
 import { products } from './mockData/products';
@@ -23,12 +23,7 @@ const SearchPageContent = () => {
   return (
     <Flex direction="column" gap={24}>
       <Section w="100%" pt={isMobile ? 48 : 72} pb={isMobile ? 0 : 24} px={isMobile ? 16 : 0}>
-        <BreadCrumb
-          items={[
-            { id: 'home', label: 'Home', path: '/' },
-            { id: 'search', label: `Search: ${searchQuery}` },
-          ]}
-        />
+        <PageHeader searchQuery={searchQuery} isMobile={isMobile} />
       </Section>
       <ProductGridLayout
         isMobile={isMobile}

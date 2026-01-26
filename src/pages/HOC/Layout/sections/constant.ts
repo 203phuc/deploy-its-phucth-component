@@ -72,7 +72,7 @@ export const navLinks: NavLinkItem[] = [
     condition: 'Always',
     icon: 'ChevronDownIcon',
     dropdown: [
-      { id: '6_1', label: 'Blogs', type: 'button', condition: 'User hovers over [Pages]' },
+      { id: '6_1', label: 'Blogs', path: '/blog', type: 'button', condition: 'User hovers over [Pages]' },
       {
         id: '6_2',
         label: 'About us',

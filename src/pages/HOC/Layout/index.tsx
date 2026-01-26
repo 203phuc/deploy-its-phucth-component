@@ -22,10 +22,12 @@ import { Footer } from './sections/Footer';
 import { MessageModal } from './sections/MessageModal';
 import { NavigationBar } from './sections/NavigationBar';
 import { NotificationBar } from './sections/NotificationBar';
+import { BlogPage } from '@pages/BlogPage';
 
 const routes: Record<string, ReactNode> = {
   '/home': <HomePage />,
   '/shop': <ShopPage />,
+  '/blog': <BlogPage />,
   '/about-us': <AboutUsPage />,
   '/product': <ProductPage product={sampleProduct} />,
   '/contact': <ContactPage />,

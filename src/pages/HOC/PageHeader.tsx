@@ -1,6 +1,8 @@
 import { Flex } from '@components/Atom/Flex';
 import { Heading } from '@components/Atom/Heading/Heading';
 import { ImagePlaceholder } from '@components/Atom/ImagePlaceholder';
+import { Input } from '@components/Atom/Input/Input';
+import type { InputChangeEvent } from '@components/Atom/Input/type';
 import { Position } from '@components/Atom/Position';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text/Text';
@@ -14,6 +16,9 @@ export interface PageHeaderProps {
   title?: string;
   subtitle?: string;
   breadcrumbItems?: { id: string; label: string; path?: string }[];
+  showSearch?: boolean;
+  onSearchChange?: (value: string) => void;
+  searchPlaceholder?: string;
 }
 
 export const PageHeader: React.FC<PageHeaderProps> = ({
@@ -25,6 +30,9 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
     { id: 'home', label: 'Home', path: '/' },
     { id: 'shop', label: 'Shop' },
   ],
+  showSearch = false,
+  onSearchChange,
+  searchPlaceholder = 'Search articles...',
 }) => {
   // Define configuration for each variant
   const { sectionProps, innerFlexProps, imageProps, HeadingProps, outerSectionProps, textProps } =
@@ -43,6 +51,20 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
               <Heading {...HeadingProps}>{title}</Heading>
               <Text {...textProps}>{subtitle}</Text>
             </Flex>
+
+            {/* Search Input */}
+            {showSearch && (
+              <Section w={isMobile ? '100%' : '600px'} pt={16}>
+                <Input
+                  placeholder={searchPlaceholder}
+                  iconEnd="SearchIcon"
+                  size="medium"
+                  variant="solid"
+                  bgColor="white"
+                  onChange={(e: InputChangeEvent) => onSearchChange?.(e.target.value)}
+                />
+              </Section>
+            )}
           </Flex>
 
           <Position position="absolute" top={0} right={0} zIndex={-1}>
