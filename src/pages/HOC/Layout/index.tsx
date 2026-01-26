@@ -4,6 +4,8 @@ import { Position } from '@components/Atom/Position';
 import { Section } from '@components/Atom/Section';
 import { NewsletterProvider } from '@context/NewsletterContext';
 import { AboutUsPage } from '@pages/AboutUspage/AboutUsPage';
+import { BlogDetailPage } from '@pages/BlogDetailPage/BlogDetailPage';
+import { BlogPage } from '@pages/BlogPage';
 import { ContactPage } from '@pages/Contactpage/ContactPage';
 import { RouterProvider, useSharedRouter } from '@pages/CustomHook/navigateHook';
 import { HomePage } from '@pages/Homepage';
@@ -14,7 +16,7 @@ import { sampleProduct } from '@pages/Productpage/mockData/sampleProduct';
 import { ProductPage } from '@pages/Productpage/ProductPage';
 import { SearchPage } from '@pages/SearchProductpage';
 import { ShopPage } from '@pages/Shoppage';
-import { ReactNode, useEffect, useState } from 'react';
+import { JSX, ReactNode, useEffect, useState } from 'react';
 import { onSmallScreenChange } from '../../../../src/util/mediaQueries';
 import { FlyoutCart } from './sections/FlyoutCart';
 import { FlyoutMenu } from './sections/FlyoutMenu';
@@ -22,7 +24,6 @@ import { Footer } from './sections/Footer';
 import { MessageModal } from './sections/MessageModal';
 import { NavigationBar } from './sections/NavigationBar';
 import { NotificationBar } from './sections/NotificationBar';
-import { BlogPage } from '@pages/BlogPage';
 
 const routes: Record<string, ReactNode> = {
   '/home': <HomePage />,
@@ -77,6 +78,17 @@ function AppContent() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [scrolled]);
 
+  // Dynamic routing for blog detail pages
+  const getPageContent = (): JSX.Element => {
+    if (path.startsWith('/blog/') && path !== '/blog') {
+      const id = path.split('/')[2];
+      const blogId = id && !Number.isNaN(Number(id)) ? Number.parseInt(id, 10) : 1;
+      return <BlogDetailPage blogId={blogId} />;
+    }
+
+    return (routes[path] ?? <NotFoundPage />) as JSX.Element;
+  };
+
   // Compute heights so we can push page content below the fixed navbar
   let notificationHeight = 0;
   if (notificationVisible) {
@@ -126,7 +138,7 @@ function AppContent() {
       <Section>
         <Flex width="100%" align="center" justify="center">
           <NewsletterProvider onSignupSuccess={handleNewsletterSuccess}>
-            {routes[path] ?? <NotFoundPage />}
+            {getPageContent()}
           </NewsletterProvider>
         </Flex>
       </Section>

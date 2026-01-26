@@ -9,6 +9,7 @@ import { TextSize } from '@components/Atom/Text/type';
 import { ColumnType } from '@pages/HOC/hooks/type';
 
 interface BlogCardProps {
+  id?: number;
   imageUrl?: string;
   title?: string;
   date?: string;
@@ -30,7 +31,7 @@ const blogCardDimensions = {
   listColumnFilter: { w: '100%', imageHeight: 231, padding: 20 },
 } as const;
 
-export const BlogCard = ({ imageUrl, title, date, description, size = '3column' }: BlogCardProps) => {
+export const BlogCard = ({ id, imageUrl, title, date, description, size = '3column' }: BlogCardProps) => {
   const formatDate = (dateString?: string) => {
     if (!dateString) return '';
     const options: Intl.DateTimeFormatOptions = {
@@ -84,13 +85,74 @@ export const BlogCard = ({ imageUrl, title, date, description, size = '3column' 
   };
 
   return (
-    <Section w={dimensions.w} overflow="hidden" bgColor="white">
-      {isList ? (
-        // List Layout - Horizontal on Desktop, Vertical on Mobile
-        <Section p={dimensions.padding}>
-          <Flex direction={isMobile ? 'column' : 'row'} gap={isMobile ? 16 : 24}>
+    <Link href={`/blog/${id}`} underlineOffset="none">
+      <Section w={dimensions.w} overflow="hidden" bgColor="white" style={{ cursor: 'pointer' }}>
+        {isList ? (
+          // List Layout - Horizontal on Desktop, Vertical on Mobile
+          <Section p={dimensions.padding}>
+            <Flex direction={isMobile ? 'column' : 'row'} gap={isMobile ? 16 : 24}>
+              {/* Blog Image */}
+              <Section w={getListImageWidth()} h={getListImageHeight()} overflow="hidden">
+                <ImagePlaceholder
+                  src={imageUrl ?? ''}
+                  alt={title ?? 'Blog image'}
+                  objectFit="cover"
+                  objectPosition="center"
+                  fallbackText="Blog"
+                  size="full"
+                />
+              </Section>
+
+              {/* Blog Content */}
+              <Flex direction="column" gap={8} flex={1}>
+                {/* Date */}
+                <Text size={isMobile ? 'small' : 'smedium'} color="black-500" weight="regular">
+                  {formatDate(date)}
+                </Text>
+
+                {/* Title */}
+                <Heading size="h7" color="black-900" weight="semiBold" font="spaceGrotesk">
+                  {title}
+                </Heading>
+
+                {/* Description */}
+                {!isMobile && (
+                  <Text
+                    size="medium"
+                    color="black-600"
+                    weight="regular"
+                    style={{
+                      display: '-webkit-box',
+                      WebkitLineClamp: 4,
+                      WebkitBoxOrient: 'vertical',
+                      overflow: 'hidden',
+                    }}
+                  >
+                    {description}
+                  </Text>
+                )}
+
+                {/* Read More Button */}
+                <Section pt={8}>
+                  <Link
+                    href="#"
+                    font="spaceGrotesk"
+                    weight="moderate"
+                    underlineOffset="none"
+                    size="special1"
+                    color="black-900"
+                  >
+                    Read More <Icons iconName="ArrowRightIcon" />
+                  </Link>
+                </Section>
+              </Flex>
+            </Flex>
+          </Section>
+        ) : (
+          // Grid Layout - Vertical
+          <Flex direction="column">
             {/* Blog Image */}
-            <Section w={getListImageWidth()} h={getListImageHeight()} overflow="hidden">
+            <Section w={getImageWidth()} h={getImageHeight()} overflow="hidden">
               <ImagePlaceholder
                 src={imageUrl ?? ''}
                 alt={title ?? 'Blog image'}
@@ -102,92 +164,33 @@ export const BlogCard = ({ imageUrl, title, date, description, size = '3column' 
             </Section>
 
             {/* Blog Content */}
-            <Flex direction="column" gap={8} flex={1}>
-              {/* Date */}
-              <Text size={isMobile ? 'small' : 'smedium'} color="black-500" weight="regular">
-                {formatDate(date)}
-              </Text>
+            <Section pt={dimensions.padding} w="100%">
+              <Flex direction="column" gap={isMobile ? 8 : 12}>
+                {/* Date */}
+                <Text size={isMobile ? 'small' : 'smedium'} color="black-500" weight="regular">
+                  {formatDate(date)}
+                </Text>
 
-              {/* Title */}
-              <Heading size="h7" color="black-900" weight="semiBold" font="spaceGrotesk">
-                {title}
-              </Heading>
-
-              {/* Description */}
-              {!isMobile && (
+                {/* Title */}
                 <Text
-                  size="medium"
-                  color="black-600"
-                  weight="regular"
+                  size={getTitleSize()}
+                  color="black-900"
+                  weight="semiBold"
+                  font="spaceGrotesk"
                   style={{
                     display: '-webkit-box',
-                    WebkitLineClamp: 4,
+                    WebkitLineClamp: 2,
                     WebkitBoxOrient: 'vertical',
                     overflow: 'hidden',
                   }}
                 >
-                  {description}
+                  {title}
                 </Text>
-              )}
-
-              {/* Read More Button */}
-              <Section pt={8}>
-                <Link
-                  href="#"
-                  font="spaceGrotesk"
-                  weight="moderate"
-                  underlineOffset="none"
-                  size="special1"
-                  color="black-900"
-                >
-                  Read More <Icons iconName="ArrowRightIcon" />
-                </Link>
-              </Section>
-            </Flex>
+              </Flex>
+            </Section>
           </Flex>
-        </Section>
-      ) : (
-        // Grid Layout - Vertical
-        <Flex direction="column">
-          {/* Blog Image */}
-          <Section w={getImageWidth()} h={getImageHeight()} overflow="hidden">
-            <ImagePlaceholder
-              src={imageUrl ?? ''}
-              alt={title ?? 'Blog image'}
-              objectFit="cover"
-              objectPosition="center"
-              fallbackText="Blog"
-              size="full"
-            />
-          </Section>
-
-          {/* Blog Content */}
-          <Section pt={dimensions.padding} w="100%">
-            <Flex direction="column" gap={isMobile ? 8 : 12}>
-              {/* Date */}
-              <Text size={isMobile ? 'small' : 'smedium'} color="black-500" weight="regular">
-                {formatDate(date)}
-              </Text>
-
-              {/* Title */}
-              <Text
-                size={getTitleSize()}
-                color="black-900"
-                weight="semiBold"
-                font="spaceGrotesk"
-                style={{
-                  display: '-webkit-box',
-                  WebkitLineClamp: 2,
-                  WebkitBoxOrient: 'vertical',
-                  overflow: 'hidden',
-                }}
-              >
-                {title}
-              </Text>
-            </Flex>
-          </Section>
-        </Flex>
-      )}
-    </Section>
+        )}
+      </Section>
+    </Link>
   );
 };

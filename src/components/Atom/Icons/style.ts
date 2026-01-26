@@ -38,6 +38,7 @@ export const iconsCva = cva(
         'black-600': 'text-black-600',
         'black-400': 'text-black-400',
         blue: 'text-blue-500',
+        blueText: 'text-text-blue',
         black: 'text-black',
         white: 'text-white',
         whiteOpacity: 'text-white/50',

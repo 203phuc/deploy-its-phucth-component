@@ -4,7 +4,7 @@ import { IconCvaProps } from './style';
 // List of all available icon names
 export type IconName = keyof typeof AllIcons;
 export type BoxFillType = 'red' | 'green' | 'white' | 'none' | 'gray';
-export type ColorType = 'black-600' | 'black-400' | 'blue' | 'black' | 'white' | 'whiteOpacity';
+export type ColorType = 'black-600' | 'black-400' | 'blue' | 'black' | 'white' | 'whiteOpacity' | 'blueText';
 export type BoxRoundnessType = 'pill' | 'round' | 'sharp';
 
 export interface IconBaseProps extends Partial<IconCvaProps>, React.HTMLAttributes<HTMLDivElement> {

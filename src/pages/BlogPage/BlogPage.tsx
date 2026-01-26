@@ -22,6 +22,7 @@ const BlogPageContent = () => {
 
   // Convert all Blog data to BlogCardProps format (show all blogs)
   const blogCardData = filteredBlogs.map((blog) => ({
+    id: blog.id,
     imageUrl: blog.image,
     title: blog.title,
     date: blog.date,
