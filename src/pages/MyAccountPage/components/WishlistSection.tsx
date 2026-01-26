@@ -5,6 +5,7 @@ import { ImagePlaceholder } from '@components/Atom/ImagePlaceholder';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
 import { useState } from 'react';
+import { Pagination } from '../../HOC/Pagination';
 
 export interface WishlistSectionProps {
   isMobile?: boolean;
@@ -98,85 +99,12 @@ export const WishlistSection = ({ isMobile = false }: WishlistSectionProps) => {
         </Flex>
 
         {/* Pagination Controls */}
-        {totalPages > 1 && (
-          <Flex justify="center" align="center" gap={16} style={{ marginTop: 24 }}>
-            <Flex gap={isMobile ? 24 : 32} align="center">
-              {/* Show first 3 pages */}
-              {Array.from({ length: Math.min(3, totalPages) }, (_, index) => index + 1).map((page) => (
-                <Button
-                  key={page}
-                  variant="text"
-                  size="small"
-                  onClick={() => handlePageChange(page)}
-                  style={{ minWidth: 32, height: 32 }}
-                >
-                  <Section borderRadius="50%" bgColor={currentPage === page ? '#F5F5F5' : 'white'}>
-                    <Flex
-                      align="center"
-                      justify="center"
-                      width={currentPage === page ? 46 : ''}
-                      height={currentPage === page ? 46 : ''}
-                    >
-                      <Text size="large" color="black-900" weight="semiBold">
-                        {page}
-                      </Text>
-                    </Flex>
-                  </Section>
-                </Button>
-              ))}
-
-              {/* Show dots if more than 6 pages total */}
-              {totalPages > 6 && (
-                <Text size="small" color="black-600" style={{ margin: '0 8px' }}>
-                  ...
-                </Text>
-              )}
-
-              {/* Show current page if not in first 3 or last 3 */}
-              {currentPage > 3 && currentPage < totalPages - 2 && (
-                <Button
-                  key={currentPage}
-                  variant="solidBlack"
-                  size="small"
-                  onClick={() => handlePageChange(currentPage)}
-                >
-                  <Text size="small" color="white">
-                    {currentPage}
-                  </Text>
-                </Button>
-              )}
-
-              {/* Show dots if current page is not in first 3 or last 3 */}
-              {currentPage > 3 && currentPage < totalPages - 2 && (
-                <Text size="large" color="black-600">
-                  ...
-                </Text>
-              )}
-
-              {/* Show last 3 pages */}
-              {totalPages > 3 && (
-                <>
-                  {Array.from({ length: 3 }, (_, index) => totalPages - 2 + index).map((page) => (
-                    <Button key={page} variant="text" size="small" onClick={() => handlePageChange(page)}>
-                      <Section borderRadius="50%" bgColor={currentPage === page ? '#F5F5F5' : 'white'}>
-                        <Flex
-                          align="center"
-                          justify="center"
-                          width={currentPage === page ? 46 : ''}
-                          height={currentPage === page ? 46 : ''}
-                        >
-                          <Text size="large" color="black-900" weight="semiBold">
-                            {page}
-                          </Text>
-                        </Flex>
-                      </Section>
-                    </Button>
-                  ))}
-                </>
-              )}
-            </Flex>
-          </Flex>
-        )}
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+          isMobile={isMobile}
+        />
       </Flex>
     </Section>
   );

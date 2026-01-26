@@ -1,11 +1,11 @@
 import { Button } from '@components/Atom/Button';
 import { Flex } from '@components/Atom/Flex';
 import { Input } from '@components/Atom/Input';
-import type { InputChangeEvent } from '@components/Atom/Input/type';
 import { Position } from '@components/Atom/Position';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
-import { useState } from 'react';
+import { useEditAccountDetail } from '../hooks/useEditAccountDetail';
+import { InputChangeEvent } from '@components/Atom/Input/type';
 
 export interface EditAccountDetailProps {
   isMobile?: boolean;
@@ -14,18 +14,15 @@ export interface EditAccountDetailProps {
 }
 
 // Edit Personal Information Section
-const EditPersonalInformationSection = ({ isMobile }: { isMobile: boolean }) => {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    displayName: '',
-    email: '',
-  });
-
-  const handleInputChange = (field: keyof typeof formData, event: InputChangeEvent) => {
-    setFormData((prev) => ({ ...prev, [field]: event.target.value }));
-  };
-
+const EditPersonalInformationSection = ({
+  isMobile,
+  formData,
+  handleInputChange,
+}: {
+  isMobile: boolean;
+  formData: { firstName: string; lastName: string; displayName: string; email: string };
+  handleInputChange: (field: keyof typeof formData, event: InputChangeEvent) => void;
+}) => {
   return (
     <Position position="relative">
       <Section
@@ -86,6 +83,8 @@ const EditPersonalInformationSection = ({ isMobile }: { isMobile: boolean }) => 
 };
 
 export const EditAccountDetail = ({ isMobile = false, onSave, onCancel }: EditAccountDetailProps) => {
+  const { formData, handleInputChange } = useEditAccountDetail();
+
   return (
     <Section w={isMobile ? '100%' : 768} bgColor="white" borderRadius="medium" p={24}>
       <Flex direction="column" gap={32}>
@@ -94,7 +93,11 @@ export const EditAccountDetail = ({ isMobile = false, onSave, onCancel }: EditAc
         </Text>
 
         <Flex direction="column" gap={32}>
-          <EditPersonalInformationSection isMobile={isMobile} />
+          <EditPersonalInformationSection
+            isMobile={isMobile}
+            formData={formData}
+            handleInputChange={handleInputChange}
+          />
         </Flex>
 
         <Section pt={56}>

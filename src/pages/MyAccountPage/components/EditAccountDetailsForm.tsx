@@ -5,7 +5,8 @@ import type { InputChangeEvent } from '@components/Atom/Input/type';
 import { Position } from '@components/Atom/Position';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
-import { useState } from 'react';
+import { usePasswordForm } from '../hooks/usePasswordForm';
+import { usePersonalInfoForm } from '../hooks/usePersonalInfoForm';
 
 export interface EditAccountDetailsFormProps {
   isMobile?: boolean;
@@ -13,18 +14,15 @@ export interface EditAccountDetailsFormProps {
 }
 
 // Editable Personal Information Section
-const EditablePersonalInformationSection = ({ isMobile }: { isMobile: boolean }) => {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    displayName: '',
-    email: '',
-  });
-
-  const handleInputChange = (field: keyof typeof formData, event: InputChangeEvent) => {
-    setFormData((prev) => ({ ...prev, [field]: event.target.value }));
-  };
-
+const EditablePersonalInformationSection = ({
+  isMobile,
+  formData,
+  handleInputChange,
+}: {
+  isMobile: boolean;
+  formData: { firstName: string; lastName: string; displayName: string; email: string };
+  handleInputChange: (field: keyof typeof formData, event: InputChangeEvent) => void;
+}) => {
   return (
     <Position position="relative">
       <Section
@@ -84,17 +82,15 @@ const EditablePersonalInformationSection = ({ isMobile }: { isMobile: boolean })
 };
 
 // Editable Password Section Component
-const EditablePasswordSection = ({ isMobile }: { isMobile: boolean }) => {
-  const [passwordData, setPasswordData] = useState({
-    currentPassword: '',
-    newPassword: '',
-    confirmPassword: '',
-  });
-
-  const handlePasswordChange = (field: keyof typeof passwordData, event: InputChangeEvent) => {
-    setPasswordData((prev) => ({ ...prev, [field]: event.target.value }));
-  };
-
+const EditablePasswordSection = ({
+  isMobile,
+  passwordData,
+  handlePasswordChange,
+}: {
+  isMobile: boolean;
+  passwordData: { currentPassword: string; newPassword: string; confirmPassword: string };
+  handlePasswordChange: (field: keyof typeof passwordData, event: InputChangeEvent) => void;
+}) => {
   return (
     <Section
       w={isMobile ? '100%' : 768}
@@ -152,6 +148,9 @@ export const EditAccountDetailsForm = ({
   isMobile = false,
   onBackToAccountDetails,
 }: EditAccountDetailsFormProps) => {
+  const { formData, handleInputChange } = usePersonalInfoForm();
+  const { passwordData, handlePasswordChange } = usePasswordForm();
+
   const handleSaveChanges = () => {
     console.log('Saving account details changes...');
     // Here you would typically save the data to your backend
@@ -166,8 +165,16 @@ export const EditAccountDetailsForm = ({
         </Text>
 
         <Flex direction="column" gap={32}>
-          <EditablePersonalInformationSection isMobile={isMobile} />
-          <EditablePasswordSection isMobile={isMobile} />
+          <EditablePersonalInformationSection
+            isMobile={isMobile}
+            formData={formData}
+            handleInputChange={handleInputChange}
+          />
+          <EditablePasswordSection
+            isMobile={isMobile}
+            passwordData={passwordData}
+            handlePasswordChange={handlePasswordChange}
+          />
         </Flex>
       </Flex>
 

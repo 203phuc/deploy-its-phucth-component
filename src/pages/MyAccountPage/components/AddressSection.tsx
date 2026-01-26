@@ -3,7 +3,7 @@ import { Heading } from '@components/Atom/Heading';
 import { Icons } from '@components/Atom/Icons';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
-import { useState } from 'react';
+import { Address, useAddressSection } from '../hooks/useAddressSection';
 import { AddAddressForm } from './AddAddressForm';
 
 export interface AddressSectionProps {
@@ -11,37 +11,7 @@ export interface AddressSectionProps {
 }
 
 export const AddressSection = ({ isMobile = false }: AddressSectionProps) => {
-  const [showAddForm, setShowAddForm] = useState(false);
-
-  const addresses = [
-    {
-      id: 'addr-001',
-      type: 'Home',
-      name: 'John Doe',
-      street: '123 Main Street',
-      city: 'New York, NY 10001',
-      phone: '+1 (555) 123-4567',
-      isDefault: true,
-    },
-    {
-      id: 'addr-002',
-      type: 'Office',
-      name: 'John Doe',
-      street: '456 Business Ave',
-      city: 'New York, NY 10002',
-      phone: '+1 (555) 987-6543',
-      isDefault: false,
-    },
-    {
-      id: 'addr-002',
-      type: 'Office',
-      name: 'John Doe',
-      street: '456 Business Ave',
-      city: 'New York, NY 10002',
-      phone: '+1 (555) 987-6543',
-      isDefault: false,
-    },
-  ];
+  const { showAddForm, addresses, handleShowAddForm } = useAddressSection();
 
   return (
     <Section w="100%" bgColor="white" borderRadius="medium">
@@ -51,7 +21,7 @@ export const AddressSection = ({ isMobile = false }: AddressSectionProps) => {
         ) : (
           <>
             <Flex direction="row" gap={32} wrap="wrap">
-              {addresses.map((address) => (
+              {addresses.map((address: Address) => (
                 <Section
                   borderRadius={6}
                   border="1px solid var(--color-black-300)"
@@ -109,7 +79,7 @@ export const AddressSection = ({ isMobile = false }: AddressSectionProps) => {
               ))}
             </Flex>
             <Flex width="100%" align="center" justify="center">
-              <Flex align="center" gap={8} onClick={() => setShowAddForm(true)} style={{ cursor: 'pointer' }}>
+              <Flex align="center" gap={8} onClick={handleShowAddForm} style={{ cursor: 'pointer' }}>
                 <Icons box boxSize={40} boxBorder boxRoundness="pill" iconSize={21.8} iconName="PlusIcon" />
                 <Heading font="spaceGrotesk" size="h7" weight="moderate" color="black-900">
                   Add New Address

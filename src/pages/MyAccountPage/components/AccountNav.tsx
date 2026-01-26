@@ -2,6 +2,7 @@ import { Flex } from '@components/Atom/Flex';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
 import { TextColor } from '@components/Molecule/DropdownMixed/type';
+import { AccountSection } from '../hooks/useAccountDashboard';
 import { useAccountNav } from '../hooks/useAccountNav';
 
 export interface AccountNavProps {
