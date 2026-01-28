@@ -99,7 +99,7 @@ export const PasswordReset = ({ onClose, isMobile, onSubmit }: PasswordResetProp
               </Flex>
 
               <Flex gap={12} direction="row">
-                <Button type="submit" roundness="round" variant="solid" size="large" fullWidth>
+                <Button type="submit" roundness="round" variant="solidBlack" size="large" fullWidth>
                   Submit
                 </Button>
               </Flex>
@@ -182,7 +182,7 @@ export const PasswordReset = ({ onClose, isMobile, onSubmit }: PasswordResetProp
                 </Text>
 
                 <Section mt={12}>
-                  <Button type="submit" roundness="round" variant="solid" size="medium" fullWidth>
+                  <Button type="submit" roundness="round" variant="solidBlack" size="medium" fullWidth>
                     Submit
                   </Button>
                 </Section>

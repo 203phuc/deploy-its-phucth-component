@@ -26,7 +26,7 @@ describe('VideoPlayer', () => {
 
   it('applies size classes and custom className', () => {
     render(
-      <VideoPlayer src="/video.mp4" size="small" className="custom-class" data-testid="video-player2" />,
+      <VideoPlayer src="/video.mp4" size="default" className="custom-class" data-testid="video-player2" />,
     );
     const root = screen.getByTestId('video-player2');
     expect(root.className).toContain('h-[375px]');

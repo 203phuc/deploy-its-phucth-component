@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import { Button } from './Button';
 
@@ -73,17 +73,6 @@ describe('Button', () => {
     const { container } = render(<Button fullWidth>Full</Button>);
     const el = container.firstChild as HTMLElement;
     expect(el.className).toContain('w-full');
-  });
-
-  it('renders underline variant with underlineSize', () => {
-    const { container } = render(
-      <Button variant="underline" underlineSize="small">
-        Underline
-      </Button>,
-    );
-    const el = container.firstChild as HTMLElement;
-    expect(el.className).toContain('underline');
-    expect(el.className).toContain('text-[16px]');
   });
 
   it('uses default type="button" when no type provided', () => {

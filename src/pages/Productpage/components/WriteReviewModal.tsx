@@ -223,7 +223,7 @@ export const WriteReviewModal = ({ isOpen, onClose, onSubmit }: WriteReviewModal
       return;
     }
 
-    onSubmit({
+    onSubmit?.({
       rating,
       comment: comment.trim(),
       author: author.trim(),
