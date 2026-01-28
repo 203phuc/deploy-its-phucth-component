@@ -22,6 +22,7 @@ export const navLinks: NavLinkItem[] = [
         type: 'button',
         condition: 'User hovers over [Shop]',
         icon: 'ChevronDownIcon',
+        path: '/shop',
       },
       {
         id: '4_2',
@@ -29,6 +30,7 @@ export const navLinks: NavLinkItem[] = [
         type: 'button',
         condition: 'User hovers over [Shop]',
         icon: 'ChevronDownIcon',
+        path: '/shop',
       },
       {
         id: '4_3',
@@ -36,8 +38,15 @@ export const navLinks: NavLinkItem[] = [
         type: 'button',
         condition: 'User hovers over [Shop]',
         icon: 'ChevronDownIcon',
+        path: '/shop',
       },
-      { id: '4_4', label: 'Outdoor', type: 'button', condition: 'User hovers over [Shop]' }, // no icon
+      {
+        id: '4_4',
+        label: 'Outdoor',
+        type: 'button',
+        condition: 'User hovers over [Shop]',
+        path: '/shop',
+      },
     ],
   },
   {
@@ -54,14 +63,22 @@ export const navLinks: NavLinkItem[] = [
         type: 'button',
         condition: 'User hovers over [Product]',
         icon: 'ChevronDownIcon',
+        path: '/product',
       },
-      { id: '5_2', label: 'New arrivals', type: 'button', condition: 'User hovers over [Product]' },
+      {
+        id: '5_2',
+        label: 'New arrivals',
+        type: 'button',
+        condition: 'User hovers over [Product]',
+        path: '/product',
+      },
       {
         id: '5_3',
         label: 'Sale',
         type: 'button',
         condition: 'User hovers over [Product]',
         icon: 'ChevronDownIcon',
+        path: '/product',
       },
     ],
   },

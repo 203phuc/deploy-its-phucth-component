@@ -33,6 +33,7 @@ export type LinkColor =
 export type LinkSpacing = 'none' | 'xsmall' | 'small' | 'medium' | 'large';
 
 export type LinkUnderlineOffset = 'none' | 'small' | 'medium' | 'large';
+
 export type LinkUnderlineThickness = 'thin' | 'medium' | 'thick';
 
 export interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -99,9 +100,15 @@ export interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement>
    * The URL to link to
    */
   href: string;
+
+  /**
+   * Whether to disable the underline
+   * @default false
+   */
+  disableUnderline?: boolean;
 }
 
 /**
- * Type for the Link component’s variant props (from CVA)
+ * Type for the Link component's variant props (from CVA)
  */
 export type LinkCvaProps = VariantProps<typeof linkCva>;

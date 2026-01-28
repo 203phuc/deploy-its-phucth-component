@@ -44,7 +44,7 @@ export const ProductDetails = ({ product, isMobile = false }: ProductDetailsProp
             {product.description}
           </Text>
           <Flex align="center" gap={8}>
-            <Icons iconName="StarIcon" iconSize={16} color="black-900" />
+            <Icons iconName="StarFilledIcon" iconSize={16} color="black" />
             <Text size="small" color="black-900">
               {product.rating.toFixed(1)} ({product.reviewCount} reviews)
             </Text>

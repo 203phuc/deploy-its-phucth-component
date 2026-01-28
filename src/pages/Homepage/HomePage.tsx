@@ -2,7 +2,6 @@ import { Flex } from '@components/Atom/Flex';
 import { Position } from '@components/Atom/Position';
 import { Section } from '@components/Atom/Section';
 import { Slider } from '@components/Molecule/Slider';
-import { RouterProvider } from '@pages/CustomHook/navigateHook';
 import { SliderProvider } from '../../context/SliderContext';
 import { IconBox } from '../HOC/IconBox';
 import { bannerItems } from './mockData/banners';
@@ -94,10 +93,8 @@ const HomePageContent = () => {
 
 export const HomePage = () => {
   return (
-    <RouterProvider>
-      <SliderProvider>
-        <HomePageContent />
-      </SliderProvider>
-    </RouterProvider>
+    <SliderProvider>
+      <HomePageContent />
+    </SliderProvider>
   );
 };

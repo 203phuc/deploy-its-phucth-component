@@ -1,35 +1,65 @@
 import { Badge } from '@components/Atom/Badge/Badge';
+
 import { Button } from '@components/Atom/Button/Button';
+
 import { Flex } from '@components/Atom/Flex';
+
 import Grid from '@components/Atom/Grid/Grid';
+
 import { Icons } from '@components/Atom/Icons/Icons';
+
 import { Position } from '@components/Atom/Position/Position';
+
 import { Section } from '@components/Atom/Section';
+
 import { Text } from '@components/Atom/Text/Text';
+
 import { Dropdown } from '@components/Molecule/Dropdown';
+
+import { DropdownOption } from '@components/Molecule/Dropdown/type';
+
 import { blogs } from '@pages/BlogPage/mockData/blogs';
+
+import { blogSortItem } from '@pages/BlogPage/mockData/dropdown';
+
 import { sortItem } from '@pages/Shoppage/mockData/dropdown';
+
 import { ToolBarProps, useToolBar } from './hooks/useToolBar';
 
 export const ToolBar = ({
   productCount,
+
   isMobile,
+
   setColumns,
+
   setFilter,
+
   filter,
+
   maxColumns,
+
   itemType = 'products',
 }: ToolBarProps) => {
   const { selected, openSort, setOpenSort, handleSelect, icons, iconsMobile } = useToolBar({
     isMobile,
+
     filter,
+
     setColumns,
+
     maxColumns,
   });
 
+  // Use different sort options based on item type
+
+  const sortOptions: DropdownOption[] = itemType === 'articles' ? blogSortItem : sortItem;
+
   const getItemText = (count: number, type: 'products' | 'articles'): string => {
     const singular = type === 'products' ? 'product' : 'article';
+
     const plural = type === 'products' ? 'products' : 'articles';
+
     return `${count} ${count === 1 ? singular : plural}`;
   };
 
@@ -41,17 +71,28 @@ export const ToolBar = ({
             <Text color="black-600" size="small" align="center">
               {getItemText(productCount, itemType)}
             </Text>
-            <Button
-              onClick={() => setOpenSort((prev) => !prev)}
-              font="spaceGrotesk"
-              size="xsmall"
-              variant="underline"
+
+            <Dropdown
+              variant="xs"
+              isOpen={openSort}
+              disabled={false}
+              align="right"
+              options={sortOptions}
+              textSize="smedium"
             >
-              Sort by
-              <Dropdown isOpen={openSort} disabled={false} options={sortItem} />
-            </Button>
+              <Button
+                onClick={() => setOpenSort((prev) => !prev)}
+                font="spaceGrotesk"
+                size="xsmall"
+                variant={openSort ? 'underline' : 'text'}
+              >
+                Sort by <Icons iconName="ChevronDownIcon" />
+              </Button>
+            </Dropdown>
           </Flex>
+
           <Section w="100%" h={1} bgColor="var(--color-black-200)" />
+
           <Flex justify="space-between" align="center" width="100%">
             <Button
               onClick={() => setFilter?.((prev) => !prev)}
@@ -61,6 +102,7 @@ export const ToolBar = ({
             >
               Filter <Icons iconName="SettingIcon" />
             </Button>
+
             <Section
               borderRadius={4}
               bgColor="var(--color-black-200)"
@@ -97,16 +139,19 @@ export const ToolBar = ({
               </Grid>
             </Section>
           </Flex>
+
           {itemType !== 'articles' && (
             <Flex align="center" gap={16}>
               <Badge theme="whiteSolid" roundness="rounded" color="gray" size="small">
                 <Icons iconName="CloseIcon" iconSize={14} color="black" />
                 Plants
               </Badge>
+
               <Badge theme="whiteSolid" roundness="rounded" color="gray" size="small">
                 <Icons iconName="CloseIcon" iconSize={14} color="black" />
                 Plants
               </Badge>
+
               <Button variant="text" textColor="gray" size="specialSmall" font="inter">
                 <Icons iconName="CloseIcon" iconSize={14} color="black-600" />
                 Clear
@@ -117,6 +162,7 @@ export const ToolBar = ({
       </Section>
     ); // spacer for mobile
   }
+
   return (
     <Section mb={16} mt={16}>
       <Flex direction="column" gap={12}>
@@ -126,20 +172,24 @@ export const ToolBar = ({
               <Icons iconName="CloseIcon" iconSize={14} color="black" />
               Plants
             </Badge>
+
             <Badge theme="whiteSolid" roundness="rounded" color="gray" size="small">
               <Icons iconName="CloseIcon" iconSize={14} color="black" />
               Plants
             </Badge>
+
             <Button variant="text" textColor="gray" size="specialSmall" font="inter">
               <Icons iconName="CloseIcon" iconSize={14} color="black-600" />
               Clear
             </Button>
           </Flex>
         )}
+
         <Flex justify="space-between" width="100%" align="center">
           <Text color="black-600" size="medium" align="center">
             {getItemText(productCount, itemType)}
           </Text>
+
           <Flex align="center" gap={32}>
             <Button
               onClick={() => setFilter?.((prev) => !prev)}
@@ -149,14 +199,16 @@ export const ToolBar = ({
             >
               Filter <Icons iconName="SettingIcon" />
             </Button>
+
             <Dropdown
-              align="center"
+              align="left"
               variant="sm"
               isOpen={openSort}
               disabled={false}
-              options={sortItem}
+              options={sortOptions}
               textSize="smedium"
             >
+              0
               <Button
                 onClick={() => setOpenSort((prev) => !prev)}
                 font="spaceGrotesk"

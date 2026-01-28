@@ -86,6 +86,11 @@ function AppContent() {
       return <BlogDetailPage blogId={blogId} />;
     }
 
+    // Default to home page for empty path or root
+    if (!path || path === '/') {
+      return <HomePage />;
+    }
+
     return (routes[path] ?? <NotFoundPage />) as JSX.Element;
   };
 

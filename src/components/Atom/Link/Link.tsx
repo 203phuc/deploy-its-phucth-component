@@ -19,6 +19,7 @@ export const Link: React.FC<LinkProps> = ({
   hoverUnderline = false,
   underlineOffset = 'small' as LinkUnderlineOffset,
   underlineThickness = 'thin' as LinkUnderlineThickness,
+  disableUnderline = false,
   external = false,
   className = '',
   children,
@@ -36,6 +37,7 @@ export const Link: React.FC<LinkProps> = ({
           hoverUnderline,
           underlineOffset,
           underlineThickness,
+          disableUnderline: disableUnderline,
           spacing: 'none',
         }),
         'inline-flex items-center hover:opacity-80',
@@ -43,7 +45,17 @@ export const Link: React.FC<LinkProps> = ({
       ]
         .filter(Boolean)
         .join(' '),
-    [size, weight, font, color, hoverUnderline, underlineOffset, underlineThickness, className],
+    [
+      size,
+      weight,
+      font,
+      color,
+      hoverUnderline,
+      underlineOffset,
+      underlineThickness,
+      disableUnderline,
+      className,
+    ],
   );
 
   // ✅ Insert spacing elements between children (if spacing > none)

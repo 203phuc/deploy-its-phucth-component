@@ -6,6 +6,7 @@ import { Position } from '@components/Atom/Position';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
 import { useState } from 'react';
+import { useSharedRouter } from '../../../context/RouterContext';
 import { Product } from '../types';
 
 interface CarouselProductCardProps {
@@ -14,6 +15,12 @@ interface CarouselProductCardProps {
 
 export const CarouselProductCard = ({ product }: CarouselProductCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
+  const { navigate } = useSharedRouter();
+
+  const handleCardClick = () => {
+    navigate('/product');
+  };
+
   return (
     <Position position="relative">
       <Section
@@ -22,6 +29,8 @@ export const CarouselProductCard = ({ product }: CarouselProductCardProps) => {
         w={242}
         bgColor="white"
         overflow="hidden"
+        onClick={handleCardClick}
+        style={{ cursor: 'pointer' }}
       >
         {/* Image */}
         <Section>

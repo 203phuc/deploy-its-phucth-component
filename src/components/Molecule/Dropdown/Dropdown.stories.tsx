@@ -98,6 +98,7 @@ export const Default: Story = {
     options: sampleOptions,
     isOpen: true,
     variant: 'default',
+    disabled: false,
   },
 };
 
@@ -106,6 +107,7 @@ export const Medium: Story = {
     options: sampleOptions,
     isOpen: true,
     variant: 'md',
+    disabled: false,
   },
 };
 
@@ -114,6 +116,7 @@ export const Small: Story = {
     options: sampleOptions,
     isOpen: true,
     variant: 'sm',
+    disabled: false,
   },
 };
 
@@ -123,6 +126,7 @@ export const WithSelectedValue: Story = {
     isOpen: true,
     value: 'option2',
     variant: 'default',
+    disabled: false,
   },
 };
 
@@ -131,6 +135,7 @@ export const Disabled: Story = {
     options: sampleOptions,
     isOpen: true,
     variant: 'default',
+    disabled: true,
   },
 };
 
@@ -138,6 +143,7 @@ export const Interactive: Story = {
   args: {
     options: sampleOptions,
     isOpen: false,
+    disabled: false,
   },
   render: () => {
     const Interactive = () => {
@@ -161,6 +167,7 @@ export const Interactive: Story = {
             value={selectedValue}
             onSelect={setSelectedValue}
             variant="default"
+            disabled={false}
           />
         </div>
       );
@@ -174,6 +181,7 @@ export const ExtraSmall: Story = {
     options: sampleOptions,
     isOpen: true,
     variant: 'xs',
+    disabled: false,
   },
 };
 
@@ -182,6 +190,7 @@ export const LanguageSelect: Story = {
     options: languageOptions,
     isOpen: true,
     variant: 'xs',
+    disabled: false,
   },
 };
 
@@ -190,6 +199,7 @@ export const CurrencySelect: Story = {
     options: currencyOptions,
     isOpen: true,
     variant: 'xs',
+    disabled: false,
   },
 };
 
@@ -199,6 +209,7 @@ export const DropUp: Story = {
     isOpen: true,
     variant: 'default',
     direction: 'up',
+    disabled: false,
   },
   decorators: [
     (Story) => (
@@ -215,32 +226,33 @@ export const AllVariants: Story = {
   args: {
     options: sampleOptions,
     isOpen: true,
+    disabled: false,
   },
   render: () => (
     <div className="grid grid-cols-1 gap-8 sm:grid-cols-6">
       <div>
         <h3 className="mb-2 text-sm font-medium">XS - 114px (No Check Icon)</h3>
-        <Dropdown options={sampleOptions} isOpen={true} variant="xs" />
+        <Dropdown options={sampleOptions} isOpen={true} variant="xs" disabled={false} />
       </div>
       <div>
         <h3 className="mb-2 text-sm font-medium">SM - 173px</h3>
-        <Dropdown options={sampleOptions} isOpen={true} variant="sm" />
+        <Dropdown options={sampleOptions} isOpen={true} variant="sm" disabled={false} />
       </div>
       <div>
         <h3 className="mb-2 text-sm font-medium">MD - 228px</h3>
-        <Dropdown options={sampleOptions} isOpen={true} variant="md" />
+        <Dropdown options={sampleOptions} isOpen={true} variant="md" disabled={false} />
       </div>
       <div>
         <h3 className="mb-2 text-sm font-medium">Default (Full Width)</h3>
-        <Dropdown options={sampleOptions} isOpen={true} variant="default" />
+        <Dropdown options={sampleOptions} isOpen={true} variant="default" disabled={false} />
       </div>
       <div>
         <h3 className="mb-2 text-sm font-medium">Language Options (with flags)</h3>
-        <Dropdown options={languageOptions} isOpen={true} variant="xs" />
+        <Dropdown options={languageOptions} isOpen={true} variant="xs" disabled={false} />
       </div>
       <div>
         <h3 className="mb-2 text-sm font-medium">Currency Options</h3>
-        <Dropdown options={currencyOptions} isOpen={true} variant="xs" />
+        <Dropdown options={currencyOptions} isOpen={true} variant="xs" disabled={false} />
       </div>
     </div>
   ),

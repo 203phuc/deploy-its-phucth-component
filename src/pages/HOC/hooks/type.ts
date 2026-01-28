@@ -1,5 +1,5 @@
 import { ImagePlaceholderSize } from '@components/Atom/ImagePlaceholder/type';
-import { PageHeaderProps } from '@pages/Shoppage/components/PageHeader';
+import { PageHeaderProps } from '@pages/HOC/PageHeader';
 
 export interface ProductCardProps {
   size?:

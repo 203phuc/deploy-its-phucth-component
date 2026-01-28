@@ -3,6 +3,7 @@ import { ImagePlaceholder } from '@components/Atom/ImagePlaceholder';
 import { Position } from '@components/Atom/Position';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
+import { useSharedRouter } from '../../../context/RouterContext';
 import { formatPrice } from '../../../util/formatPrice';
 import { useProductCard } from './hooks/ProductCardHomeHook';
 import { ProductCardProps } from './types';
@@ -18,6 +19,12 @@ export const ProductCardHome = ({
   currency = 'USD',
   size = 'default',
 }: ProductCardProps) => {
+  const { navigate } = useSharedRouter();
+
+  const handleCardClick = () => {
+    navigate('/product');
+  };
+
   // Validate that salePrice and salePercentage are provided together
 
   const { config, priceLabel } = useProductCard({
@@ -30,7 +37,7 @@ export const ProductCardHome = ({
   const { card, flex, text } = config;
 
   return (
-    <Section w={card.cardW} h={card.cardH}>
+    <Section w={card.cardW} h={card.cardH} onClick={handleCardClick} style={{ cursor: 'pointer' }}>
       <Position position="relative">
         <Section w="100%" h={card.imageH} mb={12}>
           <ImagePlaceholder src={imageUrl ?? ''} alt={name} size="full" objectFit="cover" />

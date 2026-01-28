@@ -11,13 +11,21 @@ const sampleOptions = [
 
 describe('Select', () => {
   it('renders with options', () => {
-    render(<Dropdown isOpen={true} options={sampleOptions} data-testid="dropdown" />);
+    render(<Dropdown isOpen={true} options={sampleOptions} disabled={false} data-testid="dropdown" />);
     expect(screen.getByTestId('dropdown')).toBeInTheDocument();
   });
 
   it('selects option when clicked', () => {
     const onSelect = vi.fn();
-    render(<Dropdown isOpen={true} options={sampleOptions} onSelect={onSelect} data-testid="select" />);
+    render(
+      <Dropdown
+        isOpen={true}
+        options={sampleOptions}
+        onSelect={onSelect}
+        disabled={false}
+        data-testid="select"
+      />,
+    );
 
     const button = screen.getByTestId('select');
     fireEvent.click(button);
@@ -30,13 +38,21 @@ describe('Select', () => {
   });
 
   it('displays selected value', () => {
-    render(<Dropdown isOpen={true} options={sampleOptions} value="option2" data-testid="select2" />);
+    render(
+      <Dropdown
+        isOpen={true}
+        options={sampleOptions}
+        value="option2"
+        disabled={false}
+        data-testid="select2"
+      />,
+    );
     expect(screen.getByTestId('select2')).toBeInTheDocument();
   });
 
   it('applies correct variant classes', () => {
     const { container } = render(
-      <Dropdown isOpen={true} options={sampleOptions} variant="md" data-testid="select3" />,
+      <Dropdown isOpen={true} options={sampleOptions} variant="md" disabled={false} data-testid="select3" />,
     );
     const buttonInside = (container.firstChild as HTMLElement).querySelector('div');
     expect(buttonInside?.className).toContain('w-[228px]');
@@ -44,7 +60,15 @@ describe('Select', () => {
 
   it('does not select disabled options', () => {
     const onSelect = vi.fn();
-    render(<Dropdown isOpen={true} options={sampleOptions} onSelect={onSelect} data-testid="select4" />);
+    render(
+      <Dropdown
+        isOpen={true}
+        options={sampleOptions}
+        onSelect={onSelect}
+        disabled={false}
+        data-testid="select4"
+      />,
+    );
 
     const button = screen.getByTestId('select4');
 
@@ -57,7 +81,7 @@ describe('Select', () => {
   });
 
   it('does not render when isOpen is false', () => {
-    const { container } = render(<Dropdown isOpen={false} options={sampleOptions} />);
+    const { container } = render(<Dropdown isOpen={false} options={sampleOptions} disabled={false} />);
     expect(container.firstChild).toBeNull();
   });
 
@@ -65,7 +89,13 @@ describe('Select', () => {
     const onClose = vi.fn();
     render(
       <div>
-        <Dropdown isOpen={true} options={sampleOptions} onClose={onClose} data-testid="dropdown" />
+        <Dropdown
+          isOpen={true}
+          options={sampleOptions}
+          onClose={onClose}
+          disabled={false}
+          data-testid="dropdown"
+        />
         <div data-testid="outside">Outside element</div>
       </div>,
     );
@@ -85,6 +115,7 @@ describe('Select', () => {
         options={sampleOptions}
         onClose={onClose}
         onSelect={onSelect}
+        disabled={false}
         data-testid="select5"
       />,
     );
@@ -101,7 +132,14 @@ describe('Select', () => {
   it('renders with xs variant (compact, no check icon)', () => {
     const optionsWithIcon = [{ label: 'English', value: 'en', icon: 'CheckIcon' as const }];
     const { container } = render(
-      <Dropdown isOpen={true} options={optionsWithIcon} value="en" variant="xs" data-testid="select-xs" />,
+      <Dropdown
+        isOpen={true}
+        options={optionsWithIcon}
+        value="en"
+        variant="xs"
+        disabled={false}
+        data-testid="select-xs"
+      />,
     );
     const buttonInside = (container.firstChild as HTMLElement).querySelector('div');
     expect(buttonInside?.className).toContain('w-[114px]');
@@ -112,7 +150,13 @@ describe('Select', () => {
 
   it('renders with sm variant', () => {
     const { container } = render(
-      <Dropdown isOpen={true} options={sampleOptions} variant="sm" data-testid="select-sm" />,
+      <Dropdown
+        isOpen={true}
+        options={sampleOptions}
+        variant="sm"
+        disabled={false}
+        data-testid="select-sm"
+      />,
     );
     const buttonInside = (container.firstChild as HTMLElement).querySelector('div');
     expect(buttonInside?.className).toContain('w-[173px]');
@@ -120,14 +164,28 @@ describe('Select', () => {
 
   it('renders with lg variant', () => {
     const { container } = render(
-      <Dropdown isOpen={true} options={sampleOptions} variant="lg" data-testid="select-lg" />,
+      <Dropdown
+        isOpen={true}
+        options={sampleOptions}
+        variant="lg"
+        disabled={false}
+        data-testid="select-lg"
+      />,
     );
     const buttonInside = (container.firstChild as HTMLElement).querySelector('div');
     expect(buttonInside?.className).toContain('w-[255px]');
   });
 
   it('renders with other variant (different layout)', () => {
-    render(<Dropdown isOpen={true} options={sampleOptions} variant="other" data-testid="select-other" />);
+    render(
+      <Dropdown
+        isOpen={true}
+        options={sampleOptions}
+        variant="other"
+        disabled={false}
+        data-testid="select-other"
+      />,
+    );
     const button = screen.getByTestId('select-other');
     expect(button).toBeInTheDocument();
     // 'other' variant should use different rendering path
@@ -138,14 +196,20 @@ describe('Select', () => {
       { label: 'German', value: 'de', icon: 'CheckIcon' as const },
       { label: 'English', value: 'en', icon: 'CheckIcon' as const },
     ];
-    render(<Dropdown isOpen={true} options={optionsWithIcons} data-testid="select-icons" />);
+    render(<Dropdown isOpen={true} options={optionsWithIcons} disabled={false} data-testid="select-icons" />);
     const button = screen.getByTestId('select-icons');
     expect(button).toBeInTheDocument();
   });
 
   it('renders with direction up', () => {
     const { container } = render(
-      <Dropdown isOpen={true} options={sampleOptions} direction="up" data-testid="select-up" />,
+      <Dropdown
+        isOpen={true}
+        options={sampleOptions}
+        direction="up"
+        disabled={false}
+        data-testid="select-up"
+      />,
     );
     const dropdown = container.querySelector('[class*="bottom-full"]');
     expect(dropdown).toBeInTheDocument();
@@ -153,7 +217,13 @@ describe('Select', () => {
 
   it('applies custom className', () => {
     const { container } = render(
-      <Dropdown isOpen={true} options={sampleOptions} className="custom-class" data-testid="select-custom" />,
+      <Dropdown
+        isOpen={true}
+        options={sampleOptions}
+        className="custom-class"
+        disabled={false}
+        data-testid="select-custom"
+      />,
     );
     const dropdown = container.querySelector('.custom-class');
     expect(dropdown).toBeInTheDocument();
@@ -161,11 +231,25 @@ describe('Select', () => {
 
   it('updates value when value prop changes', () => {
     const { rerender } = render(
-      <Dropdown isOpen={true} options={sampleOptions} value="option1" data-testid="select6" />,
+      <Dropdown
+        isOpen={true}
+        options={sampleOptions}
+        value="option1"
+        disabled={false}
+        data-testid="select6"
+      />,
     );
 
     // Change the value prop
-    rerender(<Dropdown isOpen={true} options={sampleOptions} value="option2" data-testid="select6" />);
+    rerender(
+      <Dropdown
+        isOpen={true}
+        options={sampleOptions}
+        value="option2"
+        disabled={false}
+        data-testid="select6"
+      />,
+    );
 
     const button = screen.getByTestId('select6');
     expect(button).toBeInTheDocument();

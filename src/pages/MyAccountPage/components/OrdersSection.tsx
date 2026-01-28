@@ -3,9 +3,9 @@ import { Grid } from '@components/Atom/Grid';
 import Icons from '@components/Atom/Icons';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
+import { TextSize } from '@components/Atom/Text/type';
 import { TextColor } from '@components/Molecule/DropdownMixed/type';
 import { useCallback, useMemo } from 'react';
-import { TextSize } from 'storybook/internal/theming';
 
 export interface OrdersSectionProps {
   isMobile?: boolean;
@@ -47,8 +47,8 @@ export const OrdersSection = ({ isMobile = false }: OrdersSectionProps) => {
   // Memoize text sizes for responsive design
   const textSizes = useMemo(
     () => ({
-      title: isMobile ? 'medium' : 'large',
-      content: isMobile ? 'medium' : 'large',
+      title: (isMobile ? 'medium' : 'large') as TextSize,
+      content: (isMobile ? 'medium' : 'large') as TextSize,
     }),
     [isMobile],
   );

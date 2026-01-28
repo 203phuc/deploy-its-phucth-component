@@ -77,6 +77,10 @@ export const linkCva = cva(
       // Custom underline offset and size
       underlineOffset: underlineOffsetVariants,
       underlineThickness: underlineThicknessVariants,
+      disableUnderline: {
+        true: 'after:content-none',
+        false: '',
+      },
 
       // Width of the spacer between children
       spacing: SPACING_VARIANTS,

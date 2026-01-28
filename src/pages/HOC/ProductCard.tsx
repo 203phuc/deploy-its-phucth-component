@@ -7,6 +7,7 @@ import { Position } from '@components/Atom/Position/Position';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
 import Rating from '@components/Molecule/Rating/Rating';
+import { useSharedRouter } from '../../context/RouterContext';
 import { ProductCardProps, cardDimensions } from './hooks/type';
 
 export const ProductCard = ({
@@ -19,12 +20,17 @@ export const ProductCard = ({
   imageUrl,
   description,
 }: ProductCardProps) => {
+  const { navigate } = useSharedRouter();
+
+  const handleCardClick = () => {
+    navigate('/product');
+  };
   if (!price) return null;
   if (size === 'list' || size === 'listColumnFilter') {
     return (
       <Section py={24}>
         <Position position="relative">
-          <Section w="100%" h={304}>
+          <Section w="100%" h={304} onClick={handleCardClick} style={{ cursor: 'pointer' }}>
             <Flex gap={40} align="center">
               <ImagePlaceholder
                 size="s30"
@@ -110,7 +116,7 @@ export const ProductCard = ({
 
   return (
     <Position position="relative">
-      <Section w={w} h={h}>
+      <Section w={w} h={h} onClick={handleCardClick} style={{ cursor: 'pointer' }}>
         <ImagePlaceholder
           size={imageSize}
           src={
