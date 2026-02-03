@@ -1,10 +1,10 @@
 import type { InputHTMLAttributes, ReactNode, TextareaHTMLAttributes } from 'react';
 import type { IconName } from '../Icons/types';
-import { InputCvaProps } from './style';
 import { colorVariants } from '../Text/style';
+import { InputCvaProps } from './style';
 
 export type InputVariant = 'line' | 'solid' | 'noBorder';
-export type InputSize = 'small' | 'medium' | 'large' | 'xlarge';
+export type InputSize = 'small' | 'medium' | 'large' | 'xlarge' | 'special1';
 export type InputBgColor = 'white' | 'transparent' | 'gray';
 export type InputPlaceholderColor = 'gray' | 'black' | 'white';
 /**

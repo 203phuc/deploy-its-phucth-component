@@ -39,7 +39,7 @@ export const ProductCarousel = ({ products, isMobile = false }: ProductCarouselP
 
         {/* Scrollable Container */}
         <Section w="100%" overflow="scroll">
-          <Flex direction="row" gap={8} style={{ width: 'max-content' }}>
+          <Flex direction="row" gap={8}>
             {products.map((product) => (
               <CarouselProductCard key={product.id} product={product} />
             ))}

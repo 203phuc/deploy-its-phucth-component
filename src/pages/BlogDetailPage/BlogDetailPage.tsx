@@ -377,14 +377,7 @@ export const BlogDetailPage = ({ blogId = 1 }: BlogDetailPageProps) => {
                     {/* Blog Content */}
                     <Section w="100%">
                       <Flex direction="column" gap={32}>
-                        <div
-                          dangerouslySetInnerHTML={{ __html: blog.content }}
-                          style={{
-                            fontSize: '18px',
-                            lineHeight: '1.8',
-                            color: '#1a1a1a',
-                          }}
-                        />
+                        <div dangerouslySetInnerHTML={{ __html: blog.content }} />
                       </Flex>
                     </Section>
                   </Flex>

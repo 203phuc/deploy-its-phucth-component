@@ -30,7 +30,7 @@ export const ProductCard = ({
     return (
       <Section py={24}>
         <Position position="relative">
-          <Section w="100%" h={304} onClick={handleCardClick} style={{ cursor: 'pointer' }}>
+          <Section w="100%" h={304} onClick={handleCardClick} className="cursor-pointer">
             <Flex gap={40} align="center">
               <ImagePlaceholder
                 size="s30"
@@ -116,7 +116,7 @@ export const ProductCard = ({
 
   return (
     <Position position="relative">
-      <Section w={w} h={h} onClick={handleCardClick} style={{ cursor: 'pointer' }}>
+      <Section w={w} h={h} onClick={handleCardClick} className="cursor-pointer">
         <ImagePlaceholder
           size={imageSize}
           src={

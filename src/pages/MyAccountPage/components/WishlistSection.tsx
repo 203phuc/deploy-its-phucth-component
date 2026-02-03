@@ -26,7 +26,7 @@ export const WishlistSection = ({ isMobile = false }: WishlistSectionProps) => {
           <Text size={isMobile ? 'large' : 'xlarge'} weight="semiBold" color="black-900">
             My Wishlist (99 items)
           </Text>
-          <Text size="small" color="black-600" style={{ cursor: 'pointer' }}>
+          <Text size="small" color="black-600" className="cursor-pointer">
             View all
           </Text>
         </Flex>
@@ -37,7 +37,7 @@ export const WishlistSection = ({ isMobile = false }: WishlistSectionProps) => {
             const itemNumber = (currentPage - 1) * 3 + index + 1;
             return (
               <Section key={itemNumber} borderRadius="medium" p={16}>
-                <Flex justify="space-between" align="center" style={{ width: '100%' }}>
+                <Flex justify="space-between" align="center" className="w-full">
                   {/* Column 1: Image and Product Info */}
                   <Flex align="center" gap={24} flex={2}>
                     <Section w={128} h={170} borderRadius="medium" overflow="hidden">

@@ -79,7 +79,7 @@ export const AddressSection = ({ isMobile = false }: AddressSectionProps) => {
               ))}
             </Flex>
             <Flex width="100%" align="center" justify="center">
-              <Flex align="center" gap={8} onClick={handleShowAddForm} style={{ cursor: 'pointer' }}>
+              <Flex align="center" gap={8} onClick={handleShowAddForm}>
                 <Icons box boxSize={40} boxBorder boxRoundness="pill" iconSize={21.8} iconName="PlusIcon" />
                 <Heading font="spaceGrotesk" size="h7" weight="moderate" color="black-900">
                   Add New Address

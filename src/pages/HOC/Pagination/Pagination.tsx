@@ -33,13 +33,7 @@ export const Pagination: React.FC<PaginationProps> = ({
           }
 
           return (
-            <Button
-              key={page}
-              variant="text"
-              size="small"
-              onClick={() => onPageChange(page)}
-              style={{ minWidth: 32, height: 32 }}
-            >
+            <Button key={page} variant="text" size="small" onClick={() => onPageChange(page)}>
               <Section borderRadius="50%" bgColor={currentPage === page ? '#F5F5F5' : 'white'}>
                 <Flex
                   align="center"

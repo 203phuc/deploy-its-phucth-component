@@ -6,6 +6,8 @@ import { NewsletterProvider } from '@context/NewsletterContext';
 import { AboutUsPage } from '@pages/AboutUspage/AboutUsPage';
 import { BlogDetailPage } from '@pages/BlogDetailPage/BlogDetailPage';
 import { BlogPage } from '@pages/BlogPage';
+import { CartPage } from '@pages/CartPage/CartPage';
+import { CheckoutPage } from '@pages/CheckoutPage/CheckoutPage';
 import { ContactPage } from '@pages/Contactpage/ContactPage';
 import { RouterProvider, useSharedRouter } from '@pages/CustomHook/navigateHook';
 import { HomePage } from '@pages/Homepage';
@@ -34,6 +36,8 @@ const routes: Record<string, ReactNode> = {
   '/contact': <ContactPage />,
   '/search-product-page': <SearchPage />,
   '/my-account': <MyAccountPage />,
+  '/cart': <CartPage />,
+  '/checkout': <CheckoutPage />,
   '/policy/shopping': <PolicyPage policyType="shopping" />,
   '/policy/payment': <PolicyPage policyType="payment" />,
   '/policy/shipping': <PolicyPage policyType="shipping" />,
@@ -116,7 +120,7 @@ function AppContent() {
         <FlyoutCart setFlyoutCartOpen={setFlyoutCartOpen} isMobile={isSmallScreen} />
       </Overlay>
 
-      <Position position={scrolled ? 'fixed' : 'relative'} top={0} left={0} right={0} zIndex={5}>
+      <Position position={scrolled ? 'fixed' : 'relative'} top={0} left={0} right={0} zIndex={100}>
         <NotificationBar onClose={() => setNotificationVisible(false)} />
       </Position>
       {/* Make the nav full width by anchoring left/right to 0. NavigationBar handles its inner padding. */}
@@ -129,7 +133,7 @@ function AppContent() {
         }
         left={0}
         right={0}
-        zIndex={4}
+        zIndex={100}
       >
         <NavigationBar
           setFlyoutCartOpen={setFlyoutCartOpen}

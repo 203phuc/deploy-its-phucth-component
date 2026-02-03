@@ -22,6 +22,9 @@ export function useRouter() {
     globalThis.history.pushState({}, '', url);
     setPath(to);
     setSearch(globalThis.location.search);
+
+    // Manually dispatch a popstate event to ensure components listening for route changes update
+    globalThis.dispatchEvent(new PopStateEvent('popstate', { state: {} }));
   };
 
   const query = useMemo(() => Object.fromEntries(new URLSearchParams(search)), [search]);

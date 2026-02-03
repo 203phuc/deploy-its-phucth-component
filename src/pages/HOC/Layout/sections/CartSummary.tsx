@@ -6,8 +6,14 @@ import { Input } from '@components/Atom/Input/Input';
 import { Position } from '@components/Atom/Position';
 import { Section } from '@components/Atom/Section/Section';
 import { Text } from '@components/Atom/Text/Text';
+import { useSharedRouter } from '../../../CustomHook/navigateHook';
 
 export const CartSummary = ({ subtotal }: { subtotal: number }) => {
+  const { navigate } = useSharedRouter();
+
+  const handleCheckout = () => {
+    navigate('/cart');
+  };
   return (
     <Flex direction="column" gap={16}>
       <Input placeholder="Enter your coupon code" size="large" buttonEnd={<Button>Apply</Button>} />
@@ -53,7 +59,7 @@ export const CartSummary = ({ subtotal }: { subtotal: number }) => {
           </Flex>
         </Section>
 
-        <Button size="medium" roundness="round" fullWidth>
+        <Button size="medium" roundness="round" fullWidth onClick={handleCheckout}>
           Checkout
         </Button>
       </Section>

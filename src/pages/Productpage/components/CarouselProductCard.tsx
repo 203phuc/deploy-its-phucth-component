@@ -30,7 +30,6 @@ export const CarouselProductCard = ({ product }: CarouselProductCardProps) => {
         bgColor="white"
         overflow="hidden"
         onClick={handleCardClick}
-        style={{ cursor: 'pointer' }}
       >
         {/* Image */}
         <Section>

@@ -348,11 +348,7 @@ export const TabSection = ({
                   const isActive = activeTab === id;
 
                   return (
-                    <Flex
-                      key={id}
-                      onClick={() => handleTabClick(id)}
-                      style={{ whiteSpace: 'nowrap', cursor: 'pointer' }}
-                    >
+                    <Flex key={id} onClick={() => handleTabClick(id)}>
                       <Section>
                         <Heading
                           size="h7"

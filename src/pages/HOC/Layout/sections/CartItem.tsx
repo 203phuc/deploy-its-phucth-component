@@ -48,7 +48,7 @@ export const CartItem = ({ product, onQuantityChange }: CartItemProps) => {
                             iconName="PlusIcon"
                             iconSize={16}
                             color="black"
-                            style={{ cursor: 'pointer' }}
+                            className="cursor-pointer"
                             onClick={() => updateQuantity(item.id, item.quantity + 1)} // increment
                           />
                         }
@@ -58,7 +58,7 @@ export const CartItem = ({ product, onQuantityChange }: CartItemProps) => {
                             iconName="MinusIcon"
                             iconSize={16}
                             color="black"
-                            style={{ cursor: 'pointer' }}
+                            className="cursor-pointer"
                             onClick={() => updateQuantity(item.id, item.quantity - 1)} // decrement
                           />
                         }

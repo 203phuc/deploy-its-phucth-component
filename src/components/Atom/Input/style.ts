@@ -16,6 +16,7 @@ export const inputCva = cva(
         medium: 'h-10 gap-2 px-3', //40px
         large: 'h-[46px] gap-2 px-3 ', //46px
         xlarge: 'h-13 gap-2 px-4', //52px
+        special1: 'h-[32px] justify-between px-[8px] py-[8px]', //32px
       },
       error: {
         true: 'border-red-500 focus-within:border-red-500 focus-within:ring-red-500',

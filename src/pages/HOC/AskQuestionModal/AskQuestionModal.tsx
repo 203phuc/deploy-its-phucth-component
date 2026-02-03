@@ -277,7 +277,7 @@ export const AskQuestionModal = ({ isOpen, onClose, onSubmit }: AskQuestionModal
         multiple
         accept="image/*"
         onChange={handleImageUpload}
-        style={{ display: 'none' }}
+        className="hidden"
         aria-label="Upload photos"
         title="Upload photos"
       />

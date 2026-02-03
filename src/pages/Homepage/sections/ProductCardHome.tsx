@@ -37,7 +37,7 @@ export const ProductCardHome = ({
   const { card, flex, text } = config;
 
   return (
-    <Section w={card.cardW} h={card.cardH} onClick={handleCardClick} style={{ cursor: 'pointer' }}>
+    <Section w={card.cardW} h={card.cardH} onClick={handleCardClick}>
       <Position position="relative">
         <Section w="100%" h={card.imageH} mb={12}>
           <ImagePlaceholder src={imageUrl ?? ''} alt={name} size="full" objectFit="cover" />

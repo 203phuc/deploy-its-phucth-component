@@ -45,7 +45,7 @@ const ProductGrid = ({ links = link, isMobile }: ProductGridProps) => {
         {isMobile ? (
           <Grid columns={2} columnGap={17} rowGap={32} align="start">
             {displayProducts.map((p) => (
-              <div key={p.id} style={{ display: 'flex', justifyContent: 'center' }}>
+              <div key={p.id} className="flex justify-center">
                 <ProductCardHome
                   name={p.name}
                   price={p.prices}
@@ -62,7 +62,7 @@ const ProductGrid = ({ links = link, isMobile }: ProductGridProps) => {
         ) : (
           <Grid columns={3} columnGap={32} rowGap={56} align="start">
             {displayProducts.map((p) => (
-              <div key={p.id} style={{ display: 'flex', justifyContent: 'center' }}>
+              <div key={p.id} className="flex justify-center">
                 <ProductCardHome
                   name={p.name}
                   price={p.prices}

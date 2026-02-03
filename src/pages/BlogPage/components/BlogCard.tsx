@@ -117,7 +117,7 @@ export const BlogCard = ({ id, imageUrl, title, date, description, size = '3colu
 
   return (
     <Link href={`/blog/${id}`} hoverUnderline underlineOffset="none">
-      <Section w={dimensions.w} overflow="hidden" bgColor="white" style={{ cursor: 'pointer' }}>
+      <Section w={dimensions.w} overflow="hidden" bgColor="white">
         {isList ? (
           // List Layout - Horizontal on Desktop, Vertical on Mobile
 

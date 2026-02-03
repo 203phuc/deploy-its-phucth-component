@@ -127,7 +127,7 @@ export const ProductDetails = ({ product, isMobile = false }: ProductDetailsProp
         <Flex direction="column" gap={16} width={456}>
           {/* Add to Cart Section */}
           <Flex direction={isMobile ? 'column' : 'row'} gap={16}>
-            <Flex align="center" width={127} height={52} gap={8} style={{ minWidth: 82 }}>
+            <Flex align="center" width={127} height={52} gap={8} className="min-w-[82px]">
               <Input
                 textAlign="center"
                 size="xlarge"
@@ -140,7 +140,7 @@ export const ProductDetails = ({ product, isMobile = false }: ProductDetailsProp
                     iconName="PlusIcon"
                     iconSize={16}
                     color="black"
-                    style={{ cursor: 'pointer' }}
+                    className="cursor-pointer"
                     onClick={() => updateQuantity(quantity + 1)}
                   />
                 }
@@ -150,10 +150,7 @@ export const ProductDetails = ({ product, isMobile = false }: ProductDetailsProp
                     iconName="MinusIcon"
                     iconSize={16}
                     color={quantity <= 1 ? 'black-600' : 'black'}
-                    style={{
-                      cursor: quantity <= 1 ? 'not-allowed' : 'pointer',
-                      opacity: quantity <= 1 ? 0.5 : 1,
-                    }}
+                    className={`cursor-pointer ${quantity <= 1 ? 'opacity-50' : ''}`}
                     onClick={() => quantity > 1 && updateQuantity(quantity - 1)}
                   />
                 }

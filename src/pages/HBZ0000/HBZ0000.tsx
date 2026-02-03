@@ -67,9 +67,9 @@ const HBZ0000Component = () => {
         </Flex>
       </Section>
       <Grid columns={2} rows={2} width={800} height={100}>
-        <div style={{ background: 'black' }}></div>
-        <div style={{ background: 'blue' }}></div>
-        <div style={{ background: 'violet' }}></div>
+        <div className="bg-black"></div>
+        <div className="bg-blue-500"></div>
+        <div className="bg-violet-500"></div>
       </Grid>
       <Timer label="Hurry up" start labelSpan=", offer expired in:" endDate="20/11/2025" mobile />
       <Rating size={20} rating={2} noFillColor="black-400"></Rating>
@@ -106,10 +106,7 @@ const HBZ0000Component = () => {
           )}
         </Section>
       </div>
-      <button
-        style={{ width: '100px', height: '100px', backgroundColor: 'black', color: 'white' }}
-        onClick={() => setIsOpenOverlay(true)}
-      >
+      <button className="h-[100px] w-[100px] bg-black text-white" onClick={() => setIsOpenOverlay(true)}>
         open overlay
       </button>
       <Overlay position="right" fullSize="height" isOpen={isOpenOverlay}>

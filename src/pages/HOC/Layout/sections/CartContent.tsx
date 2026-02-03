@@ -15,11 +15,7 @@ export const CartContent = ({ cartItems, onClose, onQuantityChange }: CartConten
             Cart
           </Heading>
 
-          <button
-            onClick={onClose}
-            style={{ background: 'none', border: 'none', cursor: 'pointer' }}
-            aria-label="Close cart"
-          >
+          <button onClick={onClose} aria-label="Close cart">
             <Icons iconName="CloseIcon" iconSize={24} />
           </button>
         </Flex>
