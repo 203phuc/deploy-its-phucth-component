@@ -75,6 +75,7 @@
   "name": "@haibazo/its-phucth-component",
   "packageManager": "yarn@4.9.4",
   "scripts": {
+    "build:app": "vite build --config vite.config.app.ts",
     "build": "yarn run build:package",
     "build:package": "vite build",
     "build:storybook": "storybook build -o storybook",
