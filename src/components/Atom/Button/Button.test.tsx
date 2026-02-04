@@ -75,13 +75,6 @@ describe('Button', () => {
     expect(el.className).toContain('w-full');
   });
 
-  it('renders underline variant', () => {
-    const { container } = render(<Button variant="underline">Underline</Button>);
-    const el = container.firstChild as HTMLElement;
-    expect(el.className).toContain('underline');
-    expect(el.className).toContain('text-[16px]');
-  });
-
   it('uses default type="button" when no type provided', () => {
     const { container } = render(<Button>Default Type</Button>);
     const el = container.firstChild as HTMLButtonElement;

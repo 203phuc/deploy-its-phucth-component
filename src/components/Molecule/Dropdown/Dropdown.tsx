@@ -124,9 +124,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
               variant: optionVariant,
 
               selected: isSelected,
-
-              disabled: disabled || option.disabled,
-
+              disabled: disabled ?? option.disabled,
               className: !option.disabled && !disabled ? 'hover:bg-gray-100' : '',
             });
 
@@ -135,7 +133,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
                 key={String(option.value)}
                 className={optionClasses}
                 onClick={() => handleOptionClick(option.value, option)}
-                disabled={disabled || option.disabled} // prevents click on disabled options
+                disabled={disabled ?? option.disabled} // prevents click on disabled options
                 type="button" // always good practice in forms
               >
                 {variant !== 'other' ? (
