@@ -60,7 +60,7 @@ const ExpressCheckout = ({ isMobile }: { isMobile: boolean }) => (
       border="1px solid #CBCBCB"
       borderRadius={8}
     >
-      <Position position="absolute" top={-22} zIndex={10}>
+      <Position position="absolute" top={-22} zIndex={5}>
         <Flex width={isMobile ? 343 : 602} justify="center">
           <Section w={177} h={42} bgColor="white">
             <Flex width="100%" height="100%" align="center" justify="center">
