@@ -7,6 +7,7 @@ import { Position } from '@components/Atom/Position';
 import { Radio } from '@components/Atom/Radio/Radio';
 import { Section } from '@components/Atom/Section';
 import { Text } from '@components/Atom/Text';
+import { OrderSummarySection } from './OrderSummarySection';
 
 interface BillingShippingSectionProps {
   isMobile?: boolean;
@@ -38,6 +39,7 @@ export const BillingShippingSection = ({
           shippingMethod={shippingMethod}
           setShippingMethod={setShippingMethod}
         />
+        {isMobile && <OrderSummarySection isMobile={true} />}
         <PaymentInformationSection
           isMobile={isMobile}
           paymentMethod={paymentMethod}
@@ -52,7 +54,12 @@ export const BillingShippingSection = ({
 
 const ExpressCheckout = ({ isMobile }: { isMobile: boolean }) => (
   <Position position="relative">
-    <Section w="100%" p="32px 24px 24px" border="1px solid #CBCBCB" borderRadius={8}>
+    <Section
+      w="100%"
+      p={isMobile ? '32px 16px 16px' : '32px 24px 24px'}
+      border="1px solid #CBCBCB"
+      borderRadius={8}
+    >
       <Position position="absolute" top={-22} zIndex={10}>
         <Flex width={isMobile ? 343 : 602} justify="center">
           <Section w={177} h={42} bgColor="white">
@@ -66,14 +73,14 @@ const ExpressCheckout = ({ isMobile }: { isMobile: boolean }) => (
       </Position>
       <Flex direction="column" gap={16}>
         <Button variant="text" roundness="round">
-          <Section borderRadius={6} w={isMobile ? 330 : 604} bgColor="#F5C658" h={52}>
+          <Section borderRadius={6} w={isMobile ? 311 : 604} bgColor="#F5C658" h={52}>
             <Flex width="100%" height="100%" align="center" justify="center">
               <Logo width={82} height={21} logoName="PaypalLogo" />
             </Flex>
           </Section>
         </Button>
         <Button variant="text" roundness="round">
-          <Section borderRadius={6} w={isMobile ? 330 : 604} border="1px solid #CBCBCB" h={52}>
+          <Section borderRadius={6} w={isMobile ? 311 : 604} border="1px solid #CBCBCB" h={52}>
             <Flex width="100%" height="100%" align="center" justify="center">
               <Logo width={82} height={21} logoName="GooglePayLogo" />
             </Flex>
@@ -92,14 +99,14 @@ const ExpressCheckout = ({ isMobile }: { isMobile: boolean }) => (
 );
 
 const ContactInformation = ({ isMobile }: { isMobile: boolean }) => (
-  <Section w="100%" px={24} py={24} border="1px solid #E5E5E5" borderRadius={8}>
+  <Section w="100%" px={isMobile ? 16 : 24} py={24} border="1px solid #E5E5E5" borderRadius={8}>
     <Flex direction="column" gap={16}>
       <Text size="3xlarge" weight="moderate" color="black-900" font="spaceGrotesk">
         Contact information
       </Text>
-      <Flex direction="column" gap={34}>
-        <Flex width="100%" flex={1} direction={isMobile ? 'column' : 'row'} gap={32}>
-          <Section w={286}>
+      <Flex direction="column" gap={isMobile ? 12 : 34}>
+        <Flex width="100%" flex={1} direction={isMobile ? 'column' : 'row'} gap={isMobile ? 12 : 32}>
+          <Section w={isMobile ? 311 : 286}>
             <Input
               label="First name *"
               variant="solid"
@@ -108,15 +115,15 @@ const ContactInformation = ({ isMobile }: { isMobile: boolean }) => (
               placeholder="Enter first name"
             />
           </Section>
-          <Section w={286}>
+          <Section w={isMobile ? 311 : 286}>
             <Input label="Last name *" variant="solid" size="xlarge" placeholder="Enter last name" />
           </Section>
         </Flex>
-        <Flex width="100%" direction={isMobile ? 'column' : 'row'} gap={32}>
-          <Section w={286}>
+        <Flex width="100%" direction={isMobile ? 'column' : 'row'} gap={isMobile ? 12 : 32}>
+          <Section w={isMobile ? 311 : 286}>
             <Input label="Email Address *" variant="solid" size="xlarge" placeholder="Enter email address" />
           </Section>
-          <Section w={286}>
+          <Section w={isMobile ? 311 : 286}>
             <Input label="Phone Number *" variant="solid" size="xlarge" placeholder="Enter phone number" />
           </Section>
         </Flex>
@@ -131,9 +138,9 @@ const ShippingInformation = ({ isMobile }: { isMobile: boolean }) => (
       <Text size="3xlarge" weight="moderate" color="black-900" font="spaceGrotesk">
         Shipping Information
       </Text>
-      <Flex direction="column" gap={34}>
+      <Flex direction="column" gap={isMobile ? 16 : 34}>
         <Flex width="100%" gap={32}>
-          <Section w={604}>
+          <Section w={isMobile ? '100%' : 604}>
             <Input
               label="Street Address *"
               variant="solid"
@@ -143,20 +150,20 @@ const ShippingInformation = ({ isMobile }: { isMobile: boolean }) => (
           </Section>
         </Flex>
         <Flex width="100%" gap={32}>
-          <Section w={604}>
+          <Section w={isMobile ? '100%' : 604}>
             <Input label="Country *" variant="solid" size="xlarge" placeholder="Enter country" />
           </Section>
         </Flex>
         <Flex width="100%" gap={32}>
-          <Section w={604}>
+          <Section w={isMobile ? '100%' : 604}>
             <Input label="Town/City *" variant="solid" size="xlarge" placeholder="Enter town/city" />
           </Section>
         </Flex>
         <Flex width="100%" gap={isMobile ? 12 : 32}>
-          <Section w={286}>
+          <Section w={isMobile ? '100%' : 286}>
             <Input label="State *" variant="solid" size="xlarge" placeholder="Enter state" />
           </Section>
-          <Section w={286}>
+          <Section w={isMobile ? '100%' : 286}>
             <Input label="ZIP Code *" variant="solid" size="xlarge" placeholder="Enter ZIP code" />
           </Section>
         </Flex>

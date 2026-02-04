@@ -12,8 +12,8 @@ const CheckoutPageContent = () => {
   const { isMobile } = useCheckoutPage();
 
   return (
-    <Section w={isMobile ? '100%' : 1108}>
-      <Flex direction="column" gap={24} align="center">
+    <Section w={isMobile ? 343 : 1108}>
+      <Flex direction="column" gap={24} justify="center" align="center" width="100%">
         {/* Header */}
         <Section py={52}>
           <Flex justify="center" align="center" width="100%">
@@ -31,7 +31,6 @@ const CheckoutPageContent = () => {
           gap={isMobile ? 16 : 24}
         >
           {/* Order Summary - Mobile First */}
-          {isMobile && <OrderSummarySection isMobile={true} />}
 
           {/* Billing & Shipping */}
           <BillingShippingSection
