@@ -113,10 +113,10 @@ function AppContent() {
         onClose={closeMessageModal}
         autoCloseDuration={5000}
       />
-      <Overlay isOpen={FlyoutMenuOpen} onClose={() => setFlyoutMenuOpen(false)} zIndex={101} position="left">
+      <Overlay isOpen={FlyoutMenuOpen} onClose={() => setFlyoutMenuOpen(false)} zIndex={110} position="left">
         <FlyoutMenu setFlyoutMenuOpen={setFlyoutMenuOpen} cartItem={2} />
       </Overlay>
-      <Overlay isOpen={flyoutCartOpen} onClose={() => setFlyoutCartOpen(false)} zIndex={101} position="right">
+      <Overlay isOpen={flyoutCartOpen} onClose={() => setFlyoutCartOpen(false)} zIndex={110} position="right">
         <FlyoutCart setFlyoutCartOpen={setFlyoutCartOpen} isMobile={isSmallScreen} />
       </Overlay>
 
