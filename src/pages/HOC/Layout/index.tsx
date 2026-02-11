@@ -10,6 +10,7 @@ import { CartPage } from '@pages/CartPage/CartPage';
 import { CheckoutPage } from '@pages/CheckoutPage/CheckoutPage';
 import { ContactPage } from '@pages/Contactpage/ContactPage';
 import { RouterProvider, useSharedRouter } from '@pages/CustomHook/navigateHook';
+import { ForgotPassPage } from '@pages/ForgotPasspage/ForgotPasswordPage';
 import { HomePage } from '@pages/Homepage';
 import { MyAccountPage } from '@pages/MyAccountPage/MyAccountPage';
 import { NotFoundPage } from '@pages/NotFoundpage';
@@ -18,6 +19,8 @@ import { sampleProduct } from '@pages/Productpage/mockData/sampleProduct';
 import { ProductPage } from '@pages/Productpage/ProductPage';
 import { SearchPage } from '@pages/SearchProductpage';
 import { ShopPage } from '@pages/Shoppage';
+import { SignInPage } from '@pages/SignInpage/SignInPage';
+import { SignUpPage } from '@pages/SignUppage/SignUpPage';
 import { JSX, ReactNode, useEffect, useState } from 'react';
 import { onSmallScreenChange } from '../../../../src/util/mediaQueries';
 import { FlyoutCart } from './sections/FlyoutCart';
@@ -57,6 +60,9 @@ function AppContent() {
   const [scrolled, setScrolled] = useState(false);
   const [messageModal, setMessageModal] = useState<{ isOpen: boolean }>({ isOpen: false });
   const [FlyoutMenuOpen, setFlyoutMenuOpen] = useState(false);
+  const [loginModalOpen, setLoginModalOpen] = useState(false);
+  const [signupModalOpen, setSignupModalOpen] = useState(false);
+  const [forgotPasswordModalOpen, setForgotPasswordModalOpen] = useState(false);
 
   useEffect(() => {
     const cleanup = onSmallScreenChange(setIsSmallScreen);
@@ -69,6 +75,22 @@ function AppContent() {
 
   const closeMessageModal = () => {
     setMessageModal({ isOpen: false });
+  };
+
+  const switchToSignup = () => {
+    setLoginModalOpen(false);
+    setSignupModalOpen(true);
+  };
+
+  const switchToForgotPassword = () => {
+    setLoginModalOpen(false);
+    setForgotPasswordModalOpen(true);
+  };
+
+  const switchToLogin = () => {
+    setSignupModalOpen(false);
+    setForgotPasswordModalOpen(false);
+    setLoginModalOpen(true);
   };
 
   useEffect(() => {
@@ -119,6 +141,23 @@ function AppContent() {
       <Overlay isOpen={flyoutCartOpen} onClose={() => setFlyoutCartOpen(false)} zIndex={110} position="right">
         <FlyoutCart setFlyoutCartOpen={setFlyoutCartOpen} isMobile={isSmallScreen} />
       </Overlay>
+      <Overlay isOpen={loginModalOpen} onClose={() => setLoginModalOpen(false)} zIndex={120}>
+        <SignInPage
+          isOpen={loginModalOpen}
+          onSwitchToSignup={switchToSignup}
+          onSwitchToForgotPassword={switchToForgotPassword}
+        />
+      </Overlay>
+      <Overlay isOpen={signupModalOpen} onClose={() => setSignupModalOpen(false)} zIndex={120}>
+        <SignUpPage isOpen={signupModalOpen} onSwitchToLogin={switchToLogin} />
+      </Overlay>
+      <Overlay
+        isOpen={forgotPasswordModalOpen}
+        onClose={() => setForgotPasswordModalOpen(false)}
+        zIndex={120}
+      >
+        <ForgotPassPage isOpen={forgotPasswordModalOpen} onClose={() => setForgotPasswordModalOpen(false)} />
+      </Overlay>
 
       <Position position={scrolled ? 'fixed' : 'relative'} top={0} left={0} right={0} zIndex={100}>
         <NotificationBar onClose={() => setNotificationVisible(false)} />
@@ -138,6 +177,7 @@ function AppContent() {
         <NavigationBar
           setFlyoutCartOpen={setFlyoutCartOpen}
           setFlyoutMenuOpen={setFlyoutMenuOpen}
+          setLoginModalOpen={setLoginModalOpen}
           scrolled={scrolled}
           translateY={0}
           transition="transform 220ms cubic-bezier(.2,.9,.2,1)"

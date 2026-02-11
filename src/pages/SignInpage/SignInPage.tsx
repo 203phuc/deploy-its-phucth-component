@@ -10,7 +10,7 @@ import { Text } from '@components/Atom/Text';
 import { useSignInForm } from './hooks/SignInForm';
 import { SignInProps, useSignInLogic } from './hooks/SignInHook';
 
-export const SignInPage = ({ isOpen }: SignInProps) => {
+export const SignInPage = ({ isOpen, onSwitchToSignup, onSwitchToForgotPassword }: SignInProps) => {
   const { open, setOpen, showPassword, setShowPassword, mobile } = useSignInLogic({ isOpen });
   const { emailOrUsernameRef, passwordRef, errors, handleSubmit, clearError } = useSignInForm();
 
@@ -54,7 +54,7 @@ export const SignInPage = ({ isOpen }: SignInProps) => {
             Remember me
           </Text>
         </Flex>
-        <Button onClick={() => console.log('Forgot Password clicked')} variant="text">
+        <Button onClick={onSwitchToForgotPassword} variant="text">
           <Text size={mobile ? 'small' : 'medium'} font="inter" color="black-900" weight="semiBold">
             Forgot Password?
           </Text>
@@ -83,7 +83,7 @@ export const SignInPage = ({ isOpen }: SignInProps) => {
               </Flex>
               <Text color="black-900" size={mobile ? 'small' : 'medium'} weight="regular">
                 Don’t have an account yet?
-                <Button variant="text">
+                <Button variant="text" onClick={onSwitchToSignup}>
                   <Text color="black-900" size={mobile ? 'small' : 'medium'} weight="semiBold">
                     Sign up
                   </Text>

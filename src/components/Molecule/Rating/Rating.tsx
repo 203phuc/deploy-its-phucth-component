@@ -19,7 +19,6 @@ export const Rating = ({ size, noFillColor, rating = 0, onRatingChange, ...props
       <Flex onMouseLeave={() => setHover(0)} {...props} style={{ cursor: 'pointer' }} gap={2}>
         {Array.from({ length: 5 }).map((_, i) => {
           const index = i + 1;
-
           // priority: hover > selected
           const filled = hover >= index || selected >= index;
 

@@ -9,7 +9,7 @@ import { Dropdown } from '@components/Molecule/Dropdown';
 import { useIconBlock } from './hooks/useIconBlock';
 import type { IconBlockProps } from './types';
 
-export const IconBlock = ({ cartItem, setFlyoutCartOpen }: IconBlockProps) => {
+export const IconBlock = ({ cartItem, setFlyoutCartOpen, setLoginModalOpen }: IconBlockProps) => {
   const {
     background,
     searchInput,
@@ -67,7 +67,7 @@ export const IconBlock = ({ cartItem, setFlyoutCartOpen }: IconBlockProps) => {
         ) : (
           <Icons iconSize={28} iconName="SearchIcon" box onClick={() => setSearchInput(true)} />
         )}
-        <Icons iconSize={28} iconName="UserIcon" />
+        <Icons iconSize={28} iconName="UserIcon" box onClick={() => setLoginModalOpen?.(true)} />
         <Icons iconSize={28} iconName="HeartIcon" />
         <Section
           bgColor={background}

@@ -42,7 +42,6 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
     const validChar = 12;
 
     useImperativeHandle(ref, () => innerRef.current!);
-    useImperativeHandle(ref, () => innerRefArea.current!);
     // Compose label classes using CVA
     const labelClasses = cn(labelCva({ textSize, fontFamily, labelColor }), className);
     const [errorMessage, setErrorMessage] = useState<string>('');

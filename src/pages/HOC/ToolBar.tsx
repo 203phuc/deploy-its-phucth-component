@@ -208,7 +208,6 @@ export const ToolBar = ({
               options={sortOptions}
               textSize="smedium"
             >
-              0
               <Button
                 onClick={() => setOpenSort((prev) => !prev)}
                 font="spaceGrotesk"

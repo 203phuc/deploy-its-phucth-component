@@ -11,7 +11,7 @@ import { useSignUpLogic } from '@pages/SignUppage/hooks/SignUpHook';
 import { useSignUpForm } from './hooks/SignUpForm';
 import { SignUpProps } from './type';
 
-export const SignUpPage = ({ isOpen }: SignUpProps) => {
+export const SignUpPage = ({ isOpen, onSwitchToLogin }: SignUpProps) => {
   const { open, setOpen, showPassword, setShowPassword, mobile } = useSignUpLogic({ isOpen });
   const { nameRef, usernameRef, emailRef, passwordRef, errors, handleSubmit, clearError } = useSignUpForm();
 
@@ -111,7 +111,7 @@ export const SignUpPage = ({ isOpen }: SignUpProps) => {
             </Flex>
             <Text color="black-900" size={mobile ? 'small' : 'medium'} weight="regular">
               Already have an account?{' '}
-              <Button variant="text">
+              <Button variant="text" onClick={onSwitchToLogin}>
                 <Text color="black-900" size={mobile ? 'small' : 'medium'} weight="semiBold">
                   Sign in
                 </Text>

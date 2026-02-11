@@ -35,6 +35,7 @@ export const NewsletterSection: React.FC<MutualProps> = ({ isMobile }) => {
                   bgColor="transparent"
                   size="large"
                   required
+                  type="email"
                   variant="line"
                   error={error}
                   onChange={() => error && setError('')}

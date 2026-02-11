@@ -16,6 +16,7 @@ export const NavigationBar = ({
   transition = 'transform 220ms cubic-bezier(.2,.9,.2,1)',
   setFlyoutCartOpen,
   setFlyoutMenuOpen,
+  setLoginModalOpen,
 }: NavigationBarProps) => {
   const cartItem = 2;
   const { isSmallScreen, path, transparentPages, transformValue } = useNavigationBar(translateY);
@@ -38,7 +39,11 @@ export const NavigationBar = ({
               <div />
               <DropDownHover navLinks={navLinks} />
               <div />
-              <IconBlock cartItem={cartItem} setFlyoutCartOpen={setFlyoutCartOpen} />
+              <IconBlock
+                cartItem={cartItem}
+                setFlyoutCartOpen={setFlyoutCartOpen}
+                setLoginModalOpen={setLoginModalOpen}
+              />
             </Grid>
           </Section>
         </Flex>

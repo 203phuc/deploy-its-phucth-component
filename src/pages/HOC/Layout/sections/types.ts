@@ -55,6 +55,7 @@ export interface FlyoutMenuProps {
 export interface IconBlockProps {
   cartItem?: number;
   setFlyoutCartOpen?: Dispatch<SetStateAction<boolean>>;
+  setLoginModalOpen?: Dispatch<SetStateAction<boolean>>;
 }
 
 export interface NavigationBarProps {
@@ -65,6 +66,7 @@ export interface NavigationBarProps {
   transition?: string;
   setFlyoutCartOpen?: Dispatch<SetStateAction<boolean>>;
   setFlyoutMenuOpen?: Dispatch<SetStateAction<boolean>>;
+  setLoginModalOpen?: Dispatch<SetStateAction<boolean>>;
 }
 
 export interface DropdownSelectorProps {

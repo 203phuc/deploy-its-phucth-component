@@ -3,6 +3,8 @@ import { onSmallScreenChange } from 'src/util/mediaQueries';
 
 export interface SignInProps {
   isOpen: boolean;
+  onSwitchToSignup?: () => void;
+  onSwitchToForgotPassword?: () => void;
 }
 
 export const useSignInLogic = ({ isOpen }: SignInProps) => {
